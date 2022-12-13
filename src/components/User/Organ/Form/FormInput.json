@@ -1,0 +1,79 @@
+{
+	"Key" : "Organ",
+	"Title" : "cơ cấu tổ chức",
+	"Rows": 5,		
+	"Controls" : [
+		{
+			"Key": "Code",
+			"Title": "Mã",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 1,
+			"ColLabel": 2, 
+			"ColControl": 10, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "Name",
+			"Title": "Tên",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 2,
+			"ColLabel": 2, 
+			"ColControl": 10, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "Type",
+			"Title": "Loại",     
+			"Type": "Select",
+			"IsRequired": true,
+			"Placeholder": "---Chọn---", 
+			"Options": [{ "value": 0, "label": "Đơn vị" },{ "value": 1, "label": "Phòng ban" }],
+			"Row": 3,
+			"ColLabel": 2, 
+			"ColControl": 10, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "PermFeature",
+			"Title": "Quyền Lớp bản đồ",     
+			"Type": "Select",
+			"IsRequired": false,
+			"Multiple": true,
+			"Filterable": true,
+			"Placeholder": "---Chọn---", 
+			"Options": [],
+			"KeyOptions": {"label": "Name", "value": "Id"},
+			"Row": 4,
+			"ColLabel": 2, 
+			"ColControl": 10, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "PermWorkFlow",
+			"Title": "Quyền thủ tục",     
+			"Type": "Select",
+			"IsRequired": false,
+			"Multiple": true,
+			"Filterable": true,
+			"Placeholder": "---Chọn---", 
+			"Options": [],
+			"KeyOptions": {"label": "Ten", "value": "Id"},
+			"Row": 5,
+			"ColLabel": 2, 
+			"ColControl": 10, 
+			"ColSpanControl": 12
+		}
+	],
+	"ActionDefs" : [
+		{
+			"Key": "Save", 
+			"Title": "Lưu",
+			"Type": "Submit",
+			"TitleTooltip": "",
+			"Icon": "circle-check",
+			"Action": "onClickSave"
+		}
+	]
+}
