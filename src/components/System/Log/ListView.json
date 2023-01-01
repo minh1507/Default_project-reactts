@@ -1,0 +1,53 @@
+{
+    "DataGrid": {
+        "Key": "File_CGCNQSDList",
+        "Title": "Danh sách Log Email, Sms",
+        "ColumnDefs": [
+            {                
+                "Key": "Type",
+                "Title": "Loại",                
+                "Align": "center"    
+            },
+            {                
+                "Key": "Mobile",
+                "Title": "SMS",                
+                "Align": "center"    
+            },
+            {
+                "Key": "Status",
+                "Title": "Trạng thái SMS",                
+                "Align": "center"   
+            },
+            {
+                "Key": "Email",
+                "Title": "Email",                
+                "Align": "center"   
+            },
+            {
+                "Key": "Statusmail",
+                "Title": "Trạng thái Email",                
+                "Align": "center"   
+            },
+            {
+                "Key": "Time_create",
+                "Title": "Thời gian tạo",                
+                "Align": "center"   
+            },
+            {
+                "Key": "Time_send",
+                "Title": "Thời gian gửi",                
+                "Align": "center"   
+            }
+        ],
+        "ActionDefs": [
+            {
+                "Key": "Search", 
+                "Title": "",
+                "Type": "Button",
+                "TitleTooltip": "Tìm kiếm",
+                "Icon": "search",
+                "Action": "onClickSearch"
+            }
+        ]
+    } 
+}

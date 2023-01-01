@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "presets": [
     "@babel/preset-env",
@@ -5,3 +6,12 @@
     "@babel/preset-typescript"
   ]
 }
+=======
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ]
+}
+>>>>>>> 0182be78014e740cb420ac7b0e9ef4f9a533ba92

@@ -1,0 +1,197 @@
+{
+	"Key" : "File_CGCNQSD",
+	"Title" : "cấp GCN quyền sử dụng đất",
+	"Rows": 6,		
+	"Controls" : [
+		{
+			"Key": "SoHieu",
+			"Title": "Số hiệu",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 1,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "NgayCap",
+			"Title": "Ngày cấp",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 1,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "NguoiSuDung",
+			"Title": "Người sử dụng",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 1,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "DiaChiThuongTru",
+			"Title": "Địa chỉ thường trú",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 2,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "CCCD",
+			"Title": "Căn cước công dân",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 2,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "NguoiKy",
+			"Title": "Người ký",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 2,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "SoTo",
+			"Title": "Số tờ",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 3,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "SoThua",
+			"Title": "Số thửa",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 3,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "DiaChiThuaDat",
+			"Title": "Địa chỉ thửa đất",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 3,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "MaPX",
+			"Title": "Mã Phường/Xã",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 4,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "TenPhuongXa",
+			"Title": "Tên Phường/Xã",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 4,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "DienTich",
+			"Title": "Diện tích",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 4,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "MucDichSuDung",
+			"Title": "Mục đích sử dụng",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 5,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "ThoiHanSuDung",
+			"Title": "Thời hạn sử dụng",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 5,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "NhaO",
+			"Title": "Nhà ở",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 5,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "CongTrinh",
+			"Title": "Công trình",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 6,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "RungSanXuat",
+			"Title": "Rừng sản xuất",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 6,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "CayLauNam",
+			"Title": "Cây lâu năm",     
+			"Type": "InputText",
+			"IsRequired": false,
+			"Row": 6,
+			"ColLabel": 1, 
+			"ColControl": 3, 
+			"ColSpanControl": 12
+		}
+	],
+	"ActionDefs" : [
+		{
+			"Key": "Save", 
+			"Title": "Lưu",
+			"Type": "Submit",
+			"TitleTooltip": "",
+			"Icon": "circle-check",
+			"Action": "onClickSave"
+		}
+	]
+}

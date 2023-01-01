@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "parser": "@babel/eslint-parser",
     "plugins": [
@@ -9,4 +10,17 @@
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn" 
     }
+=======
+{
+    "parser": "@babel/eslint-parser",
+    "plugins": [
+      "@babel",     
+      "react-hooks"
+    ],
+    "rules": {
+    
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn" 
+    }
+>>>>>>> 0182be78014e740cb420ac7b0e9ef4f9a533ba92
   }
