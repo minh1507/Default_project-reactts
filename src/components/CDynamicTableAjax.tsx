@@ -136,8 +136,8 @@ const CDynamicTableAjax = forwardRef((props: Props, ref) => {
             processing: true,
             serverSide: true,
             ajax: {
-                url: props.ajax.url,
-                type: props.ajax.method,
+                url: "http://localhost:5050/api/Sys_Role/Search",
+                type: "Post",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 beforeSend: function (request:any) {

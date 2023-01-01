@@ -9,6 +9,7 @@ interface Props {
 }
 
 const Home = (props: Props) => {  
+    console.log(123)
     const roleListView:any = roleListViewJson;    
     const [ajax, setAjax] = useState<IAjax>({
         url: "http://localhost:5050/api/Sys_Role/Search",
@@ -73,7 +74,7 @@ const Home = (props: Props) => {
             <div className="row">
                 <div className="col-md-12">
                     <CDynamicTableAjax 
-                        id="test" 
+                        id="test_abc" 
                         onChangeData={(pageInfo:any) => { console.log(pageInfo) }}
                         columnDefs={roleListView.DataGrid.ColumnDefs} 
                         ajax={ajax} />

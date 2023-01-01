@@ -7,7 +7,7 @@ import { Actions } from './Action';
 import { Reducer } from './Reducer';
 import { IResponseMessage } from 'common/Models';
 import roleListViewJson from './ListView.json';
-import menuConfigJson from 'assets/json/menu_config.json';
+import admin_config from 'assets/json/admin_config.json';
 import ATab from 'components/ATab';
 interface Props {
        
@@ -22,7 +22,6 @@ const Permission = (props: Props) => {
     const refConfirm_SaveMenu = useRef<any>();
     const refConfirm_SaveFunc = useRef<any>();
     const roleListView:any = roleListViewJson;    
-    const menuConfig:any = menuConfigJson;    
     const refDynamicTable = useRef<any>();
     useEffect(() => {
         Actions.GetRolelItems(dispatch);    
@@ -30,7 +29,7 @@ const Permission = (props: Props) => {
         Actions.GetFuncItems(dispatch);     
     }, [])
     const InitMenu = async () => {
-        let res:IResponseMessage = await Actions.ResetMenu(menuConfig.Menu,dispatch);             
+        let res:IResponseMessage = await Actions.ResetMenu(admin_config.menu,dispatch);             
         if(res.Success) {            
             refNotification.current.showNotification("success", res.Message);     
             Actions.GetMenuItems(dispatch);                      

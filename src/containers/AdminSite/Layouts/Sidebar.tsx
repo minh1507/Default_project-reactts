@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux";
 import { NavLink } from 'react-router-dom';
-import menu_config from 'assets/json/menu_config.json';
+import admin_config from 'assets/json/admin_config.json';
 import { Actions } from 'store/Global/Action';
 import { Cookie } from 'common/Cookie';
 import { IUserInfo } from 'common/Models';
@@ -21,7 +21,7 @@ const Sidebar = (props: Props) => {
       return <ul id={id} className="nav-content collapse " data-bs-parent="#sidebar-nav">{html_subMenu}</ul>;
     }
     const DrawMenu = () => {
-      let menu:any = menu_config.Menu;
+      let menu:any = admin_config.menu;
       let html_menu:any = [];
       for(let i = 0;i < menu.length;i++)
       {

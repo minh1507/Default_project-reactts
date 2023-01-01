@@ -10,7 +10,7 @@ interface Props {
 
 }
 
-const ChinhDang = (props: Props) => {  
+const ChinhDangChayBo = (props: Props) => {  
     return(
       <div>
       <img src={bg40} width="100%" height="auto" />
@@ -173,4 +173,4 @@ const mapState = ({ ...state }) => ({
 const mapDispatchToProps = {
 };
 
-export default connect(mapState, mapDispatchToProps)(ChinhDang);
+export default connect(mapState, mapDispatchToProps)(ChinhDangChayBo);

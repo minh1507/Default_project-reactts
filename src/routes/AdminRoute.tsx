@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import Home from 'containers/AdminSite/Pages/Home';
 import { Config, Log } from 'containers/AdminSite/Pages/System';
 import { Account, Organ, Permission, Role } from 'containers/AdminSite/Pages/User';
 import { Category0, Category1 } from 'containers/AdminSite/Pages/Category';
-import menu_config from 'assets/json/menu_config.json'
+import admin_config from 'assets/json/admin_config.json'
 import Page404 from 'containers/AdminSite/Pages/Page404';
 import Profile from 'containers/AdminSite/Pages/Profile';
 import Setting from 'containers/AdminSite/Pages/Setting';
@@ -21,8 +21,8 @@ interface Props {
     Apps: any
 }
 
-const AdminRoute = (props: Props) => {  
-    const LayoutAdminPaths = ["/profile", "/setting", "/support"];
+const AdminRoute = (props: Props) => {
+    const LayoutAdminPaths:any = [];
     const GetPage = (code:String) => {
         switch(code)
         {
@@ -43,43 +43,37 @@ const AdminRoute = (props: Props) => {
             case "Category0":
                 return <Category0 />;
             case "Category1":
-                return <Category1 />;       
+                return <Category1 />;  
+            //
+            case "Profile":
+                return <Profile />; 
+            case "Setting":
+                return <Setting />;
+            case "Support":
+                return <Support />; 
+            case "Page401":
+                return <Page401 />;
+            case "Page404":
+                return <Page404 />; 
+            case "Login":
+                return <Login />;
+            case "Signup":
+                return <Signup />;     
+            case "RestorePassword":
+                return <RestorePassword />;  
             default:
                 return <Page404 />;                                                                                                         
         }        
     }
-    const AdminRoutesRender = () => {
-        let html = [];
-        let rootMenu:any = menu_config.Menu;
-        for(let i = 0;i < rootMenu.length;i++)
-        {
-            let menu = rootMenu[i];
-            if(IsMenuOfUser(menu)) {
-                LayoutAdminPaths.push(menu.url)
-                html.push(<Route key={menu.code} path={menu.url} component={() => GetPage(menu.code)} />)
-            }
-            if(menu.subMenu && menu.subMenu.length > 0) 
-            {
-                for(let j = 0;j < menu.subMenu.length;j++)
-                {
-                    let subMenu = menu.subMenu[j];
-                    if(IsMenuOfUser(subMenu)) {
-                        LayoutAdminPaths.push(subMenu.url)
-                        html.push(<Route key={subMenu.code} path={subMenu.url} component={() => GetPage(subMenu.code)} />)
-                    }
-                }
-            }
-        }
-        return html;
-    }
-    const IsMenuOfUser = (menu:any) => {      
-        let userInfo:IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
+
+    const IsRouteOfUser = (route:any) => {   
+        let userInfo:IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));     
         if(userInfo && userInfo.UserName == "admin") return true;   
         if(userInfo)
         {
             for(let i = 0;i < userInfo.Menus.length;i++)
             {
-              if(userInfo.Menus[i] == menu.code)
+              if(userInfo.Menus[i] == route.code)
               {
                 return true
               }
@@ -87,22 +81,34 @@ const AdminRoute = (props: Props) => {
         }
         return false;
     }
+    const RoutesRender =(isLayout: Boolean) => {
+        let routesHtml:any = [];
+        let routesConfig:any = admin_config.routes;
+        for(let i = 0;i < routesConfig.length;i++)
+        {
+            if(!IsRouteOfUser(routesConfig[i]) && routesConfig[i].isMenu) {
+                continue;
+            }
+            if(isLayout && isLayout == routesConfig[i].isLayout) {
+                LayoutAdminPaths.push(routesConfig[i].url)
+                routesHtml.push(<Route key={routesConfig[i].code} exact={routesConfig[i].url == "/" ? true:false} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)    
+            }
+            if(!isLayout && isLayout == routesConfig[i].isLayout) {
+                routesHtml.push(<Route key={routesConfig[i].code} exact={routesConfig[i].url == "/" ? true:false} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)
+            }
+        }
+        return routesHtml;
+    }
     return (
         <div id="app-admin">
             <Route path={LayoutAdminPaths}>
                 <LayoutAdmin>
                     <Switch>
-                        {AdminRoutesRender()}
-                        <Route key="Profile" path="/profile" component={() => <Profile />} />
-                        <Route key="Setting" path="/setting" component={() => <Setting />} />
-                        <Route key="Support" path="/support" component={() => <Support />} />   
+                        {RoutesRender(true)}
                     </Switch>
                 </LayoutAdmin>
             </Route>
-            <Route key="Page401" path="/page401" component={() => <Page401 />} />
-            <Route key="Login" path="/login" component={() => <Login />} />
-            <Route key="Signup" path="/signup" component={() => <Signup />} />
-            <Route key="RestorePassword" path='/restore-password' component={() => <RestorePassword />}/>
+            {RoutesRender(false)}
         </div>
     )
 }

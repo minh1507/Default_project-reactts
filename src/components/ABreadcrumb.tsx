@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import menu_config from 'assets/json/menu_config.json';
+import admin_config from 'assets/json/admin_config.json';
 interface Props {
        
 }
@@ -11,7 +11,7 @@ const ABreadcrumb = (props: Props) => {
   const [node_breadcrumb, set_node_breadcrumb] = useState<any>();
   useEffect(() => {     
      let root_breadcrumb = '', node_breadcrumb = '', pathname = location.pathname;
-     let rootMenu:any = menu_config.Menu;
+     let rootMenu:any = admin_config.menu;
      for(let i = 0;i < rootMenu.length;i++)
      {
          let menu = rootMenu[i];    

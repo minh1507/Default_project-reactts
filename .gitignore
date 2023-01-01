@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 .DS_Store
 node_modules
 package-lock.json
 yarn.lock
 dist
-=======
-.DS_Store
-node_modules
-package-lock.json
-yarn.lock
-dist
->>>>>>> 0182be78014e740cb420ac7b0e9ef4f9a533ba92

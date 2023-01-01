@@ -4,33 +4,74 @@ import { connect } from "react-redux";
 import LayoutPortal from 'containers/PortalSite/Layouts';
 import TrangChu from 'containers/PortalSite/Pages/TrangChu';
 import GioiThieu from 'containers/PortalSite/Pages/GioiThieu';
-import ChinhDang from 'containers/PortalSite/Pages/ChinhDang';
+import ChinhDangChayBo from 'containers/PortalSite/Pages/ChinhDangChayBo';
 import HoTro from 'containers/PortalSite/Pages/HoTro';
 import KhoaHoc from 'containers/PortalSite/Pages/KhoaHoc';
 import KienThuc from 'containers/PortalSite/Pages/KienThuc';
-import ChiTiet from 'containers/PortalSite/Pages/KhoaHoc/ChiTiet';
-import HocThu from 'containers/PortalSite/Pages/KhoaHoc/HocThu';
+import KhoaHocChiTiet from 'containers/PortalSite/Pages/KhoaHoc/ChiTiet';
+import KhoaHocThu from 'containers/PortalSite/Pages/KhoaHoc/HocThu';
+import portal_config from 'assets/json/portal_config.json'
 interface Props {
        
 }
 
 const PortalRoute = (props: Props) => {  
+    const LayoutPortalPaths:any = [];
+    const GetPage = (code:String) => {
+        switch(code)
+        {
+            case "TrangChu":
+                return <TrangChu />;
+            case "GioiThieu":
+                return <GioiThieu />;
+            case "KhoaHoc":
+                return <KhoaHoc />;
+            case "KienThuc":
+                return <KienThuc />;
+            case "ChinhDangChayBo":
+                return <ChinhDangChayBo />;
+            case "HoTro":
+                return <HoTro />;
+            case "KhoaHocChiTiet":
+                return <KhoaHocChiTiet />;
+            case "KhoaHocThu":
+                return <KhoaHocThu />;
+            default:
+                return <></>;                                                                                                         
+        }        
+    }
+    const IsRouteOfUser = (route:any) => {   
+
+        return false;
+    }
+    const RoutesRender =(isLayout: Boolean) => {
+        let routesHtml:any = [];
+        let routesConfig:any = portal_config.routes;
+        for(let i = 0;i < routesConfig.length;i++)
+        {
+            if(!IsRouteOfUser(routesConfig[i]) && routesConfig[i].isMenu) {
+                continue;
+            }
+            if(isLayout && isLayout == routesConfig[i].isLayout) {
+                LayoutPortalPaths.push(routesConfig[i].url)
+                routesHtml.push(<Route key={routesConfig[i].code} exact={routesConfig[i].url == "/" ? true:false} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)    
+            }
+            if(!isLayout && isLayout == routesConfig[i].isLayout) {
+                routesHtml.push(<Route key={routesConfig[i].code} exact={routesConfig[i].url == "/" ? true:false} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)
+            }
+        }
+        return routesHtml;
+    }
     return(
         <div id="app-portal">
-            <Route path={["/", "/gioi-thieu","/chinh-dang","/ho-tro","/khoa-hoc","/kien-thuc","/chi-tiet","/hoc-thu"]}>
+            <Route path={LayoutPortalPaths}>
                 <LayoutPortal>
                     <Switch>
-                        <Route key="TrangChu" exact path="/" component={() => <TrangChu />} />
-                        <Route key="GioiThieu" path="/gioi-thieu" component={() => <GioiThieu />} />
-                        <Route key="ChinhDang" path="/chinh-dang" component={() => <ChinhDang />} />
-                        <Route key="HoTro" path="/ho-tro" component={() => <HoTro />} />
-                        <Route key="KhoaHoc" path="/khoa-hoc" component={() => <KhoaHoc />} />
-                        <Route key="KienThuc" path="/kien-thuc" component={() => <KienThuc />} />
-                        <Route key="KhoaHocChiTiet" path="/chi-tiet" component={() => <ChiTiet />} />
-                        <Route key="KhoaHocThu" path="/hoc-thu" component={() => <HocThu />} />
+                        {RoutesRender(true)}
                     </Switch>
                 </LayoutPortal>
             </Route>
+            {RoutesRender(false)}
         </div>
     )
 }
