@@ -1,4 +1,4 @@
-import request from "helpers/request"
+import request from "common/Request"
 const Sys_Config = "Sys_Config";
 const ConfigService = {    
     GetItems: async (type:any) => {        

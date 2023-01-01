@@ -1,10 +1,9 @@
-import { IModelItem } from "components/User/Role/InitState";
-import request from "helpers/request"
+import request from "common/Request"
 const Sys_Role = "Sys_Role";
 const RoleService = {    
     GetItems: async () => {        
         let res:any = await request({
-            url: `/${Sys_Role}/1/1000/1000`,
+            url: `/${Sys_Role}/List?page=1&pageSize=1000&totalLimitItems=0&searchBy=`,
             method: 'get'
         });
         return res

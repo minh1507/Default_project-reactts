@@ -1,5 +1,4 @@
-import { IModelItem } from "components/User/Role/InitState";
-import request from "helpers/request"
+import request from "common/Request"
 const Sys_Resource = "Sys_Resource";
 const ResourceService = {  
     GetFunc: async () => {

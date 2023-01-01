@@ -1,0 +1,47 @@
+{
+    "routes": [
+        {
+            "code": "TrangChu",
+            "url": "/",
+            "isLayout": true
+        },
+        {
+            "code": "GioiThieu",
+            "url": "/gioi-thieu",
+            "isLayout": true
+        },
+        {
+            "code": "KhoaHoc",
+            "url": "/khoa-hoc",
+            "isLayout": true
+        },
+        {
+            "code": "KienThuc",
+            "url": "/kien-thuc",
+            "isLayout": true
+        },
+        {
+            "code": "ChinhDangChayBo",
+            "url": "/chinh-dang-chay-bo",
+            "isLayout": true
+        },
+        {
+            "code": "HoTro",
+            "url": "/ho-tro",
+            "isLayout": true
+        },
+        {
+            "code": "KhoaHocChiTiet",
+            "url": "/khoa-hoc-chi-tiet",
+            "isLayout": true
+        },
+        {
+            "code": "KhoaHocThu",
+            "url": "/khoa-hoc-thu",
+            "isLayout": true
+        }
+    ],
+    "menu": [
+        
+    ]
+}

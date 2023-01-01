@@ -1,4 +1,4 @@
-import request from "helpers/request"
+import request from "common/Request"
 const Sys_Permission = "Sys_Permission";
 const PermissionService = {  
     SaveWithRoleId: async (data:any, roleId:any, isFunc:any) => {

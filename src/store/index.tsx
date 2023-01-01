@@ -1,13 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { Reducer as appReducer} from 'store/app';
-import { createBrowserHistory } from 'history';
-import thunk from 'redux-thunk';
-export const history = createBrowserHistory();
-const rootReducer = (history:any) => ({
-    apps: appReducer
+import { applyMiddleware, combineReducers, createStore } from '@reduxjs/toolkit';
+import { Reducer as GlobalReducer} from 'store/Global';
+import thunkMiddleware from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const rootReducer = combineReducers({
+    global: GlobalReducer
 })
-const store = configureStore({
-    reducer: rootReducer(history),
-    middleware: [thunk]
-})
+const composedEnhancer = composeWithDevTools(
+    applyMiddleware(thunkMiddleware)
+)
+  
+
+const store = createStore(rootReducer, composedEnhancer)
 export default store

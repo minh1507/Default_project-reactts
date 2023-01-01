@@ -1,5 +1,4 @@
-import { IModelItem } from "components/User/Role/InitState";
-import request from "helpers/request"
+import request from "common/Request"
 const Sys_Organization = "Sys_Organization";
 const OrganService = {  
     GetTree: async () => {
@@ -8,14 +7,7 @@ const OrganService = {
         method: 'get'
       })
       return res;
-    }, 
-    GetTreeList: async () => {
-      let res:any = await request({
-        url: `/${Sys_Organization}/TreeList`,
-        method: 'get'
-      })
-      return res;
-    },      
+    },  
     GetByParentId: async (parentId:any) => {
         let res:any = await request({
           url: `/${Sys_Organization}/List/${parentId}`,

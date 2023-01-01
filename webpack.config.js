@@ -25,21 +25,19 @@ const config = {
     index: './src/index.tsx',
   },
   output: {
-    publicPath: devMode ? 'http://localhost:9000/' : '',
     path: resolve(__dirname, 'dist'),    
     filename: devMode ? '[name].js' : 'javascripts/[name].js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      'app': resolve(__dirname, './src/app'),
-      'store': resolve(__dirname, './src/store'),  
       'assets': resolve(__dirname, './src/assets'),
+      'common': resolve(__dirname, './src/common'),       
       'components': resolve(__dirname, './src/components'),  
-      'helpers': resolve(__dirname, './src/helpers'),      
+      'containers': resolve(__dirname, './src/containers'),  
       'routes': resolve(__dirname, './src/routes'),
-      'services': resolve(__dirname, './src/services'),
-      'models': resolve(__dirname, './src/models'),          
+      'services': resolve(__dirname, './src/services'),  
+      'store': resolve(__dirname, './src/store')   
     }
   },
   module: {
@@ -103,7 +101,7 @@ const config = {
   },
   plugins: [    
     new HtmlWebpackPlugin({
-      title: 'Gis App',
+      title: 'Wolf2',
       template: 'src/index.html',
     }),
     new TsconfigPathsPlugin({ configFile: "./tsconfig.json" }),

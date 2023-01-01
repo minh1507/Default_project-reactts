@@ -1,4 +1,4 @@
-import request from "helpers/request"
+import request from "common/Request"
 const Sys_Category = "Sys_Category";
 const CategoryService = {    
     GetItems: async (type:any) => {        

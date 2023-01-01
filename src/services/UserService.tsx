@@ -1,4 +1,4 @@
-import request from "helpers/request"
+import request from "common/Request"
 const Sys_Account = "Sys_Account";
 const Sys_User = "Sys_User";
 const UserService = {    
@@ -65,13 +65,6 @@ const UserService = {
         });
         return res
     },
-    GetUsersWithRoleOrgan: async () => {
-        let res:any = await request({
-            url: `/${Sys_User}/GetUsersWithRoleOrgan`,
-            method: 'get'            
-        });
-        return res
-    },
     ChangePasswordNew: async (data:any) => {
         let res:any = await request({
             url: `/${Sys_Account}/ChangePasswordNew`,
@@ -112,7 +105,7 @@ const UserService = {
     },
     GetItem: async(id:any) => {
         let res:any = request({
-          url: `/${Sys_User}/` + id,
+          url: '/Sys_User/' + id,
           method: 'get'
         })
         return res;

@@ -11,18 +11,14 @@
     "baseUrl": "./src",    
     "resolveJsonModule": true,    
     "paths": {      
-      "app/*": ["app/*"],
-      "store/*": ["store/*"],
       "assets/*": ["assets/*"],
-      "components/*": ["components/*"],
-      "helpers/*": ["helpers/*"],             
+      "common/*": ["common/*"],
+      "components/*": ["components/*"],     
+      "containers/*": ["containers/*"],            
       "routes/*": ["routes/*"],      
       "services/*": ["services/*"],
-      "models/*": ["models/*"],      
+      "store/*": ["store/*"], 
     },
-    "lib": [
-      "dom"
-    ],
   },
   "include": [
     "src", 
