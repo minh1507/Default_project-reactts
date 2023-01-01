@@ -25,32 +25,19 @@ const config = {
     index: './src/index.tsx',
   },
   output: {
-<<<<<<< HEAD
     path: resolve(__dirname, 'dist'),    
-=======
-    path: resolve(__dirname, 'dist'),
->>>>>>> 63cc39ad32fece75bf7e3c05870a072fd18e40c7
     filename: devMode ? '[name].js' : 'javascripts/[name].js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       'assets': resolve(__dirname, './src/assets'),
-<<<<<<< HEAD
       'common': resolve(__dirname, './src/common'),       
       'components': resolve(__dirname, './src/components'),  
       'containers': resolve(__dirname, './src/containers'),  
       'routes': resolve(__dirname, './src/routes'),
       'services': resolve(__dirname, './src/services'),  
       'store': resolve(__dirname, './src/store')   
-=======
-      'common': resolve(__dirname, './src/common'),
-      'components': resolve(__dirname, './src/components'),
-      'containers': resolve(__dirname, './src/containers'),
-      'routes': resolve(__dirname, './src/routes'),
-      'services': resolve(__dirname, './src/services'),
-      'store': resolve(__dirname, './src/store')
->>>>>>> 63cc39ad32fece75bf7e3c05870a072fd18e40c7
     }
   },
   module: {
