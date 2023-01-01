@@ -11,10 +11,10 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const devMode  = process.env.NODE_ENV === 'development';
+const devMode = process.env.NODE_ENV === 'development';
 const config = {
   devtool: 'inline-source-map',
-  mode: devMode  ? 'development' : 'production',
+  mode: devMode ? 'development' : 'production',
   devServer: {
     contentBase: resolve(__dirname, 'dist'),
     compress: true,
@@ -25,63 +25,76 @@ const config = {
     index: './src/index.tsx',
   },
   output: {
+<<<<<<< HEAD
     path: resolve(__dirname, 'dist'),    
+=======
+    path: resolve(__dirname, 'dist'),
+>>>>>>> 63cc39ad32fece75bf7e3c05870a072fd18e40c7
     filename: devMode ? '[name].js' : 'javascripts/[name].js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       'assets': resolve(__dirname, './src/assets'),
+<<<<<<< HEAD
       'common': resolve(__dirname, './src/common'),       
       'components': resolve(__dirname, './src/components'),  
       'containers': resolve(__dirname, './src/containers'),  
       'routes': resolve(__dirname, './src/routes'),
       'services': resolve(__dirname, './src/services'),  
       'store': resolve(__dirname, './src/store')   
+=======
+      'common': resolve(__dirname, './src/common'),
+      'components': resolve(__dirname, './src/components'),
+      'containers': resolve(__dirname, './src/containers'),
+      'routes': resolve(__dirname, './src/routes'),
+      'services': resolve(__dirname, './src/services'),
+      'store': resolve(__dirname, './src/store')
+>>>>>>> 63cc39ad32fece75bf7e3c05870a072fd18e40c7
     }
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/i,     
+        test: /\.(js|jsx|ts|tsx)$/i,
         use: ['ts-loader', 'eslint-loader'],
         exclude: /node_modules/
       },
       {
         test: /\.(scss|css)$/i,
-        use: [          
+        use: [
           {
-            loader: MiniCssExtractPlugin.loader, 
+            loader: MiniCssExtractPlugin.loader,
             options: {
-                publicPath: ''
+              publicPath: ''
             }
-          },    
-          "css-loader",            
+          },
+          "css-loader",
           "postcss-loader",
           "resolve-url-loader",
-          "sass-loader",                        
+          "sass-loader",
         ]
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        use: [     
-          {     
-            loader : "file-loader",
-            options: {              
-              name: devMode ? '[name].[ext]' : 'assets/images/[name].[ext]'              
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: devMode ? '[name].[ext]' : 'assets/images/[name].[ext]'
             }
           }
         ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)$/i,
-        use: [          
+        use: [
           'url-loader'
         ]
       }
     ],
   },
-  optimization: {    
+  optimization: {
     runtimeChunk: true,
     splitChunks: {
       cacheGroups: {
@@ -93,36 +106,35 @@ const config = {
       },
     },
     minimize: devMode ? false : true,
-    minimizer: [      
+    minimizer: [
       new JsonMinimizerPlugin(),
-      new CssMinimizerPlugin({ cache: true, parallel: true}),
+      new CssMinimizerPlugin({ cache: true, parallel: true }),
       new HtmlMinimizerPlugin({ parallel: true }),
     ]
   },
-  plugins: [    
+  plugins: [
     new HtmlWebpackPlugin({
-      title: 'Wolf2',
+      title: 'WebRunning',
       template: 'src/index.html',
     }),
     new TsconfigPathsPlugin({ configFile: "./tsconfig.json" }),
     new MiniCssExtractPlugin({ filename: devMode ? '[name].css' : 'assets/css/[name].css' }),
     new ESLintPlugin(),
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),    
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new Dotenv(),
     new webpack.ProvidePlugin({
       process: 'process/browser',
     })
   ],
 };
-if(devMode == false)
-{
+if (devMode == false) {
   config.plugins.push(new TerserPlugin({ parallel: true }));
   config.plugins.push(new CopyPlugin({
     patterns: [
-      {                                            
+      {
         from: '**/*.json',
-        context: resolve(__dirname, "src"),        
-        to: '[path][name].[ext]',                  
+        context: resolve(__dirname, "src"),
+        to: '[path][name].[ext]',
       },
     ],
   }));
