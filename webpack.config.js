@@ -25,19 +25,19 @@ const config = {
     index: './src/index.tsx',
   },
   output: {
-    path: resolve(__dirname, 'dist'),    
+    path: resolve(__dirname, 'dist'),
     filename: devMode ? '[name].js' : 'javascripts/[name].js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       'assets': resolve(__dirname, './src/assets'),
-      'common': resolve(__dirname, './src/common'),       
-      'components': resolve(__dirname, './src/components'),  
-      'containers': resolve(__dirname, './src/containers'),  
+      'common': resolve(__dirname, './src/common'),
+      'components': resolve(__dirname, './src/components'),
+      'containers': resolve(__dirname, './src/containers'),
       'routes': resolve(__dirname, './src/routes'),
-      'services': resolve(__dirname, './src/services'),  
-      'store': resolve(__dirname, './src/store')   
+      'services': resolve(__dirname, './src/services'),
+      'store': resolve(__dirname, './src/store')
     }
   },
   module: {
@@ -103,6 +103,11 @@ const config = {
     new HtmlWebpackPlugin({
       title: 'WebRunning',
       template: 'src/index.html',
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
     }),
     new TsconfigPathsPlugin({ configFile: "./tsconfig.json" }),
     new MiniCssExtractPlugin({ filename: devMode ? '[name].css' : 'assets/css/[name].css' }),

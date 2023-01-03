@@ -11,6 +11,12 @@ import KienThuc from 'containers/PortalSite/Pages/KienThuc';
 import KhoaHocChiTiet from 'containers/PortalSite/Pages/KhoaHoc/ChiTiet';
 import KhoaHocThu from 'containers/PortalSite/Pages/KhoaHoc/HocThu';
 import portal_config from 'assets/json/portal_config.json'
+import ChiTiet from 'containers/PortalSite/Pages/KienThuc/ChiTiet';
+import ThanhToan from 'containers/PortalSite/Pages/ThanhToan';
+import GioHang from 'containers/PortalSite/Pages/GioHang';
+import DangNhap from 'containers/PortalSite/auth/DangNhap';
+import DangKy from 'containers/PortalSite/auth/DangKy';
+import QuanTri from 'containers/PortalSite/Pages/QuanTri';
 interface Props {
        
 }
@@ -36,6 +42,18 @@ const PortalRoute = (props: Props) => {
                 return <KhoaHocChiTiet />;
             case "KhoaHocThu":
                 return <KhoaHocThu />;
+            case "KienThuChiTiet":
+                return <ChiTiet />;
+            case "ThanhToan":
+                return <ThanhToan />;
+            case "GioHang":
+                return <GioHang />;
+            case "DangNhap":
+                return <DangNhap />;
+            case "DangKy":
+                return <DangKy />;
+            case "Menu":
+                return <QuanTri />;
             default:
                 return <></>;                                                                                                         
         }        
@@ -54,12 +72,13 @@ const PortalRoute = (props: Props) => {
             }
             if(isLayout && isLayout == routesConfig[i].isLayout) {
                 LayoutPortalPaths.push(routesConfig[i].url)
-                routesHtml.push(<Route key={routesConfig[i].code} exact={routesConfig[i].url == "/" ? true:false} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)    
+                routesHtml.push(<Route key={routesConfig[i].code} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)    
             }
             if(!isLayout && isLayout == routesConfig[i].isLayout) {
-                routesHtml.push(<Route key={routesConfig[i].code} exact={routesConfig[i].url == "/" ? true:false} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)
+                routesHtml.push(<Route key={routesConfig[i].code} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)
             }
         }
+        
         return routesHtml;
     }
     return(
@@ -67,7 +86,7 @@ const PortalRoute = (props: Props) => {
             <Route path={LayoutPortalPaths}>
                 <LayoutPortal>
                     <Switch>
-                        {RoutesRender(true)}
+                        {RoutesRender(true)} 
                     </Switch>
                 </LayoutPortal>
             </Route>

@@ -91,10 +91,10 @@ const AdminRoute = (props: Props) => {
             }
             if(isLayout && isLayout == routesConfig[i].isLayout) {
                 LayoutAdminPaths.push(routesConfig[i].url)
-                routesHtml.push(<Route key={routesConfig[i].code} exact={routesConfig[i].url == "/" ? true:false} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)    
+                routesHtml.push(<Route key={routesConfig[i].code} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)    
             }
             if(!isLayout && isLayout == routesConfig[i].isLayout) {
-                routesHtml.push(<Route key={routesConfig[i].code} exact={routesConfig[i].url == "/" ? true:false} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)
+                routesHtml.push(<Route key={routesConfig[i].code} path={routesConfig[i].url} component={() => GetPage(routesConfig[i].code)} />)
             }
         }
         return routesHtml;

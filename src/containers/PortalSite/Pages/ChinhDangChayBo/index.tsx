@@ -12,10 +12,10 @@ interface Props {
 
 const ChinhDangChayBo = (props: Props) => {  
     return(
-      <div>
+      <div style={{backgroundColor: 'white'}}>
       <img src={bg40} width="100%" height="auto" />
-      <div className="main_sub_detal mb-5">
-        <div className="container mt-5">
+      <div className="main_sub_detal">
+        <div className="container mt-2">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
             <div className="card mb-3 p-0" style={{width: '450px'}}>
               <div className="row g-0" style={{minHeight: '200px'}}>

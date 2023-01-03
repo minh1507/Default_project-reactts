@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { connect } from "react-redux";
 import bg37 from 'assets/img/bg37.png'
 import bg38 from 'assets/img/bg38.png'
-import avatar from 'assets/img/ava3.png'
 import bg7 from 'assets/img/bg7.png'
 import NoiDung from './NoiDung';
 import { useHistory } from 'react-router-dom';
@@ -67,17 +66,27 @@ const ChiTiet = (props: Props) => {
       else if(change== 2){
         return (
           <div>
-            <h5 className="text-danger mb-3 text-center">NỘI DUNG KHÓA HỌC</h5>
+            <h5 className="text-danger mb-3 ">NỘI DUNG KHÓA HỌC</h5>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima corporis doloremque facilis pariatur reprehenderit, officia eius inventore doloribus tenetur consectetur non, nemo quam deserunt aperiam recusandae quod laboriosam nihil consequatur?</p>
           </div>
         )
       }
     
     }
 
-   
+    const goToThanhToan = () => {
+      window.scrollTo(0, 0)
+      history.push('/thanh-toan');
+    }
 
     const goToHocPage = () => {
-      history.push('/hoc-thu');
+      window.scrollTo(0, 0)
+      history.push('/khoa-hoc-thu');
+    }
+
+    const goToGioHang = () => {
+      window.scrollTo(0, 0)
+      history.push('/gio-hang');
     }
 
     return(
@@ -110,18 +119,18 @@ const ChiTiet = (props: Props) => {
                     </div>
                   </div>
 
-                 <Comment/>
+                 <Comment tital='ok'/>
                 </div>
 
               </div>
               <div className="mb-3" style={{backgroundColor: 'white', borderRadius: '2.5px 2.5px', padding: '20px 30px'}}>
                 <h4 className="text-center mb-3" style={{margin: 0, fontStyle: 'italic'}}>BÀI VIẾT LIÊN QUAN</h4>
-                <div className="row row-cols-1 row-cols-md-2 g-3 justify-content-center mb-3">
-                  <div className="col " style={{minWidth: '200px'}}>
+                <div  className="row row-cols-1 row-cols-md-2 g-3 justify-content-center mb-3">
+                  <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{maxWidth: '250px'}}>
                     <div className="card card_main_container" style={{cursor: 'pointer'}}>
                       <img src={bg7} className="card-img-top" alt="..." />
                       <div className="card-body" style={{textAlign: 'start'}}>
-                        <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                        <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                         <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>
                           25/12/2022
                           at
@@ -135,11 +144,11 @@ const ChiTiet = (props: Props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="col " style={{minWidth: '200px'}}>
+                  <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{maxWidth: '250px'}}>
                     <div className="card card_main_container" style={{cursor: 'pointer'}}>
                       <img src={bg7} className="card-img-top" alt="..." />
                       <div className="card-body" style={{textAlign: 'start'}}>
-                        <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                        <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                         <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>
                           25/12/2022
                           at
@@ -165,11 +174,11 @@ const ChiTiet = (props: Props) => {
                   đ</span></p>
               <div className="d-flex justify-content-center align-items-center flex-column">
                 <div className="d-flex mb-2">
-                  <button className="header_btn bg-danger text-light">MUA NGAY</button>
-                  <button className="header_btn bg-info text-dark" style={{marginLeft: '10px'}}>THÊM VÀO
+                  <button onClick={() => {goToThanhToan()}} className="header_btn bg-danger text-light">MUA NGAY</button>
+                  <button onClick={() => {goToGioHang()}} className=" bg-info text-dark" style={{marginLeft: '10px', border: 'none', borderRadius: '5px 5px', fontSize:'0.9rem', fontWeight: 'bold', padding: '5px 10px'}}>THÊM VÀO
                     GIỎ</button>
                 </div>
-                <button onClick={() => {goToHocPage()}} className="header_btn bg-info text-dark">HỌC THỬ</button>
+                <button onClick={() => {goToHocPage()}} className=" bg-info text-dark" style={{border: 'none', borderRadius: '5px 5px', fontSize:'0.9rem', fontWeight: 'bold', padding: '5px 10px'}}>HỌC THỬ</button>
               </div>
             </div>
           </div>

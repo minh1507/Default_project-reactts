@@ -11,7 +11,7 @@ interface Props {
 
 const HoTro = (props: Props) => {  
     return(
-      <div>
+      <div style={{backgroundColor: 'white'}}>
       <img src={bg40} width="100%" height="auto" />
       <div className="mt-5" style={{padding: '0 40px', textAlign: 'center'}}>
         <div className="mt-5">
@@ -19,11 +19,11 @@ const HoTro = (props: Props) => {
             <div className="container mt-5 mb-5">
               <h3 className="mb-5" style={{fontWeight: 'bold'}}>HỖ TRỢ KHÁCH HÀNG</h3>
               <div className="row row-cols-1 row-cols-md-4 g-3 justify-content-center">
-                <div className="col " style={{minWidth: '200px'}}>
+                <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{maxWidth: '250px'}}>
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                         at
                         8pm</p>
@@ -37,11 +37,11 @@ const HoTro = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col " style={{minWidth: '200px'}}>
+                <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{maxWidth: '250px'}}>
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                         at
                         8pm</p>
@@ -55,11 +55,11 @@ const HoTro = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col " style={{minWidth: '200px'}}>
+                <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{maxWidth: '250px'}}>
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                         at
                         8pm</p>
@@ -73,11 +73,11 @@ const HoTro = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col " style={{minWidth: '200px'}}>
+                <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{maxWidth: '250px'}}>
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                         at
                         8pm</p>
@@ -125,7 +125,7 @@ const HoTro = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="mt-5 mb-5 d-flex flex-column justify-content-center align-items-center">
+      <div className="mt-5 d-flex flex-column justify-content-center align-items-center" style={{padding: "0 0 30px 0"}}>
         <div className="container-xl text-center" style={{padding: '20px 2rem'}}>
           <h3 className="mb-3" style={{fontWeight: 'bold'}}>GỬI TIN NHẮN</h3>
           <div className="input-group mb-3">

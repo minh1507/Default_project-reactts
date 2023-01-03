@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 interface Props {
   paths: string,
-  general: any
+  // general: any
 }
 
 const MainCard = (props: Props) => {  
@@ -19,16 +19,13 @@ const MainCard = (props: Props) => {
     return(
         
         <div className="main_sub_detal">
-          <div className="container mt-5 mb-5">
-            <span className="mb-3 nav_in" style={{padding: '5px 5px', backgroundColor: 'pink', width: '40px', height: '40px', borderRadius: '5px 5px', cursor: 'pointer'}}>
-              <i className="bi bi-list-ul" style={{fontSize: '1.5rem'}} />
-            </span>
+          <div className="container mt-2 mb-5">
             <div className="row row-cols-1 row-cols-md-5 g-3 justify-content-center">
-              <div className="col " style={{minWidth: '200px'}}>
+              <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z" >GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>
@@ -42,11 +39,11 @@ const MainCard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="col " style={{minWidth: '200px'}}>
+              <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>
@@ -60,11 +57,11 @@ const MainCard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="col " style={{minWidth: '200px'}}>
+              <div  title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>
@@ -78,11 +75,11 @@ const MainCard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="col " style={{minWidth: '200px'}}>
+              <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>
@@ -96,11 +93,11 @@ const MainCard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="col " style={{minWidth: '200px'}}>
+              <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>
@@ -114,11 +111,11 @@ const MainCard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="col " style={{minWidth: '200px'}}>
+              <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>
@@ -132,11 +129,11 @@ const MainCard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="col " style={{minWidth: '200px'}}>
+              <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>
@@ -150,11 +147,11 @@ const MainCard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="col " style={{minWidth: '200px'}}>
+              <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>
@@ -168,11 +165,11 @@ const MainCard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="col " style={{minWidth: '200px'}}>
+              <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>
@@ -186,11 +183,11 @@ const MainCard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="col " style={{minWidth: '200px'}}>
+              <div title='GIÁO ÁN CHỈNH DÁNG'  className="col " style={{minWidth: '200px'}}>
                 <div className="card card_main_container" style={{cursor: 'pointer'}}>
                   <img src={bg7} className="card-img-top" alt="..." />
                   <div className="card-body" style={{textAlign: 'start'}}>
-                    <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                    <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                     <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022
                       at
                       8pm</p>

@@ -242,6 +242,10 @@
     gap: 2rem;
   }
 
+  .header_mob_scene {
+    display: none;
+  }
+
   @media screen and (max-width: 295px) {
     .error {
       display: none !important;
@@ -275,14 +279,30 @@
     }
   }
 
-  @media screen and (max-width: 764px) {
+  @media screen and (max-width: 768px) {
     .navbar_link {
       display: none !important;
+    }
+    .error_nav {
+      display: none !important;
+    }
+
+    .header_mob_scene {
+      display: block !important;
     }
 
     .group_icon {
       display: none !important;
     }
+  }
+
+  .mob_scene_in {
+    z-index: 999;
+    top: 15%;
+    width: 100%;
+    position: fixed;
+    height: 85vh;
+    background: rgba(0, 0, 0, 0.97);
   }
 
   // end header
@@ -513,6 +533,11 @@
     }
   }
 
+  @media screen and (min-width: 768px) {
+    .mob_scene_in {
+      display: none !important;
+    }
+  }
   @media screen and (max-width: 768px) {
     .body_container {
       flex-direction: column-reverse !important;
@@ -649,5 +674,281 @@
     text-align: center;
     font-size: 0.8rem;
     opacity: 0.5;
+  }
+
+  .head_z {
+    line-height: 1.6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    max-height: 3.2rem;
+  }
+
+  .main_newss {
+    padding: 100px 200px;
+    transform: translateY(-5%);
+    background-color: white;
+    border-radius: 2.5px 2.5px;
+  }
+
+  .main_newss_2nd {
+    padding: 100px 200px;
+    background-color: white;
+    border-radius: 2.5px 2.5px;
+  }
+
+  .main_newss_3nd {
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 2.5px 2.5px;
+  }
+
+  .card_main_container {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+
+  .card_main_container:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+    transform: translateY(-1%);
+  }
+
+  @media screen and (max-width: 992px) and (min-width: 577px) {
+    .main_newss {
+      transform: unset !important;
+      padding: 10px 20px !important;
+      width: 90% !important;
+    }
+    #main_newss_fat {
+      padding-top: 20px !important;
+    }
+
+    .main_newss_2nd {
+      padding: 10px 20px !important;
+      width: 90% !important;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .main_newss {
+      transform: unset !important;
+      padding: 10px 10px !important;
+      width: 95% !important;
+    }
+    #main_newss_fat {
+      padding-top: 20px !important;
+    }
+
+    .main_newss_2nd {
+      padding: 10px 10px !important;
+      width: 95% !important;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .mob_view {
+      overflow: scroll !important;
+      overflow-x: scroll !important;
+    }
+  }
+
+  .remove:hover {
+    color: red !important;
+  }
+
+  .card_carosel {
+    padding: 15px 7.5px;
+  }
+
+  .owl-carousel.owl-loaded {
+    position: relative;
+  }
+
+  button.owl-next {
+    font-size: 5rem;
+    z-index: 999;
+    color: white;
+  }
+
+  button.owl-next:hover {
+    background-color: unset;
+  }
+
+  button.owl-prev {
+    font-size: 5rem;
+    z-index: 999;
+    color: white;
+  }
+
+  button.owl-prev:hover {
+    background-color: unset;
+  }
+
+  .owl-nav {
+    margin: 0;
+  }
+
+  .owl-dots {
+    margin-top: 10px;
+  }
+
+  .owl-theme .owl-dots .owl-dot span {
+    width: 30px;
+    height: 10px;
+  }
+
+  .owl-theme .owl-dots .owl-dot.active span,
+  .owl-theme .owl-dots .owl-dot:hover span {
+    background: lightcoral;
+  }
+
+  .owl-theme .owl-nav {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    left: 0;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    text-align: unset;
+  }
+
+  .owl_text {
+    line-height: 1.6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+
+  @media screen and (max-width: 600px) {
+    .owl-dots {
+      display: none !important;
+    }
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  .golden {
+    color: goldenrod;
+  }
+
+  .unGolden {
+    color: white;
+  }
+
+  .hide {
+    border-radius: 5px 5px;
+    padding: 10px 10px;
+    width: 300px;
+    background-color: white;
+    display: none;
+    position: absolute;
+    top: 100%;
+    z-index: 999;
+    max-width: 100px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+
+  .hide:hover {
+    display: block !important;
+  }
+
+  .catching:hover + .hide {
+    display: block !important;
+  }
+
+  .show_catching {
+    position: relative;
+  }
+
+  .main_dang_nhap {
+    background-color: #4158d0;
+    background-image: linear-gradient(
+      43deg,
+      #4158d0 0%,
+      #c850c0 46%,
+      #ffcc70 100%
+    );
+  }
+
+  .main_dang_ky {
+    background-color: #fbab7e;
+    background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+  }
+
+  .dang_nhap_container {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px 5px;
+    padding: 10px 15px;
+    min-width: 30vw;
+  }
+
+  .style18 {
+    border-top: 1px solid #8c8b8b;
+    text-align: center;
+    height: 1px;
+  }
+  .style18:after {
+    content: "hoặc";
+    display: inline-block;
+    position: relative;
+    top: -14px;
+    padding: 0 10px;
+    background: #f0f0f0;
+    color: #8c8b8b;
+    font-size: 12px;
+    // -webkit-transform: rotate(60deg);
+    // -moz-transform: rotate(60deg);
+    // transform: rotate(60deg);
+  }
+
+  .change_icon_dang_nhap:hover {
+    cursor: pointer;
+    color: lightcoral;
+  }
+
+  .change_icon_dang_nhap_face:hover {
+    cursor: pointer;
+    color: blue;
+  }
+
+  .k_dang_nhap {
+    cursor: pointer;
+    font-size: calc(1rem * 0.8);
+    font-style: italic;
+    color: blue;
+  }
+
+  .k_dang_nhap:hover {
+    text-decoration: underline;
+  }
+
+  .menu_one_line {
+    line-height: 1.6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    max-height: 3.2rem;
+  }
+  .box_sub_d {
+    display: none;
+  }
+
+  @media screen and (max-width: 850px) {
+    .box_sub_d {
+      display: block !important;
+    }
+
+    .chen {
+      margin: 0 !important;
+    }
   }
 }

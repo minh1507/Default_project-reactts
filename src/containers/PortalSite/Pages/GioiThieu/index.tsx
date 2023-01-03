@@ -14,7 +14,7 @@ const GioiThieu = (props: Props) => {
       <div>
         <img src={bg30} style={{width: '100%', height: 'auto'}} />
 
-        <div className="d-flex justify-content-center align-items-center mt-5" style={{padding: '30px 0'}}>
+        <div className="d-flex justify-content-center align-items-center mt-2" style={{padding: '20px 0'}}>
           <div className="main_container_fap" style={{width: '55%'}}>
             <iframe id="video" width="100%" height="400px" src="https://www.youtube.com/embed/zgPJMbApf_0" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             <h3 className="mt-4" style={{textAlign: 'center', fontWeight: 'bold'}}>HỌC VIỆN ĐĂNG QUANG MARATHON</h3>
@@ -54,6 +54,7 @@ const GioiThieu = (props: Props) => {
             <img src={bg35} style={{width: '100%'}} />
           </div>
         </div>
+
         <div className="d-flex body_container" style={{flexDirection: 'row-reverse', backgroundColor: 'white'}}>
           <div className="d-flex justify-content-center align-items-center body_container_top" style={{width: '50%'}}>
             <div className="w-75">
@@ -103,7 +104,7 @@ const GioiThieu = (props: Props) => {
           </div>
         </div>
 
-        <div className="d-flex justify-content-center align-items-center mt-5 mb-5" style={{ padding: '30px 0'}}>
+        <div className="d-flex justify-content-center align-items-center mt-2 mb-2" style={{ padding: '30px 0'}}>
           <div className="main_container_fap" style={{width: '55%'}}>
             <h3 className="mt-4 text-danger" style={{textAlign: 'center', fontWeight: 'bold'}}>HỌC VIỆN ĐĂNG QUANG MARATHON
             </h3>
@@ -137,7 +138,7 @@ const GioiThieu = (props: Props) => {
 
         <div className='style17 container-xl'></div>
 
-        <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
+        <div className="d-flex justify-content-center align-items-center mt-2 mb-2">
           <div className="main_container_fap" style={{width: '55%'}}>
             <h3 className="mt-4 text-danger" style={{textAlign: 'center', fontWeight: 'bold'}}>HOẠT ĐỘNG NỔI BẬT
             </h3>
@@ -239,11 +240,11 @@ const GioiThieu = (props: Props) => {
           </div>
         </div>
 
-        <div className='style17 container-xl' style={{marginTop:"100px"}}></div>
+        <div className='style17 container-xl mt-5' ></div>
 
-        <div className="d-flex justify-content-center align-items-center" style={{padding: '30px 0'}}>
+        <div className="d-flex justify-content-center align-items-center" style={{padding: '20px 0'}}>
           <div className="main_container_fap" style={{width: '75%'}}>
-            <h3 className="mt-4 text-danger" style={{textAlign: 'center', fontWeight: 'bold'}}>REVIEW TỪ HỌC VIÊN CŨ
+            <h3 className="mt-2 text-danger" style={{textAlign: 'center', fontWeight: 'bold'}}>REVIEW TỪ HỌC VIÊN CŨ
             </h3>
             <div className="d-flex justify-content-between review_bottom_main mt-5">
               <div className="review_bottom_main_sp" style={{width: '49%'}}>

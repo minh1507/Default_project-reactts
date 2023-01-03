@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux";
+import OwlCarousel from 'react-owl-carousel';
 import banner from "assets/img/banner.jpg"
 import sub_banner_left from 'assets/img/sub-banner__left.jpg'
 import sub_banner_right from 'assets/img/sub-banner__right.jpg'
@@ -41,13 +42,23 @@ interface Props {
 const TrangChu = (props: Props) => {  
   const [count, setCount] = useState(1);
   
-
+    const responsive = {
+      0: {
+          items: 1,
+      },
+      600: {
+          items: 3,
+      },
+      1000: {
+          items: 5,
+      },
+    }
     const changeImg = (num: number) => {
       setCount(num)
     }
 
     return(
-      <div className="main_container">
+      <div className="main_container" style={{backgroundColor: 'white'}}>
         <div className="banner">
           <img src={banner} className="main_banner" />
           <div className="sub_banner">
@@ -56,7 +67,7 @@ const TrangChu = (props: Props) => {
           </div>
         </div>
 
-        <div className="main_sub_detal mt-5">
+        <div className="main_sub_detal mt-2">
           <div className="container-xl d-flex flex-column">
             <h2 className="text-danger">HỌC VIỆN ĐĂNG QUANG MARATHON</h2>
             <div className="container mt-5">
@@ -105,20 +116,20 @@ const TrangChu = (props: Props) => {
           </div>
         </div>
 
-        <div className='mt-5 mb-5' style={{width: '100%', paddingTop: "30px"}}>
+        <div className='mt-2 mb-2' style={{width: '100%', paddingTop: "30px"}}>
           <img src={bg30} style={{width: '100%', height: 'auto'}} />
         </div>
 
-        <div className="main_sub_detal mt-5 mb-5">
+        <div className="main_sub_detal mt-2 mb-2">
           <div className="container-xl d-flex flex-column">
             <h2 className="text-danger">KHÓA HỌC CHẠY BỘ</h2>
             <div className="container mt-5">
               <div className="row row-cols-1 row-cols-md-4 g-3">
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body card_body_override" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -131,11 +142,11 @@ const TrangChu = (props: Props) => {
                     </div>  
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -147,11 +158,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -163,11 +174,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -179,11 +190,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -195,11 +206,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -211,11 +222,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -227,11 +238,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -253,16 +264,16 @@ const TrangChu = (props: Props) => {
 
         <div className='style17 container-xl'></div>
 
-        <div className="main_sub_detal mt-5 mb-5">
+        <div className="main_sub_detal mt-2 mb-2">
           <div className="container-xl d-flex flex-column">
             <h2 className="text-danger">KHÓA HỌC BƠI - ĐẠP - CHẠY</h2>
             <div className="container mt-5">
               <div className="row row-cols-1 row-cols-md-4 g-3">
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -274,11 +285,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -290,11 +301,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -306,11 +317,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -332,16 +343,16 @@ const TrangChu = (props: Props) => {
 
         <div className='style17 container-xl'></div>
 
-        <div className="main_sub_detal mt-5 mb-5">
+        <div className="main_sub_detal mt-2 mb-2">
           <div className="container-xl d-flex flex-column">
             <h2 className="text-danger">KHÓA HỌC PHÁT TRIỂN THỂ CHẤT TRẺ EM</h2>
             <div className="container mt-5">
               <div className="row row-cols-1 row-cols-md-4 g-3">
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -353,11 +364,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -369,11 +380,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -385,11 +396,11 @@ const TrangChu = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <div className="col ">
+                <div title='GIÁO ÁN CHỈNH DÁNG' className="col ">
                   <div className="card card_main_container" style={{cursor: 'pointer'}}>
                     <img src={bg7} className="card-img-top" alt="..." />
                     <div className="card-body" style={{textAlign: 'start'}}>
-                      <h5 className="text-danger card-title">GIÁO ÁN CHỈNH DÁNG</h5>
+                      <h5 className="text-danger card-title head_z">GIÁO ÁN CHỈNH DÁNG</h5>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>25/12/2022 at
                         8pm</p>
                       <p className=" card-text" style={{fontSize: 'calc(1rem*.9)', color: 'grey', fontWeight: 'bold'}}>Mr Long</p>
@@ -411,7 +422,7 @@ const TrangChu = (props: Props) => {
 
         <div className='style17 container-xl'></div>
 
-        <div className="main_sub_detal mt-5 mb-5">
+        <div className="main_sub_detal mt-2 mb-2">
           <div className="container-xl d-flex flex-column">
             <h2 className="text-danger">TRAINING CHỈNH DÁNG CHẠY BỘ</h2>
             <div className="container mt-5">
@@ -561,7 +572,7 @@ const TrangChu = (props: Props) => {
           </div>
         </div>
 
-        <div className="banner_2nd mt-5 mb-5">
+        <div className="banner_2nd mt-2 mb-2">
           <img src={bg8} className="main_banner" />
           <div className="sub_banner">
             <img src={bg9} className="sub_banner_bt_2nd" />
@@ -570,11 +581,11 @@ const TrangChu = (props: Props) => {
           </div>
         </div>
 
-        <div className="banner_2nd d-flex justify-content-center align-items-center mt-5 mb-5">
+        <div className="banner_2nd d-flex justify-content-center align-items-center mt-5 mb-2">
           <img src={bg12} style={{width: '70vw', height: 'auto'}} />
         </div>
 
-        <div className="main_sub_detal mt-5 mb-5">
+        <div className="main_sub_detal mt-2 mb-2">
           <div className="container-xl d-flex flex-column">
             <h2 className="text-danger">THÀNH TÍCH HỌC VIÊN</h2>
             <div className="container mt-5 d-flex justify-content-between congrate" style={{textAlign: 'start'}}>
@@ -639,66 +650,147 @@ const TrangChu = (props: Props) => {
           </div>
         </div>
 
-        <div className="main_sub_detal mt-5 mb-5">
-          <h2 className="text-danger">BLOG CHIA SẺ KIẾN THỨC</h2>
-          <div className="mt-3 d-flex justify-content-center align-items-center container-xl">
-              <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel"  style={{width: '100%', height: "auto", border: '5px 5px'}}>
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <img src={bg13} className="d-block w-100 slide_img_cal" alt="..."/>
-                    <div className="carousel-caption d-none d-md-block">
-                      <h5 className='bg-dark'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                      <p>Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit.
-                                Eligendi dignissimos amet nisi
-                                ea error aspernatur distinctio ipsa expedita fugit odit, minima praesentium quo
-                                nulla.
-                                Suscipit veritatis aspernatur quam numquam accusamus.</p>
-                    </div>
-                  </div>
-                  <div className="carousel-item">
-                    <img src={bg14} className="d-block w-100 slide_img_cal" alt="..."/>
-                    <div className="carousel-caption d-none d-md-block">
-                      <h5 className='bg-dark'>BÀI TẬP CHO NGƯỜI BẬN RỘN</h5>
-                      <p>Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit.
-                                Eligendi dignissimos amet nisi
-                                ea error aspernatur distinctio ipsa expedita fugit odit, minima praesentium quo
-                                nulla.
-                                Suscipit veritatis aspernatur quam numquam accusamus.</p>
-                    </div>
-                  </div>
-                  <div className="carousel-item">
-                    <img src={bg15} className="d-block w-100 slide_img_cal" alt="..."/>
-                    <div className="carousel-caption d-none d-md-block">
-                      <h5 className='bg-dark'>UỐNG NƯỚC KHI CHẠY BỘ</h5>
-                      <p>Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit.
-                                Eligendi dignissimos amet nisi
-                                ea error aspernatur distinctio ipsa expedita fugit odit, minima praesentium quo
-                                nulla.
-                                Suscipit veritatis aspernatur quam numquam accusamus.</p>
-                    </div>
-                  </div>
-                  <div className="carousel-item">
-                    <img src={bg16} className="d-block w-100 slide_img_cal" alt="..."/>
-                    <div className="carousel-caption d-none d-md-block">
-                      <h5 className='bg-dark'>KIẾN THỨC TỔNG QUAN</h5>
-                      <p>Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit.
-                                Eligendi dignissimos amet nisi
-                                ea error aspernatur distinctio ipsa expedita fugit odit, minima praesentium quo
-                                nulla.
-                                Suscipit veritatis aspernatur quam numquam accusamus.</p>
-                    </div>
+        <div className=" mt-5">
+          <h2 className="text-danger text-center">BLOG CHIA SẺ KIẾN THỨC</h2>
+         
+          <OwlCarousel className='owl-theme mt-4' autoplay loop nav center items={4} responsive={responsive}>
+              <div className='item card_carosel' style={{backgroundColor: '#1e1e1e'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
                   </div>
                 </div>
-               
               </div>
-          </div>
+
+              <div className='item card_carosel' style={{backgroundColor: '#1a1a1a'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div className='item card_carosel' style={{backgroundColor: '#1e1e1e'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='item card_carosel' style={{backgroundColor: '#1a1a1a'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='item card_carosel' style={{backgroundColor: '#1e1e1e'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='item card_carosel' style={{backgroundColor: '#1a1a1a'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='item card_carosel' style={{backgroundColor: '#1e1e1e'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='item card_carosel' style={{backgroundColor: '#1a1a1a'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='item card_carosel' style={{backgroundColor: '#1a1a1a'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div className='item card_carosel' style={{backgroundColor: '#1a1a1a'}}>
+                <div>
+                  <img src={bg13}/>
+                  <div className="text-center text-light " style={{padding: "0 20px"}}>
+                      <h5 className='mt-1 fst-italic'>CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
+                      <p className='owl_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at est felis. Praesent eu pellentesque nisl, in vulputate tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                      <div className='d-flex justify-content-center align-items-center'>
+                        <button  className="header_btn bg-danger text-light mt-3" style={{width: '120px'}}>Xem chi tiết</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              
+            </OwlCarousel>
         </div>
         
-        <div className="main_sub_detal mt-5 mb-5">
+
+       
+
+        <div className="main_sub_detal mt-5" style={{padding: '10px 0 30px 0 '}}>
           <div id="constate_before" className="container-xl d-flex justify-content-between">
             <div id="constate_after_img" style={{width: '40%'}}><img src={formImg} style={{width: '100%', height: 'auto'}} /></div>
             <div id="constate_after" style={{width: '55%', textAlign: 'start'}}>

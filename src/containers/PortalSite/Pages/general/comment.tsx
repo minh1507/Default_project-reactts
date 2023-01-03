@@ -32,17 +32,17 @@ const Comment = (props: Props) => {
       <div>
          {comment.slice(0, item).map((val, index)=> {
                     return(
-                      <div key={val.id} className="mb-3" style={{border: '1px solid gainsboro', borderRadius: '5px 5px'}}>
-                      <div id="main_comment" style={{padding: '10px 10px'}}>
-                        <div className="d-flex mb-3">
-                          <img src={avatar} />
-                          <div style={{marginLeft: '10px'}}>
-                            <p style={{fontWeight: 'bold'}}>{val.name}</p>
-                            <p style={{fontSize: 'calc(1rem * 0.8)', color: 'gray'}}><i className="bi bi-clock" />
-                              {val.time}</p>
+                      <div key={index} className="mb-3" style={{border: '1px solid gainsboro', borderRadius: '5px 5px'}}>
+                        <div id="main_comment" style={{padding: '10px 10px'}}>
+                          <div className="d-flex mb-3">
+                            <img src={avatar} />
+                            <div style={{marginLeft: '10px'}}>
+                              <p style={{fontWeight: 'bold'}}>{val.name}</p>
+                              <p style={{fontSize: 'calc(1rem * 0.8)', color: 'gray'}}><i className="bi bi-clock" />
+                                {val.time}</p>
+                            </div>
                           </div>
-                        </div>
-                        <p className="mb-4 text-muted" style={{textAlign: 'justify', fontSize: 'calc(1rem * 0.8)'}}>
+                          <p className="mb-4 text-muted" style={{textAlign: 'justify', fontSize: 'calc(1rem * 0.8)'}}>
                           {val.cons}</p>
                           {val.stat 
                           ?
@@ -54,12 +54,11 @@ const Comment = (props: Props) => {
                             hồi</p>
                           }
                         
+                        </div>
                       </div>
-                    </div>
                     )
                   })}
                  
-                
                   <div className="d-flex justify-content-center align-items-center">
                     <span onClick={() => {seeMore()}} style={{cursor: 'pointer'}}><i className="bi bi-caret-down-fill" /> Xem thêm <i className="bi bi-caret-down-fill" /></span>
                   </div>

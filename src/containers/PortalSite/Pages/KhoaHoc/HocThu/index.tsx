@@ -137,7 +137,7 @@ const HocThu = (props: Props) => {
                     </p>
                   </div>
 
-                 <Comment/>
+                 <Comment tital='ok'/>
                
                 </div>
               </div>

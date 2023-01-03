@@ -2,7 +2,7 @@
     "routes": [
         {
             "code": "TrangChu",
-            "url": "/",
+            "url": "/trang-chu",
             "isLayout": true
         },
         {
@@ -38,6 +38,36 @@
         {
             "code": "KhoaHocThu",
             "url": "/khoa-hoc-thu",
+            "isLayout": true
+        },
+        {
+            "code": "KienThuChiTiet",
+            "url": "/kien-thuc-chi-tiet",
+            "isLayout": true
+        },
+        {
+            "code": "ThanhToan",
+            "url": "/thanh-toan",
+            "isLayout": true
+        },
+        {
+            "code": "GioHang",
+            "url": "/gio-hang",
+            "isLayout": true
+        },
+        {
+            "code": "DangNhap",
+            "url": "/dang-nhap",
+            "isLayout": false
+        },
+        {
+            "code": "DangKy",
+            "url": "/dang-ky",
+            "isLayout": false
+        },
+        {
+            "code": "Menu",
+            "url": "/menu",
             "isLayout": true
         }
     ],
