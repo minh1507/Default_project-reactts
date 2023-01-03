@@ -13,6 +13,12 @@
             "isMenu": true
         },
         {
+            "code": "Menu",
+            "url": "/menu",
+            "isLayout": true,
+            "isMenu": true
+        },
+        {
             "code": "Account",
             "url": "/account",
             "isLayout": true,
@@ -152,6 +158,12 @@
                     "code": "Config",
                     "name" : "Cấu hình chung",
                     "url": "/config",
+                    "icon": "bi bi-grid"
+                },
+                {
+                    "code": "Menu",
+                    "name" : "Danh sách",
+                    "url": "/menu",
                     "icon": "bi bi-grid"
                 },
                 {

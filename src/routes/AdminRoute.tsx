@@ -17,6 +17,7 @@ import RestorePassword from 'containers/AdminSite/Pages/RestorePassword';
 import Signup from 'containers/AdminSite/Pages/Signup';
 import LayoutAdmin from 'containers/AdminSite/Layouts';
 import Page401 from 'containers/AdminSite/Pages/Page401';
+import Menu from 'containers/AdminSite/Pages/User/Menu';
 interface Props {
     Apps: any
 }
@@ -36,6 +37,8 @@ const AdminRoute = (props: Props) => {
                 return <Account />;
             case "Organ":
                 return <Organ />;
+            case "Menu":
+                return <Menu />;
             case "Permission":
                 return <Permission />;
             case "Role":
