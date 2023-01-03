@@ -64,11 +64,6 @@
             "code": "DangKy",
             "url": "/dang-ky",
             "isLayout": false
-        },
-        {
-            "code": "Menu",
-            "url": "/menu",
-            "isLayout": true
         }
     ],
     "menu": [

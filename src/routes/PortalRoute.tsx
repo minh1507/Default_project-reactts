@@ -16,7 +16,6 @@ import ThanhToan from 'containers/PortalSite/Pages/ThanhToan';
 import GioHang from 'containers/PortalSite/Pages/GioHang';
 import DangNhap from 'containers/PortalSite/auth/DangNhap';
 import DangKy from 'containers/PortalSite/auth/DangKy';
-import QuanTri from 'containers/PortalSite/Pages/QuanTri';
 interface Props {
        
 }
@@ -52,8 +51,7 @@ const PortalRoute = (props: Props) => {
                 return <DangNhap />;
             case "DangKy":
                 return <DangKy />;
-            case "Menu":
-                return <QuanTri />;
+        
             default:
                 return <></>;                                                                                                         
         }        
