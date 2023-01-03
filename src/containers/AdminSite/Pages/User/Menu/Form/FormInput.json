@@ -1,6 +1,6 @@
 {
 	"Key" : "Menu",
-	"Title" : "Danh sách tổng",
+	"Title" : "Cây menu",
 	"Rows": 3,		
 	"Controls" : [
 		{

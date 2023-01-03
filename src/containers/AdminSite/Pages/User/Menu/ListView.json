@@ -1,7 +1,7 @@
 {
     "DataGrid": {
         "Key": "Menu",
-        "Title": "Dánh sách con",
+        "Title": "Danh sách menu con",
         "ColumnDefs": [
             {                
                 "Key": "Code",

@@ -35,22 +35,16 @@ const Menu = (props: Props) => {
         let nodes:any = document.getElementsByClassName("el-tree-node__content");
         for(let i = 0;i < nodes.length;i++)
         {
-            if(nodes[i].innerText == AppName)
-            {
-                var element = nodes[i];
-                element.classList.add("highlight-current");
-            }
+            var element = nodes[i];
+            element.classList.add("highlight-current");  
         }
     }
     const RemoveHightlightToRootElement = () => {
         let nodes:any = document.getElementsByClassName("el-tree-node__content");
         for(let i = 0;i < nodes.length;i++)
         {
-            if(nodes[i].innerText == AppName)
-            {
-                var element = nodes[i];
-                element.classList.remove("highlight-current");
-            }
+            var element = nodes[i];
+            element.classList.remove("highlight-current");
         }
     }    
     const ActionEvents = {
@@ -98,7 +92,7 @@ const Menu = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog title={OrganId_List ? "Sửa danh sách": "Tạo mới danh sách"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog title={OrganId_List ? "Sửa menu": "Tạo mới menu"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <OrganForm Id={OrganId_List} TreeId={OrganId_Tree.current} TreeData={state.DataTree} ReloadTableItems = {ReloadTableItems} />
             </CDialog>  
             :<div></div>
@@ -109,7 +103,7 @@ const Menu = (props: Props) => {
         <>
             <div className='row'>
                 <div className='col-sm-4'>
-                    <ACard title={"Danh sách tổng"} buttonGroups={ButtonGroupsRender_TreeOrgan()}>
+                    <ACard title={"Cây menu"} buttonGroups={ButtonGroupsRender_TreeOrgan()}>
                         <CTree onNodeClicked={onNodeClicked} 
                             options={{ children: 'Children', label: 'Name' }}
                             data={state.DataTree} 
@@ -119,7 +113,7 @@ const Menu = (props: Props) => {
                     </ACard>          
                 </div>
                 <div className='col-sm-8'>
-                    <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa danh sách này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
+                    <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa menu này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
                     <CNotification ref={refNotification} />   
                     {DialogMemo}
                     <ACard title={organListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
