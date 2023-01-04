@@ -7,9 +7,8 @@ export const Reducer = (state: IState = InitState, action: any) => {
         DataItems: action.items,
       };
     case "GetTree":
-      // let nodeTree = state.DataTree;
-      // nodeTree[0].Children = action.tree;
-      let nodeTree = action.tree;
+      let nodeTree = state.DataTree;
+      nodeTree[0].Children = action.tree;
       return {
         ...state,
         DataTree: nodeTree,

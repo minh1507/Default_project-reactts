@@ -18,5 +18,12 @@ export interface IState {
 }
 export const InitState: IState = {
   DataItems: [],
-  DataTree: [],
+  DataTree: [
+    {
+      Id: Guid.Empty,
+      Code: AppName,
+      Name: AppName,
+      Children: [],
+    },
+  ],
 };
