@@ -78,13 +78,8 @@ interface QuerySearch {
   Query: string,
   Values: string[]
 }
-interface BodyAjax {
-  SearchBy: QuerySearch,
-  OrderBy: string
-}
 interface IAjax {
   url: string,
   method: string,
-  data? : BodyAjax
 }
-export { IAjax, BodyAjax, QuerySearch, INotification, IUserInfo, IResponseMessage, IDataGrid, IColumnDefs, IActionDefs, IControlDefs, IFormDefs, IControlOptions}
+export { IAjax, QuerySearch, INotification, IUserInfo, IResponseMessage, IDataGrid, IColumnDefs, IActionDefs, IControlDefs, IFormDefs, IControlOptions}
