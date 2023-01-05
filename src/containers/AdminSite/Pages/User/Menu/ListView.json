@@ -4,13 +4,23 @@
         "Title": "Danh sách menu con",
         "ColumnDefs": [
             {                
-                "Key": "Code",
+                "Key": "Ma",
                 "Title": "Mã",                
                 "Align": "center"    
             },
             {
-                "Key": "Name",
+                "Key": "Ten",
                 "Title": "Tên",                
+                "Align": "center"   
+            },
+            {
+                "Key": "URL",
+                "Title": "Url",                
+                "Align": "center"   
+            },
+            {
+                "Key": "TrangThaiBanGhi",
+                "Title": "Trang thai",               
                 "Align": "center"   
             }
         ],

@@ -7,7 +7,7 @@ import { IModelItem } from "./InitState";
 export const Actions: any = {
   GetItem: async (id: String, treeId: String, dispatch: any) => {
     if (id) {
-      let res: IResponseMessage = await OrganService.GetItem(id);
+      let res: IResponseMessage = await MenuService.GetItem(id);
       if (res && res.Success) {
         res.Data.ParentId = treeId;
         dispatch({
@@ -31,7 +31,6 @@ export const Actions: any = {
     }
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
-    console.log(item);
     let res: IResponseMessage = await MenuService.CreateItem(item);
     return res;
   },
@@ -41,14 +40,14 @@ export const Actions: any = {
   },
   CheckDuplicateAttributes: async (
     id: any,
-    code: any,
-    parentId: any,
+    ma: any,
+    idMenuCha: any,
     dispatch: any
   ) => {
-    let res: IResponseMessage = await OrganService.CheckDuplicateAttributes(
+    let res: IResponseMessage = await MenuService.CheckDuplicateAttributes(
       id,
-      code,
-      parentId
+      ma,
+      idMenuCha
     );
     return res;
   },

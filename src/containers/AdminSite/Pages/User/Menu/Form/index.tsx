@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { InitState } from './InitState';
 import { Actions } from './Action';
 import { Reducer } from './Reducer';
-import organFormInputJson from './FormInput.json';
+import menuFormInputJson from './FormInput.json';
 import { Tree } from 'common/Tree';
 interface Props {
   Id: string,
@@ -21,7 +21,7 @@ const OrganForm = (props: Props) => {
   useEffect(() => {
       Actions.GetItem(props.Id, props.TreeId, dispatch);
   }, [props.Id])
-  let organFormInput:any = organFormInputJson;
+  let menuFormInput:any = menuFormInputJson;
   const refNotification = useRef<any>();
   const refDynamicForm = useRef<any>();
   const ActionEvents = {
@@ -32,41 +32,38 @@ const OrganForm = (props: Props) => {
         let stateValues = refDynamicForm.current.getStateValues();      
         stateValues.idMenuCha = props.TreeId;   
         let organParent = Tree.getNodeFromTree(props.TreeData[0], stateValues.idMenuCha)
-        if(organParent && organParent.Type == 1 && stateValues.Type == 0)
+        if(organParent && organParent.Type == 1)
         {
           refNotification.current.showNotification("warning", Message.DeptNotInOrgan);  
           return;  
         }             
         let res:IResponseMessage = null;                
-        // res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Code, stateValues.ParentId, dispatch);
-        // res.Data
-        if(false) 
+        res = await Actions.CheckDuplicateAttributes(stateValues.id, stateValues.ma, stateValues.idMenuCha, dispatch);
+        
+        if(res.Data) 
         {
           refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
           return; 
         }                           
         if(props.Id) 
         {          
-          res = await Actions.UpdateItem(stateValues);    
-          console.log(res)                  
+          res = await Actions.UpdateItem(stateValues);                   
         }          
         else
         {
-          
-          let check = await Actions.CreateItem(stateValues);  
-          console.log(check)
+          res = await Actions.CreateItem(stateValues);  
         }           
-        // if(res.Success) {            
-        //   refNotification.current.showNotification("success", res.Message);          
-        //   props.ReloadTableItems();
-        // }                    
+        if(res.Success) {            
+          refNotification.current.showNotification("success", res.Message);          
+          props.ReloadTableItems();
+        }                    
       }
     },
   }
   return(
     <>
       <CNotification ref={refNotification} />   
-      <CDynamicForm ref={refDynamicForm} initValues={state.DataItem} formDefs={organFormInput} actionEvents={ActionEvents} />
+      <CDynamicForm ref={refDynamicForm} initValues={state.DataItem} formDefs={menuFormInput} actionEvents={ActionEvents} />
     </>
   )
 }

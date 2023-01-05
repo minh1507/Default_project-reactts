@@ -10,25 +10,25 @@ import React, { useCallback, useEffect, useMemo, useReducer, useRef, useState } 
 import { connect } from "react-redux";
 import { Actions } from './Action';
 import { InitState } from './InitState';
-import organListViewJson from './ListView.json';
+import menuListViewJson from './ListView.json';
 import { Reducer } from './Reducer';
-import OrganForm from './Form'
+import MenuForm from './Form'
 interface Props {
 
 }
 
 const Menu = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
-    const OrganId_Tree = useRef(Guid.Empty)
-    const [OrganId_List, setTreeOrganId_List] = useState('');
-    const organListView:any = organListViewJson;    
+    const MenuId_Tree = useRef(Guid.Empty)
+    const [MenuId_List, setTreeMenuId_List] = useState('');
+    const menuListView:any = menuListViewJson;    
     const refNotification = useRef<any>();
     const refConfirm_DeleteItem = useRef<any>();
     const refDynamicTable = useRef<any>();
     const [dialogVisible, setDialogVisible] = useState(false);
     useEffect(() => {
         Actions.GetTree(dispatch);
-        Actions.GetItems(OrganId_Tree.current, dispatch);     
+        Actions.GetItems(MenuId_Tree.current, dispatch);     
         AddHightlightToRootElement();           
     }, [])
     const AddHightlightToRootElement = () => {
@@ -49,12 +49,12 @@ const Menu = (props: Props) => {
     }    
     const ActionEvents = {
         onClickCreate: () => {
-            setTreeOrganId_List('');
+            setTreeMenuId_List('');
             setDialogVisible(true);    
         },
         onClickUpdate: () => {
             if(!getRowId()) { refNotification.current.showNotification("warning", Message.Require_Row_Selection); return; }            
-            setTreeOrganId_List(getRowId());
+            setTreeMenuId_List(getRowId());
             setDialogVisible(true);            
         },
         onClickDelete: async () => {
@@ -70,13 +70,13 @@ const Menu = (props: Props) => {
         }  
     }
     const ReloadTableItems = () => {
-        Actions.GetItems(OrganId_Tree.current, dispatch);  
+        Actions.GetItems(MenuId_Tree.current, dispatch);  
     }
     const getRowId = () => {        
         return refDynamicTable.current.getRowId();
     }
     const ButtonGroupsRender = () => {
-        return <CDynamicButton actionDefs={organListView.DataGrid.ActionDefs} actions={ActionEvents} />;
+        return <CDynamicButton actionDefs={menuListView.DataGrid.ActionDefs} actions={ActionEvents} />;
     }  
     const RefeshTree = () => {
         Actions.GetTree(dispatch);
@@ -86,14 +86,14 @@ const Menu = (props: Props) => {
     }
     const onNodeClicked = (data:any, node:any) => {
         RemoveHightlightToRootElement()
-        OrganId_Tree.current = data.Id;        
+        MenuId_Tree.current = data.Id;        
         Actions.GetItems(data.Id, dispatch);  
     }
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog title={OrganId_List ? "Sửa menu": "Tạo mới menu"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
-                <OrganForm Id={OrganId_List} TreeId={OrganId_Tree.current} TreeData={state.DataTree} ReloadTableItems = {ReloadTableItems} />
+            <CDialog title={MenuId_List ? "Sửa menu": "Tạo mới menu"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+                <MenuForm Id={MenuId_List} TreeId={MenuId_Tree.current} TreeData={state.DataTree} ReloadTableItems = {ReloadTableItems} />
             </CDialog>  
             :<div></div>
         }
@@ -116,12 +116,12 @@ const Menu = (props: Props) => {
                     <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa menu này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
                     <CNotification ref={refNotification} />   
                     {DialogMemo}
-                    <ACard title={organListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
+                    <ACard title={menuListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
                         <CDynamicTable 
                             ref={refDynamicTable}
-                            id={organListView.DataGrid.Key} 
-                            key={organListView.DataGrid.Key} 
-                            columnDefs={organListView.DataGrid.ColumnDefs} 
+                            id={menuListView.DataGrid.Key} 
+                            key={menuListView.DataGrid.Key} 
+                            columnDefs={menuListView.DataGrid.ColumnDefs} 
                             dataItems={state.DataItems}
                         />                
                     </ACard>

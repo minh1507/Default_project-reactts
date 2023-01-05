@@ -29,7 +29,6 @@ export const Actions: any = {
     }
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
-    console.log(item);
     let res: IResponseMessage = await OrganService.CreateItem(item);
     return res;
   },
