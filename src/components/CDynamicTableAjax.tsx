@@ -12,7 +12,7 @@ interface Props {
     totalItems?: any
     columnDefs: any
     ajax: IAjax
-    onChangeData: any
+    onChangeData?: any
 }
 
 const CDynamicTableAjax = forwardRef((props: Props, ref) => {    
@@ -22,10 +22,10 @@ const CDynamicTableAjax = forwardRef((props: Props, ref) => {
     }, []);
     useImperativeHandle(ref, () => ({
         ReloadDataTable: () => { ReloadDataTable(); },
+        SetSearchByQuery: (value:any) => { $("#" + props.id + "_SearchBy").attr("data-query", value); },
+        SetSearchByValues: (value:any) => {  $("#" + props.id + "_SearchBy").attr("data-values", value); },
+        SetOrderByValues: (value:any) => {  $("#" + props.id + "_Orderby").attr("data-query", value); },
     }));
-    const ajaxConfig = () => {
-
-    }
     const option_orders = () => {
         let columnDefs:IColumnDefs[] = props.columnDefs;
         let orders = [];
@@ -100,7 +100,7 @@ const CDynamicTableAjax = forwardRef((props: Props, ref) => {
                 querySearch.Values.push(search);
                 if(i != columnsTable.length - 1)
                 {
-                    querySearch.Query += " and "
+                    querySearch.Query += " and ";
                 }
             }
         }
@@ -136,8 +136,8 @@ const CDynamicTableAjax = forwardRef((props: Props, ref) => {
             processing: true,
             serverSide: true,
             ajax: {
-                url: "http://localhost:5050/api/Sys_Role/Search",
-                type: "Post",
+                url: props.ajax.url,
+                type: props.ajax.method,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 beforeSend: function (request:any) {
@@ -146,10 +146,32 @@ const CDynamicTableAjax = forwardRef((props: Props, ref) => {
                 data: (d:any) => {
                     d.page = d.start / d.length + 1;
                     d.pageSize = d.length;
-                    let querySearchBy:QuerySearch = BuildQuerySearchBy(d.columns, d.search.value);
-                    let queryOrderBy = BuildQueryOrderBy(d.order);;
+                    let querySearchBy = BuildQuerySearchBy(d.columns, d.search.value);
+                    let formQuerySearchBy:any = $("#" + props.id + "_SearchBy").attr("data-query");
+                    let formValuesSearchBy:any = $("#" + props.id + "_SearchBy").attr("data-values");
+                    if(formQuerySearchBy)
+                    {
+                        if(querySearchBy.Query)
+                        {
+                            querySearchBy.Query += " and ";
+                        }
+                        querySearchBy.Query += formQuerySearchBy;
+                        querySearchBy.Values.push(...JSON.parse(formValuesSearchBy));
+                    }
+                    let queryOrderBy = BuildQueryOrderBy(d.order);
+                    let formQueryOrderBy:any = $("#" + props.id + "_OrderBy").attr("data-query");
+                    if(formQueryOrderBy)
+                    {
+                        if(queryOrderBy)
+                        {
+                            queryOrderBy += " , ";
+                        }
+                        queryOrderBy += formQueryOrderBy;
+                    }
                     d.searchBy =  querySearchBy;
                     d.orderBy = queryOrderBy;
+                    
+                    console.log($("#searchBy").val())
                     return JSON.stringify(d)
                 },
                 dataSrc: (res:any) => {
@@ -212,17 +234,21 @@ const CDynamicTableAjax = forwardRef((props: Props, ref) => {
                 }
                 $('.paginate_button', this.api().table().container())          
                 .on('click', function(){
-                    props.onChangeData(table.page.info())
+                    if(props.onChangeData) {
+                        props.onChangeData(table.page.info())
+                    }
                 }); 
             }
         });
         $dt.on('length.dt', function ( e, settings, len ) {
-            props.onChangeData(table.page.info())
+            if(props.onChangeData) {
+                props.onChangeData(table.page.info())
+            }
         } );
         refTable.current = table;
     }
     const ReloadDataTable = () => {
-        refTable.current.ajax.url().reload();
+        refTable.current.ajax.url(props.ajax.url).load();
     }
     const THeadContentRender = () => {
         let tHs = [], columnDefs:IColumnDefs[] = props.columnDefs;
@@ -234,7 +260,8 @@ const CDynamicTableAjax = forwardRef((props: Props, ref) => {
     }
     return (
         <>
-            <button onClick={() => { ReloadDataTable() }}>Click</button>
+            <input id={props.id + "_SearchBy"} data-query="" data-values="" type="hidden" />
+            <input id={props.id + "_OrderBy"} data-query="" type="hidden" />
             <table id={props.id} className="dataTableCustom" style={{"width":"100%"}}>
                 <thead>
                     {THeadContentRender()}

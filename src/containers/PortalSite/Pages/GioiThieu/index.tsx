@@ -153,7 +153,7 @@ const GioiThieu = (props: Props) => {
             <p className="mt-3 mb-5" style={{textAlign: 'center'}}>Đội ngũ Team Coach và Leader luôn nỗ lực tạo nên những nét
               riêng biệt bằng các buổi training thiết kế theo những mục tiêu cụ thể:
             </p>
-            <div className="card mt-5" style={{maxWidth: '100%'}}>
+            <div className="card mt-2" style={{maxWidth: '100%'}}>
               <div className="row g-0 p-2">
                 <div className="col-md-4" style={{padding: '2px'}}>
                   <img src={bg36} className="img-fluid rounded-start" alt="..." width='100%'/>
@@ -174,7 +174,7 @@ const GioiThieu = (props: Props) => {
                 </div>
               </div>
             </div>
-            <div className="card mt-5" style={{maxWidth: '100%'}}>
+            <div className="card mt-2" style={{maxWidth: '100%'}}>
               <div className="row g-0 p-2">
                 <div className="col-md-4" style={{padding: '2px'}}>
                   <img src={bg36} className="img-fluid rounded-start" alt="..." width='100%'/>
@@ -195,7 +195,7 @@ const GioiThieu = (props: Props) => {
                 </div>
               </div>
             </div>
-            <div className="card mt-5" style={{maxWidth: '100%'}}>
+            <div className="card mt-2" style={{maxWidth: '100%'}}>
               <div className="row g-0 p-2">
                 <div className="col-md-4" style={{padding: '2px'}}>
                   <img src={bg36} className="img-fluid rounded-start" alt="..." width='100%'/>
@@ -216,7 +216,7 @@ const GioiThieu = (props: Props) => {
                 </div>
               </div>
             </div>
-            <div className="card mt-5" style={{maxWidth: '100%'}}>
+            <div className="card mt-2" style={{maxWidth: '100%'}}>
               <div className="row g-0 p-2">
                 <div className="col-md-4" style={{padding: '2px'}}>
                   <img src={bg36} className="img-fluid rounded-start" alt="..." width='100%'/>

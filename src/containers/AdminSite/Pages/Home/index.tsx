@@ -1,24 +1,15 @@
 import { Cookie } from 'common/Cookie';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { connect } from "react-redux";
 import CDynamicTableAjax from "components/CDynamicTableAjax";
 import roleListViewJson from 'containers/AdminSite/Pages/User/Role/ListView.json';
 import { IAjax } from 'common/Models';
+import $ from 'jquery'; 
 interface Props {
        
 }
 
 const Home = (props: Props) => {  
-    console.log(123)
-    const roleListView:any = roleListViewJson;    
-    const [ajax, setAjax] = useState<IAjax>({
-        url: "http://localhost:5050/api/Sys_Role/Search",
-        method: 'post',
-        data: { SearchBy: { Query: "", Values: [] }, OrderBy: "" }
-    })
-    const onChangeTable = (pageInfo:any) => {
-
-    }
     return(
         <section className="section dashboard">
             <div className="row">
@@ -70,15 +61,6 @@ const Home = (props: Props) => {
                         </div>
                     </div>
                 </div>               
-            </div>
-            <div className="row">
-                <div className="col-md-12">
-                    <CDynamicTableAjax 
-                        id="test_abc" 
-                        onChangeData={(pageInfo:any) => { console.log(pageInfo) }}
-                        columnDefs={roleListView.DataGrid.ColumnDefs} 
-                        ajax={ajax} />
-                </div>
             </div>
         </section>
     )

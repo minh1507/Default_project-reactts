@@ -123,12 +123,12 @@
   // start header
 
   .headers {
-    height: 15vh;
+    height: 14vh;
     background-color: white;
   }
 
   .header_top {
-    height: 40%;
+    height: 30%;
   }
 
   .header_top_container {
@@ -169,7 +169,7 @@
   }
 
   .header_bottom {
-    height: 60%;
+    height: 70%;
   }
 
   .header_bottom_logo {
@@ -341,7 +341,7 @@
 
   .main_sub_detal {
     height: auto;
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
   }
 
@@ -864,6 +864,7 @@
 
   .show_catching {
     position: relative;
+    font-weight: 600;
   }
 
   .main_dang_nhap {
