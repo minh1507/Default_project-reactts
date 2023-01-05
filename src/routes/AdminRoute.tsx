@@ -17,7 +17,10 @@ import RestorePassword from 'containers/AdminSite/Pages/RestorePassword';
 import Signup from 'containers/AdminSite/Pages/Signup';
 import LayoutAdmin from 'containers/AdminSite/Layouts';
 import Page401 from 'containers/AdminSite/Pages/Page401';
-import Menu from 'containers/AdminSite/Pages/User/Menu';
+import QuanLyTrang from 'containers/AdminSite/Pages/User/Menu/QuanLyTrang';
+import QuanlyTinTuc from 'containers/AdminSite/Pages/User/Menu/QuanLyNhomTinTuc';
+import QuanLyMonHoc from 'containers/AdminSite/Pages/User/Menu/QuanLyMonHoc';
+import QuanLySuKien from 'containers/AdminSite/Pages/User/Menu/QuanLySuKien';
 interface Props {
     Apps: any
 }
@@ -37,8 +40,14 @@ const AdminRoute = (props: Props) => {
                 return <Account />;
             case "Organ":
                 return <Organ />;
-            case "Menu":
-                return <Menu />;
+            case "QuanLyTrang":
+                return <QuanLyTrang />;
+            case "QuanlyTinTuc":
+                return <QuanlyTinTuc/>;
+            case "QuanlyMonHoc":
+                return <QuanLyMonHoc/>;
+            case "QuanlySuKien":
+                return <QuanLySuKien/>
             case "Permission":
                 return <Permission />;
             case "Role":

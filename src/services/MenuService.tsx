@@ -31,13 +31,28 @@ const MenuService =  {
         });
         return res
     },   
+    UpdateItem: async (data:any) => {        
+      let res:any = await request({
+          url: `/${Por_Menu}`,
+          method: 'put',
+          data
+      });
+      return res
+    },   
     CheckDuplicateAttributes: async (id:any, ma:any, idMenuCha:any) => {
       let res:any = await request({
         url: `/${Por_Menu}/CheckDuplicateAttributes?id=${id}&ma=${ma}&idMenuCha=${idMenuCha}`,
         method: 'get'
       })
       return res;
-    }   
+    },
+    DeleteById: async (id:any) => {
+      let res:any = await request({
+        url: `/${Por_Menu}/DeleteById/${id}`,
+        method: 'delete'
+      })
+      return res;
+    }
 }
 
 export default MenuService;

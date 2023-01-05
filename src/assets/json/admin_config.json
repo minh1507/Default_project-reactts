@@ -13,8 +13,26 @@
             "isMenu": true
         },
         {
-            "code": "Menu",
-            "url": "/menu",
+            "code": "QuanLyTrang",
+            "url": "/quan-ly-trang",
+            "isLayout": true,
+            "isMenu": true
+        },
+        {
+            "code": "QuanlyTinTuc",
+            "url": "/quan-ly-nhom-tuc",
+            "isLayout": true,
+            "isMenu": true
+        },
+        {
+            "code": "QuanlyMonHoc",
+            "url": "/quan-ly-mon-hoc",
+            "isLayout": true,
+            "isMenu": true
+        },
+        {
+            "code": "QuanlySuKien",
+            "url": "/quan-ly-su-kien",
             "isLayout": true,
             "isMenu": true
         },
@@ -161,9 +179,27 @@
                     "icon": "bi bi-grid"
                 },
                 {
-                    "code": "Menu",
-                    "name" : "Menu",
-                    "url": "/menu",
+                    "code": "QuanLyTrang",
+                    "name" : "Quản lý menu",
+                    "url": "/quan-ly-trang",
+                    "icon": "bi bi-grid"
+                },
+                {
+                    "code": "QuanlyMonHoc",
+                    "name" : "Quản lý môn học",
+                    "url": "/quan-ly-mon-hoc",
+                    "icon": "bi bi-grid"
+                },
+                {
+                    "code": "QuanlySuKien",
+                    "name" : "Quản lý nhóm sự kiện",
+                    "url": "/quan-ly-su-kien",
+                    "icon": "bi bi-grid"
+                },
+                {
+                    "code": "QuanlyTinTuc",
+                    "name" : "Quản lý nhóm tin tức",
+                    "url": "/quan-ly-nhom-tuc",
                     "icon": "bi bi-grid"
                 },
                 {

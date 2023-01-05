@@ -17,7 +17,7 @@ interface Props {
 
 }
 
-const Menu = (props: Props) => {  
+const QuanlyMonHoc = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
     const MenuId_Tree = useRef(Guid.Empty)
     const [MenuId_List, setTreeMenuId_List] = useState('');
@@ -137,4 +137,4 @@ const mapDispatchToProps = {
     
 };
 
-export default connect(mapState, mapDispatchToProps)(Menu);
+export default connect(mapState, mapDispatchToProps)(QuanlyMonHoc);
