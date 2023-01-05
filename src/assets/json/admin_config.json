@@ -162,7 +162,7 @@
                 },
                 {
                     "code": "Menu",
-                    "name" : "Danh sách",
+                    "name" : "Menu",
                     "url": "/menu",
                     "icon": "bi bi-grid"
                 },

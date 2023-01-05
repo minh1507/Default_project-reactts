@@ -30,32 +30,36 @@ const OrganForm = (props: Props) => {
       if(isValid)
       {        
         let stateValues = refDynamicForm.current.getStateValues();      
-        stateValues.ParentId = props.TreeId;   
-        let organParent = Tree.getNodeFromTree(props.TreeData[0], stateValues.ParentId)
+        stateValues.idMenuCha = props.TreeId;   
+        let organParent = Tree.getNodeFromTree(props.TreeData[0], stateValues.idMenuCha)
         if(organParent && organParent.Type == 1 && stateValues.Type == 0)
         {
           refNotification.current.showNotification("warning", Message.DeptNotInOrgan);  
           return;  
         }             
         let res:IResponseMessage = null;                
-        res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Code, stateValues.ParentId, dispatch);
-        if(res.Data) 
+        // res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Code, stateValues.ParentId, dispatch);
+        // res.Data
+        if(false) 
         {
           refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
           return; 
         }                           
         if(props.Id) 
         {          
-          res = await Actions.UpdateItem(stateValues);                      
+          res = await Actions.UpdateItem(stateValues);    
+          console.log(res)                  
         }          
         else
         {
-          res = await Actions.CreateItem(stateValues);  
+          
+          let check = await Actions.CreateItem(stateValues);  
+          console.log(check)
         }           
-        if(res.Success) {            
-          refNotification.current.showNotification("success", res.Message);          
-          props.ReloadTableItems();
-        }                    
+        // if(res.Success) {            
+        //   refNotification.current.showNotification("success", res.Message);          
+        //   props.ReloadTableItems();
+        // }                    
       }
     },
   }

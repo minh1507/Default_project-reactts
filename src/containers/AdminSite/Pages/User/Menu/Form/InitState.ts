@@ -1,21 +1,23 @@
 import { Guid } from "common/Enums";
 
 export interface IModelItem {
-    Id: String;
-    Code: String;
-    Name: String;
-    Type?: Number;
-    ParentId?: String;
+  id: String;
+  ma: String;
+  ten: String;
+  url: String;
+  idMenuCha?: String;
+  trangThaiBanGhi: Boolean;
 }
 export interface IState {
-    DataItem: IModelItem
+  DataItem: IModelItem;
 }
 export const InitState: IState = {
-    DataItem: {
-        Id: Guid.Empty,
-        Code: "",
-        Name: "",
-        Type: null,
-        ParentId: Guid.Empty
-    }
-};  
+  DataItem: {
+    id: Guid.Empty,
+    ma: "",
+    ten: "",
+    url: "",
+    idMenuCha: Guid.Empty,
+    trangThaiBanGhi: false,
+  },
+};
