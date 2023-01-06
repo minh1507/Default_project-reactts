@@ -1,23 +1,30 @@
 import request from "common/Request"
 const Por_NhomTinTuc = "Por_NhomTinTuc";
 const QuanLyNhomTinTuc = {    
-    GetItems: async () => {        
+    GetByParentId: async (idMenuCha:any) => {
         let res:any = await request({
-            url: `/${Por_NhomTinTuc}/List?page=1&pageSize=1000&totalLimitItems=0&searchBy=`,
-            method: 'get'
-        });
-        return res
+          url: `/${Por_NhomTinTuc}/List/${idMenuCha}`,
+          method: 'get'
+        })
+        return res;
+    },
+    GetItem: async (id:String) => {        
+      let res:any = await request({
+          url: `/${Por_NhomTinTuc}/${id}`,
+          method: 'get'
+      });
+      return res
+    },   
+    GetTree: async () => {
+        let res:any = await request({
+          url: `/${Por_NhomTinTuc}/Tree`,
+          method: 'get'
+        })
+        return res;
     },
     GetCategories: async () => {        
         let res:any = await request({
             url: `/${Por_NhomTinTuc}/Categories`,
-            method: 'get'
-        });
-        return res
-    },
-    GetItem: async (id:String) => {        
-        let res:any = await request({
-            url: `/${Por_NhomTinTuc}/${id}`,
             method: 'get'
         });
         return res
@@ -46,9 +53,9 @@ const QuanLyNhomTinTuc = {
         });
         return res
     },
-    CheckDuplicateAttributes: async (id:any, ma:any) => {
+    CheckDuplicateAttributes: async (id:any, ma:any,idMonHocCha:any) => {
         let res:any = await request({
-          url: `/${Por_NhomTinTuc}/CheckDuplicateAttributes?id=${id}&ma=${ma}`,
+          url: `/${Por_NhomTinTuc}/CheckDuplicateAttributes?id=${id}&ma=${ma}&idMonHocCha=${idMonHocCha}`,
           method: 'get'
         })
         return res;

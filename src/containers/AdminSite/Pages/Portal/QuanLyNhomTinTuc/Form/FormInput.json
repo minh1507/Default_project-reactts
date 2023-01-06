@@ -1,6 +1,6 @@
 {
-	"Key" : "Menu",
-	"Title" : "Cây menu",
+	"Key" : "SuKien",
+	"Title" : "Cây sự kiện",
 	"Rows": 4,		
 	"Controls" : [
 		{

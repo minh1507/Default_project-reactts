@@ -4,7 +4,7 @@ export interface IModelItem {
   id: String;
   ma: String;
   ten: String;
-  idMonHocCha?: String;
+  idNhomTinTucCha?: String;
   trangThaiBanGhi: Boolean;
 }
 export interface IModelTree {

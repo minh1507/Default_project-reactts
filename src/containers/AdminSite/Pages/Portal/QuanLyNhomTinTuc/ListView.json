@@ -1,7 +1,7 @@
 {
     "DataGrid": {
-        "Key": "Menu",
-        "Title": "Danh sách menu",
+        "Key": "SuKien",
+        "Title": "Danh sách sự kiện",
         "ColumnDefs": [
             {                
                 "Key": "Ma",

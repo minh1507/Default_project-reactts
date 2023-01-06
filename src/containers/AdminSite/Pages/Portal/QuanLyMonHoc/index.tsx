@@ -81,7 +81,7 @@ const QuanLyMonHoc = (props: Props) => {
     const RefeshTree = () => {
         Actions.GetTree(dispatch);
     }
-    const ButtonGroupsRender_TreeOrgan = () => {
+    const ButtonGroupsRender_TreeMonHoc = () => {
         return <CButton title="Làm mới" onClick={() => {RefeshTree()}} />;
     }
     const onNodeClicked = (data:any, node:any) => {
@@ -103,7 +103,7 @@ const QuanLyMonHoc = (props: Props) => {
         <>
             <div className='row'>
                 <div className='col-sm-4'>
-                    <ACard title={"Cây môn học"} buttonGroups={ButtonGroupsRender_TreeOrgan()}>
+                    <ACard title={"Cây môn học"} buttonGroups={ButtonGroupsRender_TreeMonHoc()}>
                         <CTree onNodeClicked={onNodeClicked} 
                             options={{ children: 'Children', label: 'Name' }}
                             data={state.DataTree} 

@@ -4,7 +4,7 @@ export interface IModelItem {
   id: String;
   ma: String;
   ten: String;
-  idMonHocCha?: String;
+  idNhomTinTucCha?: String;
   trangThaiBanGhi: Boolean;
 }
 export interface IState {
@@ -15,7 +15,7 @@ export const InitState: IState = {
     id: Guid.Empty,
     ma: "",
     ten: "",
-    idMonHocCha: Guid.Empty,
+    idNhomTinTucCha: Guid.Empty,
     trangThaiBanGhi: false,
   },
 };

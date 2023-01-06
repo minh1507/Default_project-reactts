@@ -1,4 +1,4 @@
-import MonHocService from "services/MonHocService";
+import QuanLyNhomTinTuc from "services/QuanLyNhomTinTuc";
 import { IResponseMessage } from "common/Models";
 import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
@@ -6,7 +6,7 @@ import { IModelItem } from "./InitState";
 export const Actions: any = {
   GetItem: async (id: String, treeId: String, dispatch: any) => {
     if (id) {
-      let res: IResponseMessage = await MonHocService.GetItem(id);
+      let res: IResponseMessage = await QuanLyNhomTinTuc.GetItem(id);
       if (res && res.Success) {
         res.Data.IdMenuCha = treeId;
         dispatch({
@@ -20,7 +20,7 @@ export const Actions: any = {
         ma: "",
         ten: "",
         trangThaiBanGhi: true,
-        idMonHocCha: treeId,
+        idNhomTinTucCha: treeId,
       };
       dispatch({
         type: "GetItem",
@@ -29,33 +29,36 @@ export const Actions: any = {
     }
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.CreateItem(item);
+    let res: IResponseMessage = await QuanLyNhomTinTuc.CreateItem(item);
     return res;
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.UpdateItem(item);
+    let res: IResponseMessage = await QuanLyNhomTinTuc.UpdateItem(item);
     return res;
   },
   CheckDuplicateAttributes: async (
     id: any,
     ma: any,
-    idMenuCha: any,
+    idNhomTinTucCha: any,
     dispatch: any
   ) => {
-    let res: IResponseMessage = await MonHocService.CheckDuplicateAttributes(
+    let res: IResponseMessage = await QuanLyNhomTinTuc.CheckDuplicateAttributes(
       id,
       ma,
-      idMenuCha
+      idNhomTinTucCha
     );
     return res;
   },
   CheckDuplicateAttributesCreateNew: async (
     ma: any,
-    idMenuCha: any,
+    idNhomTinTucCha: any,
     dispatch: any
   ) => {
     let res: IResponseMessage =
-      await MonHocService.CheckDuplicateAttributesCreateNew(ma, idMenuCha);
+      await QuanLyNhomTinTuc.CheckDuplicateAttributesCreateNew(
+        ma,
+        idNhomTinTucCha
+      );
     return res;
   },
 };

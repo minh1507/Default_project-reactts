@@ -17,7 +17,7 @@ interface Props {
 
 }
 
-const QuanLyTrang = (props: Props) => {  
+const QuanLyMenu = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
     const MenuId_Tree = useRef(Guid.Empty)
     const [MenuId_List, setTreeMenuId_List] = useState('');
@@ -81,7 +81,7 @@ const QuanLyTrang = (props: Props) => {
     const RefeshTree = () => {
         Actions.GetTree(dispatch);
     }
-    const ButtonGroupsRender_TreeOrgan = () => {
+    const ButtonGroupsRender_TreeMenu = () => {
         return <CButton title="Làm mới" onClick={() => {RefeshTree()}} />;
     }
     const onNodeClicked = (data:any, node:any) => {
@@ -103,7 +103,7 @@ const QuanLyTrang = (props: Props) => {
         <>
             <div className='row'>
                 <div className='col-sm-4'>
-                    <ACard title={"Cây menu"} buttonGroups={ButtonGroupsRender_TreeOrgan()}>
+                    <ACard title={"Cây menu"} buttonGroups={ButtonGroupsRender_TreeMenu()}>
                         <CTree onNodeClicked={onNodeClicked} 
                             options={{ children: 'Children', label: 'Name' }}
                             data={state.DataTree} 
@@ -137,4 +137,4 @@ const mapDispatchToProps = {
     
 };
 
-export default connect(mapState, mapDispatchToProps)(QuanLyTrang);
+export default connect(mapState, mapDispatchToProps)(QuanLyMenu);

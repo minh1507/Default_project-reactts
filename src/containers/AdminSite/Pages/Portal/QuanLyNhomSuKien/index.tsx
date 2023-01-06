@@ -81,7 +81,7 @@ const QuanLyNhomSuKien = (props: Props) => {
     const RefeshTree = () => {
         Actions.GetTree(dispatch);
     }
-    const ButtonGroupsRender_TreeOrgan = () => {
+    const ButtonGroupsRender_TreeSuKien = () => {
         return <CButton title="Làm mới" onClick={() => {RefeshTree()}} />;
     }
     const onNodeClicked = (data:any, node:any) => {
@@ -103,7 +103,7 @@ const QuanLyNhomSuKien = (props: Props) => {
         <>
             <div className='row'>
                 <div className='col-sm-4'>
-                    <ACard title={"Cây sự kiện"} buttonGroups={ButtonGroupsRender_TreeOrgan()}>
+                    <ACard title={"Cây sự kiện"} buttonGroups={ButtonGroupsRender_TreeSuKien()}>
                         <CTree onNodeClicked={onNodeClicked} 
                             options={{ children: 'Children', label: 'Name' }}
                             data={state.DataTree} 

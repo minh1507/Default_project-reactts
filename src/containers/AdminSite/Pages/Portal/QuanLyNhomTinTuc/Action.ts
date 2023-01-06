@@ -1,9 +1,11 @@
 import { IResponseMessage } from "common/Models";
-import MonHocService from "services/MonHocService";
+import QuanLyNhomTinTuc from "services/QuanLyNhomTinTuc";
 
 export const Actions: any = {
-  GetItems: async (idMenuCha: any, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.GetByParentId(idMenuCha);
+  GetItems: async (idNhomTinTucCha: any, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetByParentId(
+      idNhomTinTucCha
+    );
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
@@ -12,7 +14,7 @@ export const Actions: any = {
     }
   },
   GetTree: async (dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.GetTree();
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetTree();
     if (res && res.Success) {
       dispatch({
         type: "GetTree",
@@ -21,7 +23,7 @@ export const Actions: any = {
     }
   },
   DeleteById: async (id: String, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.DeleteById([{ id: id }]);
+    let res: IResponseMessage = await QuanLyNhomTinTuc.DeleteById([{ id: id }]);
     return res;
   },
 };

@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { InitState } from './InitState';
 import { Actions } from './Action';
 import { Reducer } from './Reducer';
-import monHocFormInputJson from './FormInput.json';
+import tinTucFormInputJson from './FormInput.json';
 import { Tree } from 'common/Tree';
 interface Props {
   Id: string,
@@ -16,12 +16,12 @@ interface Props {
   ReloadTableItems?: any
 }
 
-const OrganForm = (props: Props) => {  
+const TinTucForm = (props: Props) => {  
   const [state, dispatch] = useReducer(Reducer, InitState)
   useEffect(() => {
       Actions.GetItem(props.Id, props.TreeId, dispatch);
   }, [props.Id])
-  let monHocFormInput:any = monHocFormInputJson;
+  let tinTucFormInput:any = tinTucFormInputJson;
   const refNotification = useRef<any>();
   const refDynamicForm = useRef<any>();
   const ActionEvents = {
@@ -30,12 +30,12 @@ const OrganForm = (props: Props) => {
       if(isValid)
       {        
         let stateValues = refDynamicForm.current.getStateValues();      
-        stateValues.IdMonHocCha = props.TreeId;                    
+        stateValues.idNhomTinTucCha = props.TreeId;                    
         let res:IResponseMessage = null;                
                              
         if(props.Id) 
         {          
-          res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Ma, stateValues.IdMonHocCha, dispatch);
+          res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Ma, stateValues.idNhomTinTucCha, dispatch);
         
           if(res.Data) 
           {
@@ -47,7 +47,7 @@ const OrganForm = (props: Props) => {
         else
         // CheckDuplicateAttributesCreateNew
         {
-          res = await Actions.CheckDuplicateAttributesCreateNew(stateValues.Ma, stateValues.IdMonHocCha, dispatch);
+          res = await Actions.CheckDuplicateAttributesCreateNew(stateValues.Ma, stateValues.idNhomTinTucCha, dispatch);
         
           if(res.Data) 
           {
@@ -66,7 +66,7 @@ const OrganForm = (props: Props) => {
   return(
     <>
       <CNotification ref={refNotification} />   
-      <CDynamicForm ref={refDynamicForm} initValues={state.DataItem} formDefs={monHocFormInput} actionEvents={ActionEvents} />
+      <CDynamicForm ref={refDynamicForm} initValues={state.DataItem} formDefs={tinTucFormInput} actionEvents={ActionEvents} />
     </>
   )
 }
@@ -77,4 +77,4 @@ const mapDispatchToProps = {
   
 };
 
-export default connect(mapState, mapDispatchToProps)(OrganForm);
+export default connect(mapState, mapDispatchToProps)(TinTucForm);

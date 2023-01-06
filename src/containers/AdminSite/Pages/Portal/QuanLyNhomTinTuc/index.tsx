@@ -10,25 +10,25 @@ import React, { useCallback, useEffect, useMemo, useReducer, useRef, useState } 
 import { connect } from "react-redux";
 import { Actions } from './Action';
 import { InitState } from './InitState';
-import MonHocListViewJson from './ListView.json';
+import TinTucListViewJson from './ListView.json';
 import { Reducer } from './Reducer';
-import MonHocForm from './Form'
+import TinTucForm from './Form'
 interface Props {
 
 }
 
-const QuanLyTrang = (props: Props) => {  
+const QuanLyNhomTinTuc = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
-    const MonHocId_Tree = useRef(Guid.Empty)
-    const [MonHocId_List, setTreeMonHocId_List] = useState('');
-    const MonHocListView:any = MonHocListViewJson;    
+    const TinTucId_Tree = useRef(Guid.Empty)
+    const [TinTucId_List, setTreeTinTucId_List] = useState('');
+    const TinTucListView:any = TinTucListViewJson;    
     const refNotification = useRef<any>();
     const refConfirm_DeleteItem = useRef<any>();
     const refDynamicTable = useRef<any>();
     const [dialogVisible, setDialogVisible] = useState(false);
     useEffect(() => {
         Actions.GetTree(dispatch);
-        Actions.GetItems(MonHocId_Tree.current, dispatch);     
+        Actions.GetItems(TinTucId_Tree.current, dispatch);     
         AddHightlightToRootElement();           
     }, [])
     const AddHightlightToRootElement = () => {
@@ -49,12 +49,12 @@ const QuanLyTrang = (props: Props) => {
     }    
     const ActionEvents = {
         onClickCreate: () => {
-            setTreeMonHocId_List('');
+            setTreeTinTucId_List('');
             setDialogVisible(true);    
         },
         onClickUpdate: () => {
             if(!getRowId()) { refNotification.current.showNotification("warning", Message.Require_Row_Selection); return; }            
-            setTreeMonHocId_List(getRowId());
+            setTreeTinTucId_List(getRowId());
             setDialogVisible(true);            
         },
         onClickDelete: async () => {
@@ -70,30 +70,30 @@ const QuanLyTrang = (props: Props) => {
         }  
     }
     const ReloadTableItems = () => {
-        Actions.GetItems(MonHocId_Tree.current, dispatch);  
+        Actions.GetItems(TinTucId_Tree.current, dispatch);  
     }
     const getRowId = () => {        
         return refDynamicTable.current.getRowId();
     }
     const ButtonGroupsRender = () => {
-        return <CDynamicButton actionDefs={MonHocListView.DataGrid.ActionDefs} actions={ActionEvents} />;
+        return <CDynamicButton actionDefs={TinTucListView.DataGrid.ActionDefs} actions={ActionEvents} />;
     }  
     const RefeshTree = () => {
         Actions.GetTree(dispatch);
     }
-    const ButtonGroupsRender_TreeOrgan = () => {
+    const ButtonGroupsRender_TreeTinTuc = () => {
         return <CButton title="Làm mới" onClick={() => {RefeshTree()}} />;
     }
     const onNodeClicked = (data:any, node:any) => {
         RemoveHightlightToRootElement()
-        MonHocId_Tree.current = data.Id;        
+        TinTucId_Tree.current = data.Id;        
         Actions.GetItems(data.Id, dispatch);  
     }
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog title={MonHocId_List ? "Sửa menu": "Tạo mới menu"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
-                <MonHocForm Id={MonHocId_List} TreeId={MonHocId_Tree.current} TreeData={state.DataTree} ReloadTableItems = {ReloadTableItems} />
+            <CDialog title={TinTucId_List ? "Sửa menu": "Tạo mới menu"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+                <TinTucForm Id={TinTucId_List} TreeId={TinTucId_Tree.current} TreeData={state.DataTree} ReloadTableItems = {ReloadTableItems} />
             </CDialog>  
             :<div></div>
         }
@@ -103,7 +103,7 @@ const QuanLyTrang = (props: Props) => {
         <>
             <div className='row'>
                 <div className='col-sm-4'>
-                    <ACard title={"Cây menu"} buttonGroups={ButtonGroupsRender_TreeOrgan()}>
+                    <ACard title={"Cây sự kiện"} buttonGroups={ButtonGroupsRender_TreeTinTuc()}>
                         <CTree onNodeClicked={onNodeClicked} 
                             options={{ children: 'Children', label: 'Name' }}
                             data={state.DataTree} 
@@ -116,12 +116,12 @@ const QuanLyTrang = (props: Props) => {
                     <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa menu này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
                     <CNotification ref={refNotification} />   
                     {DialogMemo}
-                    <ACard title={MonHocListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
+                    <ACard title={TinTucListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
                         <CDynamicTable 
                             ref={refDynamicTable}
-                            id={MonHocListView.DataGrid.Key} 
-                            key={MonHocListView.DataGrid.Key} 
-                            columnDefs={MonHocListView.DataGrid.ColumnDefs} 
+                            id={TinTucListView.DataGrid.Key} 
+                            key={TinTucListView.DataGrid.Key} 
+                            columnDefs={TinTucListView.DataGrid.ColumnDefs} 
                             dataItems={state.DataItems}
                         />                
                     </ACard>
@@ -137,4 +137,4 @@ const mapDispatchToProps = {
     
 };
 
-export default connect(mapState, mapDispatchToProps)(QuanLyTrang);
+export default connect(mapState, mapDispatchToProps)(QuanLyNhomTinTuc);
