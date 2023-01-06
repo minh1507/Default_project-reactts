@@ -18,11 +18,6 @@ export const Actions: any = {
         Id: Guid.Empty,
         Ma: "",
         Ten: "",
-        Diachi: "",
-        NoiDung: "",
-        GiaTien: "",
-        Url_AnhDaiDien: "",
-        TrangThaiBanGhi: false,
       };
       dispatch({
         type: "GetItem",

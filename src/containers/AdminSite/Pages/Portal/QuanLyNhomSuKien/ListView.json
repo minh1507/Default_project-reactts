@@ -14,26 +14,6 @@
                 "Align": "center"   
             },
             {
-                "Key": "Diachi",
-                "Title": "Tên",                
-                "Align": "center"   
-            },
-            {
-                "Key": "Noidung",
-                "Title": "Tên",                
-                "Align": "center"   
-            },
-            {
-                "Key": "GiaTien",
-                "Title": "Tên",                
-                "Align": "center"   
-            },
-            {
-                "Key": "Url_AnhDaiDien",
-                "Title": "Tên",                
-                "Align": "center"   
-            },
-            {
                 "Key": "TrangThaiBanGhi",
                 "Title": "Trạng thái",                
                 "Align": "center",
