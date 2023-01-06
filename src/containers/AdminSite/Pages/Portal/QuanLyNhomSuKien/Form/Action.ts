@@ -1,13 +1,14 @@
+import QuanLyNhomSuKien from "services/QuanLyNhomSuKien";
 import { IResponseMessage } from "common/Models";
 import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
-import QuanLyNhomSuKien from "services/QuanLyNhomSuKien";
 
 export const Actions: any = {
-  GetItem: async (id: String, dispatch: any) => {
+  GetItem: async (id: String, treeId: String, dispatch: any) => {
     if (id) {
       let res: IResponseMessage = await QuanLyNhomSuKien.GetItem(id);
       if (res && res.Success) {
+        res.Data.IdMenuCha = treeId;
         dispatch({
           type: "GetItem",
           item: res.Data,
@@ -15,9 +16,11 @@ export const Actions: any = {
       }
     } else {
       let itemNew: IModelItem = {
-        Id: Guid.Empty,
-        Ma: "",
-        Ten: "",
+        id: Guid.Empty,
+        ma: "",
+        ten: "",
+        trangThaiBanGhi: true,
+        idNhomSuKienCha: treeId,
       };
       dispatch({
         type: "GetItem",
@@ -33,22 +36,28 @@ export const Actions: any = {
     let res: IResponseMessage = await QuanLyNhomSuKien.UpdateItem(item);
     return res;
   },
-  CheckDuplicateAttributes: async (id: any, code: any, dispatch: any) => {
+  CheckDuplicateAttributes: async (
+    id: any,
+    ma: any,
+    idNhomSuKienCha: any,
+    dispatch: any
+  ) => {
     let res: IResponseMessage = await QuanLyNhomSuKien.CheckDuplicateAttributes(
       id,
-      code
+      ma,
+      idNhomSuKienCha
     );
     return res;
   },
   CheckDuplicateAttributesCreateNew: async (
     ma: any,
-    idNhomSuKien: any,
+    idNhomSuKienCha: any,
     dispatch: any
   ) => {
     let res: IResponseMessage =
       await QuanLyNhomSuKien.CheckDuplicateAttributesCreateNew(
         ma,
-        idNhomSuKien
+        idNhomSuKienCha
       );
     return res;
   },

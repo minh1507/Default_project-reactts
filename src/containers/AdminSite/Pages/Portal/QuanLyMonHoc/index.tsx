@@ -103,7 +103,7 @@ const QuanLyTrang = (props: Props) => {
         <>
             <div className='row'>
                 <div className='col-sm-4'>
-                    <ACard title={"Cây menu"} buttonGroups={ButtonGroupsRender_TreeOrgan()}>
+                    <ACard title={"Cây môn học"} buttonGroups={ButtonGroupsRender_TreeOrgan()}>
                         <CTree onNodeClicked={onNodeClicked} 
                             options={{ children: 'Children', label: 'Name' }}
                             data={state.DataTree} 

@@ -1,7 +1,7 @@
 {
-	"Key" : "Role",
-	"Title" : "vai trò",
-	"Rows": 3,		
+	"Key" : "Menu",
+	"Title" : "Cây menu",
+	"Rows": 4,		
 	"Controls" : [
 		{
 			"Key": "Ma",
@@ -27,14 +27,15 @@
 			"Key": "TrangThaiBanGhi",
 			"Title": "Trạng thái",     
 			"Type": "Select",
-			"Placeholder": "---Chọn---", 
 			"IsRequired": true,
-			"Row": 3,
+			"Placeholder": "---Chọn---", 
+			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
+			"Row": 4,
 			"ColLabel": 2, 
 			"ColControl": 10, 
-			"ColSpanControl": 12,
-			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
+			"ColSpanControl": 12
 		}
+	
 	],
 	"ActionDefs" : [
 		{

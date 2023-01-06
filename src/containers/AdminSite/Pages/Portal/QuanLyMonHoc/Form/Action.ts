@@ -39,23 +39,23 @@ export const Actions: any = {
   CheckDuplicateAttributes: async (
     id: any,
     ma: any,
-    idMenuCha: any,
+    idMonHocCha: any,
     dispatch: any
   ) => {
     let res: IResponseMessage = await MonHocService.CheckDuplicateAttributes(
       id,
       ma,
-      idMenuCha
+      idMonHocCha
     );
     return res;
   },
   CheckDuplicateAttributesCreateNew: async (
     ma: any,
-    idMenuCha: any,
+    idMonHocCha: any,
     dispatch: any
   ) => {
     let res: IResponseMessage =
-      await MonHocService.CheckDuplicateAttributesCreateNew(ma, idMenuCha);
+      await MonHocService.CheckDuplicateAttributesCreateNew(ma, idMonHocCha);
     return res;
   },
 };

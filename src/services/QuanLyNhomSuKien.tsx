@@ -1,23 +1,30 @@
 import request from "common/Request"
 const Por_NhomSuKien = "Por_NhomSuKien";
 const QuanLyNhomSuKien = {    
-    GetItems: async () => {        
+    GetByParentId: async (idMenuCha:any) => {
         let res:any = await request({
-            url: `/${Por_NhomSuKien}/List?page=1&pageSize=1000&totalLimitItems=0&searchBy=`,
-            method: 'get'
-        });
-        return res
+          url: `/${Por_NhomSuKien}/List/${idMenuCha}`,
+          method: 'get'
+        })
+        return res;
+    },
+    GetItem: async (id:String) => {        
+      let res:any = await request({
+          url: `/${Por_NhomSuKien}/${id}`,
+          method: 'get'
+      });
+      return res
+    },   
+    GetTree: async () => {
+        let res:any = await request({
+          url: `/${Por_NhomSuKien}/Tree`,
+          method: 'get'
+        })
+        return res;
     },
     GetCategories: async () => {        
         let res:any = await request({
             url: `/${Por_NhomSuKien}/Categories`,
-            method: 'get'
-        });
-        return res
-    },
-    GetItem: async (id:String) => {        
-        let res:any = await request({
-            url: `/${Por_NhomSuKien}/${id}`,
             method: 'get'
         });
         return res
@@ -46,16 +53,16 @@ const QuanLyNhomSuKien = {
         });
         return res
     },
-    CheckDuplicateAttributes: async (id:any, ma:any) => {
+    CheckDuplicateAttributes: async (id:any, ma:any,idMonHocCha:any) => {
         let res:any = await request({
-          url: `/${Por_NhomSuKien}/CheckDuplicateAttributes?id=${id}&ma=${ma}`,
+          url: `/${Por_NhomSuKien}/CheckDuplicateAttributes?id=${id}&ma=${ma}&idMonHocCha=${idMonHocCha}`,
           method: 'get'
         })
         return res;
     },
-    CheckDuplicateAttributesCreateNew: async (ma:any, idNhomSuKien: any) => {
+    CheckDuplicateAttributesCreateNew: async (ma:any, idMonHocCha: any) => {
         let res:any = await request({
-          url: `/${Por_NhomSuKien}/CheckDuplicateAttributes?ma=${ma}&idNhomSuKien=${idNhomSuKien}`,
+          url: `/${Por_NhomSuKien}/CheckDuplicateAttributes?ma=${ma}&idMonHocCha=${idMonHocCha}`,
           method: 'get'
         })
         return res;

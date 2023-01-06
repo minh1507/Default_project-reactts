@@ -1,7 +1,7 @@
 {
     "DataGrid": {
-        "Key": "QuanLyMonHoc",
-        "Title": "Danh sách môn học",
+        "Key": "SuKien",
+        "Title": "Danh sách sự kiện",
         "ColumnDefs": [
             {                
                 "Key": "Ma",
@@ -15,10 +15,10 @@
             },
             {
                 "Key": "TrangThaiBanGhi",
-                "Title": "Trạng thái",                
+                "Title": "Trạng thái",               
                 "Align": "center",
-                "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }] 
-                 
+                "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
+ 
             }
         ],
         "ActionDefs": [

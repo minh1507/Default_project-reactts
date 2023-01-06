@@ -2,8 +2,8 @@ import { IResponseMessage } from "common/Models";
 import MonHocService from "services/MonHocService";
 
 export const Actions: any = {
-  GetItems: async (idMenuCha: any, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.GetByParentId(idMenuCha);
+  GetItems: async (idMonHocCha: any, dispatch: any) => {
+    let res: IResponseMessage = await MonHocService.GetByParentId(idMonHocCha);
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
