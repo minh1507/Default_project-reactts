@@ -1,60 +1,38 @@
-import { CConfirm, CDialog, CNotification } from 'components';
+import { CConfirm, CDialog, CNotification, CDynamicTable, CDynamicButton, CButton } from 'components';
 import ACard from 'components/ACard';
-import CButton from 'components/CButton';
-import CDynamicButton from 'components/CDynamicButton';
-import CDynamicTable from 'components/CDynamicTable';
-import CTree from 'components/CTree';
-import { IResponseMessage } from 'common/Models';
-import { AppName, Guid, Message } from 'common/Enums';
-import React, { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
+import { Message } from 'common/Enums';
+import React, { useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import { connect } from "react-redux";
-import { Actions } from './Action';
 import { InitState } from './InitState';
-import menuListViewJson from './ListView.json';
+import { Actions } from './Action';
 import { Reducer } from './Reducer';
-import MenuForm from './Form'
+import monHocListViewJson from './ListView.json';
+import MonHocForm from './Form'
+import { IResponseMessage } from 'common/Models';
+
 interface Props {
 
 }
 
-const QuanlyMonHoc = (props: Props) => {  
+const QuanLyMonHoc = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
-    const MenuId_Tree = useRef(Guid.Empty)
-    const [MenuId_List, setTreeMenuId_List] = useState('');
-    const menuListView:any = menuListViewJson;    
+    const [monHocId, setmonHocId] = useState('');
+    const monHocListView:any = monHocListViewJson;    
     const refNotification = useRef<any>();
     const refConfirm_DeleteItem = useRef<any>();
     const refDynamicTable = useRef<any>();
     const [dialogVisible, setDialogVisible] = useState(false);
-    useEffect(() => {
-        Actions.GetTree(dispatch);
-        Actions.GetItems(MenuId_Tree.current, dispatch);     
-        AddHightlightToRootElement();           
+    useEffect(() => {        
+        Actions.GetItems(dispatch);     
     }, [])
-    const AddHightlightToRootElement = () => {
-        let nodes:any = document.getElementsByClassName("el-tree-node__content");
-        for(let i = 0;i < nodes.length;i++)
-        {
-            var element = nodes[i];
-            element.classList.add("highlight-current");  
-        }
-    }
-    const RemoveHightlightToRootElement = () => {
-        let nodes:any = document.getElementsByClassName("el-tree-node__content");
-        for(let i = 0;i < nodes.length;i++)
-        {
-            var element = nodes[i];
-            element.classList.remove("highlight-current");
-        }
-    }    
     const ActionEvents = {
         onClickCreate: () => {
-            setTreeMenuId_List('');
+            setmonHocId('');
             setDialogVisible(true);    
         },
         onClickUpdate: () => {
             if(!getRowId()) { refNotification.current.showNotification("warning", Message.Require_Row_Selection); return; }            
-            setTreeMenuId_List(getRowId());
+            setmonHocId(getRowId());
             setDialogVisible(true);            
         },
         onClickDelete: async () => {
@@ -70,71 +48,47 @@ const QuanlyMonHoc = (props: Props) => {
         }  
     }
     const ReloadTableItems = () => {
-        Actions.GetItems(MenuId_Tree.current, dispatch);  
+        Actions.GetItems(dispatch);  
     }
     const getRowId = () => {        
         return refDynamicTable.current.getRowId();
     }
-    const ButtonGroupsRender = () => {
-        return <CDynamicButton actionDefs={menuListView.DataGrid.ActionDefs} actions={ActionEvents} />;
-    }  
-    const RefeshTree = () => {
-        Actions.GetTree(dispatch);
-    }
-    const ButtonGroupsRender_TreeOrgan = () => {
-        return <CButton title="Làm mới" onClick={() => {RefeshTree()}} />;
-    }
-    const onNodeClicked = (data:any, node:any) => {
-        RemoveHightlightToRootElement()
-        MenuId_Tree.current = data.Id;        
-        Actions.GetItems(data.Id, dispatch);  
-    }
+    let ButtonGroupsRender = () => {
+        return <CDynamicButton actionDefs={monHocListView.DataGrid.ActionDefs} actions={ActionEvents} />;
+    }    
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog title={MenuId_List ? "Sửa menu": "Tạo mới menu"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
-                <MenuForm Id={MenuId_List} TreeId={MenuId_Tree.current} TreeData={state.DataTree} ReloadTableItems = {ReloadTableItems} />
-            </CDialog>  
+            <CDialog title={monHocId ? "Sửa môn học": "Tạo mới môn học"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+                <MonHocForm Id={monHocId} ReloadTableItems = {ReloadTableItems} />
+            </CDialog>
             :<div></div>
         }
         </>
     }, [dialogVisible])
+  
     return(
         <>
-            <div className='row'>
-                <div className='col-sm-4'>
-                    <ACard title={"Cây menu"} buttonGroups={ButtonGroupsRender_TreeOrgan()}>
-                        <CTree onNodeClicked={onNodeClicked} 
-                            options={{ children: 'Children', label: 'Name' }}
-                            data={state.DataTree} 
-                            nodeKey={"Id"}
-                            defaultExpandedKeys={[Guid.Empty]}
-                            />       
-                    </ACard>          
-                </div>
-                <div className='col-sm-8'>
-                    <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa menu này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
-                    <CNotification ref={refNotification} />   
-                    {DialogMemo}
-                    <ACard title={menuListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
-                        <CDynamicTable 
-                            ref={refDynamicTable}
-                            id={menuListView.DataGrid.Key} 
-                            key={menuListView.DataGrid.Key} 
-                            columnDefs={menuListView.DataGrid.ColumnDefs} 
-                            dataItems={state.DataItems}
-                        />                
-                    </ACard>
-                </div>
-            </div>
+            <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa môn học" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
+            <CNotification ref={refNotification} />   
+            {DialogMemo}
+            <ACard title={monHocListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
+                <CDynamicTable 
+                    ref={refDynamicTable}
+                    id={monHocListView.DataGrid.Key} 
+                    key={monHocListView.DataGrid.Key} 
+                    columnDefs={monHocListView.DataGrid.ColumnDefs} 
+                    dataItems={state.DataItems}            
+                />
+            </ACard>
         </>
     )
 }
 const mapState = ({ ...state }) => ({
-    
+
 });
 const mapDispatchToProps = {
-    
+  
 };
 
-export default connect(mapState, mapDispatchToProps)(QuanlyMonHoc);
+export default connect(mapState, mapDispatchToProps)(QuanLyMonHoc);

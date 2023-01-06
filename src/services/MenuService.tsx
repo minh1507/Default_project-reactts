@@ -46,6 +46,14 @@ const MenuService =  {
       })
       return res;
     },
+    CheckDuplicateAttributesCreateNew: async (ma:any, idMenuCha:any) => {
+      let res:any = await request({
+        url: `/${Por_Menu}/CheckDuplicateAttributes?ma=${ma}&idMenuCha=${idMenuCha}`,
+        method: 'get'
+      })
+      return res;
+    },
+    // CheckDuplicateAttributesCreateNew
     DeleteById: async (id:any) => {
       let res:any = await request({
         url: `/${Por_Menu}/DeleteById/${id}`,

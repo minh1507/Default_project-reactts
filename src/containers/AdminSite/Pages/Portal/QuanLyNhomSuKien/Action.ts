@@ -1,27 +1,18 @@
 import { IResponseMessage } from "common/Models";
-import MenuService from "services/MenuService";
+import MonHocService from "services/MonHocService";
 
 export const Actions: any = {
-  GetItems: async (idMenuCha: any, dispatch: any) => {
-    let res: IResponseMessage = await MenuService.GetByParentId(idMenuCha);
+  GetItems: async (dispatch: any) => {
+    let res: IResponseMessage = await MonHocService.GetItems();
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
-        items: res.Data,
-      });
-    }
-  },
-  GetTree: async (dispatch: any) => {
-    let res: IResponseMessage = await MenuService.GetTree();
-    if (res && res.Success) {
-      dispatch({
-        type: "GetTree",
-        tree: res.Data,
+        items: res.Data.Items,
       });
     }
   },
   DeleteById: async (id: String, dispatch: any) => {
-    // let res: IResponseMessage = await OrganService.DeleteById(id);
-    // return res;
+    let res: IResponseMessage = await MonHocService.DeleteById([{ id: id }]);
+    return res;
   },
 };

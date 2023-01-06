@@ -32,20 +32,28 @@ const OrganForm = (props: Props) => {
         let stateValues = refDynamicForm.current.getStateValues();      
         stateValues.IdMenuCha = props.TreeId;                    
         let res:IResponseMessage = null;                
-        res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Ma, stateValues.IdMenuCha, dispatch);
-        
-        if(res.Data) 
-        {
-          refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
-          return; 
-        }                           
+                             
         if(props.Id) 
         {          
-          console.log(1)
+          res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Ma, stateValues.IdMenuCha, dispatch);
+        
+          if(res.Data) 
+          {
+            refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
+            return; 
+          }     
           res = await Actions.UpdateItem(stateValues);                   
         }          
         else
+        // CheckDuplicateAttributesCreateNew
         {
+          res = await Actions.CheckDuplicateAttributesCreateNew(stateValues.Ma, stateValues.IdMenuCha, dispatch);
+        
+          if(res.Data) 
+          {
+            refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
+            return; 
+          }     
           res = await Actions.CreateItem(stateValues);  
         }           
         if(res.Success) {            

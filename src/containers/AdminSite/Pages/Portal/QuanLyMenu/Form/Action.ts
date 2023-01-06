@@ -50,4 +50,13 @@ export const Actions: any = {
     );
     return res;
   },
+  CheckDuplicateAttributesCreateNew: async (
+    ma: any,
+    idMenuCha: any,
+    dispatch: any
+  ) => {
+    let res: IResponseMessage =
+      await MenuService.CheckDuplicateAttributesCreateNew(ma, idMenuCha);
+    return res;
+  },
 };

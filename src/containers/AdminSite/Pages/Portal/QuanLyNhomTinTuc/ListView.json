@@ -1,7 +1,7 @@
 {
     "DataGrid": {
-        "Key": "Menu",
-        "Title": "Danh sách menu con",
+        "Key": "QuanLyMonHoc",
+        "Title": "Danh sách môn học",
         "ColumnDefs": [
             {                
                 "Key": "Ma",
@@ -14,14 +14,11 @@
                 "Align": "center"   
             },
             {
-                "Key": "URL",
-                "Title": "Url",                
-                "Align": "center"   
-            },
-            {
                 "Key": "TrangThaiBanGhi",
-                "Title": "Trang thai",               
-                "Align": "center"   
+                "Title": "Trạng thái",                
+                "Align": "center",
+                "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }] 
+                 
             }
         ],
         "ActionDefs": [

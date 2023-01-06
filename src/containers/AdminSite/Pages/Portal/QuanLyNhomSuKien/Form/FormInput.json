@@ -1,10 +1,10 @@
 {
-	"Key" : "Menu",
-	"Title" : "Cây menu",
-	"Rows": 4,		
+	"Key" : "Role",
+	"Title" : "vai trò",
+	"Rows": 3,		
 	"Controls" : [
 		{
-			"Key": "ma",
+			"Key": "Ma",
 			"Title": "Mã",     
 			"Type": "InputText",
 			"IsRequired": true,
@@ -14,7 +14,7 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "ten",
+			"Key": "Ten",
 			"Title": "Tên",     
 			"Type": "InputText",
 			"IsRequired": true,
@@ -24,28 +24,17 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "url",
-			"Title": "Url",     
-			"Type": "InputText",
+			"Key": "TrangThaiBanGhi",
+			"Title": "Trạng thái",     
+			"Type": "Select",
+			"Placeholder": "---Chọn---", 
 			"IsRequired": true,
 			"Row": 3,
 			"ColLabel": 2, 
 			"ColControl": 10, 
-			"ColSpanControl": 12
-		},
-		{
-			"Key": "trangThaiBanGhi",
-			"Title": "Trạng thái",     
-			"Type": "Select",
-			"IsRequired": true,
-			"Placeholder": "---Chọn---", 
-			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
-			"Row": 4,
-			"ColLabel": 2, 
-			"ColControl": 10, 
-			"ColSpanControl": 12
+			"ColSpanControl": 12,
+			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
 		}
-	
 	],
 	"ActionDefs" : [
 		{
