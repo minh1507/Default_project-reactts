@@ -103,7 +103,7 @@ const QuanLyNhomTinTuc = (props: Props) => {
         <>
             <div className='row'>
                 <div className='col-sm-4'>
-                    <ACard title={"Cây sự kiện"} buttonGroups={ButtonGroupsRender_TreeTinTuc()}>
+                    <ACard title={"Cây tin tức"} buttonGroups={ButtonGroupsRender_TreeTinTuc()}>
                         <CTree onNodeClicked={onNodeClicked} 
                             options={{ children: 'Children', label: 'Name' }}
                             data={state.DataTree} 
