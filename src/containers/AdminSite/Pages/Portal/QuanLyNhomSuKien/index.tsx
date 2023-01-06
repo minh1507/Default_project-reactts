@@ -17,7 +17,7 @@ interface Props {
 
 }
 
-const QuanLyTrang = (props: Props) => {  
+const QuanLyNhomSuKien = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
     const SuKienId_Tree = useRef(Guid.Empty)
     const [SuKienId_List, setTreeSuKienId_List] = useState('');
@@ -137,4 +137,4 @@ const mapDispatchToProps = {
     
 };
 
-export default connect(mapState, mapDispatchToProps)(QuanLyTrang);
+export default connect(mapState, mapDispatchToProps)(QuanLyNhomSuKien);

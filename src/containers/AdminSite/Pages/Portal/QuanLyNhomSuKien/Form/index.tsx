@@ -16,7 +16,7 @@ interface Props {
   ReloadTableItems?: any
 }
 
-const OrganForm = (props: Props) => {  
+const SuKienForm = (props: Props) => {  
   const [state, dispatch] = useReducer(Reducer, InitState)
   useEffect(() => {
       Actions.GetItem(props.Id, props.TreeId, dispatch);
@@ -77,4 +77,4 @@ const mapDispatchToProps = {
   
 };
 
-export default connect(mapState, mapDispatchToProps)(OrganForm);
+export default connect(mapState, mapDispatchToProps)(SuKienForm);

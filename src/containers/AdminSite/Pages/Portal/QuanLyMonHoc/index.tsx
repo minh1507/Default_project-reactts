@@ -17,7 +17,7 @@ interface Props {
 
 }
 
-const QuanLyTrang = (props: Props) => {  
+const QuanLyMonHoc = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
     const MonHocId_Tree = useRef(Guid.Empty)
     const [MonHocId_List, setTreeMonHocId_List] = useState('');
@@ -137,4 +137,4 @@ const mapDispatchToProps = {
     
 };
 
-export default connect(mapState, mapDispatchToProps)(QuanLyTrang);
+export default connect(mapState, mapDispatchToProps)(QuanLyMonHoc);
