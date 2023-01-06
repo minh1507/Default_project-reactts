@@ -1,9 +1,9 @@
 import { IResponseMessage } from "common/Models";
-import MonHocService from "services/MonHocService";
+import QuanLyNhomSuKien from "services/QuanLyNhomSuKien";
 
 export const Actions: any = {
   GetItems: async (dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.GetItems();
+    let res: IResponseMessage = await QuanLyNhomSuKien.GetItems();
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
@@ -12,7 +12,7 @@ export const Actions: any = {
     }
   },
   DeleteById: async (id: String, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.DeleteById([{ id: id }]);
+    let res: IResponseMessage = await QuanLyNhomSuKien.DeleteById([{ id: id }]);
     return res;
   },
 };

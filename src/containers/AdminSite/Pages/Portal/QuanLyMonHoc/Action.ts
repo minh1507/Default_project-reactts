@@ -2,12 +2,21 @@ import { IResponseMessage } from "common/Models";
 import MonHocService from "services/MonHocService";
 
 export const Actions: any = {
-  GetItems: async (dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.GetItems();
+  GetItems: async (idMenuCha: any, dispatch: any) => {
+    let res: IResponseMessage = await MonHocService.GetByParentId(idMenuCha);
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
-        items: res.Data.Items,
+        items: res.Data,
+      });
+    }
+  },
+  GetTree: async (dispatch: any) => {
+    let res: IResponseMessage = await MonHocService.GetTree();
+    if (res && res.Success) {
+      dispatch({
+        type: "GetTree",
+        tree: res.Data,
       });
     }
   },

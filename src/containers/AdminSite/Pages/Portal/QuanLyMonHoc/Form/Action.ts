@@ -1,13 +1,14 @@
+import MonHocService from "services/MonHocService";
 import { IResponseMessage } from "common/Models";
 import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
-import MonHocService from "services/MonHocService";
 
 export const Actions: any = {
-  GetItem: async (id: String, dispatch: any) => {
+  GetItem: async (id: String, treeId: String, dispatch: any) => {
     if (id) {
       let res: IResponseMessage = await MonHocService.GetItem(id);
       if (res && res.Success) {
+        res.Data.IdMenuCha = treeId;
         dispatch({
           type: "GetItem",
           item: res.Data,
@@ -15,9 +16,11 @@ export const Actions: any = {
       }
     } else {
       let itemNew: IModelItem = {
-        Id: Guid.Empty,
-        Ma: "",
-        Ten: "",
+        id: Guid.Empty,
+        ma: "",
+        ten: "",
+        trangThaiBanGhi: true,
+        idMonHocCha: treeId,
       };
       dispatch({
         type: "GetItem",
@@ -33,16 +36,26 @@ export const Actions: any = {
     let res: IResponseMessage = await MonHocService.UpdateItem(item);
     return res;
   },
-  CheckDuplicateAttributes: async (id: any, code: any, dispatch: any) => {
-    // let res: IResponseMessage = await RoleService.CheckDuplicateAttributes(
-    //   id,
-    //   code
-    // );
-    // return res;
+  CheckDuplicateAttributes: async (
+    id: any,
+    ma: any,
+    idMenuCha: any,
+    dispatch: any
+  ) => {
+    let res: IResponseMessage = await MonHocService.CheckDuplicateAttributes(
+      id,
+      ma,
+      idMenuCha
+    );
+    return res;
   },
-  CheckDuplicateAttributesCreateNew: async (code: any, dispatch: any) => {
-    // let res: IResponseMessage =
-    //   await MonHocService.CheckDuplicateAttributesCreateNew(code);
-    // return res;
+  CheckDuplicateAttributesCreateNew: async (
+    ma: any,
+    idMenuCha: any,
+    dispatch: any
+  ) => {
+    let res: IResponseMessage =
+      await MonHocService.CheckDuplicateAttributesCreateNew(ma, idMenuCha);
+    return res;
   },
 };

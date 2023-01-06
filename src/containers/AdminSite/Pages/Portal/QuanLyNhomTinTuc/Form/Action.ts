@@ -1,12 +1,12 @@
 import { IResponseMessage } from "common/Models";
 import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
-import MonHocService from "services/MonHocService";
+import QuanLyNhomTinTuc from "services/QuanLyNhomTinTuc";
 
 export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
-      let res: IResponseMessage = await MonHocService.GetItem(id);
+      let res: IResponseMessage = await QuanLyNhomTinTuc.GetItem(id);
       if (res && res.Success) {
         dispatch({
           type: "GetItem",
@@ -26,11 +26,11 @@ export const Actions: any = {
     }
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.CreateItem(item);
+    let res: IResponseMessage = await QuanLyNhomTinTuc.CreateItem(item);
     return res;
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.UpdateItem(item);
+    let res: IResponseMessage = await QuanLyNhomTinTuc.UpdateItem(item);
     return res;
   },
   CheckDuplicateAttributes: async (id: any, code: any, dispatch: any) => {

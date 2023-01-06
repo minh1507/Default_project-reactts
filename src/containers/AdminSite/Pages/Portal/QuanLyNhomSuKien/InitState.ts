@@ -1,11 +1,16 @@
 export interface IModelItem {
-    Id: String;
-    Code: String;
-    Name: String;
+  Id: String;
+  Ma: String;
+  Ten: String;
+  Diachi: String;
+  NoiDung: String;
+  GiaTien: String;
+  Url_AnhDaiDien: String;
+  TrangThaiBanGhi: Boolean;
 }
 export interface IState {
-    DataItems: IModelItem[]
+  DataItems: IModelItem[];
 }
 export const InitState: IState = {
-    DataItems: []
-};  
+  DataItems: [],
+};

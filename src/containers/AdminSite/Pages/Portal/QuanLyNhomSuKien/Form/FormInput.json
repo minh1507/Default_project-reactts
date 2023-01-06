@@ -24,6 +24,46 @@
 			"ColSpanControl": 12
 		},
 		{
+			"Key": "Diachi",
+			"Title": "Dia chi",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 2,
+			"ColLabel": 2, 
+			"ColControl": 10, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "NoiDung",
+			"Title": "Noi dung",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 2,
+			"ColLabel": 2, 
+			"ColControl": 10, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "GiaTien",
+			"Title": "Gia tien",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 2,
+			"ColLabel": 2, 
+			"ColControl": 10, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "Url_AnhDaiDien",
+			"Title": "Anh dai dien",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 2,
+			"ColLabel": 2, 
+			"ColControl": 10, 
+			"ColSpanControl": 12
+		},
+		{
 			"Key": "TrangThaiBanGhi",
 			"Title": "Trạng thái",     
 			"Type": "Select",

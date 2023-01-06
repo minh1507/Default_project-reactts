@@ -1,12 +1,12 @@
 import { IResponseMessage } from "common/Models";
 import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
-import MonHocService from "services/MonHocService";
+import QuanLyNhomSuKien from "services/QuanLyNhomSuKien";
 
 export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
-      let res: IResponseMessage = await MonHocService.GetItem(id);
+      let res: IResponseMessage = await QuanLyNhomSuKien.GetItem(id);
       if (res && res.Success) {
         dispatch({
           type: "GetItem",
@@ -18,6 +18,11 @@ export const Actions: any = {
         Id: Guid.Empty,
         Ma: "",
         Ten: "",
+        Diachi: "",
+        NoiDung: "",
+        GiaTien: "",
+        Url_AnhDaiDien: "",
+        TrangThaiBanGhi: false,
       };
       dispatch({
         type: "GetItem",
@@ -26,23 +31,30 @@ export const Actions: any = {
     }
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.CreateItem(item);
+    let res: IResponseMessage = await QuanLyNhomSuKien.CreateItem(item);
     return res;
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.UpdateItem(item);
+    let res: IResponseMessage = await QuanLyNhomSuKien.UpdateItem(item);
     return res;
   },
   CheckDuplicateAttributes: async (id: any, code: any, dispatch: any) => {
-    // let res: IResponseMessage = await RoleService.CheckDuplicateAttributes(
-    //   id,
-    //   code
-    // );
-    // return res;
+    let res: IResponseMessage = await QuanLyNhomSuKien.CheckDuplicateAttributes(
+      id,
+      code
+    );
+    return res;
   },
-  CheckDuplicateAttributesCreateNew: async (code: any, dispatch: any) => {
-    // let res: IResponseMessage =
-    //   await MonHocService.CheckDuplicateAttributesCreateNew(code);
-    // return res;
+  CheckDuplicateAttributesCreateNew: async (
+    ma: any,
+    idNhomSuKien: any,
+    dispatch: any
+  ) => {
+    let res: IResponseMessage =
+      await QuanLyNhomSuKien.CheckDuplicateAttributesCreateNew(
+        ma,
+        idNhomSuKien
+      );
+    return res;
   },
 };

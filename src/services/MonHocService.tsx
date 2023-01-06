@@ -1,23 +1,30 @@
 import request from "common/Request"
 const Por_MonHoc = "Por_MonHoc";
 const MonHocService = {    
-    GetItems: async () => {        
+    GetByParentId: async (idMenuCha:any) => {
         let res:any = await request({
-            url: `/${Por_MonHoc}/List?page=1&pageSize=1000&totalLimitItems=0&searchBy=`,
-            method: 'get'
-        });
-        return res
+          url: `/${Por_MonHoc}/List/${idMenuCha}`,
+          method: 'get'
+        })
+        return res;
+    },
+    GetItem: async (id:String) => {        
+      let res:any = await request({
+          url: `/${Por_MonHoc}/${id}`,
+          method: 'get'
+      });
+      return res
+    },   
+    GetTree: async () => {
+        let res:any = await request({
+          url: `/${Por_MonHoc}/Tree`,
+          method: 'get'
+        })
+        return res;
     },
     GetCategories: async () => {        
         let res:any = await request({
             url: `/${Por_MonHoc}/Categories`,
-            method: 'get'
-        });
-        return res
-    },
-    GetItem: async (id:String) => {        
-        let res:any = await request({
-            url: `/${Por_MonHoc}/${id}`,
             method: 'get'
         });
         return res
@@ -46,16 +53,16 @@ const MonHocService = {
         });
         return res
     },
-    CheckDuplicateAttributes: async (id:any, code:any) => {
+    CheckDuplicateAttributes: async (id:any, ma:any,idMonHocCha:any) => {
         let res:any = await request({
-          url: `/${Por_MonHoc}/CheckDuplicateAttributes?Id=${id}&Code=${code}`,
+          url: `/${Por_MonHoc}/CheckDuplicateAttributes?id=${id}&ma=${ma}&idMonHocCha=${idMonHocCha}`,
           method: 'get'
         })
         return res;
     },
-    CheckDuplicateAttributesCreateNew: async (code:any) => {
+    CheckDuplicateAttributesCreateNew: async (ma:any, idMonHocCha: any) => {
         let res:any = await request({
-          url: `/${Por_MonHoc}/CheckDuplicateAttributes?Code=${code}`,
+          url: `/${Por_MonHoc}/CheckDuplicateAttributes?ma=${ma}&idMonHocCha=${idMonHocCha}`,
           method: 'get'
         })
         return res;

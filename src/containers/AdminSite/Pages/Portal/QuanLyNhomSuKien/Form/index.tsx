@@ -31,28 +31,28 @@ const RoleForm = (props: Props) => {
                              
         if(props.Id) 
         {          
-          // res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Ma, dispatch);
-          // if(res.Data) 
-          // {
-          //   refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
-          //   return; 
-          // }      
+          res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Ma, dispatch);
+          if(res.Data) 
+          {
+            refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
+            return; 
+          }      
           res = await Actions.UpdateItem(stateValues);                    
         }          
         else
         {
-          // res = await Actions.CheckDuplicateAttributesCreateNew(stateValues.Ma, dispatch);
-          // if(res.Data) 
-          // {
-          //   refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
-          //   return; 
-          // }      
+          res = await Actions.CheckDuplicateAttributesCreateNew(stateValues.Ma, dispatch);
+          if(res.Data) 
+          {
+            refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
+            return; 
+          }      
           res = await Actions.CreateItem(stateValues);  
         }           
-        // if(res.Success) {            
-        //   refNotification.current.showNotification("success", res.Message);          
+        if(res.Success) {            
+          refNotification.current.showNotification("success", res.Message);          
           props.ReloadTableItems();
-        // }                    
+        }                    
       }
     },
   }

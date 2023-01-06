@@ -8,58 +8,65 @@ import { InitState } from './InitState';
 import { Actions } from './Action';
 import { Reducer } from './Reducer';
 import monHocFormInputJson from './FormInput.json';
+import { Tree } from 'common/Tree';
 interface Props {
   Id: string,
-  ReloadTableItems: any
+  TreeId?: string,
+  TreeData?: any,
+  ReloadTableItems?: any
 }
 
-const MonHocForm = (props: Props) => {  
+const OrganForm = (props: Props) => {  
   const [state, dispatch] = useReducer(Reducer, InitState)
   useEffect(() => {
-    Actions.GetItem(props.Id, dispatch);
+      Actions.GetItem(props.Id, props.TreeId, dispatch);
   }, [props.Id])
-  let MonHocFormInput:any = monHocFormInputJson;
+  let monHocFormInput:any = monHocFormInputJson;
   const refNotification = useRef<any>();
   const refDynamicForm = useRef<any>();
   const ActionEvents = {
     onClickSave: async () => {
-      let isValid = refDynamicForm.current.onValidation();
+      let isValid = refDynamicForm.current.onValidation();      
       if(isValid)
       {        
-        let stateValues = refDynamicForm.current.getStateValues();
+        let stateValues = refDynamicForm.current.getStateValues();      
+        stateValues.IdMonHocCha = props.TreeId;                    
         let res:IResponseMessage = null;                
                              
         if(props.Id) 
         {          
-          // res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Ma, dispatch);
-          // if(res.Data) 
-          // {
-          //   refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
-          //   return; 
-          // }      
-          res = await Actions.UpdateItem(stateValues);                    
+          res = await Actions.CheckDuplicateAttributes(stateValues.Id, stateValues.Ma, stateValues.IdMonHocCha, dispatch);
+        
+          if(res.Data) 
+          {
+            refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
+            return; 
+          }     
+          res = await Actions.UpdateItem(stateValues);                   
         }          
         else
+        // CheckDuplicateAttributesCreateNew
         {
-          // res = await Actions.CheckDuplicateAttributesCreateNew(stateValues.Ma, dispatch);
-          // if(res.Data) 
-          // {
-          //   refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
-          //   return; 
-          // }      
+          res = await Actions.CheckDuplicateAttributesCreateNew(stateValues.Ma, stateValues.IdMonHocCha, dispatch);
+        
+          if(res.Data) 
+          {
+            refNotification.current.showNotification("warning", Message.DuplicateAttribute_Code);    
+            return; 
+          }     
           res = await Actions.CreateItem(stateValues);  
         }           
-        // if(res.Success) {            
-        //   refNotification.current.showNotification("success", res.Message);          
+        if(res.Success) {            
+          refNotification.current.showNotification("success", res.Message);          
           props.ReloadTableItems();
-        // }                    
+        }                    
       }
     },
   }
   return(
     <>
       <CNotification ref={refNotification} />   
-      <CDynamicForm ref={refDynamicForm} initValues={state.DataItem} formDefs={MonHocFormInput} actionEvents={ActionEvents} />
+      <CDynamicForm ref={refDynamicForm} initValues={state.DataItem} formDefs={monHocFormInput} actionEvents={ActionEvents} />
     </>
   )
 }
@@ -70,4 +77,4 @@ const mapDispatchToProps = {
   
 };
 
-export default connect(mapState, mapDispatchToProps)(MonHocForm);
+export default connect(mapState, mapDispatchToProps)(OrganForm);
