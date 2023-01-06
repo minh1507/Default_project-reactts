@@ -210,7 +210,7 @@
             "code": "Portal",
             "name" : "Cổng thông tin",
             "url": "/portal",
-            "icon": "bi bi-justify",
+            "icon": "bi bi-clipboard-data",
             "subMenu": [
                 {
                     "code": "QuanLyMenu",
