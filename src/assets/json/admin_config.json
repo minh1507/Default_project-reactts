@@ -7,6 +7,12 @@
             "isMenu": true
         },
         {
+            "code": "QuanLyTinTuc",
+            "url": "/quan-ly-tin-tuc",
+            "isLayout": true,
+            "isMenu": true
+        },
+        {
             "code": "Organ",
             "url": "/organ",
             "isLayout": true,
@@ -234,6 +240,12 @@
                     "code": "QuanlyNhomTinTuc",
                     "name" : "Quản lý nhóm tin tức",
                     "url": "/quan-ly-nhom-tin-tuc",
+                    "icon": "bi bi-grid"
+                },
+                {
+                    "code": "QuanLyTinTuc",
+                    "name" : "Quản lý tin tức",
+                    "url": "/quan-ly-tin-tuc",
                     "icon": "bi bi-grid"
                 }
             ]

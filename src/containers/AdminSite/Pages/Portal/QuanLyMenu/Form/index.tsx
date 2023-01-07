@@ -45,7 +45,6 @@ const MenuForm = (props: Props) => {
           res = await Actions.UpdateItem(stateValues);                   
         }          
         else
-        // CheckDuplicateAttributesCreateNew
         {
           res = await Actions.CheckDuplicateAttributesCreateNew(stateValues.Ma, stateValues.IdMenuCha, dispatch);
         

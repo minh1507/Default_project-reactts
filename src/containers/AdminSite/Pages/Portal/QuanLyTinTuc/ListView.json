@@ -1,0 +1,89 @@
+{
+    "DataGrid": {
+        "Key": "TinTuc",
+        "Title": "Danh sách tin tức",
+        "ColumnDefs": [
+            {                
+                "Key": "TieuDe",
+                "Title": "Tiêu đề",                
+                "Align": "center"    
+            },
+            {
+                "Key": "MoTa",
+                "Title": "Mô tả",                
+                "Align": "center"   
+            },
+            {
+                "Key": "NoiDung",
+                "Title": "Nội dung",                
+                "Align": "center"   
+            },
+            {
+                "Key": "TacGia",
+                "Title": "Tác giả",                
+                "Align": "center"   
+            },
+            {
+                "Key": "URL_AnhDaiDien",
+                "Title": "Link ảnh đại diện",                
+                "Align": "center"   
+            },
+            {
+                "Key": "NgayXuatBan",
+                "Title": "Ngày xuất bản",                
+                "Align": "center"
+            },
+            {
+                "Key": "LuotXem",
+                "Title": "Lượt xem",                
+                "Align": "center"
+            },
+            {
+                "Key": "TinMoi",
+                "Title": "Tin mới",               
+                "Align": "center",
+                "Options": [{ "value": true, "label": "Có" },{ "value": false, "label": "Không" }]
+ 
+            },
+            {
+                "Key": "TinNoiBat",
+                "Title": "Tin nổi bật",               
+                "Align": "center",
+                "Options": [{ "value": true, "label": "Có" },{ "value": false, "label": "Không" }]
+ 
+            },
+            {
+                "Key": "TrangThaiBanGhi",
+                "Title": "Trạng thái",               
+                "Align": "center",
+                "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
+            }
+        ],
+        "ActionDefs": [
+            {
+                "Key": "Create", 
+                "Title": "",
+                "Type": "Button",
+                "TitleTooltip": "Thêm mới",
+                "Icon": "plus",
+                "Action": "onClickCreate"
+            },
+            {
+                "Key": "Update", 
+                "Title": "",
+                "Type": "Button",
+                "TitleTooltip": "Sửa",
+                "Icon": "edit",
+                "Action": "onClickUpdate"
+            },
+            {
+                "Key": "Delete", 
+                "Title": "",
+                "Type": "Button",
+                "TitleTooltip": "Xóa",
+                "Icon": "delete",
+                "Action": "onClickDelete"
+            }
+        ]
+    } 
+}
