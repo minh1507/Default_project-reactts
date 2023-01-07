@@ -3,14 +3,15 @@ export interface IModelItem {
   tieuDe: String;
   moTa: String;
   noiDung: String;
-  tacGia: String;
+  giaoVien: String;
   urL_AnhDaiDien: String;
   ngayXuatBan: Date;
-  tinNoiBat: Boolean;
-  tinMoi: Boolean;
-  luotXem: Number;
-  idNhomTinTuc: String;
+  hocPhiGoc: Number;
+  hocPhiGiamGia: Number;
+  thoiGian: Number;
+  idMonHoc: String;
   trangThaiBanGhi: Boolean;
+  trangThai: Boolean;
 }
 export interface IState {
   DataItems: IModelItem[];

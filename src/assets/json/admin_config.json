@@ -131,6 +131,12 @@
             "url": "/restore-password",
             "isLayout": false,
             "isMenu": false
+        },
+        {
+            "code": "QuanlyKhoaHoc",
+            "url": "/quan-ly-khoa-hoc",
+            "isLayout": true,
+            "isMenu": true
         }
     ],
     "menu": [
@@ -246,6 +252,12 @@
                     "code": "QuanLyTinTuc",
                     "name" : "Quản lý tin tức",
                     "url": "/quan-ly-tin-tuc",
+                    "icon": "bi bi-grid"
+                },
+                {
+                    "code": "QuanlyKhoaHoc",
+                    "name": "Quản lý khóa học",
+                    "url": "/quan-ly-khoa-hoc",
                     "icon": "bi bi-grid"
                 }
             ]
