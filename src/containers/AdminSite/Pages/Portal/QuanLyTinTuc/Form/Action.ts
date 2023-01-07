@@ -2,12 +2,12 @@ import { IResponseMessage } from "common/Models";
 import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
 import TinTucService from "services/TinTucService";
+import QuanLyNhomTinTuc from "services/QuanLyNhomTinTuc";
 
 export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
       let res: IResponseMessage = await TinTucService.GetItem(id);
-      console.log(res);
       if (res && res.Success) {
         dispatch({
           type: "GetItem",
@@ -42,6 +42,17 @@ export const Actions: any = {
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {
     let res: IResponseMessage = await TinTucService.UpdateItem(item);
+    return res;
+  },
+  GetCategories: async (key: any, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetCategories();
+    if (res && res.Success) {
+      dispatch({
+        type: "GetCategories",
+        key: key,
+        items: res.Data,
+      });
+    }
     return res;
   },
 };

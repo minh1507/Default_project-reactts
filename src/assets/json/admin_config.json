@@ -25,19 +25,19 @@
             "isMenu": true
         },
         {
-            "code": "QuanlyNhomTinTuc",
+            "code": "QuanLyNhomTinTuc",
             "url": "/quan-ly-nhom-tin-tuc",
             "isLayout": true,
             "isMenu": true
         },
         {
-            "code": "QuanlyMonHoc",
+            "code": "QuanLyMonHoc",
             "url": "/quan-ly-mon-hoc",
             "isLayout": true,
             "isMenu": true
         },
         {
-            "code": "QuanlyNhomSuKien",
+            "code": "QuanLyNhomSuKien",
             "url": "/quan-ly-nhom-su-kien",
             "isLayout": true,
             "isMenu": true
@@ -133,8 +133,14 @@
             "isMenu": false
         },
         {
-            "code": "QuanlyKhoaHoc",
+            "code": "QuanLyKhoaHoc",
             "url": "/quan-ly-khoa-hoc",
+            "isLayout": true,
+            "isMenu": true
+        },
+        {
+            "code": "QuanLySuKien",
+            "url": "/quan-ly-su-kien",
             "isLayout": true,
             "isMenu": true
         }
@@ -231,19 +237,19 @@
                     "icon": "bi bi-grid"
                 },
                 {
-                    "code": "QuanlyMonHoc",
+                    "code": "QuanLyMonHoc",
                     "name" : "Quản lý môn học",
                     "url": "/quan-ly-mon-hoc",
                     "icon": "bi bi-grid"
                 },
                 {
-                    "code": "QuanlyNhomSuKien",
+                    "code": "QuanLyNhomSuKien",
                     "name" : "Quản lý nhóm sự kiện",
                     "url": "/quan-ly-nhom-su-kien",
                     "icon": "bi bi-grid"
                 },
                 {
-                    "code": "QuanlyNhomTinTuc",
+                    "code": "QuanLyNhomTinTuc",
                     "name" : "Quản lý nhóm tin tức",
                     "url": "/quan-ly-nhom-tin-tuc",
                     "icon": "bi bi-grid"
@@ -255,9 +261,15 @@
                     "icon": "bi bi-grid"
                 },
                 {
-                    "code": "QuanlyKhoaHoc",
+                    "code": "QuanLyKhoaHoc",
                     "name": "Quản lý khóa học",
                     "url": "/quan-ly-khoa-hoc",
+                    "icon": "bi bi-grid"
+                },
+                {
+                    "code": "QuanLySuKien",
+                    "name": "Quản lý sự kiện",
+                    "url": "/quan-ly-su-kien",
                     "icon": "bi bi-grid"
                 }
             ]

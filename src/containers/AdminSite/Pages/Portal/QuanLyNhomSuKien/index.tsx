@@ -92,7 +92,7 @@ const QuanLyNhomSuKien = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog title={SuKienId_List ? "Sửa menu": "Tạo mới menu"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog title={SuKienId_List ? "Sửa sự kiện": "Tạo mới sự kiện"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <SuKienForm Id={SuKienId_List} TreeId={SuKienId_Tree.current} TreeData={state.DataTree} ReloadTableItems = {ReloadTableItems} />
             </CDialog>  
             :<div></div>
@@ -113,7 +113,7 @@ const QuanLyNhomSuKien = (props: Props) => {
                     </ACard>          
                 </div>
                 <div className='col-sm-8'>
-                    <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa menu này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
+                    <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa sự kiện này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
                     <CNotification ref={refNotification} />   
                     {DialogMemo}
                     <ACard title={SuKienListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>

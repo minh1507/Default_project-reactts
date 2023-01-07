@@ -1,11 +1,11 @@
 {
-	"Key" : "KhoaHoc",
-	"Title" : "khoa học",
+	"Key" : "SuKien",
+	"Title" : "sự kiện",
 	"Rows": 11,		
 	"Controls" : [
 		{
-			"Key": "TieuDe",
-			"Title": "Tiêu đề",     
+			"Key": "Tên",
+			"Title": "tên",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 1,
@@ -34,8 +34,8 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "GiaoVien",
-			"Title": "Giáo viên",     
+			"Key": "DiaChi",
+			"Title": "Địa chỉ",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 4,
@@ -67,7 +67,7 @@
 		},
 		{
 			"Key": "TrangThai",
-			"Title": "Trạng thái khóa học",     
+			"Title": "Trạng thái sự kiện",     
 			"Type": "Select",
 			"IsRequired": true,
 			"Placeholder": "---Chọn---", 
@@ -78,8 +78,8 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "HocPhiGoc",
-			"Title": "Học phí gốc",     
+			"Key": "GiaTien",
+			"Title": "Giá tiền",     
 			"Type": "InputNumber",
 			"IsRequired": true,
 			"Row": 8,
@@ -88,9 +88,9 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "HocPhiGiamGia",
-			"Title": "Học giảm giá",     
-			"Type": "InputNumber",
+			"Key": "ThoiGian",
+			"Title": "Thời gian",     
+			"Type": "Date",
 			"IsRequired": true,
 			"Row": 9,
 			"ColLabel": 4, 
@@ -98,24 +98,14 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "ThoiGian",
-			"Title": "Thời gian",     
-			"Type": "InputNumber",
-			"IsRequired": true,
-			"Row": 10,
-			"ColLabel": 4, 
-			"ColControl": 8, 
-			"ColSpanControl": 12
-		},
-		{
-			"Key": "IdMonHoc",
-			"Title": "Nhóm môn học",     
+			"Key": "idNhomSuKienCha",
+			"Title": "Nhóm sự kiện",     
 			"Type": "Select",
 			"IsRequired": true,
 			"Placeholder": "---Chọn---", 
 			"Options": [],
 			"KeyOptions": {"label": "Name", "value": "Id"},
-			"Row": 11,
+			"Row": 10,
 			"ColLabel": 4, 
 			"ColControl": 8, 
 			"ColSpanControl": 12

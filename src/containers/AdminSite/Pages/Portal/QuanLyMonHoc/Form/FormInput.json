@@ -1,7 +1,7 @@
 {
 	"Key" : "MonHoc",
 	"Title" : "Cây môn học",
-	"Rows": 4,		
+	"Rows": 3,		
 	"Controls" : [
 		{
 			"Key": "Ma",
@@ -9,8 +9,8 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 1,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		},
 		{
@@ -19,8 +19,8 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 2,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		},
 		{
@@ -30,9 +30,9 @@
 			"IsRequired": true,
 			"Placeholder": "---Chọn---", 
 			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
-			"Row": 4,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"Row": 3,
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		}
 	

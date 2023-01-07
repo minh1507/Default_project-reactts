@@ -1,35 +1,34 @@
 {
     "DataGrid": {
-        "Key": "TinTuc",
-        "Title": "Danh sách tin tức",
+        "Key": "SuKien",
+        "Title": "Danh sách sự kiện",
         "ColumnDefs": [
             {                
-                "Key": "TieuDe",
-                "Title": "Tiêu đề",                
+                "Key": "Ten",
+                "Title": "Tên",                
                 "Align": "center"    
             },
             {
-                "Key": "TacGia",
-                "Title": "Tác giả",                
+                "Key": "DiaChi",
+                "Title": "Địa chỉ",                
                 "Align": "center"   
             },
             {
-                "Key": "NgayXuatBan",
-                "Title": "Ngày xuất bản",                
+                "Key": "GiaTien",
+                "Title": "Giá tiền",                
+                "Align": "center"
+            },
+            {
+                "Key": "ThoiGian",
+                "Title": "Thời gian",                
                 "Align": "center",
                 "Format": "dd/MM/yyyy"
             },
             {
-                "Key": "LuotXem",
-                "Title": "Lượt xem",                
-                "Align": "center"
-            },
-            {
-                "Key": "TinMoi",
-                "Title": "Tin mới",               
+                "Key": "TrangThai",
+                "Title": "Trạng thái sự kiện",               
                 "Align": "center",
-                "Options": [{ "value": true, "label": "Có" },{ "value": false, "label": "Không" }]
- 
+                "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
             }
         ],
         "ActionDefs": [

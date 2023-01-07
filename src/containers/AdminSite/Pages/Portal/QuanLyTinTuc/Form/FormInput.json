@@ -1,7 +1,7 @@
 {
 	"Key" : "TinTuc",
 	"Title" : "tin tức",
-	"Rows": 11,		
+	"Rows": 8,		
 	"Controls" : [
 		{
 			"Key": "TieuDe",
@@ -9,8 +9,8 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 1,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
@@ -19,38 +19,38 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 2,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
 			"Key": "NoiDung",
-			"Title": "noi dung",     
+			"Title": "Nội dung",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 3,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
 			"Key": "TacGia",
-			"Title": "tac gia",     
+			"Title": "Tác giả",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 4,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
 			"Key": "URL_AnhDaiDien",
-			"Title": "Anh dai dien",     
+			"Title": "Ảnh đại diện",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 5,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
@@ -60,9 +60,9 @@
 			"IsRequired": true,
 			"Placeholder": "---Chọn---", 
 			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
-			"Row": 9,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"Row": 6,
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
@@ -70,19 +70,22 @@
 			"Title": "Ngày xuất bản",     
 			"Type": "Date",
 			"IsRequired": true,
-			"Row": 11,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"Row": 7,
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
 			"Key": "IdNhomTinTuc",
-			"Title": "Nhom tin tuc",     
-			"Type": "InputText",
+			"Title": "Nhóm tin tức",     
+			"Type": "Select",
 			"IsRequired": true,
-			"Row": 11,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"Placeholder": "---Chọn---", 
+			"Options": [],
+			"KeyOptions": {"label": "Name", "value": "Id"},
+			"Row": 8,
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		}
 	],

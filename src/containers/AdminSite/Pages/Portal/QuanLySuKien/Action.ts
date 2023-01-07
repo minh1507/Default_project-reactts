@@ -1,11 +1,10 @@
-import { IResponseMessage } from "common/Models";
-import TinTucService from "services/TinTucService";
 import { Thang } from "common/Enums";
+import { IResponseMessage } from "common/Models";
+import SuKienService from "services/SuKienService";
 
 export const Actions: any = {
   GetItems: async (dispatch: any) => {
-    let res: IResponseMessage = await TinTucService.GetItems();
-
+    let res: IResponseMessage = await SuKienService.GetItems();
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
@@ -14,7 +13,7 @@ export const Actions: any = {
     }
   },
   DeleteById: async (id: String, dispatch: any) => {
-    let res: IResponseMessage = await TinTucService.DeleteById([{ id: id }]);
+    let res: IResponseMessage = await SuKienService.DeleteById([{ id: id }]);
     return res;
   },
 };

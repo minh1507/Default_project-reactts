@@ -1,13 +1,13 @@
 import { IResponseMessage } from "common/Models";
 import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
-import KhoaHocService from "services/KhoaHocService";
-import MonHocService from "services/MonHocService";
+import SuKienService from "services/SuKienService";
+import QuanLyNhomSuKien from "services/QuanLyNhomSuKien";
 
 export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
-      let res: IResponseMessage = await KhoaHocService.GetItem(id);
+      let res: IResponseMessage = await SuKienService.GetItem(id);
       if (res && res.Success) {
         dispatch({
           type: "GetItem",
@@ -17,17 +17,15 @@ export const Actions: any = {
     } else {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
-        TieuDe: "",
+        Ten: "",
         MoTa: "",
         NoiDung: "",
-        GiaoVien: "",
+        DiaChi: "",
         URL_AnhDaiDien: "",
-        NgayXuatBan: new Date(),
-        HocPhiGoc: 0,
-        HocPhiGiamGia: 0,
-        IdMonHoc: "",
+        ThoiGian: new Date(),
+        GiaTien: 0,
+        IdNhomSuKien: "",
         TrangThaiBanGhi: true,
-        ThoiGian: 0,
         TrangThai: true,
       };
       dispatch({
@@ -37,16 +35,16 @@ export const Actions: any = {
     }
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await KhoaHocService.CreateItem(item);
+    let res: IResponseMessage = await SuKienService.CreateItem(item);
 
     return res;
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await KhoaHocService.UpdateItem(item);
+    let res: IResponseMessage = await SuKienService.UpdateItem(item);
     return res;
   },
   GetCategories: async (key: any, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.GetCategories();
+    let res: IResponseMessage = await QuanLyNhomSuKien.GetCategories();
     if (res && res.Success) {
       dispatch({
         type: "GetCategories",

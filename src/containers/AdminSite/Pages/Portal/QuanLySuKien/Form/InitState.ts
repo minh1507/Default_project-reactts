@@ -3,17 +3,16 @@ import { IControlOptions } from "common/Models";
 
 export interface IModelItem {
   Id: String;
-  TieuDe: String;
-  MoTa: String;
+  Ten: String;
   NoiDung: String;
-  TacGia: String;
+  DiaChi: String;
   URL_AnhDaiDien: String;
-  NgayXuatBan: Date;
-  TinNoiBat: Boolean;
-  TinMoi: Boolean;
-  LuotXem: Number;
-  IdNhomTinTuc: String;
+  ThoiGian: Date;
+  GiaTien: Number;
+  IdNhomSuKien: String;
   TrangThaiBanGhi: Boolean;
+  TrangThai: Boolean;
+  MoTa: String;
 }
 export interface IState {
   DataItem: IModelItem;
@@ -22,17 +21,16 @@ export interface IState {
 export const InitState: IState = {
   DataItem: {
     Id: Guid.Empty,
-    TieuDe: "",
+    Ten: "",
     MoTa: "",
     NoiDung: "",
-    TacGia: "",
+    DiaChi: "",
     URL_AnhDaiDien: "",
-    NgayXuatBan: new Date(),
-    TinNoiBat: false,
-    TinMoi: true,
-    LuotXem: 0,
-    IdNhomTinTuc: "",
+    ThoiGian: new Date(),
+    GiaTien: 0,
+    IdNhomSuKien: "",
     TrangThaiBanGhi: true,
+    TrangThai: true,
   },
   Options: [],
 };

@@ -92,7 +92,7 @@ const QuanLyMonHoc = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog title={MonHocId_List ? "Sửa menu": "Tạo mới menu"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog title={MonHocId_List ? "Sửa môn học": "Tạo mới môn học"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <MonHocForm Id={MonHocId_List} TreeId={MonHocId_Tree.current} TreeData={state.DataTree} ReloadTableItems = {ReloadTableItems} />
             </CDialog>  
             :<div></div>
@@ -113,7 +113,7 @@ const QuanLyMonHoc = (props: Props) => {
                     </ACard>          
                 </div>
                 <div className='col-sm-8'>
-                    <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa menu này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
+                    <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa môn học này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
                     <CNotification ref={refNotification} />   
                     {DialogMemo}
                     <ACard title={MonHocListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>

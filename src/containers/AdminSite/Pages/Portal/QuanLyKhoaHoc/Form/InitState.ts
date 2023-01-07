@@ -1,4 +1,5 @@
 import { Guid } from "common/Enums";
+import { IControlOptions } from "common/Models";
 
 export interface IModelItem {
   Id: String;
@@ -17,6 +18,7 @@ export interface IModelItem {
 }
 export interface IState {
   DataItem: IModelItem;
+  Options: IControlOptions[];
 }
 export const InitState: IState = {
   DataItem: {
@@ -34,4 +36,5 @@ export const InitState: IState = {
     TrangThaiBanGhi: true,
     TrangThai: true,
   },
+  Options: [],
 };

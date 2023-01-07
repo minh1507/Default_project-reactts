@@ -59,7 +59,7 @@ const KhoaHocList = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog title={khoaHocId ? "Sửa tin tức": "Tạo mới tin tức"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog style={{width: "500px", top: "5%"}} title={khoaHocId ? "Sửa khóa học": "Tạo mới khóa học"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <KhoaHocForm Id={khoaHocId} ReloadTableItems = {ReloadTableItems} />
             </CDialog>
             :<div></div>
@@ -68,7 +68,7 @@ const KhoaHocList = (props: Props) => {
     }, [dialogVisible])
     return(
         <>
-            <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa tin tức" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
+            <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa khóa học này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
             <CNotification ref={refNotification} />   
             {DialogMemo}
             <ACard title={KhoaHocListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>

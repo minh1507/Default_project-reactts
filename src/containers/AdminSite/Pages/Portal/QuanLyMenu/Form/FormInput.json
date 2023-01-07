@@ -9,8 +9,8 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 1,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
@@ -19,8 +19,8 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 2,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
@@ -29,8 +29,8 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 3,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		},
 		{
@@ -41,8 +41,8 @@
 			"Placeholder": "---Chọn---", 
 			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
 			"Row": 4,
-			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColLabel": 4, 
+			"ColControl": 8, 
 			"ColSpanControl": 12
 		}
 	

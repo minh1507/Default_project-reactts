@@ -92,7 +92,7 @@ const QuanLyNhomTinTuc = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog title={TinTucId_List ? "Sửa menu": "Tạo mới menu"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog title={TinTucId_List ? "Sửa tin tức": "Tạo mới tin tức"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <TinTucForm Id={TinTucId_List} TreeId={TinTucId_Tree.current} TreeData={state.DataTree} ReloadTableItems = {ReloadTableItems} />
             </CDialog>  
             :<div></div>
@@ -113,7 +113,7 @@ const QuanLyNhomTinTuc = (props: Props) => {
                     </ACard>          
                 </div>
                 <div className='col-sm-8'>
-                    <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa menu này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
+                    <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa tin tức này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
                     <CNotification ref={refNotification} />   
                     {DialogMemo}
                     <ACard title={TinTucListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>

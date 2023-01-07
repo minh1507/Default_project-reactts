@@ -7,19 +7,19 @@ import { connect } from "react-redux";
 import { InitState } from './InitState';
 import { Actions } from './Action';
 import { Reducer } from './Reducer';
-import KhoaHocFormInputJson from './FormInput.json';
+import SuKienFormInputJson from './FormInput.json';
 interface Props {
   Id: string,
   ReloadTableItems: any,
 }
 
-const KhoaHocForm = (props: Props) => {  
+const SuKienForm = (props: Props) => {  
   const [state, dispatch] = useReducer(Reducer, InitState)
   useEffect(() => {
     Actions.GetItem(props.Id, dispatch);
-    Actions.GetCategories("IdMonHoc", dispatch);
+    Actions.GetCategories("idNhomSuKienCha", dispatch);
   }, [props.Id])
-  let KhoaHocFormInput:any = KhoaHocFormInputJson;
+  let SuKienFormInput:any = SuKienFormInputJson;
   const refNotification = useRef<any>();
   const refDynamicForm = useRef<any>();
   const ActionEvents = {
@@ -48,7 +48,7 @@ const KhoaHocForm = (props: Props) => {
   return(
     <>
       <CNotification ref={refNotification} />   
-      <CDynamicForm ref={refDynamicForm} options={state.Options}  initValues={state.DataItem} formDefs={KhoaHocFormInput} actionEvents={ActionEvents} />
+      <CDynamicForm ref={refDynamicForm} options={state.Options}  initValues={state.DataItem} formDefs={SuKienFormInput} actionEvents={ActionEvents} />
     </>
   )
 }
@@ -59,4 +59,4 @@ const mapDispatchToProps = {
   
 };
 
-export default connect(mapState, mapDispatchToProps)(KhoaHocForm);
+export default connect(mapState, mapDispatchToProps)(SuKienForm);

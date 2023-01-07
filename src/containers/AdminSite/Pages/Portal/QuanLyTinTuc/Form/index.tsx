@@ -17,6 +17,7 @@ const TinTucForm = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState)
   useEffect(() => {
     Actions.GetItem(props.Id, dispatch);
+    Actions.GetCategories("IdNhomTinTuc", dispatch);
   }, [props.Id])
   let tinTucFormInput:any = TinTucFormInputJson;
   const refNotification = useRef<any>();
@@ -47,7 +48,7 @@ const TinTucForm = (props: Props) => {
   return(
     <>
       <CNotification ref={refNotification} />   
-      <CDynamicForm ref={refDynamicForm} initValues={state.DataItem} formDefs={tinTucFormInput} actionEvents={ActionEvents} />
+      <CDynamicForm ref={refDynamicForm} options={state.Options} initValues={state.DataItem} formDefs={tinTucFormInput} actionEvents={ActionEvents} />
     </>
   )
 }

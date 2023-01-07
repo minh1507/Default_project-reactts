@@ -6,18 +6,18 @@ import { connect } from "react-redux";
 import { InitState } from './InitState';
 import { Actions } from './Action';
 import { Reducer } from './Reducer';
-import tinTucListViewJson from './ListView.json';
-import TinTucForm from './Form'
+import SuKienListViewJson from './ListView.json';
+import SuKienForm from './Form'
 import { IResponseMessage } from 'common/Models';
 
 interface Props {
 
 }
 
-const TinTucList = (props: Props) => {  
+const SuKienList = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
-    const [tinTucId, settinTucId] = useState('');
-    const TinTucListView:any = tinTucListViewJson;    
+    const [suKienId, setsuKienId] = useState('');
+    const SuKienListView:any = SuKienListViewJson;    
     const refNotification = useRef<any>();
     const refConfirm_DeleteItem = useRef<any>();
     const refDynamicTable = useRef<any>();
@@ -27,12 +27,12 @@ const TinTucList = (props: Props) => {
     }, [])
     const ActionEvents = {
         onClickCreate: () => {
-            settinTucId('');
+            setsuKienId('');
             setDialogVisible(true);    
         },
         onClickUpdate: () => {
             if(!getRowId()) { refNotification.current.showNotification("warning", Message.Require_Row_Selection); return; }            
-            settinTucId(getRowId());
+            setsuKienId(getRowId());
             setDialogVisible(true);            
         },
         onClickDelete: async () => {
@@ -54,13 +54,13 @@ const TinTucList = (props: Props) => {
         return refDynamicTable.current.getRowId();
     }
     let ButtonGroupsRender = () => {
-        return <CDynamicButton actionDefs={TinTucListView.DataGrid.ActionDefs} actions={ActionEvents} />;
+        return <CDynamicButton actionDefs={SuKienListView.DataGrid.ActionDefs} actions={ActionEvents} />;
     }    
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog style={{width: "450px", top: "5%"}} title={tinTucId ? "Sửa tin tức": "Tạo mới tin tức"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
-                <TinTucForm Id={tinTucId} ReloadTableItems = {ReloadTableItems} />
+            <CDialog style={{width: "500px", top: "5%"}}  title={suKienId ? "Sửa sự kiện": "Tạo mới sự kiện"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+                <SuKienForm Id={suKienId} ReloadTableItems = {ReloadTableItems} />
             </CDialog>
             :<div></div>
         }
@@ -68,15 +68,15 @@ const TinTucList = (props: Props) => {
     }, [dialogVisible])
     return(
         <>
-            <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa tin tức này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
+            <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa sự kiện này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
             <CNotification ref={refNotification} />   
             {DialogMemo}
-            <ACard title={TinTucListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
+            <ACard title={SuKienListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
                 <CDynamicTable 
                     ref={refDynamicTable}
-                    id={TinTucListView.DataGrid.Key} 
-                    key={TinTucListView.DataGrid.Key} 
-                    columnDefs={TinTucListView.DataGrid.ColumnDefs} 
+                    id={SuKienListView.DataGrid.Key} 
+                    key={SuKienListView.DataGrid.Key} 
+                    columnDefs={SuKienListView.DataGrid.ColumnDefs} 
                     dataItems={state.DataItems}            
                 />
             </ACard>
@@ -90,4 +90,4 @@ const mapDispatchToProps = {
   
 };
 
-export default connect(mapState, mapDispatchToProps)(TinTucList);
+export default connect(mapState, mapDispatchToProps)(SuKienList);

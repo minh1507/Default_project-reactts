@@ -1,7 +1,7 @@
 {
     "DataGrid": {
-        "Key": "TinTuc",
-        "Title": "Danh sách tin tức",
+        "Key": "KhoaHoc",
+        "Title": "Danh sách khóa học",
         "ColumnDefs": [
             {                
                 "Key": "TieuDe",
@@ -9,54 +9,31 @@
                 "Align": "center"    
             },
             {
-                "Key": "MoTa",
-                "Title": "Mô tả",                
+                "Key": "GiaoVien",
+                "Title": "Giáo viên",                
                 "Align": "center"   
             },
             {
-                "Key": "NoiDung",
-                "Title": "Nội dung",                
+                "Key": "ThoiGian",
+                "Title": "Thời gian",                
                 "Align": "center"   
             },
             {
-                "Key": "TacGia",
-                "Title": "Tác giả",                
-                "Align": "center"   
-            },
-            {
-                "Key": "URL_AnhDaiDien",
-                "Title": "Link ảnh đại diện",                
-                "Align": "center"   
-            },
-            {
-                "Key": "NgayXuatBan",
-                "Title": "Ngày xuất bản",                
+                "Key": "HocPhiGoc",
+                "Title": "Học phí gốc",                
                 "Align": "center"
             },
             {
-                "Key": "LuotXem",
-                "Title": "Lượt xem",                
+                "Key": "HocPhiGiamGia",
+                "Title": "Học phí giảm giá",               
                 "Align": "center"
             },
             {
-                "Key": "TinMoi",
-                "Title": "Tin mới",               
-                "Align": "center",
-                "Options": [{ "value": true, "label": "Có" },{ "value": false, "label": "Không" }]
- 
-            },
-            {
-                "Key": "TinNoiBat",
-                "Title": "Tin nổi bật",               
-                "Align": "center",
-                "Options": [{ "value": true, "label": "Có" },{ "value": false, "label": "Không" }]
- 
-            },
-            {
-                "Key": "TrangThaiBanGhi",
-                "Title": "Trạng thái",               
+                "Key": "TrangThai",
+                "Title": "Trạng thái khóa học",               
                 "Align": "center",
                 "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
+ 
             }
         ],
         "ActionDefs": [
