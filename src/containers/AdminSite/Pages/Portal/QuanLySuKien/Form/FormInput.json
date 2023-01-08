@@ -104,7 +104,7 @@
 			"IsRequired": true,
 			"Placeholder": "---Chọn---", 
 			"Options": [],
-			"KeyOptions": {"label": "Name", "value": "Id"},
+			"KeyOptions": {"label": "Ten", "value": "Id"},
 			"Row": 10,
 			"ColLabel": 4, 
 			"ColControl": 8, 
