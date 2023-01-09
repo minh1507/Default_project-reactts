@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux";
-import Comment from '../../general/comment';
+import Comment from '../../General/comment';
 import bg40 from 'assets/img/bg40.png'
 import bg7 from 'assets/img/bg7.png'
 import bg39 from 'assets/img/bg39.png'

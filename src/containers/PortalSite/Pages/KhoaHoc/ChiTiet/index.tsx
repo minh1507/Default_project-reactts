@@ -5,7 +5,7 @@ import bg38 from 'assets/img/bg38.png'
 import bg7 from 'assets/img/bg7.png'
 import NoiDung from './NoiDung';
 import { useHistory } from 'react-router-dom';
-import Comment from '../../general/comment';
+import Comment from '../../General/comment';
 
 interface Props {
 

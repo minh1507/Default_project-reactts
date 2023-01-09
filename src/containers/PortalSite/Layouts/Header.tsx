@@ -1,19 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useReducer, useState } from 'react'
 import { connect } from "react-redux";
 import logo from 'assets/img/logoRun.png'
 import { useHistory, useLocation } from 'react-router-dom';
-
+import { IUserInfo } from 'common/Models';
+import { Cookie } from 'common/Cookie';
+import MenuService from 'services/MenuService';
 
 interface Props {
-
+    UserLogout?: Function  
 }
 
+interface Data{
+    Name: String,
+    Id: String,
+    Code: Number
+    Children: Data[]
+}
+
+interface treePortal{
+    Data: Data[],
+    Message: String,
+    StatusCode: Number,
+    Success: Boolean
+}
+
+  
 const Header = (props: Props) => {  
     const location = useLocation();
     const history = useHistory();
     const [change, setchange] = useState(false)
     const [item, setItem] = useState(1)
+    const [tree, setTree] = useState<treePortal>(null)
 
+ 
     const tabbar = () => {
         setchange(!change)
     }
@@ -24,7 +43,14 @@ const Header = (props: Props) => {
         window.scrollTo(0, 0)
     }
    
-    useEffect(() => {
+    const fetchTreePortal = useCallback(async () => {
+        let response = await MenuService.GetTreePortal()
+        setTree(response)
+      }, []) 
+
+    useEffect(() => {   
+        fetchTreePortal()
+
         if(location.pathname == '/' || location.pathname == 'trang-chu')
         {
             if(item != 1)
@@ -89,41 +115,37 @@ const Header = (props: Props) => {
             }
         }
     }, [location.pathname, item])
-   
-    
+
+    // const Logout = () => {      
+    //     props.UserLogout();
+    //     history.push('/login');
+    //   }
+
+    //   let userInfo:IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));  
+    //   console.log("user" + userInfo)
+
+    const navbar = tree && tree.Data?.map((tree:any) =>
+        <div key={tree.Code} className='show_catching'>
+            <p className="navbar_link catching" onClick={() => {GoToOtherPage('/trang-chu')}}>{tree.Name}</p>
+            {tree.Children && tree.Children?.map((child:any) => 
+                <div className='hide'>
+                    <p className="navbar_link" onClick={() => {GoToOtherPage('/trang-chu')}}>{child.Name}</p>
+                </div>
+            )}
+        </div>
+    );
+
+    const navbarMob = tree && tree.Data?.map((tree:any) =>
+        <li key={tree.Code} onClick={() => {GoToOtherPage('/trang-chu')}}>
+            <h6 className={`${item == tree.Code ? 'golden': 'unGolden'}`}>{tree.Name}</h6>
+        </li>   
+    );
+
     return(
       <div className="headers">
         {change && <div className='mob_scene_in' style={{padding: "20px 10px", color:'white'}}>
             <ul className='mt-2' style={{listStyle: 'none', padding: 0}}>
-                <li onClick={() => {GoToOtherPage('/trang-chu')}}>
-                    <h6 className={`${item == 1 ? 'golden': 'unGolden'}`}>TRANG CHỦ</h6>
-                </li>    
-                <li onClick={() => {GoToOtherPage('/gioi-thieu')}}>
-                    <h6 className={`${item == 2 ? 'golden': 'unGolden'}`}>GIỚI THIỆU</h6>
-                </li>   
-                <li onClick={() => {GoToOtherPage('/khoa-hoc')}}>
-                    <h6 className={`${item == 3 ? 'golden': 'unGolden'}`}>KHÓA HỌC</h6>
-                </li>    
-                <li onClick={() => {GoToOtherPage('/kien-thuc')}}>
-                    <h6 className={`${item == 4 ? 'golden': 'unGolden'}`}>KIẾN THỨC</h6>
-                </li>    
-                <li onClick={() => {GoToOtherPage('/chinh-dang-chay-bo')}}>
-                    <h6 className={`${item == 5 ? 'golden': 'unGolden'}`}>CHỈNH DÁNG CHẠY</h6>
-                </li>   
-                <li onClick={() => {GoToOtherPage('/ho-tro')}}>
-                    <h6 className={`${item == 6 ? 'golden': 'unGolden'}`}>HỖ TRỢ</h6>
-                </li>   
-                <li onClick={() => {GoToOtherPage('/gio-hang')}}>
-                    <h6 className={`${item == 7 ? 'golden': 'unGolden'}`}>GIỎ HÀNG</h6>
-                </li>   
-                <li style={{borderBottom: '1px solid grey'}} onClick={() => {GoToOtherPage('/')}}><h6>NHẮN TIN</h6></li>   
-
-                <li className='mt-3' onClick={() => {GoToOtherPage('/dang-nhap')}}>
-                    <h6 className={`${item == 9 ? 'golden': 'unGolden'}`}>ĐĂNG NHẬP</h6>
-                </li>   
-                <li className='mt-3' onClick={() => {GoToOtherPage('/dang-ky')}}>
-                    <h6 className={`${item == 10 ? 'golden': 'unGolden'}`}>ĐĂNG KÝ</h6>
-                </li> 
+                {navbarMob}
             </ul>    
         </div>}
         
@@ -155,10 +177,10 @@ const Header = (props: Props) => {
                     </span>
                 </span>
                 <span className="d-flex gap-2 align-items-center justify-content-center group_icon">
-                    <a href="#" className="header_link"><i className="fa-brands fa-square-facebook header_icon"></i></a>
-                    <a href="#" className="header_link"><i className="fa-brands fa-square-facebook header_icon"></i></a>
-                    <a href="#" className="header_link"><i className="fa-brands fa-square-facebook header_icon"></i></a>
-                    <a href="#" className="header_link"><i className="fa-brands fa-square-facebook header_icon"></i></a>
+                    <a href="#" className="header_link h-100" ><i className="fa-brands fa-square-facebook header_icon" style={{verticalAlign: "middle"}}></i></a>
+                    <a href="#" className="header_link h-100"><i className="fa-brands fa-square-facebook header_icon" style={{verticalAlign: "middle"}}></i></a>
+                    <a href="#" className="header_link h-100"><i className="fa-brands fa-square-facebook header_icon" style={{verticalAlign: "middle"}}></i></a>
+                    <a href="#" className="header_link h-100"><i className="fa-brands fa-square-facebook header_icon" style={{verticalAlign: "middle"}}></i></a>
                 </span>
             </div>
         </div>
@@ -175,59 +197,20 @@ const Header = (props: Props) => {
                     </div>
                 </div>
                 <div className="d-flex navbar_container_main">
-                    <div className='show_catching'>
-                        <p className="navbar_link catching" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                        <div className='hide'>
-                            <p className="navbar_link" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                            <p className="navbar_link mt-1" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                        </div>
-                    </div>
                     
-                    <div className='show_catching'>
-                        <p className="navbar_link catching" onClick={() => {GoToOtherPage('/gioi-thieu')}}>Giới thiệu</p>
-                        <div className='hide'>
-                            <p className="navbar_link" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                            <p className="navbar_link mt-1" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                        </div>
-                    </div>
                    
-                    <div className='show_catching'>
-                        <p className="navbar_link catching" onClick={() => {GoToOtherPage('/khoa-hoc')}}>Khóa học</p>
-                        <div className='hide'>
-                            <p className="navbar_link" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                            <p className="navbar_link mt-1" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                        </div>
-                    </div>
-
-                    <div className='show_catching'>
-                        <p className="navbar_link catching" onClick={() => {GoToOtherPage('/kien-thuc')}}>Kiến thức</p>
-                        <div className='hide'>
-                            <p className="navbar_link" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                            <p className="navbar_link mt-1" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                        </div>
-                    </div>
                     
-                    <div className='show_catching'>
-                        <p className="navbar_link catching" onClick={() => {GoToOtherPage('/chinh-dang-chay-bo')}}>Chỉnh dáng chạy bộ</p>
-                        <div className='hide'>
-                            <p className="navbar_link" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                            <p className="navbar_link mt-1" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                        </div>
-                    </div>
-                    
-                    <div className='show_catching'>
-                        <p className="navbar_link catching" onClick={() => {GoToOtherPage('/ho-tro')}}>Hỗ trợ</p>
-                        <div className='hide'>
-                            <p className="navbar_link" onClick={() => {GoToOtherPage('/ho-tro')}}>Hỗ trợ</p>
-                            <p className="navbar_link mt-1" onClick={() => {GoToOtherPage('/trang-chu')}}>Trang chủ</p>
-                        </div>
-                    </div>
+                    {navbar}
                     
                 </div>
                 <div className="d-flex gap-3 align-items-center error_nav">
                     <a href="#" className="header_bottom_link"><i className="bi bi-chat"></i></a>
                     <span style={{cursor:'pointer'}} onClick={() => {GoToOtherPage('/gio-hang')}} className="header_bottom_link"><i className="bi bi-cart"></i></span>
+                 
                     <button onClick={() => {GoToOtherPage('/dang-nhap')}} className="header_btn bg-danger text-light" style={{width: '100px'}}>Đăng nhập</button>
+                  
+                    
+                    
                     
                 </div>
                 <div className='header_mob_scene'>
@@ -245,7 +228,7 @@ const Header = (props: Props) => {
     )
 }
 const mapState = ({ ...state }) => ({
-
+    // UserLogout: Actions.UserLogout
 });
 const mapDispatchToProps = {
 };

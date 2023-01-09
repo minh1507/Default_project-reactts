@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux";
 import avatar from 'assets/img/ava3.png'
-import Comment from '../../general/comment';
+import Comment from '../../General/comment';
 
 interface Props {  
 }

@@ -5,7 +5,6 @@ import { Thang } from "common/Enums";
 export const Actions: any = {
   GetItems: async (dispatch: any) => {
     let res: IResponseMessage = await TinTucService.GetItems();
-
     if (res && res.Success) {
       dispatch({
         type: "GetItems",

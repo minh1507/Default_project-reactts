@@ -23,6 +23,13 @@ const MenuService =  {
         })
         return res;
     },
+    GetTreePortal: async () => {
+      let res:any = await request({
+        url: `/${Por_Menu}/TreePortal`,
+        method: 'get'
+      })
+      return res;
+  },
     CreateItem: async (data:any) => {        
     let res:any = await request({
         url: `/${Por_Menu}`,

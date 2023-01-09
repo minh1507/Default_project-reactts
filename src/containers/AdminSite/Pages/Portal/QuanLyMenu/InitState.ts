@@ -1,5 +1,3 @@
-import { AppName, Guid } from "common/Enums";
-
 export interface IModelItem {
   id: String;
   ma: String;

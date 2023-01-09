@@ -6,6 +6,7 @@ export const Actions: any = {
     let res: IResponseMessage = await QuanLyNhomTinTuc.GetByParentId(
       idNhomTinTucCha
     );
+
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
@@ -15,6 +16,8 @@ export const Actions: any = {
   },
   GetTree: async (dispatch: any) => {
     let res: IResponseMessage = await QuanLyNhomTinTuc.GetTree();
+    console.log(res);
+
     if (res && res.Success) {
       dispatch({
         type: "GetTree",

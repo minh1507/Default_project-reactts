@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux";
 import bg40 from 'assets/img/bg40.png'
-import MainCard from '../general/MainCard';
+import MainCard from '../General/MainCard';
 
 interface Props {
 
