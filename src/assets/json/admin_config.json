@@ -43,6 +43,12 @@
             "isMenu": true
         },
         {
+            "code": "QuanLyAnh",
+            "url": "/quan-ly-anh",
+            "isLayout": true,
+            "isMenu": true
+        },
+        {
             "code": "QuanLyNhomSuKien",
             "url": "/quan-ly-nhom-su-kien",
             "isLayout": true,
@@ -282,6 +288,12 @@
                     "code": "QuanLyNhomAnh",
                     "name": "Quản lý nhóm ảnh",
                     "url": "/quan-ly-nhom-anh",
+                    "icon": "bi bi-grid"
+                },
+                {
+                    "code": "QuanLyAnh",
+                    "name": "Quản lý ảnh",
+                    "url": "/quan-ly-anh",
                     "icon": "bi bi-grid"
                 }
             ]
