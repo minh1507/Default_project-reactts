@@ -26,8 +26,8 @@
 		{
 			"Key": "TrangThaiBanGhi",
 			"Title": "Trạng thái",     
-			"Type": "Select",
-			"IsRequired": true,
+			"CheckboxLabel": "Hoạt động",     			
+			"Type": "Checkbox",
 			"Placeholder": "---Chọn---", 
 			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
 			"Row": 3,
