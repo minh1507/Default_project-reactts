@@ -1,36 +1,34 @@
-import React, { useCallback, useEffect, useReducer, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { connect } from "react-redux";
 import logo from 'assets/img/logoRun.png'
 import { useHistory, useLocation } from 'react-router-dom';
-import { IUserInfo } from 'common/Models';
-import { Cookie } from 'common/Cookie';
 import MenuService from 'services/MenuService';
 
 interface Props {
     UserLogout?: Function  
 }
 
-interface Data{
-    Name: String,
-    Id: String,
-    Code: Number
-    Children: Data[]
+interface HData {
+    Name: String;
+    Id: String;
+    Code: Number;
+    Children: HData[];
+    URL: String;
+  }
+  
+interface HTreePortal {
+    Data: HData[];
+    Message: String;
+    StatusCode: Number;
+    Success: Boolean;
 }
-
-interface treePortal{
-    Data: Data[],
-    Message: String,
-    StatusCode: Number,
-    Success: Boolean
-}
-
   
 const Header = (props: Props) => {  
     const location = useLocation();
     const history = useHistory();
     const [change, setchange] = useState(false)
     const [item, setItem] = useState(1)
-    const [tree, setTree] = useState<treePortal>(null)
+    const [tree, setTree] = useState<HTreePortal>(null)
 
  
     const tabbar = () => {
@@ -51,7 +49,7 @@ const Header = (props: Props) => {
     useEffect(() => {   
         fetchTreePortal()
 
-        if(location.pathname == '/' || location.pathname == 'trang-chu')
+        if(location.pathname == 'trang-chu')
         {
             if(item != 1)
             {
@@ -124,19 +122,19 @@ const Header = (props: Props) => {
     //   let userInfo:IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));  
     //   console.log("user" + userInfo)
 
-    const navbar = tree && tree.Data?.map((tree:any) =>
-        <div key={tree.Code} className='show_catching'>
-            <p className="navbar_link catching" onClick={() => {GoToOtherPage('/trang-chu')}}>{tree.Name}</p>
+    const navbar = tree && tree.Data?.map((tree:HData) =>
+        <div key={tree.Code as number} className='show_catching'>
+            <p className="navbar_link catching" onClick={() => {GoToOtherPage(tree.URL as string)}}>{tree.Name}</p>
             {tree.Children && tree.Children?.map((child:any) => 
                 <div className='hide'>
-                    <p className="navbar_link" onClick={() => {GoToOtherPage('/trang-chu')}}>{child.Name}</p>
+                    <p className="navbar_link" onClick={() => {GoToOtherPage(tree.URL as string)}}>{child.Name}</p>
                 </div>
             )}
         </div>
     );
 
-    const navbarMob = tree && tree.Data?.map((tree:any) =>
-        <li key={tree.Code} onClick={() => {GoToOtherPage('/trang-chu')}}>
+    const navbarMob = tree && tree.Data?.map((tree:HData) =>
+        <li key={tree.Code as number} onClick={() => {GoToOtherPage(tree.URL as string)}}>
             <h6 className={`${item == tree.Code ? 'golden': 'unGolden'}`}>{tree.Name}</h6>
         </li>   
     );

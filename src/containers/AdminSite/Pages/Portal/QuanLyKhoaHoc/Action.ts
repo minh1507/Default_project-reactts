@@ -1,6 +1,5 @@
 import { IResponseMessage } from "common/Models";
 import KhoaHocService from "services/KhoaHocService";
-import { Thang } from "common/Enums";
 
 export const Actions: any = {
   GetItems: async (dispatch: any) => {

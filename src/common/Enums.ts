@@ -38,18 +38,3 @@ export enum UserType {
   Public = 2,
 }
 export const AppName = "Wolf2";
-
-export const Thang: String[] = [
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
-  "12",
-];

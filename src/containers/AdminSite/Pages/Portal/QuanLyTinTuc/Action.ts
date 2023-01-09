@@ -1,6 +1,5 @@
 import { IResponseMessage } from "common/Models";
 import TinTucService from "services/TinTucService";
-import { Thang } from "common/Enums";
 
 export const Actions: any = {
   GetItems: async (dispatch: any) => {
