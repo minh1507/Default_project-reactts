@@ -3,13 +3,15 @@ export interface IModelItem {
   ma: String;
   ten: String;
   url: String;
+  thuTu: String;
   idMenuCha?: String;
-  trangThaiBanGhi: Boolean;
+  TrangThaiBanGhi: Boolean;
 }
 export interface IModelTree {
   id: String;
   ma: String;
   ten: String;
+  thutu: String;
   Children: Array<IModelTree>;
 }
 export interface IState {

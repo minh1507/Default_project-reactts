@@ -4,33 +4,16 @@
 	"Rows": 11,		
 	"Controls" : [
 		{
-			"Key": "TieuDe",
-			"Title": "Tiêu đề",     
-			"Type": "InputText",
+			"Key": "IdMonHoc",
+			"Title": "Nhóm môn học",     
+			"Type": "Select",
 			"IsRequired": true,
+			"Placeholder": "---Chọn---", 
+			"Options": [],
+			"KeyOptions": {"label": "Name", "value": "Id"},
 			"Row": 1,
-			"ColLabel": 4, 
-			"ColControl": 8, 
-			"ColSpanControl": 12
-		},
-		{
-			"Key": "MoTa",
-			"Title": "Mô tả",     
-			"Type": "InputText",
-			"IsRequired": true,
-			"Row": 2,
-			"ColLabel": 4, 
-			"ColControl": 8, 
-			"ColSpanControl": 12
-		},
-		{
-			"Key": "NoiDung",
-			"Title": "Nội dung",     
-			"Type": "InputText",
-			"IsRequired": true,
-			"Row": 3,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		},
 		{
@@ -38,9 +21,30 @@
 			"Title": "Giáo viên",     
 			"Type": "InputText",
 			"IsRequired": true,
+			"Row": 2,
+			"ColLabel": 3, 
+			"ColControl": 9, 
+			"ColSpanControl": 12
+		}
+		,
+		{
+			"Key": "TieuDe",
+			"Title": "Tiêu đề",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 3,
+			"ColLabel": 3, 
+			"ColControl": 9, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "MoTa",
+			"Title": "Mô tả",     
+			"Type": "InputText",
+			"IsRequired": true,
 			"Row": 4,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		},
 		{
@@ -49,20 +53,8 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 5,
-			"ColLabel": 4, 
-			"ColControl": 8, 
-			"ColSpanControl": 12
-		},
-		{
-			"Key": "TrangThaiBanGhi",
-			"Title": "Trạng thái bản ghi",     
-			"Type": "Select",
-			"IsRequired": true,
-			"Placeholder": "---Chọn---", 
-			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
-			"Row": 6,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		},
 		{
@@ -71,10 +63,10 @@
 			"Type": "Select",
 			"IsRequired": true,
 			"Placeholder": "---Chọn---", 
-			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
-			"Row": 7,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"Options": [{ "value": true, "label": "Mở" },{ "value": false, "label": "Đóng" }],
+			"Row": 6,
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		},
 		{
@@ -82,9 +74,9 @@
 			"Title": "Học phí gốc",     
 			"Type": "InputNumber",
 			"IsRequired": true,
-			"Row": 8,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"Row": 7,
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		},
 		{
@@ -92,9 +84,9 @@
 			"Title": "Học giảm giá",     
 			"Type": "InputNumber",
 			"IsRequired": true,
-			"Row": 9,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"Row": 8,
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		},
 		{
@@ -102,22 +94,32 @@
 			"Title": "Thời gian",     
 			"Type": "InputNumber",
 			"IsRequired": true,
-			"Row": 10,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"Row": 9,
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "IdMonHoc",
-			"Title": "Nhóm môn học",     
-			"Type": "Select",
+			"Key": "NoiDung",
+			"Title": "Nội dung",     
+			"Type": "TextArea",
 			"IsRequired": true,
+			"Row": 10,
+			"ColLabel": 3, 
+			"ColControl": 9, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "TrangThaiBanGhi",
+			"Title": "Trạng thái",     
+			"CheckboxLabel": "Hoạt động",     			
+			"Type": "Checkbox",
 			"Placeholder": "---Chọn---", 
-			"Options": [],
-			"KeyOptions": {"label": "Ten", "value": "Id"},
+			"IsRequired": true,
+			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
 			"Row": 11,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		}
 	],

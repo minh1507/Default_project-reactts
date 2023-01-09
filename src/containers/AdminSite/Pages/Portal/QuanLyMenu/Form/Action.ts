@@ -16,12 +16,13 @@ export const Actions: any = {
       }
     } else {
       let itemNew: IModelItem = {
-        id: Guid.Empty,
-        ma: "",
-        url: "",
-        ten: "",
-        trangThaiBanGhi: true,
-        idMenuCha: treeId,
+        Id: Guid.Empty,
+        Ma: "",
+        URL: "",
+        Ten: "",
+        ThuTu: "",
+        TrangThaiBanGhi: true,
+        IdMenuCha: treeId,
       };
       dispatch({
         type: "GetItem",

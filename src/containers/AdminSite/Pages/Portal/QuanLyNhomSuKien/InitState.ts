@@ -1,16 +1,16 @@
 import { AppName, Guid } from "common/Enums";
 
 export interface IModelItem {
-  id: String;
-  ma: String;
-  ten: String;
-  idNhomSuKienCha?: String;
-  trangThaiBanGhi: Boolean;
+  Id: String;
+  Ma: String;
+  Ten: String;
+  IdNhomSuKienCha?: String;
+  TrangThaiBanGhi: Boolean;
 }
 export interface IModelTree {
-  id: String;
-  ma: String;
-  ten: String;
+  Id: String;
+  Ma: String;
+  Ten: String;
   Children: Array<IModelTree>;
 }
 export interface IState {

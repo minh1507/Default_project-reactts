@@ -29,6 +29,13 @@ const QuanLyNhomTinTuc = {
         });
         return res
     },
+    GetTreeList: async () => {        
+        let res:any = await request({
+            url: `/${Por_NhomTinTuc}/TreeList`,
+            method: 'get'
+        });
+        return res
+    },
     CreateItem: async (data:any) => {        
         let res:any = await request({
             url: `/${Por_NhomTinTuc}`,

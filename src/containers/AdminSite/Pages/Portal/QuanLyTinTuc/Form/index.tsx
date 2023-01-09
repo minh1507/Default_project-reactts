@@ -17,7 +17,7 @@ const TinTucForm = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState)
   useEffect(() => {
     Actions.GetItem(props.Id, dispatch);
-    Actions.GetCategories("IdNhomTinTuc", dispatch);
+    Actions.GetTreeList("IdNhomTinTuc", dispatch);
   }, [props.Id])
   let tinTucFormInput:any = TinTucFormInputJson;
   const refNotification = useRef<any>();

@@ -32,7 +32,7 @@
                 "Key": "TrangThai",
                 "Title": "Trạng thái khóa học",               
                 "Align": "center",
-                "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
+                "Options": [{ "value": true, "label": "Mở" },{ "value": false, "label": "Đóng" }]
  
             }
         ],

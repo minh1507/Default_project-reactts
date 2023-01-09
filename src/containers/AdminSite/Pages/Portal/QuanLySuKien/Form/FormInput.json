@@ -4,13 +4,26 @@
 	"Rows": 11,		
 	"Controls" : [
 		{
+			"Key": "idNhomSuKienCha",
+			"Title": "Nhóm sự kiện",     
+			"Type": "Select",
+			"IsRequired": true,
+			"Placeholder": "---Chọn---", 
+			"Options": [],
+			"KeyOptions": {"label": "Name", "value": "Id"},
+			"Row": 1,
+			"ColLabel": 3, 
+			"ColControl": 9,
+			"ColSpanControl": 12
+		},
+		{
 			"Key": "Tên",
-			"Title": "tên",     
+			"Title": "Tên",     
 			"Type": "InputText",
 			"IsRequired": true,
-			"Row": 1,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"Row": 2,
+			"ColLabel": 3, 
+			"ColControl": 9,
 			"ColSpanControl": 12
 		},
 		{
@@ -18,19 +31,9 @@
 			"Title": "Mô tả",     
 			"Type": "InputText",
 			"IsRequired": true,
-			"Row": 2,
-			"ColLabel": 4, 
-			"ColControl": 8, 
-			"ColSpanControl": 12
-		},
-		{
-			"Key": "NoiDung",
-			"Title": "Nội dung",     
-			"Type": "InputText",
-			"IsRequired": true,
 			"Row": 3,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"ColLabel": 3, 
+			"ColControl": 9,
 			"ColSpanControl": 12
 		},
 		{
@@ -39,8 +42,8 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 4,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"ColLabel": 3, 
+			"ColControl": 9,
 			"ColSpanControl": 12
 		},
 		{
@@ -49,32 +52,20 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 5,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"ColLabel": 3, 
+			"ColControl": 9,
 			"ColSpanControl": 12
-		},
-		{
-			"Key": "TrangThaiBanGhi",
-			"Title": "Trạng thái bản ghi",     
-			"Type": "Select",
-			"IsRequired": true,
-			"Placeholder": "---Chọn---", 
-			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
-			"Row": 6,
-			"ColLabel": 4, 
-			"ColControl": 8, 
-			"ColSpanControl": 12
-		},
-		{
+		}
+		,{
 			"Key": "TrangThai",
 			"Title": "Trạng thái sự kiện",     
 			"Type": "Select",
 			"IsRequired": true,
 			"Placeholder": "---Chọn---", 
-			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
-			"Row": 7,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"Options": [{ "value": true, "label": "Đang diễn ra" },{ "value": false, "label": "Đã diễn ra" }],
+			"Row": 6,
+			"ColLabel": 3, 
+			"ColControl": 9,
 			"ColSpanControl": 12
 		},
 		{
@@ -82,32 +73,42 @@
 			"Title": "Giá tiền",     
 			"Type": "InputNumber",
 			"IsRequired": true,
-			"Row": 8,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"Row": 7,
+			"ColLabel": 3, 
+			"ColControl": 9,
 			"ColSpanControl": 12
-		},
-		{
+		}
+		,{
 			"Key": "ThoiGian",
 			"Title": "Thời gian",     
 			"Type": "Date",
 			"IsRequired": true,
-			"Row": 9,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"Row": 8,
+			"ColLabel": 3, 
+			"ColControl": 9,
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "idNhomSuKienCha",
-			"Title": "Nhóm sự kiện",     
-			"Type": "Select",
+			"Key": "NoiDung",
+			"Title": "Nội dung",     
+			"Type": "TextArea",
 			"IsRequired": true,
+			"Row": 9,
+			"ColLabel": 3, 
+			"ColControl": 9,
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "TrangThaiBanGhi",
+			"Title": "Trạng thái",     
+			"CheckboxLabel": "Hoạt động",     			
+			"Type": "Checkbox",
 			"Placeholder": "---Chọn---", 
-			"Options": [],
-			"KeyOptions": {"label": "Ten", "value": "Id"},
+			"IsRequired": true,
+			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
 			"Row": 10,
-			"ColLabel": 4, 
-			"ColControl": 8, 
+			"ColLabel": 3, 
+			"ColControl": 9, 
 			"ColSpanControl": 12
 		}
 	],

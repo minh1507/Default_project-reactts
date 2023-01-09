@@ -20,11 +20,15 @@
 
             },
             {
+                "Key": "ThuTu",
+                "Title": "Thứ tự",
+                "Align": "center"
+            },
+            {
                 "Key": "TrangThaiBanGhi",
                 "Title": "Trạng thái",               
                 "Align": "center",
                 "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
- 
             }
         ],
         "ActionDefs": [

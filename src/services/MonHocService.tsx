@@ -22,6 +22,13 @@ const MonHocService = {
         })
         return res;
     },
+    GetTreeList: async () => {
+        let res:any = await request({
+          url: `/${Por_MonHoc}/TreeList`,
+          method: 'get'
+        })
+        return res;
+    },
     GetCategories: async () => {        
         let res:any = await request({
             url: `/${Por_MonHoc}/Categories`,

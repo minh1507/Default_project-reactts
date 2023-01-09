@@ -43,11 +43,11 @@ export const Actions: any = {
     let res: IResponseMessage = await SuKienService.UpdateItem(item);
     return res;
   },
-  GetCategories: async (key: any, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomSuKien.GetCategories();
+  GetTreeList: async (key: any, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomSuKien.GetTreeList();
     if (res && res.Success) {
       dispatch({
-        type: "GetCategories",
+        type: "GetTreeList",
         key: key,
         items: res.Data,
       });

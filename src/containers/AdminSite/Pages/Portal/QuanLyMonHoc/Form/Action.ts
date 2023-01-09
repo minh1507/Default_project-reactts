@@ -16,11 +16,11 @@ export const Actions: any = {
       }
     } else {
       let itemNew: IModelItem = {
-        id: Guid.Empty,
-        ma: "",
-        ten: "",
-        trangThaiBanGhi: true,
-        idMonHocCha: treeId,
+        Id: Guid.Empty,
+        Ma: "",
+        Ten: "",
+        TrangThaiBanGhi: true,
+        IdMonHocCha: treeId,
       };
       dispatch({
         type: "GetItem",

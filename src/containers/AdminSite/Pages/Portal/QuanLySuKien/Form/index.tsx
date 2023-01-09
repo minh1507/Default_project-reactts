@@ -17,7 +17,7 @@ const SuKienForm = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState)
   useEffect(() => {
     Actions.GetItem(props.Id, dispatch);
-    Actions.GetCategories("idNhomSuKienCha", dispatch);
+    Actions.GetTreeList("idNhomSuKienCha", dispatch);
   }, [props.Id])
   let SuKienFormInput:any = SuKienFormInputJson;
   const refNotification = useRef<any>();

@@ -17,7 +17,7 @@ const KhoaHocForm = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState)
   useEffect(() => {
     Actions.GetItem(props.Id, dispatch);
-    Actions.GetCategories("IdMonHoc", dispatch);
+    Actions.GetTreeList("IdMonHoc", dispatch);
   }, [props.Id])
   let KhoaHocFormInput:any = KhoaHocFormInputJson;
   const refNotification = useRef<any>();

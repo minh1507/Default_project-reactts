@@ -1,7 +1,7 @@
 {
 	"Key" : "Menu",
 	"Title" : "Cây menu",
-	"Rows": 4,		
+	"Rows": 5,		
 	"Controls" : [
 		{
 			"Key": "Ma",
@@ -24,8 +24,8 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "URL",
-			"Title": "Đường dẫn",     
+			"Key": "ThuTu",
+			"Title": "Thứ tự",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 3,
@@ -34,18 +34,27 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "TrangThaiBanGhi",
-			"Title": "Trạng thái",     
-			"Type": "Select",
+			"Key": "URL",
+			"Title": "Đường dẫn",     
+			"Type": "InputText",
 			"IsRequired": true,
-			"Placeholder": "---Chọn---", 
-			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
 			"Row": 4,
 			"ColLabel": 4, 
 			"ColControl": 8, 
 			"ColSpanControl": 12
+		},
+		{
+			"Key": "TrangThaiBanGhi",
+			"Title": "Trạng thái",     
+			"CheckboxLabel": "Hoạt động",     			
+			"Type": "Checkbox",
+			"Placeholder": "---Chọn---", 
+			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
+			"Row": 5,
+			"ColLabel": 4, 
+			"ColControl": 8, 
+			"ColSpanControl": 12
 		}
-	
 	],
 	"ActionDefs" : [
 		{

@@ -6,7 +6,7 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DataItem: action.item,
       };
-    case "GetCategories":
+    case "GetTreeList":
       let categories: any = [];
       categories.push({ Key: action.key, Options: action.items });
       return {

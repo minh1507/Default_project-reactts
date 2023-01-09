@@ -5,7 +5,7 @@ import CNotification from '../../../components/CNotification';
 import { Regular } from 'common/Regular';
 import { Actions } from 'store/Global/Action';
 import { IResponseMessage } from 'common/Models';
-import { Message } from 'common/Enums';
+import { Message, UserType } from 'common/Enums';
 import CButton from '../../../components/CButton';
 import { useHistory } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ interface Props {
 
 const Signup = (props: Props) => { 
     const history = useHistory(); 
-    const [InputSignup, setInputSignup] = useState({ FullName: "", UserName: "", Password: "", Email: "", Phone: "", Address: "" });
+    const [InputSignup, setInputSignup] = useState({ FullName: "", UserName: "", Password: "", Email: "", Phone: "", Address: "" ,Type: UserType.Internal});
     const refNotification = useRef<any>();
     const handleKeyDown = (event:any) => {
       if(event.keyCode == 13)
@@ -86,7 +86,7 @@ const Signup = (props: Props) => {
         if(res && res.Success)
         {
           refNotification.current.showNotification("success", res.Message);
-          setInputSignup({ FullName: "", UserName: "", Password: "", Email: "", Phone: "", Address: "" })
+          setInputSignup({ FullName: "", UserName: "", Password: "", Email: "", Phone: "", Address: "" ,Type: UserType.Internal})
         }
       }
     }

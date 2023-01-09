@@ -45,11 +45,11 @@ export const Actions: any = {
     let res: IResponseMessage = await KhoaHocService.UpdateItem(item);
     return res;
   },
-  GetCategories: async (key: any, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.GetCategories();
+  GetTreeList: async (key: any, dispatch: any) => {
+    let res: IResponseMessage = await MonHocService.GetTreeList();
     if (res && res.Success) {
       dispatch({
-        type: "GetCategories",
+        type: "GetTreeList",
         key: key,
         items: res.Data,
       });

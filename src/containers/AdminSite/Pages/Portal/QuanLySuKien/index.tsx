@@ -59,7 +59,7 @@ const SuKienList = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog style={{width: "500px", top: "5%"}}  title={suKienId ? "Sửa sự kiện": "Tạo mới sự kiện"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog style={{width: "60%", top: "5%"}}  title={suKienId ? "Sửa sự kiện": "Tạo mới sự kiện"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <SuKienForm Id={suKienId} ReloadTableItems = {ReloadTableItems} />
             </CDialog>
             :<div></div>
