@@ -1,7 +1,7 @@
 {
     "DataGrid": {
-        "Key": "TinTuc",
-        "Title": "Danh sách tin tức",
+        "Key": "Anh",
+        "Title": "Danh sách anh",
         "ColumnDefs": [
             {                
                 "Key": "Ma",
@@ -12,6 +12,18 @@
                 "Key": "Ten",
                 "Title": "Tên",                
                 "Align": "center"   
+            },
+            {
+                "Key": "URL_Anh",
+                "Title": "Link ảnh",                
+                "Align": "center"   
+            },
+            {
+                "Key": "TrangThaiBanGhi",
+                "Title": "Trạng thái",               
+                "Align": "center",
+                "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
+ 
             }
         ],
         "ActionDefs": [

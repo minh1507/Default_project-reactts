@@ -125,13 +125,30 @@ const Header = (props: Props) => {
     const navbar = tree && tree.Data?.map((tree:HData) =>
         <div key={tree.Code as number} className='show_catching'>
             <p className="navbar_link catching" onClick={() => {GoToOtherPage(tree.URL as string)}}>{tree.Name}</p>
-            {tree.Children && tree.Children?.map((child:any) => 
-                <div className='hide'>
-                    <p className="navbar_link" onClick={() => {GoToOtherPage(tree.URL as string)}}>{child.Name}</p>
-                </div>
-            )}
+            {tree.Children.length > 0 && 
+            <div className='hide'>
+                {tree.Children.map((child:any) => 
+                    <div className='kkk'>
+                        <p className="navbar_link ddd" onClick={() => {GoToOtherPage(tree.URL as string)}}>{child.Name}</p>
+                        {child.Children.length > 0 && 
+                          <div className='hides'>
+                          {child.Children.map((childrens:HData) => 
+                              <div >
+                                  <p className="navbar_link" onClick={() => {GoToOtherPage(tree.URL as string)}}>{childrens.Name}</p>
+                              </div>
+                          )}
+                      </div>}
+                      
+                    </div>
+                )}
+            </div>
+            }
+            
+            
         </div>
     );
+    console.log(tree)
+    console.log(navbar)
 
     const navbarMob = tree && tree.Data?.map((tree:HData) =>
         <li key={tree.Code as number} onClick={() => {GoToOtherPage(tree.URL as string)}}>

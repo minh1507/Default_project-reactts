@@ -28,7 +28,7 @@
                 "Key": "TrangThai",
                 "Title": "Trạng thái sự kiện",               
                 "Align": "center",
-                "Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }]
+                "Options": [{ "value": 0, "label": "Chưa diễn ra" },{ "value": 1, "label": "Đang diễn ra" },{ "value": 2, "label": "Đã diễn ra" }]
             }
         ],
         "ActionDefs": [

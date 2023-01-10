@@ -7,7 +7,7 @@ export interface IModelItem {
   urL_AnhDaiDien: String;
   giaTien: String;
   thoiGian: Date;
-  trangThai: Boolean;
+  trangThai: Number;
   idNhomSuKien: String;
   trangThaiBanGhi: Boolean;
 }

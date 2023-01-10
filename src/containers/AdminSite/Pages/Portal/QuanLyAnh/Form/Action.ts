@@ -1,12 +1,14 @@
 import { IResponseMessage } from "common/Models";
 import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
+import QuanLyAnhService from "services/QuanLyAnhService";
 import QuanLyNhomAnhService from "services/QuanLyNhomAnhService";
 
 export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
-      let res: IResponseMessage = await QuanLyNhomAnhService.GetItem(id);
+      let res: IResponseMessage = await QuanLyAnhService.GetItem(id);
+      console.log(res);
       if (res && res.Success) {
         dispatch({
           type: "GetItem",
@@ -16,8 +18,10 @@ export const Actions: any = {
     } else {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
-        Ma: 1,
+        Ma: "",
         Ten: "",
+        URL_Anh: "",
+        IdNhomAnh: "",
         TrangThaiBanGhi: true,
       };
       dispatch({
@@ -27,20 +31,21 @@ export const Actions: any = {
     }
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomAnhService.CreateItem(item);
+    let res: IResponseMessage = await QuanLyAnhService.CreateItem(item);
     return res;
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomAnhService.UpdateItem(item);
+    let res: IResponseMessage = await QuanLyAnhService.UpdateItem(item);
     return res;
   },
-  GetCategories: async (key: any, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomAnhService.GetCategories();
+  GetTreeList: async (key: any, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomAnhService.GetTreeList();
+    console.log(res);
     if (res && res.Success) {
       dispatch({
-        type: "GetCategories",
+        type: "GetTreeList",
         key: key,
-        items: res.Data,
+        items: res.Data.Items,
       });
     }
     return res;

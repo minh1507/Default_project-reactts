@@ -1,14 +1,27 @@
 {
-	"Key" : "NhomAnh",
-	"Title" : "nhóm ảnh",
-	"Rows": 3,		
+	"Key" : "Anh",
+	"Title" : "ảnh",
+	"Rows": 5,		
 	"Controls" : [
+		{
+			"Key": "IdNhomAnh",
+			"Title": "Nhóm ảnh",     
+			"Type": "Select",
+			"IsRequired": true,
+			"Placeholder": "---Chọn---", 
+			"Options": [],
+			"KeyOptions": {"label": "Ten", "value": "Id"},
+			"Row": 1,
+			"ColLabel": 4, 
+			"ColControl": 8, 
+			"ColSpanControl": 12
+		},
 		{
 			"Key": "Ma",
 			"Title": "Mã",     
 			"Type": "InputText",
 			"IsRequired": true,
-			"Row": 1,
+			"Row": 2,
 			"ColLabel": 4, 
 			"ColControl": 8, 
 			"ColSpanControl": 12
@@ -18,7 +31,17 @@
 			"Title": "Tên",     
 			"Type": "InputText",
 			"IsRequired": true,
-			"Row": 2,
+			"Row": 3,
+			"ColLabel": 4, 
+			"ColControl": 8, 
+			"ColSpanControl": 12
+		},
+		{
+			"Key": "URL_Anh",
+			"Title": "Link ảnh",     
+			"Type": "InputText",
+			"IsRequired": true,
+			"Row": 4,
 			"ColLabel": 4, 
 			"ColControl": 8, 
 			"ColSpanControl": 12
@@ -30,7 +53,7 @@
 			"IsRequired": true,
 			"Placeholder": "---Chọn---", 
 			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
-			"Row": 3,
+			"Row": 5,
 			"ColLabel": 4, 
 			"ColControl": 8, 
 			"ColSpanControl": 12

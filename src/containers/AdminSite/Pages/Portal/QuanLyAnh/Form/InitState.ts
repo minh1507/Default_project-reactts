@@ -3,8 +3,10 @@ import { IControlOptions } from "common/Models";
 
 export interface IModelItem {
   Id: String;
-  Ma: Number;
+  Ma: String;
   Ten: String;
+  URL_Anh: String;
+  IdNhomAnh: String;
   TrangThaiBanGhi: Boolean;
 }
 export interface IState {
@@ -14,8 +16,10 @@ export interface IState {
 export const InitState: IState = {
   DataItem: {
     Id: Guid.Empty,
-    Ma: 0,
+    Ma: "",
     Ten: "",
+    URL_Anh: "",
+    IdNhomAnh: "",
     TrangThaiBanGhi: true,
   },
   Options: [],

@@ -26,7 +26,7 @@ export const Actions: any = {
         GiaTien: 0,
         IdNhomSuKien: "",
         TrangThaiBanGhi: true,
-        TrangThai: true,
+        TrangThai: 1,
       };
       dispatch({
         type: "GetItem",

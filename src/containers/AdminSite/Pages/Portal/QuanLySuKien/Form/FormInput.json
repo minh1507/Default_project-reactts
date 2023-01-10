@@ -4,7 +4,7 @@
 	"Rows": 11,		
 	"Controls" : [
 		{
-			"Key": "idNhomSuKienCha",
+			"Key": "IdNhomSuKien",
 			"Title": "Nhóm sự kiện",     
 			"Type": "Select",
 			"IsRequired": true,
@@ -17,7 +17,7 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "Tên",
+			"Key": "Ten",
 			"Title": "Tên",     
 			"Type": "InputText",
 			"IsRequired": true,
@@ -62,7 +62,7 @@
 			"Type": "Select",
 			"IsRequired": true,
 			"Placeholder": "---Chọn---", 
-			"Options": [{ "value": true, "label": "Đang diễn ra" },{ "value": false, "label": "Đã diễn ra" }],
+			"Options": [{ "value": 0, "label": "Chưa diễn ra" },{ "value": 1, "label": "Đang diễn ra" },{ "value": 2, "label": "Đã diễn ra" }],
 			"Row": 6,
 			"ColLabel": 3, 
 			"ColControl": 9,

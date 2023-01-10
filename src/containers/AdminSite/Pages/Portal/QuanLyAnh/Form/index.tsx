@@ -7,18 +7,21 @@ import { connect } from "react-redux";
 import { InitState } from './InitState';
 import { Actions } from './Action';
 import { Reducer } from './Reducer';
-import NhomAnhFormInputJson from './FormInput.json';
+import AnhFormInputJson from './FormInput.json';
 interface Props {
   Id: string,
   ReloadTableItems: any,
 }
 
-const NhomAnhForm = (props: Props) => {  
+const AnhForm = (props: Props) => {  
   const [state, dispatch] = useReducer(Reducer, InitState)
+
   useEffect(() => {
     Actions.GetItem(props.Id, dispatch);
+    Actions.GetTreeList("IdNhomAnh", dispatch);
   }, [props.Id])
-  let NhomAnhFormInput:any = NhomAnhFormInputJson;
+
+  let AnhFormInput:any = AnhFormInputJson;
   const refNotification = useRef<any>();
   const refDynamicForm = useRef<any>();
   const ActionEvents = {
@@ -47,7 +50,7 @@ const NhomAnhForm = (props: Props) => {
   return(
     <>
       <CNotification ref={refNotification} />   
-      <CDynamicForm ref={refDynamicForm} options={state.Options} initValues={state.DataItem} formDefs={NhomAnhFormInput} actionEvents={ActionEvents} />
+      <CDynamicForm ref={refDynamicForm} options={state.Options} initValues={state.DataItem} formDefs={AnhFormInput} actionEvents={ActionEvents} />
     </>
   )
 }
@@ -58,4 +61,4 @@ const mapDispatchToProps = {
   
 };
 
-export default connect(mapState, mapDispatchToProps)(NhomAnhForm);
+export default connect(mapState, mapDispatchToProps)(AnhForm);

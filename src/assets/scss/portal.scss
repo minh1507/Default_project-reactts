@@ -840,6 +840,26 @@
     color: white;
   }
 
+  .hides {
+    border-radius: 5px 5px;
+    padding: 10px 10px;
+    width: 300px;
+    background-color: white;
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    z-index: 999;
+    max-width: 100px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+
+  .hides:hover {
+    display: block !important;
+    position: absolute;
+  }
+
   .hide {
     border-radius: 5px 5px;
     padding: 10px 10px;
@@ -848,13 +868,21 @@
     display: none;
     position: absolute;
     top: 100%;
-    z-index: 999;
+    z-index: 998;
     max-width: 100px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   }
 
+  .kkk {
+    position: relative;
+  }
+
   .hide:hover {
+    display: block !important;
+  }
+
+  .ddd:hover + .hides {
     display: block !important;
   }
 

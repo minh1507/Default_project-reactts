@@ -14,7 +14,7 @@ interface Props {
 
 }
 
-const QuanLyNhomAnh = (props: Props) => {  
+const QuanLyAnh = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
     const [nhomAnhId, setnhomAnhId] = useState('');
     const NhomAnhListView:any = nhomAnhListViewJson;    
@@ -90,4 +90,4 @@ const mapDispatchToProps = {
   
 };
 
-export default connect(mapState, mapDispatchToProps)(QuanLyNhomAnh);
+export default connect(mapState, mapDispatchToProps)(QuanLyAnh);

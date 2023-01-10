@@ -1,8 +1,10 @@
 export interface IModelItem {
-  id: String;
-  ma: String;
-  ten: String;
-  trangThaiBanGhi: Boolean;
+  Id: String;
+  Ma: String;
+  Ten: String;
+  URL_Anh: String;
+  IdNhomAnh: String;
+  TrangThaiBanGhi: Boolean;
 }
 export interface IState {
   DataItems: IModelItem[];

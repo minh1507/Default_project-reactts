@@ -11,7 +11,7 @@ export interface IModelItem {
   GiaTien: Number;
   IdNhomSuKien: String;
   TrangThaiBanGhi: Boolean;
-  TrangThai: Boolean;
+  TrangThai: Number;
   MoTa: String;
 }
 export interface IState {
@@ -30,7 +30,7 @@ export const InitState: IState = {
     GiaTien: 0,
     IdNhomSuKien: "",
     TrangThaiBanGhi: true,
-    TrangThai: true,
+    TrangThai: 1,
   },
   Options: [],
 };
