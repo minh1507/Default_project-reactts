@@ -3,6 +3,7 @@ import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
 import KhoaHocService from "services/KhoaHocService";
 import MonHocService from "services/MonHocService";
+import QuanLyGiaoVienService from "services/QuanLyGiaoVienService";
 
 export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
@@ -20,7 +21,7 @@ export const Actions: any = {
         TieuDe: "",
         MoTa: "",
         NoiDung: "",
-        GiaoVien: "",
+        IdGiaoVien: "",
         URL_AnhDaiDien: "",
         NgayXuatBan: new Date(),
         HocPhiGoc: 0,
@@ -50,6 +51,17 @@ export const Actions: any = {
     if (res && res.Success) {
       dispatch({
         type: "GetTreeList",
+        key: key,
+        items: res.Data,
+      });
+    }
+    return res;
+  },
+  GetCategories: async (key: any, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyGiaoVienService.GetCategories();
+    if (res && res.Success) {
+      dispatch({
+        type: "GetCategories",
         key: key,
         items: res.Data,
       });

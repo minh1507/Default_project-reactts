@@ -19,6 +19,12 @@
             "isMenu": true
         },
         {
+            "code": "QuanLyGiaoVien",
+            "url": "/quan-ly-giao-vien",
+            "isLayout": true,
+            "isMenu": true
+        },
+        {
             "code": "QuanLyMenu",
             "url": "/quan-ly-menu",
             "isLayout": true,
@@ -294,6 +300,12 @@
                     "code": "QuanLyAnh",
                     "name": "Quản lý ảnh",
                     "url": "/quan-ly-anh",
+                    "icon": "bi bi-grid"
+                },
+                {
+                    "code": "QuanLyGiaoVien",
+                    "name": "Quản lý giáo viên",
+                    "url": "/quan-ly-giao-vien",
                     "icon": "bi bi-grid"
                 }
             ]

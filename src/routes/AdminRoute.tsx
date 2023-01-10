@@ -26,6 +26,7 @@ import QuanLyKhoaHoc from 'containers/AdminSite/Pages/Portal/QuanLyKhoaHoc';
 import QuanLySuKien from 'containers/AdminSite/Pages/Portal/QuanLySuKien';
 import QuanLyNhomAnh from 'containers/AdminSite/Pages/Portal/QuanLyNhomAnh';
 import QuanLyAnh from 'containers/AdminSite/Pages/Portal/QuanLyAnh';
+import QuanLyGiaoVien from 'containers/AdminSite/Pages/Portal/QuanLyGiaoVien';
 interface Props {
     Apps: any
 }
@@ -53,6 +54,8 @@ const AdminRoute = (props: Props) => {
                 return <QuanLyMonHoc/>;
             case "QuanLyKhoaHoc":
                 return <QuanLyKhoaHoc/>;
+            case "QuanLyGiaoVien":
+                return <QuanLyGiaoVien/>
             case "QuanLySuKien":
                 return <QuanLySuKien/>;
             case "QuanLyTinTuc":

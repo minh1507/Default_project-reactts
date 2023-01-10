@@ -17,6 +17,9 @@ export enum Message {
   DeptNotInOrgan = "Đơn vị không là cấp con của phòng ban !",
   LoginFacebookError = "Đăng nhập Facebook thất bại !",
   LoginGoogleError = "Đăng nhập Google thất bại !",
+  DuplicatePassword = "Mật khẩu không trùng",
+  PolicyChecking = "Đồng ý chính sách trước khi đăng khí",
+  Phone_Wrong = "Hãy nhập đúng số điện thoại",
 }
 export enum Guid {
   Empty = "00000000-0000-0000-0000-000000000000",

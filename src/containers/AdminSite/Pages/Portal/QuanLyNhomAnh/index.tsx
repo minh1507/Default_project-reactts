@@ -59,7 +59,7 @@ const QuanLyNhomAnh = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog style={{width: "450px", top: "5%"}} title={nhomAnhId ? "Sửa tin tức": "Tạo mới tin tức"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog style={{width: "450px", top: "5%"}} title={nhomAnhId ? "Sửa nhóm ảnh": "Tạo mới nhóm ảnh"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <NhomAnhForm Id={nhomAnhId} ReloadTableItems = {ReloadTableItems} />
             </CDialog>
             :<div></div>
@@ -68,7 +68,7 @@ const QuanLyNhomAnh = (props: Props) => {
     }, [dialogVisible])
     return(
         <>
-            <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa tin tức này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
+            <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa nhóm ảnh này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
             <CNotification ref={refNotification} />   
             {DialogMemo}
             <ACard title={NhomAnhListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>

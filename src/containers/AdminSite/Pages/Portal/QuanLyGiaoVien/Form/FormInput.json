@@ -1,24 +1,21 @@
 {
-	"Key" : "TinTuc",
-	"Title" : "tin tức",
+	"Key" : "GiaoVien",
+	"Title" : "Giáo viên",
 	"Rows": 8,		
 	"Controls" : [
 		{
-			"Key": "IdNhomTinTuc",
-			"Title": "Nhóm tin tức",     
-			"Type": "Select",
+			"Key": "Ten",
+			"Title": "Tên",     
+			"Type": "InputText",
 			"IsRequired": true,
-			"Placeholder": "---Chọn---", 
-			"Options": [],
-			"KeyOptions": {"label": "Name", "value": "Id"},
 			"Row": 1,
 			"ColLabel": 2, 
 			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "TieuDe",
-			"Title": "Tiêu đề",     
+			"Key": "Ma",
+			"Title": "Mã",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 2,
@@ -27,9 +24,9 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "MoTa",
-			"Title": "Mô tả",     
-			"Type": "TextArea",
+			"Key": "NgaySinh",
+			"Title": "Ngày sinh",     
+			"Type": "Date",
 			"IsRequired": true,
 			"Row": 3,
 			"ColLabel": 2, 
@@ -37,8 +34,8 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "TacGia",
-			"Title": "Tác giả",     
+			"Key": "Email",
+			"Title": "Email",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 4,
@@ -47,8 +44,8 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "URL_AnhDaiDien",
-			"Title": "Ảnh đại diện",     
+			"Key": "Phone",
+			"Title": "Số điện thoại",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 5,
@@ -57,9 +54,9 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "NgayXuatBan",
-			"Title": "Ngày xuất bản",     
-			"Type": "Date",
+			"Key": "ChungChi",
+			"Title": "Chứng chỉ",     
+			"Type": "TextArea",
 			"IsRequired": true,
 			"Row": 6,
 			"ColLabel": 2, 
@@ -67,8 +64,8 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "NoiDung",
-			"Title": "Nội dung",     
+			"Key": "ThanhTich",
+			"Title": "Thành tích",     
 			"Type": "TextArea",
 			"IsRequired": true,
 			"Row": 7,
@@ -77,13 +74,12 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "TrangThaiBanGhi",
-			"Title": "Trạng thái",     
-			"CheckboxLabel": "Hoạt động",     			
-			"Type": "Checkbox",
-			"Placeholder": "---Chọn---", 
+			"Key": "GioiTinh",
+			"Title": "Giới tính",     
+			"Type": "Select",
 			"IsRequired": true,
-			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
+			"Placeholder": "---Chọn---", 
+			"Options": [{ "value": true, "label": "Nam" },{ "value": false, "label": "Nữ" }],
 			"Row": 8,
 			"ColLabel": 2, 
 			"ColControl": 10, 

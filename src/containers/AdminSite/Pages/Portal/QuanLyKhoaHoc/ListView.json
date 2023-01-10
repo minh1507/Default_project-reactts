@@ -5,7 +5,7 @@
         "ColumnDefs": [
             {                
                 "Key": "TieuDe",
-                "Title": "Tiêu đề",                
+                "Title": "Môn học",                
                 "Align": "center"    
             },
             {
@@ -15,7 +15,7 @@
             },
             {
                 "Key": "ThoiGian",
-                "Title": "Thời gian",                
+                "Title": "Thời gian học",                
                 "Align": "center"   
             },
             {

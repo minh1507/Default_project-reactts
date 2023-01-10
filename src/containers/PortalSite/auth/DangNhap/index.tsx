@@ -13,11 +13,8 @@ const DangNhap = (props: Props) => {
     const [forgetPass, setForgetPass] = useState(false)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [condition, setCondition] = useState(0)
-    const error = [
-      {errCode: 1, errMsg: "Required field"},
-      {errCode: 2, errMsg: "Password required"},
-    ]
+    
+   
     const eye = () => {
       setItem(!item)
     }
@@ -31,16 +28,7 @@ const DangNhap = (props: Props) => {
     }
 
     const DangNhap = () => {
-      if(!username){
-        setCondition(1)
-      }
-      if(!password){
-        setCondition(2)
-      }
-      if(username && password){
-        setCondition(0)
-        history.push('/trang-chu');
-      }
+      
     }
 
     return(
@@ -55,13 +43,11 @@ const DangNhap = (props: Props) => {
 
           {!forgetPass ?
           <div>
-            <input onChange={e => setUsername(e.target.value)} required type="text" className={`form-control ${condition != 1 && 'mb-3'}`} placeholder="Tên đăng nhập" aria-label="Username" aria-describedby="basic-addon1"/>
-            <p className='mb-3 text-danger' style={{fontSize: 'calc(1rem * 0.8)'}}>{condition == 1 &&  error[0].errMsg}</p>
-            <div className={`input-group ${condition != 2 && 'mb-2'}`}>
+            <input onChange={e => setUsername(e.target.value)} required type="text" className={`form-control mb-3`} placeholder="Tên đăng nhập" aria-label="Username" aria-describedby="basic-addon1"/>
+            <div className={`input-group mb-2`}>
               <input onChange={e => setPassword(e.target.value)} type={`${item ? 'text' : 'password'}`} className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
               <span onClick={() => {eye()}} className="input-group-text" id="basic-addon1" style={{cursor: 'pointer'}}>{item ? <i className="bi bi-eye-fill"></i> : <i className="bi bi-eye-slash-fill"></i>}</span>
             </div>
-            <p className='mb-3 text-danger' style={{fontSize: 'calc(1rem * 0.8)'}}>{condition == 2 && error[0].errMsg}</p>
           </div>
           :
           <div>

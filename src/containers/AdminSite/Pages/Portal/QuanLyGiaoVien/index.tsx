@@ -6,18 +6,18 @@ import { connect } from "react-redux";
 import { InitState } from './InitState';
 import { Actions } from './Action';
 import { Reducer } from './Reducer';
-import khoaHocListViewJson from './ListView.json';
-import KhoaHocForm from './Form'
+import giaoVienListViewJson from './ListView.json';
+import GiaoVienForm from './Form'
 import { IResponseMessage } from 'common/Models';
 
 interface Props {
 
 }
 
-const KhoaHocList = (props: Props) => {  
+const QuanLyGiaoVien = (props: Props) => {  
     const [state, dispatch] = useReducer(Reducer, InitState)
-    const [khoaHocId, setkhoaHocId] = useState('');
-    const KhoaHocListView:any = khoaHocListViewJson;    
+    const [giaoVienId, setgiaoVienId] = useState('');
+    const GiaoVienListView:any = giaoVienListViewJson;    
     const refNotification = useRef<any>();
     const refConfirm_DeleteItem = useRef<any>();
     const refDynamicTable = useRef<any>();
@@ -27,12 +27,12 @@ const KhoaHocList = (props: Props) => {
     }, [])
     const ActionEvents = {
         onClickCreate: () => {
-            setkhoaHocId('');
+            setgiaoVienId('');
             setDialogVisible(true);    
         },
         onClickUpdate: () => {
             if(!getRowId()) { refNotification.current.showNotification("warning", Message.Require_Row_Selection); return; }            
-            setkhoaHocId(getRowId());
+            setgiaoVienId(getRowId());
             setDialogVisible(true);            
         },
         onClickDelete: async () => {
@@ -54,13 +54,13 @@ const KhoaHocList = (props: Props) => {
         return refDynamicTable.current.getRowId();
     }
     let ButtonGroupsRender = () => {
-        return <CDynamicButton actionDefs={KhoaHocListView.DataGrid.ActionDefs} actions={ActionEvents} />;
+        return <CDynamicButton actionDefs={GiaoVienListView.DataGrid.ActionDefs} actions={ActionEvents} />;
     }    
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog style={{width: "80%", top: "5%"}} title={khoaHocId ? "Sửa khóa học": "Tạo mới khóa học"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
-                <KhoaHocForm Id={khoaHocId} ReloadTableItems = {ReloadTableItems} />
+            <CDialog style={{width: "80%", top: "5%"}} title={giaoVienId ? "Sửa thông tin giáo viên": "Tạo mới thông tin giáo viên"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+                <GiaoVienForm Id={giaoVienId} ReloadTableItems = {ReloadTableItems} />
             </CDialog>
             :<div></div>
         }
@@ -68,15 +68,15 @@ const KhoaHocList = (props: Props) => {
     }, [dialogVisible])
     return(
         <>
-            <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa khóa học này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
+            <CConfirm ref={refConfirm_DeleteItem} Title="Thao tác này sẽ xóa thông tin giáo viên này" Ok={async () => {await DeleteById()}} Canel={()=>{}} />
             <CNotification ref={refNotification} />   
             {DialogMemo}
-            <ACard title={KhoaHocListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
+            <ACard title={GiaoVienListView.DataGrid.Title} buttonGroups={ButtonGroupsRender()}>
                 <CDynamicTable 
                     ref={refDynamicTable}
-                    id={KhoaHocListView.DataGrid.Key} 
-                    key={KhoaHocListView.DataGrid.Key} 
-                    columnDefs={KhoaHocListView.DataGrid.ColumnDefs} 
+                    id={GiaoVienListView.DataGrid.Key} 
+                    key={GiaoVienListView.DataGrid.Key} 
+                    columnDefs={GiaoVienListView.DataGrid.ColumnDefs} 
                     dataItems={state.DataItems}            
                 />
             </ACard>
@@ -90,4 +90,4 @@ const mapDispatchToProps = {
   
 };
 
-export default connect(mapState, mapDispatchToProps)(KhoaHocList);
+export default connect(mapState, mapDispatchToProps)(QuanLyGiaoVien);

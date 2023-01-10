@@ -3,7 +3,7 @@ export interface IModelItem {
   tieuDe: String;
   moTa: String;
   noiDung: String;
-  giaoVien: String;
+  IdGiaoVien: String;
   urL_AnhDaiDien: String;
   ngayXuatBan: Date;
   hocPhiGoc: Number;

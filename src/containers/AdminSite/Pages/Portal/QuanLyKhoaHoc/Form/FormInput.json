@@ -12,18 +12,21 @@
 			"Options": [],
 			"KeyOptions": {"label": "Name", "value": "Id"},
 			"Row": 1,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "GiaoVien",
+			"Key": "IdGiaoVien",
 			"Title": "Giáo viên",     
-			"Type": "InputText",
+			"Type": "Select",
 			"IsRequired": true,
+			"Placeholder": "---Chọn---", 
+			"Options": [],
+			"KeyOptions": {"label": "Ten", "value": "Id"},
 			"Row": 2,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		}
 		,
@@ -33,18 +36,18 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 3,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
 			"Key": "MoTa",
 			"Title": "Mô tả",     
-			"Type": "InputText",
+			"Type": "TextArea",
 			"IsRequired": true,
 			"Row": 4,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
@@ -53,8 +56,8 @@
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 5,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
@@ -65,8 +68,8 @@
 			"Placeholder": "---Chọn---", 
 			"Options": [{ "value": true, "label": "Mở" },{ "value": false, "label": "Đóng" }],
 			"Row": 6,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
@@ -75,8 +78,8 @@
 			"Type": "InputNumber",
 			"IsRequired": true,
 			"Row": 7,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
@@ -85,8 +88,8 @@
 			"Type": "InputNumber",
 			"IsRequired": true,
 			"Row": 8,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
@@ -95,8 +98,8 @@
 			"Type": "InputNumber",
 			"IsRequired": true,
 			"Row": 9,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
@@ -105,8 +108,8 @@
 			"Type": "TextArea",
 			"IsRequired": true,
 			"Row": 10,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		},
 		{
@@ -118,8 +121,8 @@
 			"IsRequired": true,
 			"Options": [{ "value": true, "label": "Hoạt động" },{ "value": false, "label": "Không hoạt động" }],
 			"Row": 11,
-			"ColLabel": 3, 
-			"ColControl": 9, 
+			"ColLabel": 2, 
+			"ColControl": 10, 
 			"ColSpanControl": 12
 		}
 	],

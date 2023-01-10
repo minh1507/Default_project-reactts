@@ -59,7 +59,7 @@ const TinTucList = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog style={{width: "60%", top: "5%"}} title={tinTucId ? "Sửa tin tức": "Tạo mới tin tức"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog style={{width: "80%", top: "5%"}} title={tinTucId ? "Sửa tin tức": "Tạo mới tin tức"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <TinTucForm Id={tinTucId} ReloadTableItems = {ReloadTableItems} />
             </CDialog>
             :<div></div>

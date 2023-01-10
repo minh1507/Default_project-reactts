@@ -6,7 +6,7 @@ export interface IModelItem {
   TieuDe: String;
   MoTa: String;
   NoiDung: String;
-  GiaoVien: String;
+  IdGiaoVien: String;
   URL_AnhDaiDien: String;
   NgayXuatBan: Date;
   HocPhiGoc: Number;
@@ -26,7 +26,7 @@ export const InitState: IState = {
     TieuDe: "",
     MoTa: "",
     NoiDung: "",
-    GiaoVien: "",
+    IdGiaoVien: "",
     URL_AnhDaiDien: "",
     NgayXuatBan: new Date(),
     HocPhiGoc: 0,

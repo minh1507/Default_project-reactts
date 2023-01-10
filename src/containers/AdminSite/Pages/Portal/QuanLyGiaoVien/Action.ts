@@ -1,10 +1,9 @@
 import { IResponseMessage } from "common/Models";
-import KhoaHocService from "services/KhoaHocService";
+import QuanLyGiaoVienService from "services/QuanLyGiaoVienService";
 
 export const Actions: any = {
   GetItems: async (dispatch: any) => {
-    let res: IResponseMessage = await KhoaHocService.GetItems();
-    console.log(res);
+    let res: IResponseMessage = await QuanLyGiaoVienService.GetItems();
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
@@ -13,7 +12,9 @@ export const Actions: any = {
     }
   },
   DeleteById: async (id: String, dispatch: any) => {
-    let res: IResponseMessage = await KhoaHocService.DeleteById([{ id: id }]);
+    let res: IResponseMessage = await QuanLyGiaoVienService.DeleteById([
+      { id: id },
+    ]);
     return res;
   },
 };

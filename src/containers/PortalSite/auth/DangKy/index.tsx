@@ -1,18 +1,110 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { connect } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import banner from 'assets/img/banner.jpg'
-interface Props {
+import { Message, UserType } from 'common/Enums';
+import { IResponseMessage } from 'common/Models';
+import { Actions } from 'store/Global/Action';
+import { Regular } from 'common/Regular';
+import CNotification from 'components/CNotification';
 
+
+interface Props {
+  UserSignup?: Function 
 }
 
 const DangNhap = (props: Props) => {  
+    const [InputSignup, setInputSignup] = useState({ FullName: "", UserName: "", Password: "", Email: "", Phone: "", Address: "" ,Type: UserType.Public});
+    const [Cpass, setCpass] = useState("")
+    const [check, setCheck] = useState(false)
+    const refNotification = useRef<any>();
     const history = useHistory();
     const register = () => {
       history.push('/trang-chu');
     }
+    const handleKeyDown = (event:any) => {
+      if(event.keyCode == 13)
+      {
+        let tagNameFocus = document.activeElement.tagName.toLowerCase();
+        if(tagNameFocus !== 'button')
+        {
+          Signup();  
+        }                         
+      }
+    };   
+    const ValidateForm = () => {
+      if(InputSignup.Phone.length < 10){
+          refNotification.current.showNotification("warning", Message.Phone_Wrong);
+          return false;
+      }
+      if(!check){
+          refNotification.current.showNotification("warning", Message.PolicyChecking);
+          return false;
+      }
+      if(!InputSignup.FullName)
+      {
+          refNotification.current.showNotification("warning", Message.FullName_Is_Not_Empty);
+          return false;
+      }
+      if(Cpass != InputSignup.Password){
+          refNotification.current.showNotification("warning", Message.DuplicatePassword);
+          return false;
+      }
+      if(!InputSignup.UserName)
+      {
+          refNotification.current.showNotification("warning", Message.UserName_Is_Not_Empty);
+          return false;
+      }
+      if(!InputSignup.Password)
+      {
+          refNotification.current.showNotification("warning", Message.Password_Is_Not_Empty);
+          return false;
+      }  
+      if(!InputSignup.Email)
+      {
+          refNotification.current.showNotification("warning", Message.Email_Is_Not_Empty);
+          return false;
+      }
+      if(!InputSignup.Phone)
+      {
+          refNotification.current.showNotification("warning", Message.Phone_Is_Not_Empty);
+          return false;
+      } 
+       
+      return true;
+    }
+    const Signup = async () => {
+      if(ValidateForm()) {
+        let res:IResponseMessage = await props.UserSignup(InputSignup);   
+        console.log(res)
+        if(res && res.Success)
+        {
+          refNotification.current.showNotification("success", res.Message);
+          setInputSignup({ FullName: "", UserName: "", Password: "", Email: "", Phone: "", Address: "" ,Type: UserType.Public})
+          history.push('/trang-chu');
+        }
+      }
+    }
+    useEffect(() => {
+      window.addEventListener('keydown', handleKeyDown);
+  
+      // cleanup this component
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    });   
+
+    const onChange = (key: string, e: any) => {
+      setInputSignup({
+          ...InputSignup,
+          [key]: e.target.value
+      })
+    }
+
+   
     return(
       <div className='d-flex justify-content-center align-items-center main_dang_ky' style={{minHeight: '100vh'}}>
+        <CNotification ref={refNotification} /> 
         <section className="h-100 h-custom" >
           <div className="container py-5 h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
@@ -27,46 +119,45 @@ const DangNhap = (props: Props) => {
                     <div className="px-md-2">
 
                       <div className="form-outline mb-4">
-                        <input type="text" id="form3Example1q" placeholder='Họ và Tên' className="form-control" />
+                        <input type="text" placeholder='Họ và Tên'  onChange={(e:any) => {onChange('FullName', e)}}  className="form-control" />
+                      </div>
+
+                      <div className="form-outline mb-4">
+                        <input type="text" placeholder='Tên đăng nhập'  onChange={(e:any) => {onChange('UserName', e)}}  className="form-control" />
+                      </div>
+
+                      <div className="form-outline mb-4">
+                        <input type="text"  placeholder='Địa chỉ' onChange={(e:any) => {onChange('Address', e)}} className="form-control" />
                       </div>
 
                       <div className="row">
                         <div className="col-md-6 mb-4">
-
                           <div className="form-outline datepicker">
-                            <input type="text" className="form-control" placeholder='Email' id="exampleDatepicker1" />
+                            <input type="text" className="form-control" placeholder='Email' onChange={(e:any) => {onChange('Email', e)}}  />
                           </div>
 
                         </div>
                         <div className="col-md-6 mb-4">
 
                         <div className="form-outline datepicker">
-                            <input type="text" className="form-control" placeholder='Số điện thoại' id="exampleDatepicker1" />
+                            <input type="text" className="form-control" placeholder='Số điện thoại'  onChange={(e:any) => {onChange('Phone', e)}}  />
                           </div>
 
                         </div>
                       </div>
+                      
 
-                      <div className="row">
-                        <div className="col-md-6 mb-4">
-
-                          <div className="form-outline datepicker">
-                            <input type="text" className="form-control" placeholder='Mật khẩu' id="exampleDatepicker1" />
-                          </div>
-
-                        </div>
-                        <div className="col-md-6 mb-4">
-
-                        <div className="form-outline datepicker">
-                            <input type="text" className="form-control" placeholder='Nhập lại mật khẩu' id="exampleDatepicker1" />
-                          </div>
-                        </div>
+                      {/* placeholder='Mật khẩu' onChange={(e:any) => {onChange('Password', e)}} */}
+                      <div className="form-outline mb-4">
+                        <input type="password" placeholder='Mật khẩu' onChange={(e:any) => {onChange('Password', e)}}  className="form-control" />
                       </div>
-
+                      <div className="form-outline mb-4">
+                        <input type="password" placeholder='Mật khẩu' onChange={(e:any) => {setCpass(e.target.value)}}  className="form-control" />
+                      </div>
                       <div >
                         <p className="mb-2" style={{fontSize: "calc(1rem * 0.8)"}}>Chú ý: bạn nên sử dụng mật khẩu mạnh có ít nhất 1 chữ in hoa, chữ thường, số và kí hiệu</p>
                         <div className="form-check mb-4" style={{fontSize: 'calc(1rem * 0.8)'}}>
-                          <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                          <input className="form-check-input" onChange={(e) => {setCheck(e.target.checked)}} type="checkbox" value=""/>
                           <label className="form-check-label" >
                               Xác nhận với các <span className='k_dang_nhap'>Điều khoản trong chính sách sử dụng</span>
                           </label>
@@ -74,7 +165,7 @@ const DangNhap = (props: Props) => {
                       </div>
                      
                       <div className='d-flex justify-content-center align-items-center'>
-                        <button onClick={() => {register()}} className="header_btn bg-danger text-light " style={{width: '120px'}}>Đăng ký</button>
+                        <button onClick={() => {Signup()}} className="header_btn bg-danger text-light " style={{width: '120px'}}>Đăng ký</button>
                       </div>
                     </div>
                   </div>
@@ -90,6 +181,7 @@ const mapState = ({ ...state }) => ({
 
 });
 const mapDispatchToProps = {
+  UserSignup: Actions.UserSignup
 };
 
 export default connect(mapState, mapDispatchToProps)(DangNhap);
