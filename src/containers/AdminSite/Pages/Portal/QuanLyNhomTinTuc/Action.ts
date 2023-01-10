@@ -16,7 +16,6 @@ export const Actions: any = {
   },
   GetTree: async (dispatch: any) => {
     let res: IResponseMessage = await QuanLyNhomTinTuc.GetTree();
-    console.log(res);
 
     if (res && res.Success) {
       dispatch({

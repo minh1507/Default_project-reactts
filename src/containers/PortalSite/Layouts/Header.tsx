@@ -147,8 +147,6 @@ const Header = (props: Props) => {
             
         </div>
     );
-    console.log(tree)
-    console.log(navbar)
 
     const navbarMob = tree && tree.Data?.map((tree:HData) =>
         <li key={tree.Code as number} onClick={() => {GoToOtherPage(tree.URL as string)}}>

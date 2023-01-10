@@ -10,7 +10,6 @@ const DangNhap = (props: Props) => {
     const history = useHistory();
     const register = () => {
       history.push('/trang-chu');
-      console.log('ji')
     }
     return(
       <div className='d-flex justify-content-center align-items-center main_dang_ky' style={{minHeight: '100vh'}}>

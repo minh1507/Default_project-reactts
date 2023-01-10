@@ -9,7 +9,6 @@ export const Reducer = (state: IState = InitState, action: any) => {
     case "GetTreeList":
       let categories: any = [];
       categories.push({ Key: action.key, Options: action.items });
-      console.log(categories);
       return {
         ...state,
         Options: categories,
