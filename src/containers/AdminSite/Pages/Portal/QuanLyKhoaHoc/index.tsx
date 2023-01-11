@@ -33,7 +33,7 @@ const KhoaHocList = (props: Props) => {
         onClickUpdate: () => {
             if(!getRowId()) { refNotification.current.showNotification("warning", Message.Require_Row_Selection); return; }            
             setkhoaHocId(getRowId());
-            setDialogVisible(true);            
+            setDialogVisible(true);       
         },
         onClickDelete: async () => {
             if(!getRowId()) { refNotification.current.showNotification("warning", Message.Require_Row_Selection); return; }

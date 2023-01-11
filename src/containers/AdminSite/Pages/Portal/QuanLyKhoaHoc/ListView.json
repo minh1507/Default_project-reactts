@@ -4,12 +4,12 @@
         "Title": "Danh sách khóa học",
         "ColumnDefs": [
             {                
-                "Key": "TieuDe",
+                "Key": "TenMonHoc",
                 "Title": "Môn học",                
                 "Align": "center"    
             },
             {
-                "Key": "GiaoVien",
+                "Key": "TenGiaoVien",
                 "Title": "Giáo viên",                
                 "Align": "center"   
             },

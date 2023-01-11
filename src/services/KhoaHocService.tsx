@@ -8,6 +8,13 @@ const KhoaHocService = {
         });
         return res
     },
+    GetItemstim: async () => {        
+        let res:any = await request({
+            url: `/${Por_KhoaHoc}/DanhSach`,
+            method: 'get'
+        });
+        return res
+    },
     GetCategories: async () => {        
         let res:any = await request({
             url: `/${Por_KhoaHoc}/Categories`,

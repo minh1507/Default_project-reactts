@@ -3,12 +3,12 @@ import KhoaHocService from "services/KhoaHocService";
 
 export const Actions: any = {
   GetItems: async (dispatch: any) => {
-    let res: IResponseMessage = await KhoaHocService.GetItems();
-    console.log(res);
+    let res: IResponseMessage = await KhoaHocService.GetItemstim();
+
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
-        items: res.Data.Items,
+        items: res.Data,
       });
     }
   },
