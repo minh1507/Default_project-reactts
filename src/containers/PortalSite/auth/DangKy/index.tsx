@@ -255,8 +255,8 @@ const DangKy = (props: Props) => {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="Username"
-                            aria-label="Username"
+                            placeholder="Số điện thoại"
+                            aria-label="Phone"
                             onChange={(e: any) => {
                               onChange("Phone", e);
                             }}
@@ -292,7 +292,7 @@ const DangKy = (props: Props) => {
                     <div className="form-outline input-group mb-4">
                       <input
                         type={`${item.cpass ? "text" : "password"}`}
-                        placeholder="Mật khẩu"
+                        placeholder="Nhập lại mật khẩu"
                         onChange={(e: any) => {
                           setCpass(e.target.value);
                         }}
