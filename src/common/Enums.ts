@@ -40,4 +40,4 @@ export enum UserType {
   Internal = 1,
   Public = 2,
 }
-export const AppName = "Wolf2";
+export const AppName = "WebRunning";
