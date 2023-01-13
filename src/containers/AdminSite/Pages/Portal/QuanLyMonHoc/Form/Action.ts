@@ -18,6 +18,8 @@ export const Actions: any = {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
         Ma: "",
+        Mota: "",
+        GiaGiaoDong: "",
         Ten: "",
         TrangThaiBanGhi: true,
         IdMonHocCha: treeId,

@@ -1,17 +1,31 @@
 import CNotification from "components/CNotification";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import banner from "assets/img/banner.jpg";
+import { Actions } from "store/Global/Action";
+import { Message, UserType } from "common/Enums";
 
-interface Props {}
+interface Props {
+  UserLogin?: Function;
+}
 
 const DangNhap = (props: Props) => {
+  const [InputLogin, setInputLogin] = useState({
+    UserName: "",
+    PassWord: "",
+    Type: UserType.Public,
+  });
   const history = useHistory();
   const [item, setItem] = useState(false);
   const [forgetPass, setForgetPass] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [dialogVisible_SocialLogin, setDialogVisible_SocialLogin] =
+    useState(false);
+  const [dialogVisible_RestorePassword, setDialogVisible_RestorePassword] =
+    useState(false);
+  const refNotification = useRef<any>();
 
   const eye = () => {
     setItem(!item);
@@ -25,13 +39,75 @@ const DangNhap = (props: Props) => {
     history.push("/dang-ky");
   };
 
-  const DangNhap = () => {};
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    // cleanup this component
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
+
+  const handleKeyDown = (event: any) => {
+    if (event.keyCode == 13) {
+      let tagNameFocus = document.activeElement.tagName.toLowerCase();
+      if (tagNameFocus !== "button") {
+        if (dialogVisible_SocialLogin) {
+          // Signup();
+        } else if (dialogVisible_RestorePassword) {
+          // SendEmail();
+        } else {
+          DangNhap();
+        }
+      }
+    }
+  };
+
+  const ValidateFormLogin = () => {
+    if (!InputLogin.UserName) {
+      refNotification.current.showNotification(
+        "warning",
+        Message.UserName_Is_Not_Empty
+      );
+      return false;
+    }
+    if (!InputLogin.PassWord) {
+      refNotification.current.showNotification(
+        "warning",
+        Message.Password_Is_Not_Empty
+      );
+      return false;
+    }
+    return true;
+  };
+
+  const DangNhap = async () => {
+    if (ValidateFormLogin()) {
+      var IsLogged = await props.UserLogin(InputLogin);
+      if (IsLogged) {
+        refNotification.current.showNotification(
+          "success",
+          `Xin chào ${InputLogin.UserName}`
+        );
+        history.push("/trang-chu");
+      }
+    }
+    // console.log(InputLogin);
+  };
+
+  const onChangeFormLogin = (key: string, e: any) => {
+    setInputLogin({
+      ...InputLogin,
+      [key]: e.target.value,
+    });
+  };
 
   return (
     <div
       className="d-flex justify-content-center align-items-center main_dang_nhap"
       style={{ minHeight: "100vh" }}
     >
+      <CNotification ref={refNotification} />
       <section className="h-100 h-custom">
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -49,7 +125,7 @@ const DangNhap = (props: Props) => {
                 <div className="card-body p-4 p-md-5">
                   {!forgetPass ? (
                     <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">
-                      Đăng ký
+                      Đăng nhập
                     </h3>
                   ) : (
                     <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">
@@ -65,6 +141,9 @@ const DangNhap = (props: Props) => {
                             type="text"
                             placeholder="Tên đăng nhập"
                             className="form-control"
+                            onChange={(e: any) => {
+                              onChangeFormLogin("UserName", e);
+                            }}
                           />
                         </div>
 
@@ -73,6 +152,9 @@ const DangNhap = (props: Props) => {
                             type={`${item ? "text" : "password"}`}
                             placeholder="Mật khẩu"
                             className="form-control"
+                            onChange={(e: any) => {
+                              onChangeFormLogin("PassWord", e);
+                            }}
                           />
                           <span
                             style={{ cursor: "pointer" }}
@@ -214,6 +296,8 @@ const DangNhap = (props: Props) => {
   );
 };
 const mapState = ({ ...state }) => ({});
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  UserLogin: Actions.UserLogin,
+};
 
 export default connect(mapState, mapDispatchToProps)(DangNhap);

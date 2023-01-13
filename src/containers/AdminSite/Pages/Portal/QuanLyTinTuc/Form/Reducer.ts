@@ -13,6 +13,14 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         Options: categories,
       };
+    case "setTacGia":
+      return {
+        ...state,
+        DataItem: {
+          ...state.DataItem,
+          TacGia: action.item,
+        },
+      };
     default:
       return state;
   }

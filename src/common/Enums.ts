@@ -42,3 +42,4 @@ export enum UserType {
   Public = 2,
 }
 export const AppName = "Wolf2";
+export const MonHoc = "Môn học";

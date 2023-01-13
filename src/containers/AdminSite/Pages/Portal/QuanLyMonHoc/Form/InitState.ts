@@ -4,6 +4,8 @@ export interface IModelItem {
   Id: String;
   Ma: String;
   Ten: String;
+  Mota: String;
+  GiaGiaoDong: String;
   IdMonHocCha?: String;
   TrangThaiBanGhi: Boolean;
 }
@@ -14,6 +16,8 @@ export const InitState: IState = {
   DataItem: {
     Id: Guid.Empty,
     Ma: "",
+    Mota: "",
+    GiaGiaoDong: "",
     Ten: "",
     IdMonHocCha: Guid.Empty,
     TrangThaiBanGhi: true,
