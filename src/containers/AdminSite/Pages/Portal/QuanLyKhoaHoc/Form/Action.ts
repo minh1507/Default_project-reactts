@@ -28,7 +28,6 @@ export const Actions: any = {
         HocPhiGiamGia: 0,
         IdMonHoc: "",
         TrangThaiBanGhi: true,
-        ThoiGian: 0,
         TrangThai: true,
       };
       dispatch({

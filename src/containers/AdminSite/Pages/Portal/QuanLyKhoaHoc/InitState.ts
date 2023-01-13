@@ -8,7 +8,6 @@ export interface IModelItem {
   ngayXuatBan: Date;
   hocPhiGoc: Number;
   hocPhiGiamGia: Number;
-  thoiGian: Number;
   idMonHoc: String;
   trangThaiBanGhi: Boolean;
   trangThai: Boolean;

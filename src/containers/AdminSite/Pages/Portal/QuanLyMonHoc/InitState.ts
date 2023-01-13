@@ -1,16 +1,18 @@
-import { AppName, Guid } from "common/Enums";
+import { MonHoc, Guid } from "common/Enums";
 
 export interface IModelItem {
   Id: String;
   Ma: String;
   Ten: String;
+  MoTa: String;
+  GiaGiaoDong: String;
   IdMonHocCha?: String;
   TrangThaiBanGhi: Boolean;
 }
 export interface IModelTree {
   Id: String;
-  Ma: String;
-  Ten: String;
+  Code: String;
+  Name: String;
   Children: Array<IModelTree>;
 }
 export interface IState {
@@ -19,5 +21,12 @@ export interface IState {
 }
 export const InitState: IState = {
   DataItems: [],
-  DataTree: [],
+  DataTree: [
+    {
+      Id: Guid.Empty,
+      Code: MonHoc,
+      Name: MonHoc,
+      Children: [],
+    },
+  ],
 };

@@ -238,8 +238,9 @@
   }
 
   .navbar_container_main {
+    flex-grow: 1;
     max-width: 680px;
-    gap: 2rem;
+    justify-content: space-between;
   }
 
   .header_mob_scene {
@@ -362,7 +363,7 @@
   .card_logo {
     border-radius: 50%;
     position: absolute;
-    top: 22%;
+    top: 16%;
     left: 50%;
     transform: translate(-50%, 0);
     z-index: 1;
@@ -863,13 +864,14 @@
   .hide {
     border-radius: 5px 5px;
     padding: 10px 10px;
-    width: 300px;
+    // width: 300px;
     background-color: white;
     display: none;
     position: absolute;
     top: 100%;
     z-index: 998;
-    max-width: 100px;
+    // min-width: 100px;
+    white-space: nowrap;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   }
@@ -951,7 +953,6 @@
   .k_dang_nhap {
     cursor: pointer;
     font-size: calc(1rem * 0.8);
-    font-style: italic;
     color: blue;
   }
 

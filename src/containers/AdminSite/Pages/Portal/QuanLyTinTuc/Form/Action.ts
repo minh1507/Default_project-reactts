@@ -5,6 +5,12 @@ import TinTucService from "services/TinTucService";
 import QuanLyNhomTinTuc from "services/QuanLyNhomTinTuc";
 
 export const Actions: any = {
+  SetTacGia: async (tacGia: any, dispatch: any) => {
+    dispatch({
+      type: "setTacGia",
+      item: tacGia,
+    });
+  },
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
       let res: IResponseMessage = await TinTucService.GetItem(id);
@@ -37,7 +43,6 @@ export const Actions: any = {
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
     let res: IResponseMessage = await TinTucService.CreateItem(item);
-
     return res;
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {
