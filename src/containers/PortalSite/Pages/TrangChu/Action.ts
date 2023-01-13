@@ -1,5 +1,6 @@
 import { IResponseMessage } from "common/Models";
 import MonHocService from "services/MonHocService";
+import QuanLyNhomSuKien from "services/QuanLyNhomSuKien";
 import QuanLyNhomTinTuc from "services/QuanLyNhomTinTuc";
 
 export const Actions: any = {
@@ -36,6 +37,15 @@ export const Actions: any = {
     );
     dispatch({
       type: "GetItemTreEm",
+      items: res.Data,
+    });
+  },
+  GetItemSuKien: async (idMonHocCha: any, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomSuKien.getSuKienPortal(
+      idMonHocCha
+    );
+    dispatch({
+      type: "GetItemSuKien",
       items: res.Data,
     });
   },

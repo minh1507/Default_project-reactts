@@ -21,6 +21,11 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DataItemsTreEm: action.items,
       };
+    case "GetItemSuKien":
+      return {
+        ...state,
+        DataItemsSuKien: action.items,
+      };
     default:
       return state;
   }

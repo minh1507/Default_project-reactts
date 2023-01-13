@@ -1,7 +1,7 @@
 {
   "Key": "KhoaHoc",
   "Title": "khoa học",
-  "Rows": 11,
+  "Rows": 10,
   "Controls": [
     {
       "Key": "IdMonHoc",
@@ -97,9 +97,9 @@
     {
       "Key": "NoiDung",
       "Title": "Nội dung",
-      "Type": "TextArea",
+      "Type": "CkEditor",
       "IsRequired": true,
-      "Row": 10,
+      "Row": 9,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
@@ -115,7 +115,7 @@
         { "value": true, "label": "Hoạt động" },
         { "value": false, "label": "Không hoạt động" }
       ],
-      "Row": 11,
+      "Row": 10,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12

@@ -9,8 +9,8 @@
       "Type": "InputText",
       "IsRequired": true,
       "Row": 1,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
@@ -19,8 +19,8 @@
       "Type": "InputText",
       "IsRequired": true,
       "Row": 2,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
@@ -29,8 +29,8 @@
       "Type": "TextArea",
       "IsRequired": true,
       "Row": 3,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
@@ -39,8 +39,8 @@
       "Type": "InputText",
       "IsRequired": true,
       "Row": 4,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
@@ -54,8 +54,8 @@
         { "value": false, "label": "Không hoạt động" }
       ],
       "Row": 5,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     }
   ],

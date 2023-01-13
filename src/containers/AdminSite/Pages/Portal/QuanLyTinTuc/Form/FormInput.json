@@ -68,7 +68,7 @@
     {
       "Key": "NoiDung",
       "Title": "Nội dung",
-      "Type": "TextArea",
+      "Type": "CkEditor",
       "IsRequired": true,
       "Row": 7,
       "ColLabel": 2,
