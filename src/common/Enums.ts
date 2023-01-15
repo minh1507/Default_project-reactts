@@ -55,5 +55,7 @@ export const Thang = [
   "11",
   "12",
 ];
+
+export const TinTuc = ["img1", "img2", "img3"];
 export const AppName = "WebRunning";
 export const MonHoc = "Môn học";

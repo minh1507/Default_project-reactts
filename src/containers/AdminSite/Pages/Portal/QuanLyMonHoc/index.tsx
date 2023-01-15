@@ -78,7 +78,6 @@ const QuanLyMonHoc = (props: Props) => {
     },
   };
 
-  console.log(state);
   const DeleteById = async () => {
     let res: IResponseMessage = await Actions.DeleteById(getRowId(), dispatch);
     if (res.Success) {

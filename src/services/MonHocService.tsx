@@ -15,11 +15,12 @@ const MonHocService = {
     });
     return res;
   },
-  getMonHocPortal: async (id: String) => {
+  getMonHocPortal: async (id: String, limit: string) => {
     let res: any = await request({
-      url: `${Por_MonHoc}/GetMonHocPortal?idMonHocCha=${id}`,
+      url: `${Por_MonHoc}/MonHocPortal?idMonHocCha=${id}&limit=${limit}`,
       method: "get",
     });
+
     return res;
   },
   GetTree: async () => {

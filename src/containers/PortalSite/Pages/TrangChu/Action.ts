@@ -4,42 +4,47 @@ import QuanLyNhomSuKien from "services/QuanLyNhomSuKien";
 import QuanLyNhomTinTuc from "services/QuanLyNhomTinTuc";
 
 export const Actions: any = {
-  GetItemGiaoan: async (idMonHocCha: any, dispatch: any) => {
+  GetItemGiaoan: async (idMonHocCha: any, limit: string, dispatch: any) => {
     let res: IResponseMessage = await MonHocService.getMonHocPortal(
-      idMonHocCha
+      idMonHocCha,
+      limit
     );
     dispatch({
       type: "GetItemGiaoAn",
       items: res.Data,
     });
   },
-  GetItemPortal: async (ten: string, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(ten);
+  GetItemTinTucPortal: async (ten: string, limit: string, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(
+      ten,
+      limit
+    );
+
     if (res && res.Success) {
       dispatch({
-        type: "GetItemPortal",
+        type: "GetItemTinTucPortal",
         items: res.Data,
       });
     }
   },
-  GetItemChayDapBoi: async (idMonHocCha: any, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.getMonHocPortal(
-      idMonHocCha
-    );
-    dispatch({
-      type: "GetItemBoiDapChay",
-      items: res.Data,
-    });
-  },
-  GetItemTreEm: async (idMonHocCha: any, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.getMonHocPortal(
-      idMonHocCha
-    );
-    dispatch({
-      type: "GetItemTreEm",
-      items: res.Data,
-    });
-  },
+  // GetItemChayDapBoi: async (idMonHocCha: any, dispatch: any) => {
+  //   let res: IResponseMessage = await MonHocService.getMonHocPortal(
+  //     idMonHocCha
+  //   );
+  //   dispatch({
+  //     type: "GetItemBoiDapChay",
+  //     items: res.Data,
+  //   });
+  // },
+  // GetItemTreEm: async (idMonHocCha: any, dispatch: any) => {
+  //   let res: IResponseMessage = await MonHocService.getMonHocPortal(
+  //     idMonHocCha
+  //   );
+  //   dispatch({
+  //     type: "GetItemTreEm",
+  //     items: res.Data,
+  //   });
+  // },
   GetItemSuKien: async (idMonHocCha: any, dispatch: any) => {
     let res: IResponseMessage = await QuanLyNhomSuKien.getSuKienPortal(
       idMonHocCha

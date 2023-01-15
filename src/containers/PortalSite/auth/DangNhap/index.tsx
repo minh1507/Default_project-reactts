@@ -92,7 +92,6 @@ const DangNhap = (props: Props) => {
         history.push("/trang-chu");
       }
     }
-    // console.log(InputLogin);
   };
 
   const onChangeFormLogin = (key: string, e: any) => {

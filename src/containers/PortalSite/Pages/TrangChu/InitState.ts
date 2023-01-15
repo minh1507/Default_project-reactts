@@ -1,12 +1,18 @@
 import { Guid } from "common/Enums";
 
 export interface IModelItem {
+  TenNhomTinTuc: string;
+  DanhSachTinTuc: danhSachTintuc[];
+}
+
+export interface danhSachTintuc {
   Id: String;
   TenNhomTinTuc: String;
   TieuDe: String;
   MoTa: String;
   URL_AnhDaiDien: String;
   Small: String;
+  Logo: String;
 }
 
 export interface IModelGen {

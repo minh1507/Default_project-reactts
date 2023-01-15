@@ -36,7 +36,6 @@ const QuanLyNhomSuKien = {
       delete val.ThoiGian;
     });
 
-    console.log(res);
     return res;
   },
   GetTree: async () => {

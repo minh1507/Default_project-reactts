@@ -134,7 +134,7 @@ const DangKy = (props: Props) => {
   const Signup = async () => {
     if (ValidateForm()) {
       let res: IResponseMessage = await props.UserSignup(InputSignup);
-      console.log(res);
+
       if (res && res.Success) {
         refNotification.current.showNotification("success", res.Message);
         setInputSignup({

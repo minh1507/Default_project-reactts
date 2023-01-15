@@ -8,6 +8,7 @@ import { Actions } from "store/Global/Action";
 import { Cookie } from "common/Cookie";
 import { Message } from "common/Enums";
 import CNotification from "components/CNotification";
+const { v4: uuidv4 } = require("uuid");
 
 interface Props {
   UserLogout?: Function;
@@ -114,7 +115,7 @@ const Header = (props: Props) => {
   const navbar =
     tree &&
     tree.Data?.map((tree: HData) => (
-      <div key={tree.Code as number} className="show_catching">
+      <div key={uuidv4()} className="show_catching">
         <p
           className="navbar_link catching"
           onClick={() => {
@@ -126,7 +127,7 @@ const Header = (props: Props) => {
         {tree.Children.length > 0 && (
           <div className="hide">
             {tree.Children.map((child: any) => (
-              <div className="kkk">
+              <div key={uuidv4()} className="kkk">
                 <p
                   className="navbar_link ddd"
                   onClick={() => {
@@ -138,7 +139,7 @@ const Header = (props: Props) => {
                 {child.Children.length > 0 && (
                   <div className="hides">
                     {child.Children.map((childrens: HData) => (
-                      <div>
+                      <div key={uuidv4()}>
                         <p
                           className="navbar_link"
                           onClick={() => {
@@ -162,7 +163,7 @@ const Header = (props: Props) => {
     tree &&
     tree.Data?.map((tree: HData) => (
       <li
-        key={tree.Code as number}
+        key={uuidv4()}
         onClick={() => {
           GoToOtherPage(tree.URL as string);
         }}

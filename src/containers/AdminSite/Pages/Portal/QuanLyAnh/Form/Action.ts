@@ -8,7 +8,7 @@ export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
       let res: IResponseMessage = await QuanLyAnhService.GetItem(id);
-      console.log(res);
+
       if (res && res.Success) {
         dispatch({
           type: "GetItem",
@@ -40,7 +40,7 @@ export const Actions: any = {
   },
   GetTreeList: async (key: any, dispatch: any) => {
     let res: IResponseMessage = await QuanLyNhomAnhService.GetTreeList();
-    console.log(res);
+
     if (res && res.Success) {
       dispatch({
         type: "GetTreeList",
