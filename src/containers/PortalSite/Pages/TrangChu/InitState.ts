@@ -24,9 +24,13 @@ export interface IModelGen {
 }
 
 export interface IModelSuKien {
+  TenNhomSuKien: String;
+  DanhSachSuKien: danhSachSuKien[];
+}
+
+export interface danhSachSuKien {
   IdSuKien: String;
   TenSuKien: String;
-  TenNhomSuKien: String;
   DiaChi: String;
   MoTa: String;
   GiaTien: String;
@@ -38,16 +42,28 @@ export interface IModelSuKien {
 }
 
 export interface IState {
-  DataItems: IModelItem[];
+  DataItems: {
+    TenNhomTinTuc: string;
+    DanhSachTinTuc: danhSachTintuc[];
+  };
   DataItemsGiaoAn: IModelGen[];
   DataItemsBoiDapChay: IModelGen[];
   DataItemsTreEm: IModelGen[];
-  DataItemsSuKien: IModelGen[];
+  DataItemsSuKien: {
+    TenNhomSuKien: String;
+    DanhSachSuKien: danhSachSuKien[];
+  };
 }
 export const InitState: IState = {
-  DataItems: [],
+  DataItems: {
+    TenNhomTinTuc: "",
+    DanhSachTinTuc: [],
+  },
   DataItemsGiaoAn: [],
   DataItemsBoiDapChay: [],
   DataItemsTreEm: [],
-  DataItemsSuKien: [],
+  DataItemsSuKien: {
+    TenNhomSuKien: "",
+    DanhSachSuKien: [],
+  },
 };

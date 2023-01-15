@@ -16,13 +16,10 @@ const QuanLyNhomTinTuc = {
     });
     return res;
   },
-  GetItemPortal: async (ma: String, limit: string) => {
+  GetItemPortal: async (id: String, limit: string) => {
     let res: any = await request({
-      url: `/${Por_NhomTinTuc}/TinTucPortal?ma=${ma}&limit=${limit}`,
+      url: `/${Por_NhomTinTuc}/TinTucPortal?id=${id}&limit=${limit}`,
       method: "get",
-    });
-    res.Data.forEach((val: any, index: any) => {
-      val.Logo = TinTuc[index];
     });
     return res;
   },

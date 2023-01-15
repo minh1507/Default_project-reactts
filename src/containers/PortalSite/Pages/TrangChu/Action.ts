@@ -14,16 +14,13 @@ export const Actions: any = {
       items: res.Data,
     });
   },
-  GetItemTinTucPortal: async (ten: string, limit: string, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(
-      ten,
-      limit
-    );
+  GetItemTinTucPortal: async (id: string, limit: string, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(id, limit);
 
     if (res && res.Success) {
       dispatch({
         type: "GetItemTinTucPortal",
-        items: res.Data,
+        items: res.Data[0],
       });
     }
   },
@@ -45,13 +42,14 @@ export const Actions: any = {
   //     items: res.Data,
   //   });
   // },
-  GetItemSuKien: async (idMonHocCha: any, dispatch: any) => {
+  GetItemSuKien: async (idMonHocCha: string, limit: string, dispatch: any) => {
     let res: IResponseMessage = await QuanLyNhomSuKien.getSuKienPortal(
-      idMonHocCha
+      idMonHocCha,
+      limit
     );
     dispatch({
       type: "GetItemSuKien",
-      items: res.Data,
+      items: res.Data[0],
     });
   },
 };

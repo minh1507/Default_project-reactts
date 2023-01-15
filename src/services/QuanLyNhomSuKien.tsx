@@ -16,12 +16,13 @@ const QuanLyNhomSuKien = {
     });
     return res;
   },
-  getSuKienPortal: async (id: String) => {
+  getSuKienPortal: async (id: String, limit: String) => {
     let res: any = await request({
-      url: `/${Por_NhomSuKien}/GetSuKienPortal?id=${id}`,
+      url: `/${Por_NhomSuKien}/SuKienPortal?id=${id}&limit=${limit}`,
       method: "get",
     });
-    res.Data.forEach((val: any) => {
+
+    res.Data[0].DanhSachSuKien.forEach((val: any) => {
       val.Date =
         new Date(val.ThoiGian).getDate() +
         "/" +
