@@ -8,6 +8,7 @@ export interface IModelItem {
   GiaGiaoDong: String;
   IdMonHocCha?: String;
   TrangThaiBanGhi: Boolean;
+  URL_AnhDaiDien: String;
 }
 export interface IModelTree {
   Id: String;

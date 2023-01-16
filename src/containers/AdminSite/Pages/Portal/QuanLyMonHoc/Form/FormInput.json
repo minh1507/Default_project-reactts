@@ -24,7 +24,7 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "URL_Anh",
+      "Key": "URL_AnhDaiDien",
       "Title": "Link ảnh",
       "Type": "InputText",
       "IsRequired": true,
@@ -34,7 +34,7 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "Mota",
+      "Key": "MoTa",
       "Title": "Mô tả",
       "Type": "TextArea",
       "IsRequired": true,

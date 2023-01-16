@@ -18,11 +18,12 @@ export const Actions: any = {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
         Ma: "",
-        Mota: "",
+        MoTa: "",
         GiaGiaoDong: "",
         Ten: "",
         TrangThaiBanGhi: true,
         IdMonHocCha: treeId,
+        URL_AnhDaiDien: "",
       };
       dispatch({
         type: "GetItem",
