@@ -165,7 +165,10 @@ const TrangChu = (props: Props) => {
                           fontWeight: "bold",
                         }}
                       >
-                        Giá dao động: {tree.GiaGiaoDong} VND
+                        Giá dao động:{" "}
+                        <span className="text-dark">
+                          {tree.GiaGiaoDong} VND
+                        </span>
                       </p>
                       <p
                         className=" card-text"
@@ -175,7 +178,7 @@ const TrangChu = (props: Props) => {
                           fontWeight: "bold",
                         }}
                       >
-                        {tree.MoTa}
+                        Mô tả: <span className="text-dark">{tree.MoTa}</span>
                       </p>
                       <div className="d-flex justify-content-center align-items-center">
                         <button
@@ -297,7 +300,10 @@ const TrangChu = (props: Props) => {
                                 fontWeight: "bold",
                               }}
                             >
-                              Dự kiến: {item.ThoiGianHoc}
+                              Dự kiến:{" "}
+                              <span className="text-dark">
+                                {item.ThoiGianHoc}
+                              </span>
                             </p>
 
                             <p
