@@ -1,7 +1,7 @@
 {
   "Key": "MonHoc",
   "Title": "Cây môn học",
-  "Rows": 5,
+  "Rows": 6,
   "Controls": [
     {
       "Key": "Ma",
@@ -63,7 +63,7 @@
         { "value": true, "label": "Hoạt động" },
         { "value": false, "label": "Không hoạt động" }
       ],
-      "Row": 5,
+      "Row": 6,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12

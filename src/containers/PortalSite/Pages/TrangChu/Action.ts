@@ -14,8 +14,8 @@ export const Actions: any = {
       items: res.Data,
     });
   },
-  GetItemTinTucPortal: async (id: string, limit: string, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(id, limit);
+  GetItemTinTuc: async (ma: string, limit: string, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(ma, limit);
 
     if (res && res.Success) {
       dispatch({
@@ -24,27 +24,28 @@ export const Actions: any = {
       });
     }
   },
-  // GetItemChayDapBoi: async (idMonHocCha: any, dispatch: any) => {
-  //   let res: IResponseMessage = await MonHocService.getMonHocPortal(
-  //     idMonHocCha
-  //   );
-  //   dispatch({
-  //     type: "GetItemBoiDapChay",
-  //     items: res.Data,
-  //   });
-  // },
-  // GetItemTreEm: async (idMonHocCha: any, dispatch: any) => {
-  //   let res: IResponseMessage = await MonHocService.getMonHocPortal(
-  //     idMonHocCha
-  //   );
-  //   dispatch({
-  //     type: "GetItemTreEm",
-  //     items: res.Data,
-  //   });
-  // },
-  GetItemSuKien: async (idMonHocCha: string, limit: string, dispatch: any) => {
+  GetItemKhoaHoc: async (
+    maMonHocCha: any,
+    limitMonHoc: any,
+    limitKhoaHoc: any,
+    dispatch: any
+  ) => {
+    let res: IResponseMessage = await MonHocService.getKhoaHocPortal(
+      limitMonHoc,
+      limitKhoaHoc,
+      maMonHocCha
+    );
+
+    console.log(2);
+    console.log(res);
+    dispatch({
+      type: "GetItemsKhoaHoc",
+      items: res.Data,
+    });
+  },
+  GetItemSuKien: async (ma: number, limit: string, dispatch: any) => {
     let res: IResponseMessage = await QuanLyNhomSuKien.getSuKienPortal(
-      idMonHocCha,
+      ma,
       limit
     );
     dispatch({

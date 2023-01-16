@@ -4,22 +4,17 @@ export const Reducer = (state: IState = InitState, action: any) => {
     case "GetItemTinTucPortal":
       return {
         ...state,
-        DataItems: action.items,
+        DataItemsTinTuc: action.items,
       };
     case "GetItemGiaoAn":
       return {
         ...state,
         DataItemsGiaoAn: action.items,
       };
-    case "GetItemBoiDapChay":
+    case "GetItemsKhoaHoc":
       return {
         ...state,
-        DataItemsBoiDapChay: action.items,
-      };
-    case "GetItemTreEm":
-      return {
-        ...state,
-        DataItemsTreEm: action.items,
+        DataItemsKhoaHoc: action.items,
       };
     case "GetItemSuKien":
       return {

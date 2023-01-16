@@ -16,9 +16,9 @@ const QuanLyNhomSuKien = {
     });
     return res;
   },
-  getSuKienPortal: async (id: String, limit: String) => {
+  getSuKienPortal: async (ma: number, limit: String) => {
     let res: any = await request({
-      url: `/${Por_NhomSuKien}/SuKienPortal?id=${id}&limit=${limit}`,
+      url: `/${Por_NhomSuKien}/SuKienPortal?Ma=${ma}&limit=${limit}`,
       method: "get",
     });
 

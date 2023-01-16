@@ -15,9 +15,21 @@ const MonHocService = {
     });
     return res;
   },
-  getMonHocPortal: async (id: String, limit: string) => {
+  getMonHocPortal: async (ma: number, limit: string) => {
     let res: any = await request({
-      url: `${Por_MonHoc}/MonHocPortal?idMonHocCha=${id}&limit=${limit}`,
+      url: `${Por_MonHoc}/MonHocPortal?maMonHocCha=${ma}&limit=${limit}`,
+      method: "get",
+    });
+
+    return res;
+  },
+  getKhoaHocPortal: async (
+    monhoclimit: number,
+    khoahoclimit: number,
+    maMonHocCha: number
+  ) => {
+    let res: any = await request({
+      url: `${Por_MonHoc}/LayDsKhoaHocTheoMonHocChaPortal?monhoclimit=${monhoclimit}&khoahoclimit=${khoahoclimit}&maMonHocCha=${maMonHocCha}`,
       method: "get",
     });
 

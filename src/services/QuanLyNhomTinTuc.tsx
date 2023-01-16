@@ -16,9 +16,9 @@ const QuanLyNhomTinTuc = {
     });
     return res;
   },
-  GetItemPortal: async (id: String, limit: string) => {
+  GetItemPortal: async (ma: String, limit: string) => {
     let res: any = await request({
-      url: `/${Por_NhomTinTuc}/TinTucPortal?id=${id}&limit=${limit}`,
+      url: `/${Por_NhomTinTuc}/TinTucPortal?maNhomTinTuc=${ma}&limit=${limit}`,
       method: "get",
     });
     return res;
