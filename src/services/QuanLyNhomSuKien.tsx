@@ -18,7 +18,7 @@ const QuanLyNhomSuKien = {
   },
   getSuKienPortal: async (ma: number, limit: String) => {
     let res: any = await request({
-      url: `/${Por_NhomSuKien}/SuKienPortal?Ma=${ma}&limit=${limit}`,
+      url: `/${Por_NhomSuKien}/SuKienPortal?maSuKien=${ma}&limit=${limit}`,
       method: "get",
     });
 

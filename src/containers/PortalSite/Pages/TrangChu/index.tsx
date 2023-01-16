@@ -48,7 +48,7 @@ const TrangChu = (props: Props) => {
     Actions.GetItemTinTuc("1", "3", dispatch);
     Actions.GetItemGiaoan("1", "8", dispatch);
     Actions.GetItemKhoaHoc("1", "8", "4", dispatch);
-    // Actions.GetItemSuKien("1", "4", dispatch);
+    Actions.GetItemSuKien("1", "4", dispatch);
   }, []);
 
   const responsive = {
@@ -128,7 +128,6 @@ const TrangChu = (props: Props) => {
     </div>
   );
 
-  console.log(state);
   const giaoan = state.DataItemsGiaoAn && (
     <div className="main_sub_detal mt-2 mb-2">
       <div className="container-xl d-flex flex-column">
@@ -200,253 +199,212 @@ const TrangChu = (props: Props) => {
   );
 
   const khoaHoc =
-    state.DataItemsKhoaHoc.DanhSachKhoaHoc &&
+    state.DataItemsKhoaHoc &&
     state.DataItemsKhoaHoc.map((tree: IModelGen) => (
-      // <div>
-      //   <div className="style17 container-xl"></div>
+      <div>
+        <div className="style17 container-xl"></div>
 
-      <div className="main_sub_detal mt-2 mb-2">
-        <div className="container-xl d-flex flex-column">
-          <h2 className="text-danger text-uppercase">{tree.TenMonHoc}</h2>
-          <div className="container mt-5">
-            <div className="row row-cols-1 row-cols-md-4 g-3">
-              {tree.DanhSachKhoaHoc.map((item: any) => (
-                <div title="GIÁO ÁN CHỈNH DÁNG" className="col ">
-                  <div
-                    className="card card_main_container"
-                    style={{ cursor: "pointer" }}
-                  >
-                    <img src={bg7} className="card-img-top" alt="..." />
-                    <div className="card-body" style={{ textAlign: "start" }}>
-                      <h5 className="text-danger card-title head_z">
-                        {item.TieuDe}
-                      </h5>
-                      <p
-                        className=" card-text"
-                        style={{
-                          fontSize: "calc(1rem*.9)",
-                          color: "grey",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        Giá dao động: {item.GiaGiaoDong} VND
-                      </p>
-                      <p
-                        className=" card-text"
-                        style={{
-                          fontSize: "calc(1rem*.9)",
-                          color: "grey",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {item.MoTa}
-                      </p>
-                      <div className="d-flex justify-content-center align-items-center">
-                        <button
-                          className="header_btn bg-danger text-light mt-3"
-                          style={{ width: "120px" }}
+        <div className="main_sub_detal mt-2 mb-2">
+          <div className="container-xl d-flex flex-column">
+            <h2 className="text-danger text-uppercase">{tree.TenMonHoc}</h2>
+            <div className="container mt-5">
+              <div className="row row-cols-1 row-cols-md-4 g-3">
+                {tree.DanhSachKhoaHoc.map((item: any) => (
+                  <div title="GIÁO ÁN CHỈNH DÁNG" className="col ">
+                    <div
+                      className="card card_main_container"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img src={bg7} className="card-img-top" alt="..." />
+                      <div className="card-body" style={{ textAlign: "start" }}>
+                        <h5 className="text-danger card-title head_z">
+                          {item.TieuDe}
+                        </h5>
+                        <p
+                          className=" card-text"
+                          style={{
+                            fontSize: "calc(1rem*.9)",
+                            color: "grey",
+                            fontWeight: "bold",
+                          }}
                         >
-                          Xem chi tiết
-                        </button>
+                          Giá dao động: {item.GiaGiaoDong} VND
+                        </p>
+                        <p
+                          className=" card-text"
+                          style={{
+                            fontSize: "calc(1rem*.9)",
+                            color: "grey",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {item.MoTa}
+                        </p>
+                        <div className="d-flex justify-content-center align-items-center">
+                          <button
+                            className="header_btn bg-danger text-light mt-3"
+                            style={{ width: "120px" }}
+                          >
+                            Xem chi tiết
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-5">
+              <button
+                className="header_btn bg-danger text-light "
+                style={{ width: "120px" }}
+              >
+                Xem tất cả
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ));
+
+  const suKien = state.DataItemsSuKien && (
+    <div className="main_sub_detal mt-2 mb-2">
+      <div className="container-xl d-flex flex-column">
+        <h2 className="text-danger">{state.DataItemsSuKien.TenNhomSuKien}</h2>
+        <div className="container mt-5">
+          <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
+            {state.DataItemsSuKien.DanhSachSuKien.map(
+              (child: danhSachSuKien) => (
+                <div
+                  key={uuidv4()}
+                  className="card mb-3 p-0"
+                  style={{ width: "450px" }}
+                >
+                  <div className="row g-0" style={{ minHeight: "200px" }}>
+                    <div className="col-md-4" style={{ minHeight: "100%" }}>
+                      <img
+                        src={child.URL_AnhDaiDien as string}
+                        style={{ width: "100%", height: "100%" }}
+                        alt="..."
+                      />
+                    </div>
+                    <div className="col-md-8">
+                      <div className="card-body p-3">
+                        <div className="d-flex justify-content-between">
+                          <h5
+                            className="m-0"
+                            style={{
+                              textAlign: "start",
+                              width: "210px",
+                              fontSize: "1.15rem",
+                            }}
+                          >
+                            {child.TenSuKien}
+                          </h5>
+                          <span
+                            className="d-flex justify-content-center align-items-center"
+                            style={{
+                              cursor: "pointer",
+                              backgroundColor: "gray",
+                              width: "50px",
+                              height: "50px",
+                              color: "white",
+                              borderRadius: "50%",
+                              fontSize: "12px",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            Chi tiết
+                          </span>
+                        </div>
+                        <p
+                          className="card-text mt-2"
+                          style={{
+                            fontSize: "calc(1rem *.8)",
+                            textAlign: "start",
+                          }}
+                        >
+                          <i className="bi bi-geo-alt-fill" /> {child.DiaChi}
+                        </p>
+                        <div
+                          className="mt-2"
+                          style={{
+                            fontSize: "calc(1rem *.8)",
+                            textAlign: "start",
+                          }}
+                        >
+                          <span>
+                            <i className="bi bi-calendar-range-fill" />{" "}
+                            {child.Date}
+                          </span>
+                          <span style={{ marginLeft: "20px" }}>
+                            <i className="bi bi-clock-fill" /> {child.Time}{" "}
+                            {child.Detech}
+                          </span>
+                        </div>
+                        <p
+                          className="card-text mt-2 mb-3"
+                          style={{
+                            fontSize: "calc(1rem *.8)",
+                            textAlign: "start",
+                          }}
+                        >
+                          <i className="bi bi-cash-stack" />{" "}
+                          {child.GiaTien ? child.GiaTien : "0"}
+                          {" VND"}
+                        </p>
+
+                        {child.TrangThai == 0 ? (
+                          <button
+                            className="header_btn bg-danger text-light mt-2"
+                            style={{ width: "120px" }}
+                          >
+                            Đăng ký
+                          </button>
+                        ) : child.TrangThai == 1 ? (
+                          <p>
+                            <span>
+                              <img
+                                style={{ width: "30px", height: "30px" }}
+                                src={loading}
+                              />
+                            </span>
+                            <span
+                              className="text-danger"
+                              style={{ fontWeight: "bold" }}
+                            >
+                              Đang diễn ra
+                            </span>
+
+                            <span>
+                              <img
+                                style={{ width: "30px", height: "30px" }}
+                                src={loading}
+                              />
+                            </span>
+                          </p>
+                        ) : (
+                          <p>
+                            <i className="bi bi-x-circle-fill"></i>{" "}
+                            <span
+                              className="text-dark"
+                              style={{ fontWeight: "bold" }}
+                            >
+                              Đã diễn ra
+                            </span>
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-5">
-            <button
-              className="header_btn bg-danger text-light "
-              style={{ width: "120px" }}
-            >
-              Xem tất cả
-            </button>
+              )
+            )}
           </div>
         </div>
       </div>
-      // </div>
-    ));
-
-  // const treEm =
-  //   state.DataItemsTreEm &&
-  //   state.DataItemsTreEm?.map((tree: IModelGen) => (
-  //     <div title="GIÁO ÁN CHỈNH DÁNG" className="col ">
-  //       <div className="card card_main_container" style={{ cursor: "pointer" }}>
-  //         <img src={bg7} className="card-img-top" alt="..." />
-  //         <div className="card-body" style={{ textAlign: "start" }}>
-  //           <h5 className="text-danger card-title head_z">{tree.TenMonHoc}</h5>
-  //           <p
-  //             className=" card-text"
-  //             style={{
-  //               fontSize: "calc(1rem*.9)",
-  //               color: "grey",
-  //               fontWeight: "bold",
-  //             }}
-  //           >
-  //             Giá dao động: {tree.GiaGiaoDong} VND
-  //           </p>
-  //           <p
-  //             className=" card-text"
-  //             style={{
-  //               fontSize: "calc(1rem*.9)",
-  //               color: "grey",
-  //               fontWeight: "bold",
-  //             }}
-  //           >
-  //             {tree.MoTa}
-  //           </p>
-  //           <div className="d-flex justify-content-center align-items-center">
-  //             <button
-  //               className="header_btn bg-danger text-light mt-3"
-  //               style={{ width: "120px" }}
-  //             >
-  //               Xem chi tiết
-  //             </button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   ));
-
-  // const suKien = state.DataItemsSuKien && (
-  //   <div className="main_sub_detal mt-2 mb-2">
-  //     <div className="container-xl d-flex flex-column">
-  //       <h2 className="text-danger">{state.DataItemsSuKien.TenNhomSuKien}</h2>
-  //       <div className="container mt-5">
-  //         <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
-  //           {state.DataItemsSuKien.DanhSachSuKien.map(
-  //             (child: danhSachSuKien) => (
-  //               <div
-  //                 key={uuidv4()}
-  //                 className="card mb-3 p-0"
-  //                 style={{ width: "450px" }}
-  //               >
-  //                 <div className="row g-0" style={{ minHeight: "200px" }}>
-  //                   <div className="col-md-4" style={{ minHeight: "100%" }}>
-  //                     <img
-  //                       src={child.URL_AnhDaiDien as string}
-  //                       style={{ width: "100%", height: "100%" }}
-  //                       alt="..."
-  //                     />
-  //                   </div>
-  //                   <div className="col-md-8">
-  //                     <div className="card-body p-3">
-  //                       <div className="d-flex justify-content-between">
-  //                         <h5
-  //                           className="m-0"
-  //                           style={{
-  //                             textAlign: "start",
-  //                             width: "210px",
-  //                             fontSize: "1.15rem",
-  //                           }}
-  //                         >
-  //                           {child.TenSuKien}
-  //                         </h5>
-  //                         <span
-  //                           className="d-flex justify-content-center align-items-center"
-  //                           style={{
-  //                             cursor: "pointer",
-  //                             backgroundColor: "gray",
-  //                             width: "50px",
-  //                             height: "50px",
-  //                             color: "white",
-  //                             borderRadius: "50%",
-  //                             fontSize: "12px",
-  //                             fontWeight: "bold",
-  //                           }}
-  //                         >
-  //                           Chi tiết
-  //                         </span>
-  //                       </div>
-  //                       <p
-  //                         className="card-text mt-2"
-  //                         style={{
-  //                           fontSize: "calc(1rem *.8)",
-  //                           textAlign: "start",
-  //                         }}
-  //                       >
-  //                         <i className="bi bi-geo-alt-fill" /> {child.DiaChi}
-  //                       </p>
-  //                       <div
-  //                         className="mt-2"
-  //                         style={{
-  //                           fontSize: "calc(1rem *.8)",
-  //                           textAlign: "start",
-  //                         }}
-  //                       >
-  //                         <span>
-  //                           <i className="bi bi-calendar-range-fill" />{" "}
-  //                           {child.Date}
-  //                         </span>
-  //                         <span style={{ marginLeft: "20px" }}>
-  //                           <i className="bi bi-clock-fill" /> {child.Time}{" "}
-  //                           {child.Detech}
-  //                         </span>
-  //                       </div>
-  //                       <p
-  //                         className="card-text mt-2 mb-3"
-  //                         style={{
-  //                           fontSize: "calc(1rem *.8)",
-  //                           textAlign: "start",
-  //                         }}
-  //                       >
-  //                         <i className="bi bi-cash-stack" />{" "}
-  //                         {child.GiaTien ? child.GiaTien : "0"}
-  //                         {" VND"}
-  //                       </p>
-
-  //                       {child.TrangThai == 0 ? (
-  //                         <button
-  //                           className="header_btn bg-danger text-light mt-2"
-  //                           style={{ width: "120px" }}
-  //                         >
-  //                           Đăng ký
-  //                         </button>
-  //                       ) : child.TrangThai == 1 ? (
-  //                         <p>
-  //                           <span>
-  //                             <img
-  //                               style={{ width: "30px", height: "30px" }}
-  //                               src={loading}
-  //                             />
-  //                           </span>
-  //                           <span
-  //                             className="text-danger"
-  //                             style={{ fontWeight: "bold" }}
-  //                           >
-  //                             Đang diễn ra
-  //                           </span>
-
-  //                           <span>
-  //                             <img
-  //                               style={{ width: "30px", height: "30px" }}
-  //                               src={loading}
-  //                             />
-  //                           </span>
-  //                         </p>
-  //                       ) : (
-  //                         <p>
-  //                           <i className="bi bi-x-circle-fill"></i>{" "}
-  //                           <span
-  //                             className="text-dark"
-  //                             style={{ fontWeight: "bold" }}
-  //                           >
-  //                             Đã diễn ra
-  //                           </span>
-  //                         </p>
-  //                       )}
-  //                     </div>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             )
-  //           )}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
+    </div>
+  );
 
   return (
     <div className="main_container" style={{ backgroundColor: "white" }}>
@@ -466,30 +424,10 @@ const TrangChu = (props: Props) => {
 
       {giaoan}
       {khoaHoc}
-      {/* <div className="row row-cols-1 row-cols-md-4 g-3">{boiDapChay}</div> */}
 
       <div className="style17 container-xl"></div>
 
-      <div className="main_sub_detal mt-2 mb-2">
-        <div className="container-xl d-flex flex-column">
-          <h2 className="text-danger">KHÓA HỌC PHÁT TRIỂN THỂ CHẤT TRẺ EM</h2>
-          <div className="container mt-5">
-            {/* <div className="row row-cols-1 row-cols-md-4 g-3">{treEm}</div> */}
-          </div>
-          <div className="mt-5">
-            <button
-              className="header_btn bg-danger text-light "
-              style={{ width: "120px" }}
-            >
-              Xem tất cả
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="style17 container-xl"></div>
-
-      {/* {suKien} */}
+      {suKien}
 
       <div className="banner_2nd mt-2 mb-2">
         <img src={bg8} className="main_banner" />
