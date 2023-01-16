@@ -1,7 +1,7 @@
 {
   "Key": "MonHoc",
   "Title": "Cây môn học",
-  "Rows": 5,
+  "Rows": 6,
   "Controls": [
     {
       "Key": "Ma",
@@ -9,8 +9,8 @@
       "Type": "InputText",
       "IsRequired": true,
       "Row": 1,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
@@ -19,18 +19,28 @@
       "Type": "InputText",
       "IsRequired": true,
       "Row": 2,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
-      "Key": "Mota",
+      "Key": "URL_AnhDaiDien",
+      "Title": "Link ảnh",
+      "Type": "InputText",
+      "IsRequired": true,
+      "Row": 3,
+      "ColLabel": 2,
+      "ColControl": 10,
+      "ColSpanControl": 12
+    },
+    {
+      "Key": "MoTa",
       "Title": "Mô tả",
       "Type": "TextArea",
       "IsRequired": true,
-      "Row": 3,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "Row": 4,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
@@ -38,9 +48,9 @@
       "Title": "Giá dao động",
       "Type": "InputText",
       "IsRequired": true,
-      "Row": 4,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "Row": 5,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
@@ -53,9 +63,9 @@
         { "value": true, "label": "Hoạt động" },
         { "value": false, "label": "Không hoạt động" }
       ],
-      "Row": 5,
-      "ColLabel": 3,
-      "ColControl": 9,
+      "Row": 6,
+      "ColLabel": 2,
+      "ColControl": 10,
       "ColSpanControl": 12
     }
   ],

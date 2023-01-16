@@ -78,7 +78,6 @@ const QuanLyMonHoc = (props: Props) => {
     },
   };
 
-  console.log(state);
   const DeleteById = async () => {
     let res: IResponseMessage = await Actions.DeleteById(getRowId(), dispatch);
     if (res.Success) {
@@ -123,6 +122,7 @@ const QuanLyMonHoc = (props: Props) => {
       <>
         {dialogVisible == true ? (
           <CDialog
+            style={{ width: "80%" }}
             title={MonHocId_List ? "Sửa môn học" : "Tạo mới môn học"}
             dialogVisible={dialogVisible}
             onCancel={() => setDialogVisible(false)}

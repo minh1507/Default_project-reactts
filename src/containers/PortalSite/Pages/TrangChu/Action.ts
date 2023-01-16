@@ -1,42 +1,56 @@
 import { IResponseMessage } from "common/Models";
 import MonHocService from "services/MonHocService";
+import QuanLyNhomSuKien from "services/QuanLyNhomSuKien";
 import QuanLyNhomTinTuc from "services/QuanLyNhomTinTuc";
 
 export const Actions: any = {
-  GetItemGiaoan: async (idMonHocCha: any, dispatch: any) => {
+  GetItemGiaoan: async (idMonHocCha: any, limit: string, dispatch: any) => {
     let res: IResponseMessage = await MonHocService.getMonHocPortal(
-      idMonHocCha
+      idMonHocCha,
+      limit
     );
     dispatch({
       type: "GetItemGiaoAn",
       items: res.Data,
     });
   },
-  GetItemPortal: async (ten: string, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(ten);
+  GetItemTinTuc: async (ma: string, limit: string, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(ma, limit);
+
     if (res && res.Success) {
       dispatch({
-        type: "GetItemPortal",
-        items: res.Data,
+        type: "GetItemTinTucPortal",
+        items: res.Data[0],
       });
     }
   },
-  GetItemChayDapBoi: async (idMonHocCha: any, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.getMonHocPortal(
-      idMonHocCha
+  GetItemKhoaHoc: async (
+    maMonHocCha: any,
+    limitMonHoc: any,
+    limitKhoaHoc: any,
+    dispatch: any
+  ) => {
+    let res: IResponseMessage = await MonHocService.getKhoaHocPortal(
+      limitMonHoc,
+      limitKhoaHoc,
+      maMonHocCha
     );
+
+    console.log(2);
+    console.log(res);
     dispatch({
-      type: "GetItemBoiDapChay",
+      type: "GetItemsKhoaHoc",
       items: res.Data,
     });
   },
-  GetItemTreEm: async (idMonHocCha: any, dispatch: any) => {
-    let res: IResponseMessage = await MonHocService.getMonHocPortal(
-      idMonHocCha
+  GetItemSuKien: async (ma: number, limit: string, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomSuKien.getSuKienPortal(
+      ma,
+      limit
     );
     dispatch({
-      type: "GetItemTreEm",
-      items: res.Data,
+      type: "GetItemSuKien",
+      items: res.Data[0],
     });
   },
 };

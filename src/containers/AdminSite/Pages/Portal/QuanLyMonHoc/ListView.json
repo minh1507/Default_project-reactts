@@ -14,6 +14,11 @@
         "Align": "center"
       },
       {
+        "Key": "URL_AnhDaiDien",
+        "Title": "Link ảnh",
+        "Align": "center"
+      },
+      {
         "Key": "GiaGiaoDong",
         "Title": "Giá dao động",
         "Align": "center"

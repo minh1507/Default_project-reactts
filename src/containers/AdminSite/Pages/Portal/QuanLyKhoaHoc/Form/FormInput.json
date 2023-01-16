@@ -95,9 +95,19 @@
       "ColSpanControl": 12
     },
     {
+      "Key": "ThoiGianHoc",
+      "Title": "Thời gian học",
+      "Type": "InputText",
+      "IsRequired": true,
+      "Row": 9,
+      "ColLabel": 2,
+      "ColControl": 10,
+      "ColSpanControl": 12
+    },
+    {
       "Key": "NoiDung",
       "Title": "Nội dung",
-      "Type": "TextArea",
+      "Type": "CkEditor",
       "IsRequired": true,
       "Row": 10,
       "ColLabel": 2,

@@ -1,25 +1,25 @@
 import { InitState, IState } from "./InitState";
 export const Reducer = (state: IState = InitState, action: any) => {
   switch (action.type) {
-    case "GetItemPortal":
+    case "GetItemTinTucPortal":
       return {
         ...state,
-        DataItems: action.items,
+        DataItemsTinTuc: action.items,
       };
     case "GetItemGiaoAn":
       return {
         ...state,
         DataItemsGiaoAn: action.items,
       };
-    case "GetItemBoiDapChay":
+    case "GetItemsKhoaHoc":
       return {
         ...state,
-        DataItemsBoiDapChay: action.items,
+        DataItemsKhoaHoc: action.items,
       };
-    case "GetItemTreEm":
+    case "GetItemSuKien":
       return {
         ...state,
-        DataItemsTreEm: action.items,
+        DataItemsSuKien: action.items,
       };
     default:
       return state;

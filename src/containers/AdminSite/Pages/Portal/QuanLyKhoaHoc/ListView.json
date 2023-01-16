@@ -19,6 +19,11 @@
         "Align": "center"
       },
       {
+        "Key": "ThoiGianHoc",
+        "Title": "Thời gian học",
+        "Align": "center"
+      },
+      {
         "Key": "HocPhiGiamGia",
         "Title": "Học phí giảm giá",
         "Align": "center"

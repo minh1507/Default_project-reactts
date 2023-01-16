@@ -23,8 +23,6 @@ const TinTucForm = (props: Props) => {
     if (!props.Id) {
       Actions.SetTacGia(userInfo.UserName, dispatch);
     }
-
-    console.log(props.Id);
   }, [props.Id]);
   let tinTucFormInput: any = TinTucFormInputJson;
   const refNotification = useRef<any>();

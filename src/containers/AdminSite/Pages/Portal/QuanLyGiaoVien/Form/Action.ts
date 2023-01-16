@@ -7,7 +7,7 @@ export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
       let res: IResponseMessage = await QuanLyGiaoVienService.GetItem(id);
-      console.log(res);
+
       if (res && res.Success) {
         dispatch({
           type: "GetItem",

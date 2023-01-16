@@ -15,11 +15,24 @@ const MonHocService = {
     });
     return res;
   },
-  getMonHocPortal: async (id: String) => {
+  getMonHocPortal: async (ma: number, limit: string) => {
     let res: any = await request({
-      url: `${Por_MonHoc}/GetMonHocPortal?idMonHocCha=${id}`,
+      url: `${Por_MonHoc}/MonHocPortal?maMonHocCha=${ma}&limit=${limit}`,
       method: "get",
     });
+
+    return res;
+  },
+  getKhoaHocPortal: async (
+    monhoclimit: number,
+    khoahoclimit: number,
+    maMonHocCha: number
+  ) => {
+    let res: any = await request({
+      url: `${Por_MonHoc}/LayDsKhoaHocTheoMonHocChaPortal?monhoclimit=${monhoclimit}&khoahoclimit=${khoahoclimit}&maMonHocCha=${maMonHocCha}`,
+      method: "get",
+    });
+
     return res;
   },
   GetTree: async () => {
