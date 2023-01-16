@@ -24,6 +24,16 @@ export const Actions: any = {
       });
     }
   },
+  GetItemBlog: async (ma: string, limit: string, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(ma, limit);
+
+    if (res && res.Success) {
+      dispatch({
+        type: "GetItemBlogPortal",
+        items: res.Data[0],
+      });
+    }
+  },
   GetItemKhoaHoc: async (
     maMonHocCha: any,
     limitMonHoc: any,
@@ -36,8 +46,6 @@ export const Actions: any = {
       maMonHocCha
     );
 
-    console.log(2);
-    console.log(res);
     dispatch({
       type: "GetItemsKhoaHoc",
       items: res.Data,

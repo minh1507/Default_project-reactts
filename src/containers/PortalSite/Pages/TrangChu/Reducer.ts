@@ -21,6 +21,11 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DataItemsSuKien: action.items,
       };
+    case "GetItemBlogPortal":
+      return {
+        ...state,
+        DataItemsBlog: action.items,
+      };
     default:
       return state;
   }

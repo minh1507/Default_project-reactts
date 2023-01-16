@@ -1,13 +1,10 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 const { v4: uuidv4 } = require("uuid");
 import {
   danhSachSuKien,
   danhSachTintuc,
   IModelGen,
-  IModelItem,
-  IModelMonHoc,
   IModelMonHocCon,
-  IModelSuKien,
 } from "./InitState";
 import { InitState } from "./InitState";
 import { Actions } from "./Action";
@@ -21,7 +18,6 @@ import img1 from "assets/img/img1.jpg";
 import img2 from "assets/img/img2.jpg";
 import img3 from "assets/img/img3.jpg";
 import bg30 from "assets/img/bg30.png";
-import bg7 from "assets/img/bg7.png";
 import bg8 from "assets/img/bg8.png";
 import bg9 from "assets/img/bg9.png";
 import bg10 from "assets/img/bg10.png";
@@ -36,18 +32,77 @@ import bg23 from "assets/img/bg23.png";
 import bg13 from "assets/img/bg13.png";
 import formImg from "assets/img/form-image.jpg";
 import loading from "assets/img/trang-chu.gif";
+import { Message } from "common/Enums";
+import CNotification from "components/CNotification";
+import TuVanService from "services/TuVanService";
+import { IResponseMessage } from "common/Models";
 
 interface Props {}
 
 const TrangChu = (props: Props) => {
   const [count, setCount] = useState(1);
   const [state, dispatch] = useReducer(Reducer, InitState);
+  const [tuVan, setTuVan] = useState({
+    Ten: "",
+    GioiTinh: "",
+    Sdt: "",
+    Email: "",
+    NoiDung: "",
+  });
+  const refNotification = useRef<any>();
+
+  const onChangeFormTuVan = (key: string, e: any) => {
+    setTuVan({
+      ...tuVan,
+      [key]: e,
+    });
+  };
+
+  const ValidateFormTuVan = () => {
+    if (!tuVan.Email) {
+      refNotification.current.showNotification("warning", Message.TuVan_Wrong);
+      return false;
+    }
+    if (!tuVan.GioiTinh) {
+      refNotification.current.showNotification("warning", Message.TuVan_Wrong);
+      return false;
+    }
+    if (!tuVan.NoiDung) {
+      refNotification.current.showNotification("warning", Message.TuVan_Wrong);
+
+      return false;
+    }
+    if (!tuVan.Sdt) {
+      refNotification.current.showNotification("warning", Message.TuVan_Wrong);
+      return false;
+    }
+    if (!tuVan.Ten) {
+      refNotification.current.showNotification("warning", Message.TuVan_Wrong);
+      return false;
+    }
+    return true;
+  };
+
+  const sendTuVan = async () => {
+    if (ValidateFormTuVan()) {
+      let res: IResponseMessage = await TuVanService.CreateItem(tuVan);
+      if (res && res.Success) {
+        refNotification.current.showNotification("success", res.Message);
+        setTuVan({ Email: "", GioiTinh: "", NoiDung: "", Sdt: "", Ten: "" });
+        document.querySelectorAll("input").forEach((item: any) => {
+          item.value = "";
+        });
+        document.querySelector("textarea").value = "";
+      }
+    }
+  };
 
   useEffect(() => {
-    Actions.GetItemTinTuc("1", "3", dispatch);
-    Actions.GetItemGiaoan("1", "8", dispatch);
-    Actions.GetItemKhoaHoc("1", "8", "4", dispatch);
-    Actions.GetItemSuKien("2", "4", dispatch);
+    Actions.GetItemTinTuc("TT1", "3", dispatch);
+    Actions.GetItemBlog("TT2", "15", dispatch);
+    Actions.GetItemGiaoan("GA1", "8", dispatch);
+    Actions.GetItemKhoaHoc("GA1", "8", "4", dispatch);
+    Actions.GetItemSuKien("SK1-1", "4", dispatch);
   }, []);
 
   const responsive = {
@@ -82,7 +137,7 @@ const TrangChu = (props: Props) => {
                     maxWidth: "350px",
                     border: "none",
                     cursor: "pointer",
-                    minHeight: "580px",
+                    minHeight: "550px",
                   }}
                 >
                   <img
@@ -94,13 +149,13 @@ const TrangChu = (props: Props) => {
                   <img src={img1} className="card_logo" />
                   <div className="card-body main_sub_bd d-flex flex-column">
                     <h5
-                      className="card-title text-danger mt-5"
+                      className="card-title text-danger mt-4 text-uppercase"
                       style={{ fontStyle: "italic", padding: "0 2rem" }}
                     >
                       {child.TieuDe}
                     </h5>
                     <p
-                      className="card-text mt-3"
+                      className="card-text mt-2 gioiThieuPortal"
                       style={{ textAlign: "justify" }}
                     >
                       {child.MoTa}
@@ -165,7 +220,6 @@ const TrangChu = (props: Props) => {
                           fontWeight: "bold",
                         }}
                       >
-                        Giá dao động:{" "}
                         <span className="text-dark">
                           {tree.GiaGiaoDong} VND
                         </span>
@@ -178,7 +232,7 @@ const TrangChu = (props: Props) => {
                           fontWeight: "bold",
                         }}
                       >
-                        Mô tả: <span className="text-dark">{tree.MoTa}</span>
+                        <span className="text-dark">{tree.MoTa}</span>
                       </p>
                       <div className="d-flex justify-content-center align-items-center">
                         <button
@@ -486,8 +540,56 @@ const TrangChu = (props: Props) => {
     </div>
   );
 
+  const blog = state.DataItemsBlog && (
+    <div className=" mt-5">
+      <h2 className="text-danger text-center">
+        {state.DataItemsBlog.TenNhomTinTuc}
+      </h2>
+
+      <OwlCarousel
+        className="owl-theme mt-4"
+        autoplay
+        loop
+        nav
+        center
+        items={state.DataItemsBlog.DanhSachTinTuc.length}
+        responsive={responsive}
+      >
+        {state.DataItemsBlog.DanhSachTinTuc.map((item: danhSachTintuc) => (
+          <div
+            key={uuidv4()}
+            className="item card_carosel"
+            style={{ backgroundColor: "#1e1e1e" }}
+          >
+            <div>
+              <img src={item.URL_AnhDaiDien as string} />
+              <div
+                className="text-center text-light "
+                style={{ padding: "0 20px" }}
+              >
+                <h5 className="mt-1 fst-italic text-uppercase">
+                  {item.TieuDe}
+                </h5>
+                <p className="owl_text">{item.MoTa}</p>
+                <div className="d-flex justify-content-center align-items-center">
+                  <button
+                    className="header_btn bg-danger text-light mt-3"
+                    style={{ width: "120px" }}
+                  >
+                    Xem chi tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </OwlCarousel>
+    </div>
+  );
+
   return (
     <div className="main_container" style={{ backgroundColor: "white" }}>
+      <CNotification ref={refNotification} />
       <div className="banner">
         <img src={banner} className="main_banner" />
         <div className="sub_banner">
@@ -657,308 +759,7 @@ const TrangChu = (props: Props) => {
         </div>
       </div>
 
-      <div className=" mt-5">
-        <h2 className="text-danger text-center">BLOG CHIA SẺ KIẾN THỨC</h2>
-
-        <OwlCarousel
-          className="owl-theme mt-4"
-          autoplay
-          loop
-          nav
-          center
-          items={4}
-          responsive={responsive}
-        >
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1e1e1e" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1a1a1a" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1e1e1e" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1a1a1a" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1e1e1e" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1a1a1a" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1e1e1e" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1a1a1a" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1a1a1a" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="item card_carosel"
-            style={{ backgroundColor: "#1a1a1a" }}
-          >
-            <div>
-              <img src={bg13} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic">CHẠY BỘ CẦN KỸ NĂNG GÌ</h5>
-                <p className="owl_text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                  at est felis. Praesent eu pellentesque nisl, in vulputate
-                  tellus. Class aptent taciti sociosqu ad litora torquent per
-                  conubia nostra, per inceptos himenaeos.{" "}
-                </p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </OwlCarousel>
-      </div>
+      {blog}
 
       <div
         className="main_sub_detal mt-5"
@@ -980,6 +781,9 @@ const TrangChu = (props: Props) => {
                 placeholder="Họ và Tên"
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
+                onChange={(e: any) => {
+                  onChangeFormTuVan("Ten", e.target.value);
+                }}
               />
             </div>
             <p className="mt-3" style={{ fontWeight: "bold" }}>
@@ -992,6 +796,9 @@ const TrangChu = (props: Props) => {
                 name="inlineRadioOptions"
                 id="gender1"
                 defaultValue="option1"
+                onChange={(e: any) => {
+                  onChangeFormTuVan("GioiTinh", "0");
+                }}
               />
               <label className="form-check-label" htmlFor="gender1">
                 Nam
@@ -1004,6 +811,9 @@ const TrangChu = (props: Props) => {
                 name="inlineRadioOptions"
                 id="gender2"
                 defaultValue="option2"
+                onChange={(e: any) => {
+                  onChangeFormTuVan("GioiTinh", "1");
+                }}
               />
               <label className="form-check-label" htmlFor="gender2">
                 Nữ
@@ -1016,6 +826,9 @@ const TrangChu = (props: Props) => {
                 name="inlineRadioOptions"
                 id="gender3"
                 defaultValue="option2"
+                onChange={(e: any) => {
+                  onChangeFormTuVan("GioiTinh", "2");
+                }}
               />
               <label className="form-check-label" htmlFor="gender3">
                 Khác
@@ -1028,6 +841,9 @@ const TrangChu = (props: Props) => {
                 placeholder="Số điện thoại"
                 aria-label="PhoneNumber"
                 aria-describedby="addon-wrapping"
+                onChange={(e: any) => {
+                  onChangeFormTuVan("Sdt", e.target.value);
+                }}
               />
             </div>
             <div className="input-group flex-nowrap mt-3">
@@ -1037,6 +853,9 @@ const TrangChu = (props: Props) => {
                 placeholder="Email"
                 aria-label="Email"
                 aria-describedby="addon-wrapping"
+                onChange={(e: any) => {
+                  onChangeFormTuVan("Email", e.target.value);
+                }}
               />
             </div>
             <div className="mt-3">
@@ -1045,10 +864,16 @@ const TrangChu = (props: Props) => {
                 rows={3}
                 placeholder="Đóng góp cho học viện ...."
                 defaultValue={""}
+                onChange={(e: any) => {
+                  onChangeFormTuVan("NoiDung", e.target.value);
+                }}
               />
             </div>
             <div className="d-flex justify-content-center align-items-center">
               <button
+                onClick={() => {
+                  sendTuVan();
+                }}
                 className="header_btn bg-danger text-light mt-3"
                 style={{ width: "120px" }}
               >

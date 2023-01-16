@@ -7,12 +7,9 @@ export interface IModelItem {
 
 export interface danhSachTintuc {
   Id: String;
-  TenNhomTinTuc: String;
   TieuDe: String;
   MoTa: String;
   URL_AnhDaiDien: String;
-  Small: String;
-  Logo: String;
 }
 
 export interface IModelGen {
@@ -73,6 +70,10 @@ export interface IState {
     TenNhomTinTuc: string;
     DanhSachTinTuc: danhSachTintuc[];
   };
+  DataItemsBlog: {
+    TenNhomTinTuc: string;
+    DanhSachTinTuc: danhSachTintuc[];
+  };
   DataItemsGiaoAn: {
     Id: String;
     TenMonHoc: String;
@@ -89,6 +90,10 @@ export interface IState {
 }
 export const InitState: IState = {
   DataItemsTinTuc: {
+    TenNhomTinTuc: "",
+    DanhSachTinTuc: [],
+  },
+  DataItemsBlog: {
     TenNhomTinTuc: "",
     DanhSachTinTuc: [],
   },
