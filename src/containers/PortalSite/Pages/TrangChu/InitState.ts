@@ -23,9 +23,12 @@ export interface IModelGen {
 
 export interface IModelGenCon {
   Id: String;
+  HocPhiGiamGia: number;
+  HocPhiGoc: number;
   IdMonHoc: String;
   TieuDe: String;
   URL_AnhDaiDien: String;
+  ThoiGianHoc: String;
 }
 
 export interface IModelMonHocCon {

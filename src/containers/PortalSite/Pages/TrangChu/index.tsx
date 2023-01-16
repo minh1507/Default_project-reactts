@@ -42,13 +42,12 @@ interface Props {}
 const TrangChu = (props: Props) => {
   const [count, setCount] = useState(1);
   const [state, dispatch] = useReducer(Reducer, InitState);
-  // const [arr, setArr] = useState([img1, img2, img3]);
 
   useEffect(() => {
     Actions.GetItemTinTuc("1", "3", dispatch);
     Actions.GetItemGiaoan("1", "8", dispatch);
     Actions.GetItemKhoaHoc("1", "8", "4", dispatch);
-    Actions.GetItemSuKien("1", "4", dispatch);
+    Actions.GetItemSuKien("2", "4", dispatch);
   }, []);
 
   const responsive = {
@@ -69,7 +68,9 @@ const TrangChu = (props: Props) => {
   const gioiThieu = state.DataItemsTinTuc && (
     <div key={uuidv4()} className="main_sub_detal mt-2">
       <div className="container-xl d-flex flex-column">
-        <h2 className="text-danger">{state.DataItemsTinTuc.TenNhomTinTuc}</h2>
+        <h2 className="text-danger text-uppercase">
+          {state.DataItemsTinTuc.TenNhomTinTuc}
+        </h2>
         <div className="container mt-5">
           <div className="row gap-3 justify-content-center align-items-center">
             {state.DataItemsTinTuc.DanhSachTinTuc.map(
@@ -143,7 +144,12 @@ const TrangChu = (props: Props) => {
                     className="card card_main_container"
                     style={{ cursor: "pointer" }}
                   >
-                    <img src={bg7} className="card-img-top" alt="..." />
+                    <img
+                      height={"150px"}
+                      src={tree.URL_AnhDaiDien as string}
+                      className="card-img-top"
+                      alt="..."
+                    />
                     <div
                       className="card-body card_body_override"
                       style={{ textAlign: "start" }}
@@ -201,76 +207,144 @@ const TrangChu = (props: Props) => {
   const khoaHoc =
     state.DataItemsKhoaHoc &&
     state.DataItemsKhoaHoc.map((tree: IModelGen) => (
-      <div>
-        <div className="style17 container-xl"></div>
+      <div key={uuidv4()}>
+        {tree.DanhSachKhoaHoc.length > 0 && (
+          <div>
+            <div className="style17 container-xl"></div>
 
-        <div className="main_sub_detal mt-2 mb-2">
-          <div className="container-xl d-flex flex-column">
-            <h2 className="text-danger text-uppercase">{tree.TenMonHoc}</h2>
-            <div className="container mt-5">
-              <div className="row row-cols-1 row-cols-md-4 g-3">
-                {tree.DanhSachKhoaHoc.map((item: any) => (
-                  <div title="GIÁO ÁN CHỈNH DÁNG" className="col ">
-                    <div
-                      className="card card_main_container"
-                      style={{ cursor: "pointer" }}
-                    >
-                      <img src={bg7} className="card-img-top" alt="..." />
-                      <div className="card-body" style={{ textAlign: "start" }}>
-                        <h5 className="text-danger card-title head_z">
-                          {item.TieuDe}
-                        </h5>
-                        <p
-                          className=" card-text"
-                          style={{
-                            fontSize: "calc(1rem*.9)",
-                            color: "grey",
-                            fontWeight: "bold",
-                          }}
+            <div className="main_sub_detal mt-2 mb-2">
+              <div className="container-xl d-flex flex-column">
+                <h2 className="text-danger text-uppercase">{tree.TenMonHoc}</h2>
+                <div className="container mt-5">
+                  <div className="row row-cols-1 row-cols-md-4 g-3">
+                    {tree.DanhSachKhoaHoc.map((item: any) => (
+                      <div
+                        key={uuidv4()}
+                        title="GIÁO ÁN CHỈNH DÁNG"
+                        className="col "
+                      >
+                        <div
+                          className="card card_main_container"
+                          style={{ cursor: "pointer" }}
                         >
-                          Giá dao động: {item.GiaGiaoDong} VND
-                        </p>
-                        <p
-                          className=" card-text"
-                          style={{
-                            fontSize: "calc(1rem*.9)",
-                            color: "grey",
-                            fontWeight: "bold",
-                          }}
-                        >
-                          {item.MoTa}
-                        </p>
-                        <div className="d-flex justify-content-center align-items-center">
-                          <button
-                            className="header_btn bg-danger text-light mt-3"
-                            style={{ width: "120px" }}
+                          <img
+                            src={item.URL_AnhDaiDien}
+                            className="card-img-top"
+                            alt="..."
+                            height={"150px"}
+                          />
+                          <div
+                            className="card-body"
+                            style={{ textAlign: "start" }}
                           >
-                            Xem chi tiết
-                          </button>
+                            <h5 className="text-danger card-title head_z">
+                              {item.TieuDe}
+                            </h5>
+                            <p
+                              className=" card-text"
+                              style={{
+                                fontSize: "calc(1rem*.9)",
+                                color: "grey",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              Học phí:{" "}
+                              <span
+                                className={`${
+                                  item.HocPhiGiamGia >= item.HocPhiGoc
+                                    ? "decrease"
+                                    : ""
+                                }`}
+                                style={{
+                                  fontSize:
+                                    item.HocPhiGiamGia < item.HocPhiGoc &&
+                                    "calc(1rem * 0.8)",
+                                  textDecoration:
+                                    item.HocPhiGiamGia < item.HocPhiGoc
+                                      ? "line-through"
+                                      : "none",
+                                }}
+                              >
+                                {item.HocPhiGoc ? (
+                                  item.HocPhiGoc
+                                ) : (
+                                  <span>
+                                    Miễn phí{" "}
+                                    <i className="bi bi-balloon-fill"></i>
+                                  </span>
+                                )}
+                              </span>
+                              {item.HocPhiGiamGia < item.HocPhiGoc && (
+                                <span>
+                                  {" "}
+                                  -{" "}
+                                  <span className="decrease">
+                                    {item.HocPhiGiamGia}
+                                  </span>
+                                </span>
+                              )}{" "}
+                              {item.HocPhiGiamGia <= item.HocPhiGoc &&
+                                item.HocPhiGoc != 0 && (
+                                  <span style={{ color: "black" }}>VND</span>
+                                )}
+                            </p>
+
+                            <p
+                              className=" card-text"
+                              style={{
+                                fontSize: "calc(1rem*.9)",
+                                color: "grey",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              Dự kiến: {item.ThoiGianHoc}
+                            </p>
+
+                            <p
+                              className=" card-text"
+                              style={{
+                                fontSize: "calc(1rem*.9)",
+                                color: "grey",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {item.MoTa}
+                            </p>
+                            <div className="d-flex justify-content-center align-items-center">
+                              <button
+                                className="header_btn bg-danger text-light mt-3"
+                                style={{ width: "120px" }}
+                              >
+                                Xem chi tiết
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+                <div className="mt-5">
+                  <button
+                    className="header_btn bg-danger text-light "
+                    style={{ width: "120px" }}
+                  >
+                    Xem tất cả
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="mt-5">
-              <button
-                className="header_btn bg-danger text-light "
-                style={{ width: "120px" }}
-              >
-                Xem tất cả
-              </button>
-            </div>
           </div>
-        </div>
+        )}
       </div>
     ));
 
   const suKien = state.DataItemsSuKien && (
     <div className="main_sub_detal mt-2 mb-2">
       <div className="container-xl d-flex flex-column">
-        <h2 className="text-danger">{state.DataItemsSuKien.TenNhomSuKien}</h2>
+        <h2 className="text-danger text-uppercase">
+          {state.DataItemsSuKien.TenNhomSuKien}
+        </h2>
         <div className="container mt-5">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
             {state.DataItemsSuKien.DanhSachSuKien.map(

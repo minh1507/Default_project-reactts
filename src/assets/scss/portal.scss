@@ -981,4 +981,26 @@
       margin: 0 !important;
     }
   }
+
+  .decrease {
+    animation: change-color 1s linear infinite;
+  }
+
+  @keyframes change-color {
+    0% {
+      color: red;
+    }
+
+    25% {
+      color: #c850c0;
+    }
+
+    50% {
+      color: #4158d0;
+    }
+
+    75% {
+      color: purple;
+    }
+  }
 }
