@@ -24,11 +24,21 @@
       "ColSpanControl": 12
     },
     {
+      "Key": "URL_Anh",
+      "Title": "Link ảnh",
+      "Type": "InputText",
+      "IsRequired": true,
+      "Row": 3,
+      "ColLabel": 2,
+      "ColControl": 10,
+      "ColSpanControl": 12
+    },
+    {
       "Key": "Mota",
       "Title": "Mô tả",
       "Type": "TextArea",
       "IsRequired": true,
-      "Row": 3,
+      "Row": 4,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
@@ -38,7 +48,7 @@
       "Title": "Giá dao động",
       "Type": "InputText",
       "IsRequired": true,
-      "Row": 4,
+      "Row": 5,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
