@@ -1,6 +1,11 @@
 import { InitState, IState } from "./InitState";
 export const Reducer = (state: IState = InitState, action: any) => {
   switch (action.type) {
+    case "GetItemBlogPortal":
+      return {
+        ...state,
+        DataItemsBlog: action.items,
+      };
     case "GetItemTinTucPortal":
       return {
         ...state,
@@ -21,11 +26,7 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DataItemsSuKien: action.items,
       };
-    case "GetItemBlogPortal":
-      return {
-        ...state,
-        DataItemsBlog: action.items,
-      };
+
     default:
       return state;
   }

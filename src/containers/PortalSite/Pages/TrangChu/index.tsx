@@ -307,11 +307,6 @@ const TrangChu = (props: Props) => {
                             >
                               Học phí:{" "}
                               <span
-                                className={`${
-                                  item.HocPhiGiamGia >= item.HocPhiGoc
-                                    ? "decrease"
-                                    : ""
-                                }`}
                                 style={{
                                   fontSize:
                                     item.HocPhiGiamGia < item.HocPhiGoc &&
@@ -325,7 +320,7 @@ const TrangChu = (props: Props) => {
                                 {item.HocPhiGoc ? (
                                   item.HocPhiGoc
                                 ) : (
-                                  <span>
+                                  <span className={`decrease`}>
                                     Miễn phí{" "}
                                     <i className="bi bi-balloon-fill"></i>
                                   </span>
@@ -542,7 +537,7 @@ const TrangChu = (props: Props) => {
 
   const blog = state.DataItemsBlog && (
     <div className=" mt-5">
-      <h2 className="text-danger text-center">
+      <h2 className="text-danger text-center text-uppercase">
         {state.DataItemsBlog.TenNhomTinTuc}
       </h2>
 
@@ -552,37 +547,44 @@ const TrangChu = (props: Props) => {
         loop
         nav
         center
-        items={state.DataItemsBlog.DanhSachTinTuc.length}
+        items={
+          state.DataItemsBlog.DanhSachTinTuc
+            ? state.DataItemsBlog.DanhSachTinTuc.length
+            : 4
+        }
         responsive={responsive}
       >
-        {state.DataItemsBlog.DanhSachTinTuc.map((item: danhSachTintuc) => (
-          <div
-            key={uuidv4()}
-            className="item card_carosel"
-            style={{ backgroundColor: "#1e1e1e" }}
-          >
-            <div>
-              <img src={item.URL_AnhDaiDien as string} />
-              <div
-                className="text-center text-light "
-                style={{ padding: "0 20px" }}
-              >
-                <h5 className="mt-1 fst-italic text-uppercase">
-                  {item.TieuDe}
-                </h5>
-                <p className="owl_text">{item.MoTa}</p>
-                <div className="d-flex justify-content-center align-items-center">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
+        {state.DataItemsBlog.DanhSachTinTuc &&
+          state.DataItemsBlog.DanhSachTinTuc.map((item: danhSachTintuc) => (
+            <div
+              key={uuidv4()}
+              className="item card_carosel"
+              style={{ backgroundColor: "#1e1e1e", height: "100% !important" }}
+            >
+              <div>
+                <img src={item.URL_AnhDaiDien as string} height="150px" />
+                <div
+                  className="text-center text-light "
+                  style={{ padding: "0 20px" }}
+                >
+                  <h5 className="mt-1 fst-italic text-uppercase p-2">
+                    {item.TieuDe}
+                  </h5>
+                  <p className="owl_text" style={{ wordWrap: "break-word" }}>
+                    {item.MoTa}
+                  </p>
+                  <div className="d-flex justify-content-center align-items-center">
+                    <button
+                      className="header_btn bg-danger text-light mt-3"
+                      style={{ width: "120px" }}
+                    >
+                      Xem chi tiết
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </OwlCarousel>
     </div>
   );
@@ -773,7 +775,9 @@ const TrangChu = (props: Props) => {
             <img src={formImg} style={{ width: "100%", height: "auto" }} />
           </div>
           <div id="constate_after" style={{ width: "55%", textAlign: "start" }}>
-            <h2 className="text-danger">ĐĂNG KÍ TƯ VẤN MIỄN PHÍ</h2>
+            <h2 className="text-danger" style={{ wordWrap: "break-word" }}>
+              ĐĂNG KÍ TƯ VẤN MIỄN PHÍ
+            </h2>
             <div className="input-group flex-nowrap mt-3">
               <input
                 type="text"
