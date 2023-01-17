@@ -60,7 +60,7 @@ const HocVienList = (props: Props) => {
       <>
         {dialogVisible == true ? (
           <CDialog
-            style={{ width: "80%", top: "5%" }}
+            style={{ width: "30%", top: "5%" }}
             title={"Xem học viên"}
             dialogVisible={dialogVisible}
             onCancel={() => setDialogVisible(false)}

@@ -10,7 +10,8 @@
       "Row": 1,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12
+      "ColSpanControl": 12,
+      "IsDisabled": true
     },
     {
       "Key": "Sdt",
@@ -19,7 +20,8 @@
       "Row": 2,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12
+      "ColSpanControl": 12,
+      "IsDisabled": true
     },
     {
       "Key": "Email",
@@ -28,7 +30,8 @@
       "Row": 3,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12
+      "ColSpanControl": 12,
+      "IsDisabled": true
     },
     {
       "Key": "GioiTinh",
@@ -37,16 +40,18 @@
       "Row": 4,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12
+      "ColSpanControl": 12,
+      "IsDisabled": true
     },
     {
       "Key": "NoiDung",
       "Title": "Nội dung",
-      "Type": "TextArea",
+      "Type": "CkEditor",
       "Row": 5,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12
+      "ColSpanControl": 12,
+      "IsDisabled": true
     }
   ]
 }

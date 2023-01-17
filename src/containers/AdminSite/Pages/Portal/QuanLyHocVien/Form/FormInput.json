@@ -4,54 +4,58 @@
   "Rows": 5,
   "Controls": [
     {
-      "Key": "Ten",
-      "Title": "Tên",
+      "Key": "FullName",
+      "Title": "Họ và Tên",
       "Type": "InputText",
-      "IsRequired": true,
       "Row": 1,
-      "ColLabel": 2,
-      "ColControl": 10,
-      "ColSpanControl": 12
-    },
-    {
-      "Key": "Sdt",
-      "Title": "Số điện thoại",
-      "Type": "InputText",
-      "IsRequired": true,
-      "Row": 2,
-      "ColLabel": 2,
-      "ColControl": 10,
-      "ColSpanControl": 12
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
     },
     {
       "Key": "Email",
       "Title": "Email",
       "Type": "InputText",
-      "IsRequired": true,
-      "Row": 3,
-      "ColLabel": 2,
-      "ColControl": 10,
-      "ColSpanControl": 12
+      "Row": 2,
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
     },
     {
-      "Key": "GioiTinh",
-      "Title": "Giới tính",
+      "Key": "Phone",
+      "Title": "Số điện thoại",
       "Type": "InputText",
-      "IsRequired": true,
-      "Row": 4,
-      "ColLabel": 2,
-      "ColControl": 10,
-      "ColSpanControl": 12
+      "Row": 3,
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
     },
     {
-      "Key": "NoiDung",
-      "Title": "Nội dung",
-      "Type": "TextArea",
-      "IsRequired": true,
+      "Key": "Address",
+      "Title": "Địa chỉ",
+      "Type": "InputText",
+      "Row": 4,
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    },
+    {
+      "Key": "IsActive",
+      "Title": "Trạng thái",
+      "Type": "Select",
+      "Options": [
+        { "value": true, "label": "Hoạt động" },
+        { "value": false, "label": "Không hoạt động" }
+      ],
       "Row": 5,
-      "ColLabel": 2,
-      "ColControl": 10,
-      "ColSpanControl": 12
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
     }
   ]
 }

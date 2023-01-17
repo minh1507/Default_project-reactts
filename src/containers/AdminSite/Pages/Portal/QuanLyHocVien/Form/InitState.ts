@@ -3,11 +3,11 @@ import { IControlOptions } from "common/Models";
 
 export interface IModelItem {
   Id: String;
-  Ten: String;
-  GioiTinh: String;
-  Sdt: String;
+  FullName: String;
   Email: String;
-  NoiDung: String;
+  Phone: String;
+  Address: String;
+  IsActive: Boolean;
 }
 export interface IState {
   DataItem: IModelItem;
@@ -16,11 +16,11 @@ export interface IState {
 export const InitState: IState = {
   DataItem: {
     Id: Guid.Empty,
-    Ten: "",
-    GioiTinh: "",
-    Sdt: "",
+    FullName: "",
     Email: "",
-    NoiDung: "",
+    Phone: "",
+    Address: "",
+    IsActive: false,
   },
   Options: [],
 };

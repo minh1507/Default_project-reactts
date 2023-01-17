@@ -1,10 +1,10 @@
 export interface IModelItem {
   Id: String;
-  Ten: String;
-  GioiTinh: String;
-  Sdt: String;
+  FullName: String;
   Email: String;
-  NoiDung: String;
+  Phone: String;
+  Address: String;
+  IsActive: Boolean;
 }
 export interface IState {
   DataItems: IModelItem[];

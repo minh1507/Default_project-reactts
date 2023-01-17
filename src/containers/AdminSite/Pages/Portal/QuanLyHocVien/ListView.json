@@ -4,19 +4,33 @@
     "Title": "Danh sách học viên",
     "ColumnDefs": [
       {
-        "Key": "Ten",
-        "Title": "Tên",
-        "Align": "center"
-      },
-      {
-        "Key": "Sdt",
-        "Title": "Số điện thoại",
+        "Key": "FullName",
+        "Title": "Họ và Tên",
         "Align": "center"
       },
       {
         "Key": "Email",
         "Title": "Email",
         "Align": "center"
+      },
+      {
+        "Key": "Phone",
+        "Title": "Số điện thoại",
+        "Align": "center"
+      },
+      {
+        "Key": "Address",
+        "Title": "Địa chỉ",
+        "Align": "center"
+      },
+      {
+        "Key": "IsActive",
+        "Title": "Trạng thái",
+        "Align": "center",
+        "Options": [
+          { "value": true, "label": "Hoạt động" },
+          { "value": false, "label": "Không hoạt động" }
+        ]
       }
     ],
     "ActionDefs": [
