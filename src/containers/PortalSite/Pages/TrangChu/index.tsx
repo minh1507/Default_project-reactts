@@ -36,6 +36,7 @@ import { Message } from "common/Enums";
 import CNotification from "components/CNotification";
 import TuVanService from "services/TuVanService";
 import { IResponseMessage } from "common/Models";
+import { String } from "common/String";
 
 interface Props {}
 
@@ -98,7 +99,7 @@ const TrangChu = (props: Props) => {
   };
 
   useEffect(() => {
-    Actions.GetItemTinTuc("TT1", "3", dispatch);
+    Actions.GetItemTinTuc([img1, img2, img3], "TT1", "3", dispatch);
     Actions.GetItemBlog("TT2", "15", dispatch);
     Actions.GetItemGiaoan("GA1", "8", dispatch);
     Actions.GetItemKhoaHoc("GA1", "8", "4", dispatch);
@@ -146,7 +147,7 @@ const TrangChu = (props: Props) => {
                     alt="..."
                     style={{ height: "200px" }}
                   />
-                  <img src={img1} className="card_logo" />
+                  <img src={child.Img as string} className="card_logo" />
                   <div className="card-body main_sub_bd d-flex flex-column">
                     <h5
                       className="card-title text-danger mt-4 text-uppercase"
@@ -221,7 +222,7 @@ const TrangChu = (props: Props) => {
                         }}
                       >
                         <span className="text-dark">
-                          {tree.GiaGiaoDong} VND
+                          {tree.GiaGiaoDong} VNĐ
                         </span>
                       </p>
                       <p
@@ -309,16 +310,21 @@ const TrangChu = (props: Props) => {
                               <span
                                 style={{
                                   fontSize:
-                                    item.HocPhiGiamGia < item.HocPhiGoc &&
-                                    "calc(1rem * 0.8)",
+                                    item.HocPhiGiamGia < item.HocPhiGoc
+                                      ? "calc(1rem * 0.8)"
+                                      : "calc(1rem * 1.1)",
                                   textDecoration:
                                     item.HocPhiGiamGia < item.HocPhiGoc
                                       ? "line-through"
                                       : "none",
+                                  color:
+                                    item.HocPhiGiamGia < item.HocPhiGoc
+                                      ? "black"
+                                      : "red",
                                 }}
                               >
                                 {item.HocPhiGoc ? (
-                                  item.HocPhiGoc
+                                  <span>{String.num(item.HocPhiGoc)}</span>
                                 ) : (
                                   <span className={`decrease`}>
                                     Miễn phí{" "}
@@ -330,14 +336,23 @@ const TrangChu = (props: Props) => {
                                 <span>
                                   {" "}
                                   -{" "}
-                                  <span className="decrease">
-                                    {item.HocPhiGiamGia}
+                                  <span
+                                    className="text-danger"
+                                    style={{ fontSize: "calc(1rem * 1.1)" }}
+                                  >
+                                    {String.num(item.HocPhiGiamGia)}
                                   </span>
                                 </span>
                               )}{" "}
                               {item.HocPhiGiamGia <= item.HocPhiGoc &&
                                 item.HocPhiGoc != 0 && (
-                                  <span style={{ color: "black" }}>VND</span>
+                                  <span
+                                    style={{
+                                      color: "black",
+                                    }}
+                                  >
+                                    VNĐ
+                                  </span>
                                 )}
                             </p>
 

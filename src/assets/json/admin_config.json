@@ -13,6 +13,12 @@
       "isMenu": true
     },
     {
+      "code": "QuanLyHocVien",
+      "url": "/quan-ly-hoc-vien",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
       "code": "Organ",
       "url": "/organ",
       "isLayout": true,
@@ -318,6 +324,12 @@
           "code": "QuanLyTuVan",
           "name": "Quản lý tư vấn",
           "url": "/quan-ly-tu-van",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyHocVien",
+          "name": "Quản lý học viên",
+          "url": "/quan-ly-hoc-vien",
           "icon": "bi bi-grid"
         }
       ]

@@ -1,15 +1,10 @@
 import { Guid } from "common/Enums";
-
-export interface IModelItem {
-  TenNhomTinTuc: string;
-  DanhSachTinTuc: danhSachTintuc[];
-}
-
 export interface danhSachTintuc {
   Id: String;
   TieuDe: String;
   MoTa: String;
   URL_AnhDaiDien: String;
+  Img: String;
 }
 
 export interface IModelGen {
@@ -45,11 +40,6 @@ export interface IModelMonHoc {
   URL_AnhDaiDien: String;
   IdMonHocCha: String;
   DanhSachMonHocCon: [];
-}
-
-export interface IModelSuKien {
-  TenNhomSuKien: String;
-  DanhSachSuKien: danhSachSuKien[];
 }
 
 export interface danhSachSuKien {

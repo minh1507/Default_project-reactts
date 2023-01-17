@@ -1,0 +1,33 @@
+{
+  "DataGrid": {
+    "Key": "HocVien",
+    "Title": "Danh sách học viên",
+    "ColumnDefs": [
+      {
+        "Key": "Ten",
+        "Title": "Tên",
+        "Align": "center"
+      },
+      {
+        "Key": "Sdt",
+        "Title": "Số điện thoại",
+        "Align": "center"
+      },
+      {
+        "Key": "Email",
+        "Title": "Email",
+        "Align": "center"
+      }
+    ],
+    "ActionDefs": [
+      {
+        "Key": "Show",
+        "Title": "",
+        "Type": "Button",
+        "TitleTooltip": "Thêm mới",
+        "Icon": "search",
+        "Action": "onClickShow"
+      }
+    ]
+  }
+}

@@ -7,6 +7,9 @@ export const Reducer = (state: IState = InitState, action: any) => {
         DataItemsBlog: action.items,
       };
     case "GetItemTinTucPortal":
+      action.items.DanhSachTinTuc.forEach((val: any, index: any) => {
+        val.Img = action.array[index];
+      });
       return {
         ...state,
         DataItemsTinTuc: action.items,
@@ -26,7 +29,6 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DataItemsSuKien: action.items,
       };
-
     default:
       return state;
   }

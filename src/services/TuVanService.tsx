@@ -8,13 +8,6 @@ const TuVanService = {
     });
     return res;
   },
-  GetCategories: async () => {
-    let res: any = await request({
-      url: `/${Por_DangKyTuVan}/Categories`,
-      method: "get",
-    });
-    return res;
-  },
   GetItem: async (id: String) => {
     let res: any = await request({
       url: `/${Por_DangKyTuVan}/${id}`,
@@ -26,22 +19,6 @@ const TuVanService = {
     let res: any = await request({
       url: `/${Por_DangKyTuVan}`,
       method: "post",
-      data,
-    });
-    return res;
-  },
-  UpdateItem: async (data: any) => {
-    let res: any = await request({
-      url: `/${Por_DangKyTuVan}`,
-      method: "put",
-      data,
-    });
-    return res;
-  },
-  DeleteById: async (data: any) => {
-    let res: any = await request({
-      url: `/${Por_DangKyTuVan}`,
-      method: "delete",
       data,
     });
     return res;

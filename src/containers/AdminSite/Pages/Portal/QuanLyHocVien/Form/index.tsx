@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { InitState } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
-import TuVanFormInputJson from "./FormInput.json";
+import HocVienFormInputJson from "./FormInput.json";
 interface Props {
   Id: string;
   ReloadTableItems: any;
@@ -18,7 +18,7 @@ const HocVienForm = (props: Props) => {
   useEffect(() => {
     Actions.GetItem(props.Id, dispatch);
   }, [props.Id]);
-  let HocVienFormInput: any = TuVanFormInputJson;
+  let HocVienFormInput: any = HocVienFormInputJson;
   const refNotification = useRef<any>();
   const refDynamicForm = useRef<any>();
 
