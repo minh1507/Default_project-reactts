@@ -1,6 +1,9 @@
 #app-portal {
   // start footer
-
+  font-family: "SF Pro Display";
+  .tieu-de {
+    font-weight: 700 !important;
+  }
   .text_f {
     color: white;
     text-decoration: none;
@@ -123,7 +126,7 @@
   // start header
 
   .headers {
-    height: 15vh;
+    height: 12vh;
     background-color: white;
   }
 
@@ -182,7 +185,7 @@
   }
 
   .la {
-    opacity: 0.8;
+    // opacity: 0.8;
     cursor: pointer;
   }
 
@@ -369,7 +372,7 @@
   /* main sub detail */
 
   .main_sub_bd {
-    padding: 20px 18px 20px 18px;
+    padding: 15px 18px 15px 18px;
   }
 
   .main_sub_detal {
@@ -395,12 +398,12 @@
   .card_logo {
     border-radius: 50%;
     position: absolute;
-    top: 28.5%;
+    top: 160px;
     left: 50%;
     transform: translate(-50%, 0);
     z-index: 1;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
@@ -1049,6 +1052,7 @@
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     max-height: 9rem;
+    margin-top: 0px !important;
   }
 
   .qb {

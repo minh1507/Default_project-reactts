@@ -124,9 +124,9 @@ const TrangChu = (props: Props) => {
   const gioiThieu = state.DataItemsTinTuc && (
     <div key={uuidv4()} className="main_sub_detal mt-2">
       <div className="container-xl d-flex flex-column">
-        <h2 className="text-danger text-uppercase">
+        <h3 className="text-danger text-uppercase tieu-de">
           {state.DataItemsTinTuc.TenNhomTinTuc}
-        </h2>
+        </h3>
         <div className="container mt-5">
           <div className="row gap-3 justify-content-center align-items-center">
             {state.DataItemsTinTuc.DanhSachTinTuc.map(
@@ -138,7 +138,7 @@ const TrangChu = (props: Props) => {
                     maxWidth: "350px",
                     border: "none",
                     cursor: "pointer",
-                    minHeight: "480px",
+                    minHeight: "440px",
                   }}
                 >
                   <img
@@ -165,8 +165,8 @@ const TrangChu = (props: Props) => {
                       <button
                         className="header_btn bg-danger text-light"
                         style={{
-                          width: "120px",
-                          height: "40px",
+                          width: "110px",
+                          height: "35px",
                           position: "absolute",
                           bottom: 0,
                           left: "32.5%",
@@ -188,9 +188,9 @@ const TrangChu = (props: Props) => {
   const giaoan = state.DataItemsGiaoAn && (
     <div className="main_sub_detal mt-2 mb-2">
       <div className="container-xl d-flex flex-column">
-        <h2 className="text-danger text-uppercase">
+        <h3 className="text-danger text-uppercase">
           {state.DataItemsGiaoAn.TenMonHoc}
-        </h2>
+        </h3>
         <div className="container mt-5">
           <div className="row row-cols-1 row-cols-md-4 g-3">
             {state.DataItemsGiaoAn.DanhSachMonHocCon.map(
@@ -272,7 +272,7 @@ const TrangChu = (props: Props) => {
 
             <div className="main_sub_detal mt-2 mb-2">
               <div className="container-xl d-flex flex-column">
-                <h2 className="text-danger text-uppercase">{tree.TenMonHoc}</h2>
+                <h3 className="text-danger text-uppercase">{tree.TenMonHoc}</h3>
                 <div className="container mt-5">
                   <div className="row row-cols-1 row-cols-md-4 g-3">
                     {tree.DanhSachKhoaHoc.map((item: any) => (
@@ -412,9 +412,9 @@ const TrangChu = (props: Props) => {
   const suKien = state.DataItemsSuKien && (
     <div className="main_sub_detal mt-2 mb-2">
       <div className="container-xl d-flex flex-column">
-        <h2 className="text-danger text-uppercase">
+        <h3 className="text-danger text-uppercase">
           {state.DataItemsSuKien.TenNhomSuKien}
-        </h2>
+        </h3>
         <div className="container mt-5">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
             {state.DataItemsSuKien.DanhSachSuKien.map(
