@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useRef, useState } from "react";
 const { v4: uuidv4 } = require("uuid");
+import { useHistory } from "react-router-dom";
 import {
   danhSachSuKien,
   danhSachTintuc,
@@ -41,6 +42,7 @@ import { String } from "common/String";
 interface Props {}
 
 const TrangChu = (props: Props) => {
+  const history = useHistory();
   const [count, setCount] = useState(1);
   const [state, dispatch] = useReducer(Reducer, InitState);
   const [tuVan, setTuVan] = useState({
@@ -98,6 +100,11 @@ const TrangChu = (props: Props) => {
     }
   };
 
+  const GoToOtherPage = (page: string) => {
+    history.push(page);
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     Actions.GetItemTinTuc([img1, img2, img3], "TT1", "3", dispatch);
     Actions.GetItemBlog("TT2", "15", dispatch);
@@ -138,7 +145,7 @@ const TrangChu = (props: Props) => {
                     maxWidth: "350px",
                     border: "none",
                     cursor: "pointer",
-                    minHeight: "440px",
+                    minHeight: "425px",
                   }}
                 >
                   <img
@@ -150,13 +157,13 @@ const TrangChu = (props: Props) => {
                   <img src={child.Img as string} className="card_logo" />
                   <div className="card-body main_sub_bd d-flex flex-column">
                     <h5
-                      className="card-title text-danger mt-4 text-uppercase"
+                      className="card-title text-danger mt-4 mb-2 text-uppercase"
                       style={{ fontStyle: "italic" }}
                     >
                       {child.TieuDe}
                     </h5>
                     <p
-                      className="card-text mt-2 gioiThieuPortal"
+                      className="card-text gioiThieuPortal"
                       style={{ textAlign: "justify" }}
                     >
                       {child.MoTa}
@@ -186,56 +193,64 @@ const TrangChu = (props: Props) => {
   );
 
   const giaoan = state.DataItemsGiaoAn && (
-    <div className="main_sub_detal mt-2 mb-2">
+    <div className="main_sub_detal mt-2 mb-2 ">
       <div className="container-xl d-flex flex-column">
-        <h3 className="text-danger text-uppercase">
+        <h3 className="text-danger text-uppercase tieu-de">
           {state.DataItemsGiaoAn.TenMonHoc}
         </h3>
         <div className="container mt-5">
           <div className="row row-cols-1 row-cols-md-4 g-3">
             {state.DataItemsGiaoAn.DanhSachMonHocCon.map(
               (tree: IModelMonHocCon) => (
-                <div key={uuidv4()} title="GIÁO ÁN CHỈNH DÁNG" className="col ">
+                <div
+                  key={uuidv4()}
+                  title={`${tree.TenMonHoc}`}
+                  className="col "
+                >
                   <div
-                    className="card card_main_container"
-                    style={{ cursor: "pointer" }}
+                    className="card card_main_container prefix_card"
+                    style={{
+                      cursor: "pointer",
+                      position: "relative",
+                    }}
                   >
                     <img
-                      height={"150px"}
+                      height={"170px"}
                       src={tree.URL_AnhDaiDien as string}
                       className="card-img-top"
                       alt="..."
                     />
                     <div
-                      className="card-body card_body_override"
+                      className="card-body card_body_override card-bodys"
                       style={{ textAlign: "start" }}
                     >
-                      <h5 className="text-danger card-title head_z">
+                      <h5 className="text-danger card-title head_z ">
                         {tree.TenMonHoc}
                       </h5>
                       <p
-                        className=" card-text"
+                        className="card-text mb-2"
                         style={{
                           fontSize: "calc(1rem*.9)",
                           color: "grey",
                           fontWeight: "bold",
                         }}
                       >
-                        <span className="text-dark">
-                          {tree.GiaGiaoDong} VNĐ
+                        <span className="text-primary">
+                          {tree.GiaGiaoDong} ₫
                         </span>
                       </p>
                       <p
-                        className=" card-text"
+                        className=" card-text text-dark mo-ta"
                         style={{
                           fontSize: "calc(1rem*.9)",
                           color: "grey",
                           fontWeight: "bold",
                         }}
                       >
-                        <span className="text-dark">{tree.MoTa}</span>
+                        {tree.MoTa}
                       </p>
-                      <div className="d-flex justify-content-center align-items-center">
+
+                      <div className="boxC">
                         <button
                           className="header_btn bg-danger text-light mt-3"
                           style={{ width: "120px" }}
@@ -272,7 +287,9 @@ const TrangChu = (props: Props) => {
 
             <div className="main_sub_detal mt-2 mb-2">
               <div className="container-xl d-flex flex-column">
-                <h3 className="text-danger text-uppercase">{tree.TenMonHoc}</h3>
+                <h3 className="text-danger text-uppercase tieu-de">
+                  {tree.TenMonHoc}
+                </h3>
                 <div className="container mt-5">
                   <div className="row row-cols-1 row-cols-md-4 g-3">
                     {tree.DanhSachKhoaHoc.map((item: any) => (
@@ -289,15 +306,17 @@ const TrangChu = (props: Props) => {
                             src={item.URL_AnhDaiDien}
                             className="card-img-top"
                             alt="..."
-                            height={"150px"}
+                            height={"170px"}
                           />
                           <div
-                            className="card-body"
-                            style={{ textAlign: "start" }}
+                            className="card-body card-bodys"
+                            style={{
+                              textAlign: "start",
+                            }}
                           >
-                            <h5 className="text-danger card-title head_z">
+                            <h6 className="text-danger card-title titleXl head_z">
                               {item.TieuDe}
-                            </h5>
+                            </h6>
                             <p
                               className=" card-text"
                               style={{
@@ -306,52 +325,54 @@ const TrangChu = (props: Props) => {
                                 fontWeight: "bold",
                               }}
                             >
-                              Học phí:{" "}
                               <span
                                 style={{
-                                  fontSize:
-                                    item.HocPhiGiamGia < item.HocPhiGoc
-                                      ? "calc(1rem * 0.8)"
-                                      : "calc(1rem * 1.1)",
-                                  textDecoration:
-                                    item.HocPhiGiamGia < item.HocPhiGoc
-                                      ? "line-through"
-                                      : "none",
-                                  color:
-                                    item.HocPhiGiamGia < item.HocPhiGoc
-                                      ? "black"
-                                      : "red",
+                                  fontSize: "calc(1rem * 1.3)",
+                                  color: "red",
                                 }}
                               >
-                                {item.HocPhiGoc ? (
-                                  <span>{String.num(item.HocPhiGoc)}</span>
+                                {item.HocPhiGoc != 0 ? (
+                                  <span>
+                                    {item.HocPhiGoc >= item.HocPhiGiamGia ? (
+                                      <span>
+                                        {String.num(item.HocPhiGiamGia)}
+                                      </span>
+                                    ) : (
+                                      <span>{String.num(item.HocPhiGoc)}</span>
+                                    )}
+                                  </span>
                                 ) : (
-                                  <span className={`decrease`}>
-                                    Miễn phí{" "}
-                                    <i className="bi bi-balloon-fill"></i>
-                                  </span>
+                                  <span className={`decrease`}>Miễn phí </span>
                                 )}
-                              </span>
-                              {item.HocPhiGiamGia < item.HocPhiGoc && (
-                                <span>
-                                  {" "}
-                                  -{" "}
-                                  <span
-                                    className="text-danger"
-                                    style={{ fontSize: "calc(1rem * 1.1)" }}
-                                  >
-                                    {String.num(item.HocPhiGiamGia)}
-                                  </span>
-                                </span>
-                              )}{" "}
+                              </span>{" "}
                               {item.HocPhiGiamGia <= item.HocPhiGoc &&
                                 item.HocPhiGoc != 0 && (
                                   <span
                                     style={{
-                                      color: "black",
+                                      fontSize: "calc(1rem * 1.3)",
+                                      color: "red",
                                     }}
                                   >
-                                    VNĐ
+                                    ₫
+                                  </span>
+                                )}
+                              {item.HocPhiGiamGia < item.HocPhiGoc &&
+                                item.HocPhiGoc != 0 &&
+                                item.HocPhiGiamGia != 0 && (
+                                  <span
+                                    style={{
+                                      marginLeft: "8px",
+                                      color: "red",
+                                      fontWeight: "300",
+                                    }}
+                                  >
+                                    {"-"}
+                                    {(
+                                      100 -
+                                      (item.HocPhiGiamGia / item.HocPhiGoc) *
+                                        100
+                                    ).toFixed()}
+                                    {"%"}
                                   </span>
                                 )}
                             </p>
@@ -360,7 +381,6 @@ const TrangChu = (props: Props) => {
                               className=" card-text"
                               style={{
                                 fontSize: "calc(1rem*.9)",
-                                color: "grey",
                                 fontWeight: "bold",
                               }}
                             >
@@ -369,18 +389,22 @@ const TrangChu = (props: Props) => {
                                 {item.ThoiGianHoc}
                               </span>
                             </p>
-
                             <p
-                              className=" card-text"
+                              className="mo-ta"
                               style={{
                                 fontSize: "calc(1rem*.9)",
-                                color: "grey",
                                 fontWeight: "bold",
+                                textAlign: "justify",
                               }}
                             >
-                              {item.MoTa}
+                              Lorem ipsum dolor, sit amet consectetur
+                              adipisicing elit. Fugiat, nostrum. Ea eligendi
+                              excepturi atque. Dicta dolorem voluptate non
+                              corporis eligendi necessitatibus eius! Voluptates
+                              necessitatibus sunt suscipit dicta facilis! Velit,
+                              itaque?
                             </p>
-                            <div className="d-flex justify-content-center align-items-center">
+                            <div className="d-flex justify-content-center align-items-center mb-1">
                               <button
                                 className="header_btn bg-danger text-light mt-3"
                                 style={{ width: "120px" }}
@@ -412,7 +436,7 @@ const TrangChu = (props: Props) => {
   const suKien = state.DataItemsSuKien && (
     <div className="main_sub_detal mt-2 mb-2">
       <div className="container-xl d-flex flex-column">
-        <h3 className="text-danger text-uppercase">
+        <h3 className="text-danger text-uppercase tieu-de">
           {state.DataItemsSuKien.TenNhomSuKien}
         </h3>
         <div className="container mt-5">
@@ -445,19 +469,7 @@ const TrangChu = (props: Props) => {
                           >
                             {child.TenSuKien}
                           </h5>
-                          <span
-                            className="d-flex justify-content-center align-items-center"
-                            style={{
-                              cursor: "pointer",
-                              backgroundColor: "gray",
-                              width: "50px",
-                              height: "50px",
-                              color: "white",
-                              borderRadius: "50%",
-                              fontSize: "12px",
-                              fontWeight: "bold",
-                            }}
-                          >
+                          <span className="d-flex justify-content-center align-items-center chi-tiet">
                             Chi tiết
                           </span>
                         </div>
@@ -495,7 +507,7 @@ const TrangChu = (props: Props) => {
                         >
                           <i className="bi bi-cash-stack" />{" "}
                           {child.GiaTien ? child.GiaTien : "0"}
-                          {" VND"}
+                          {" ₫"}
                         </p>
 
                         {child.TrangThai == 0 ? (
@@ -552,7 +564,7 @@ const TrangChu = (props: Props) => {
 
   const blog = state.DataItemsBlog && (
     <div className=" mt-5">
-      <h2 className="text-danger text-center text-uppercase">
+      <h2 className="text-danger text-center text-uppercase tieu-de">
         {state.DataItemsBlog.TenNhomTinTuc}
       </h2>
 
@@ -577,7 +589,7 @@ const TrangChu = (props: Props) => {
               style={{ backgroundColor: "#1e1e1e", height: "100% !important" }}
             >
               <div>
-                <img src={item.URL_AnhDaiDien as string} height="150px" />
+                <img src={item.URL_AnhDaiDien as string} height="210px" />
                 <div
                   className="text-center text-light "
                   style={{ padding: "0 20px" }}
@@ -607,8 +619,18 @@ const TrangChu = (props: Props) => {
   return (
     <div className="main_container" style={{ backgroundColor: "white" }}>
       <CNotification ref={refNotification} />
-      <div className="banner">
-        <img src={banner} className="main_banner qb" />
+      <div className="banner banner_btn_rout">
+        <img src={banner} className="main_banner" />
+
+        <button
+          onClick={() => {
+            GoToOtherPage("/dang-ky");
+          }}
+          className="button-49 banner_btn_ri"
+          role="button"
+        >
+          Đăng ký
+        </button>
         <div className="sub_banner">
           <img src={sub_banner_left} className="sub_banner_bt qc" />
           <img src={sub_banner_right} className="sub_banner_bt qd" />
@@ -643,7 +665,7 @@ const TrangChu = (props: Props) => {
 
       <div className="main_sub_detal mt-2 mb-2">
         <div className="container-xl d-flex flex-column">
-          <h2 className="text-danger">THÀNH TÍCH HỌC VIÊN</h2>
+          <h2 className="text-danger tieu-de">THÀNH TÍCH HỌC VIÊN</h2>
           <div
             className="container mt-5 d-flex justify-content-between congrate"
             style={{ textAlign: "start" }}
@@ -790,7 +812,10 @@ const TrangChu = (props: Props) => {
             <img src={formImg} style={{ width: "100%", height: "auto" }} />
           </div>
           <div id="constate_after" style={{ width: "55%", textAlign: "start" }}>
-            <h2 className="text-danger" style={{ wordWrap: "break-word" }}>
+            <h2
+              className="text-danger tieu-de"
+              style={{ wordWrap: "break-word" }}
+            >
               ĐĂNG KÍ TƯ VẤN MIỄN PHÍ
             </h2>
             <div className="input-group flex-nowrap mt-3">
