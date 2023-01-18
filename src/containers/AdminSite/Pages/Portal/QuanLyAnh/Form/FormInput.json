@@ -37,7 +37,7 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "URL_Anh",
+      "Key": "Files",
       "Title": "Link ảnh",
       "Type": "UploadFile",
       "IsRequired": true,

@@ -31,7 +31,7 @@ export const Actions: any = {
     }
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyAnhService.CreateItem(item);
+    let res: IResponseMessage = await QuanLyAnhService.CreateItemAndFile(item);
     return res;
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {

@@ -30,6 +30,28 @@ const QuanLyAnhService = {
     });
     return res;
   },
+
+  CreateItemAndFile: async (data: any) => {
+    var formData = new FormData();
+    if (data.Files) {
+      for (let i = 0; i < data.Files.length; i++) {
+        if (typeof data.Files[i].Url == "object") {
+          var file = data.Files[i].Url;
+          formData.append("file_" + i, file);
+        }
+      }
+    }
+    var tempData = { ...data };
+    delete tempData["Files"];
+    formData.append("data", JSON.stringify(tempData));
+    let res: any = await request({
+      url: `/${Por_Anh}/UploadAnh`,
+      method: "post",
+      data: formData,
+    });
+    return res;
+  },
+
   UpdateItem: async (data: any) => {
     let res: any = await request({
       url: `/${Por_Anh}`,
