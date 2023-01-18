@@ -55,53 +55,7 @@ const Header = (props: Props) => {
 
   useEffect(() => {
     fetchTreePortal();
-
-    if (location.pathname == "trang-chu") {
-      if (item != 1) {
-        setItem(1);
-      }
-    }
-    if (location.pathname == "/gioi-thieu") {
-      if (item != 2) {
-        setItem(2);
-      }
-    }
-    if (location.pathname == "/khoa-hoc") {
-      if (item != 3) {
-        setItem(3);
-      }
-    }
-    if (location.pathname == "/kien-thuc") {
-      if (item != 4) {
-        setItem(4);
-      }
-    }
-    if (location.pathname == "/chinh-dang-chay-bo") {
-      if (item != 5) {
-        setItem(5);
-      }
-    }
-    if (location.pathname == "/ho-tro") {
-      if (item != 6) {
-        setItem(6);
-      }
-    }
-    if (location.pathname == "/gio-hang") {
-      if (item != 7) {
-        setItem(7);
-      }
-    }
-    if (location.pathname == "/dang-nhap") {
-      if (item != 9) {
-        setItem(9);
-      }
-    }
-    if (location.pathname == "/dang-ky") {
-      if (item != 10) {
-        setItem(10);
-      }
-    }
-  }, [location.pathname, item]);
+  }, []);
 
   const Logout = () => {
     refNotification.current.showNotification(
@@ -112,12 +66,21 @@ const Header = (props: Props) => {
     history.push("/trang-chu");
   };
 
+  const headerChange = (name: any) => {
+    if (location.pathname == name) {
+      return true;
+    }
+    return false;
+  };
+
   const navbar =
     tree &&
     tree.Data?.map((tree: HData) => (
       <div key={uuidv4()} className="show_catching">
         <p
-          className="navbar_link catching"
+          className={`${
+            headerChange(tree.URL) && "lage"
+          } catching la nav navbar_link`}
           onClick={() => {
             GoToOtherPage(tree.URL as string);
           }}
@@ -129,7 +92,7 @@ const Header = (props: Props) => {
             {tree.Children.map((child: any) => (
               <div key={uuidv4()} className="kkk">
                 <p
-                  className="navbar_link ddd"
+                  className="la ddd"
                   onClick={() => {
                     GoToOtherPage(tree.URL as string);
                   }}
@@ -141,7 +104,7 @@ const Header = (props: Props) => {
                     {child.Children.map((childrens: HData) => (
                       <div key={uuidv4()}>
                         <p
-                          className="navbar_link"
+                          className="la"
                           onClick={() => {
                             GoToOtherPage(tree.URL as string);
                           }}
@@ -162,13 +125,13 @@ const Header = (props: Props) => {
   const navbarMob =
     tree &&
     tree.Data?.map((tree: HData) => (
-      <li
-        key={uuidv4()}
-        onClick={() => {
-          GoToOtherPage(tree.URL as string);
-        }}
-      >
-        <h6 className={`${item == tree.Code ? "golden" : "unGolden"}`}>
+      <li key={uuidv4()}>
+        <h6
+          onClick={() => {
+            GoToOtherPage(tree.URL as string);
+          }}
+          className={`${headerChange(tree.URL) ? "golden" : "unGolden"}`}
+        >
           {tree.Name}
         </h6>
       </li>

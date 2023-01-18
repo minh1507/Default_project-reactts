@@ -138,7 +138,7 @@ const TrangChu = (props: Props) => {
                     maxWidth: "350px",
                     border: "none",
                     cursor: "pointer",
-                    minHeight: "550px",
+                    minHeight: "480px",
                   }}
                 >
                   <img
@@ -151,7 +151,7 @@ const TrangChu = (props: Props) => {
                   <div className="card-body main_sub_bd d-flex flex-column">
                     <h5
                       className="card-title text-danger mt-4 text-uppercase"
-                      style={{ fontStyle: "italic", padding: "0 2rem" }}
+                      style={{ fontStyle: "italic" }}
                     >
                       {child.TieuDe}
                     </h5>
@@ -169,7 +169,7 @@ const TrangChu = (props: Props) => {
                           height: "40px",
                           position: "absolute",
                           bottom: 0,
-                          left: "28%",
+                          left: "32.5%",
                         }}
                       >
                         Xem chi tiết
@@ -608,10 +608,10 @@ const TrangChu = (props: Props) => {
     <div className="main_container" style={{ backgroundColor: "white" }}>
       <CNotification ref={refNotification} />
       <div className="banner">
-        <img src={banner} className="main_banner" />
+        <img src={banner} className="main_banner qb" />
         <div className="sub_banner">
-          <img src={sub_banner_left} className="sub_banner_bt" />
-          <img src={sub_banner_right} className="sub_banner_bt" />
+          <img src={sub_banner_left} className="sub_banner_bt qc" />
+          <img src={sub_banner_right} className="sub_banner_bt qd" />
         </div>
       </div>
 
@@ -628,7 +628,7 @@ const TrangChu = (props: Props) => {
 
       {suKien}
 
-      <div className="banner_2nd mt-2 mb-2">
+      <div className="banner_2nd mt-2 mb-2 ">
         <img src={bg8} className="main_banner" />
         <div className="sub_banner">
           <img src={bg9} className="sub_banner_bt_2nd" />
@@ -797,7 +797,7 @@ const TrangChu = (props: Props) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Họ và Tên"
+                placeholder="Họ và Tên(*)"
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
                 onChange={(e: any) => {
@@ -857,7 +857,7 @@ const TrangChu = (props: Props) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Số điện thoại"
+                placeholder="Số điện thoại(*)"
                 aria-label="PhoneNumber"
                 aria-describedby="addon-wrapping"
                 onChange={(e: any) => {
@@ -869,7 +869,7 @@ const TrangChu = (props: Props) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Email"
+                placeholder="Email(*)"
                 aria-label="Email"
                 aria-describedby="addon-wrapping"
                 onChange={(e: any) => {
@@ -881,13 +881,24 @@ const TrangChu = (props: Props) => {
               <textarea
                 className="form-control"
                 rows={3}
-                placeholder="Đóng góp cho học viện ...."
+                placeholder="Đóng góp cho học viện ....(*)"
                 defaultValue={""}
                 onChange={(e: any) => {
                   onChangeFormTuVan("NoiDung", e.target.value);
                 }}
               />
             </div>
+            <p
+              className="mt-3 text-danger"
+              style={{
+                fontSize: "calc(1rem * 0.8)",
+                textAlign: "justify",
+                fontStyle: "italic",
+                fontWeight: "bold",
+              }}
+            >
+              (*): Thông tin bắt buộc
+            </p>
             <div className="d-flex justify-content-center align-items-center">
               <button
                 onClick={() => {

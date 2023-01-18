@@ -278,7 +278,7 @@ const DangNhap = (props: Props) => {
                             register();
                           }}
                         >
-                          hãy tạo ngay nào.
+                          Hãy tạo ngay.
                         </span>
                       </p>
                     )}
