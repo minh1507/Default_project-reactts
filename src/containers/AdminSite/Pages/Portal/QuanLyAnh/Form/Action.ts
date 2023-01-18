@@ -9,7 +9,19 @@ export const Actions: any = {
     if (id) {
       let res: IResponseMessage = await QuanLyAnhService.GetItem(id);
 
+      let Temp = res.Data.URL_Anh.split("\\");
       if (res && res.Success) {
+        if (Temp[Temp.length - 1] && res.Data.URL_Anh) {
+          res.Data.Files = [
+            {
+              Id: res.Data.Id,
+              Name: Temp[Temp.length - 1],
+              Url: res.Data.URL_Anh,
+            },
+          ];
+        } else {
+          res.Data.Files = [];
+        }
         dispatch({
           type: "GetItem",
           item: res.Data,
@@ -35,7 +47,7 @@ export const Actions: any = {
     return res;
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyAnhService.UpdateItem(item);
+    let res: IResponseMessage = await QuanLyAnhService.CreateItemAndFile(item);
     return res;
   },
   GetTreeList: async (key: any, dispatch: any) => {
