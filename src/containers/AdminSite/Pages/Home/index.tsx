@@ -5,7 +5,6 @@ import CDynamicTableAjax from "components/CDynamicTableAjax";
 import roleListViewJson from 'containers/AdminSite/Pages/User/Role/ListView.json';
 import { IAjax } from 'common/Models';
 import $ from 'jquery'; 
-import CCkEditor2 from 'components/CCkEditor2';
 interface Props {
        
 }
@@ -62,11 +61,6 @@ const Home = (props: Props) => {
                         </div>
                     </div>
                 </div>               
-            </div>
-            <div className="row">
-                <div className="col-md-12">
-                    <CCkEditor2 value={"123"} onChange={() => {}} />
-                </div>
             </div>
         </section>
     )

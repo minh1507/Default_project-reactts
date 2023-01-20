@@ -1,0 +1,61 @@
+{
+  "Key": "HocVien",
+  "Title": "Học viên",
+  "Rows": 5,
+  "Controls": [
+    {
+      "Key": "FullName",
+      "Title": "Họ và Tên",
+      "Type": "InputText",
+      "Row": 1,
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    },
+    {
+      "Key": "Email",
+      "Title": "Email",
+      "Type": "InputText",
+      "Row": 2,
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    },
+    {
+      "Key": "Phone",
+      "Title": "Số điện thoại",
+      "Type": "InputText",
+      "Row": 3,
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    },
+    {
+      "Key": "Address",
+      "Title": "Địa chỉ",
+      "Type": "InputText",
+      "Row": 4,
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    },
+    {
+      "Key": "IsActive",
+      "Title": "Trạng thái",
+      "Type": "Select",
+      "Options": [
+        { "value": true, "label": "Hoạt động" },
+        { "value": false, "label": "Không hoạt động" }
+      ],
+      "Row": 5,
+      "ColLabel": 4,
+      "ColControl": 8,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    }
+  ]
+}

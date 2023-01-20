@@ -204,7 +204,7 @@ const DangKy = (props: Props) => {
                     <div className="form-outline mb-4">
                       <input
                         type="text"
-                        placeholder="Họ và Tên"
+                        placeholder="Họ và Tên(*)"
                         onChange={(e: any) => {
                           onChange("FullName", e);
                         }}
@@ -215,7 +215,7 @@ const DangKy = (props: Props) => {
                     <div className="form-outline mb-4">
                       <input
                         type="text"
-                        placeholder="Tên đăng nhập"
+                        placeholder="Tên đăng nhập(*)"
                         onChange={(e: any) => {
                           onChange("UserName", e);
                         }}
@@ -226,7 +226,7 @@ const DangKy = (props: Props) => {
                     <div className="form-outline mb-4">
                       <input
                         type="text"
-                        placeholder="Địa chỉ"
+                        placeholder="Địa chỉ(*)"
                         onChange={(e: any) => {
                           onChange("Address", e);
                         }}
@@ -240,7 +240,7 @@ const DangKy = (props: Props) => {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="Email"
+                            placeholder="Email(*)"
                             onChange={(e: any) => {
                               onChange("Email", e);
                             }}
@@ -255,7 +255,7 @@ const DangKy = (props: Props) => {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="Số điện thoại"
+                            placeholder="Số điện thoại(*)"
                             aria-label="Phone"
                             onChange={(e: any) => {
                               onChange("Phone", e);
@@ -269,7 +269,7 @@ const DangKy = (props: Props) => {
                     <div className="form-outline input-group mb-4">
                       <input
                         type={`${item.pass ? "text" : "password"}`}
-                        placeholder="Mật khẩu"
+                        placeholder="Mật khẩu(*)"
                         onChange={(e: any) => {
                           onChange("Password", e);
                         }}
@@ -292,7 +292,7 @@ const DangKy = (props: Props) => {
                     <div className="form-outline input-group mb-4">
                       <input
                         type={`${item.cpass ? "text" : "password"}`}
-                        placeholder="Nhập lại mật khẩu"
+                        placeholder="Nhập lại mật khẩu(*)"
                         onChange={(e: any) => {
                           setCpass(e.target.value);
                         }}
@@ -314,17 +314,30 @@ const DangKy = (props: Props) => {
                     </div>
                     <div>
                       <p
-                        className="mb-2"
+                        className="mb-2 text-danger"
                         style={{
                           fontSize: "calc(1rem * 0.8)",
                           textAlign: "justify",
+                          fontStyle: "italic",
+                          fontWeight: "bold",
                         }}
                       >
-                        Chú ý: bạn nên sử dụng mật khẩu mạnh có ít nhất 8 ký tự,
-                        1 chữ in hoa, chữ thường, số và kí hiệu
+                        Mật khẩu phải có ít nhất 8 ký tự, 1 chữ in hoa, chữ
+                        thường, số và kí hiệu
+                      </p>
+                      <p
+                        className="mb-1 text-danger"
+                        style={{
+                          fontSize: "calc(1rem * 0.8)",
+                          textAlign: "justify",
+                          fontStyle: "italic",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        (*): Thông tin bắt buộc
                       </p>
                       <div
-                        className="form-check mb-4"
+                        className="form-check mb-4 mt-3"
                         style={{ fontSize: "calc(1rem * 0.8)" }}
                       >
                         <input
@@ -364,7 +377,7 @@ const DangKy = (props: Props) => {
                         onClick={() => goToSignIn()}
                         className="k_dang_nhap"
                       >
-                        Đăng nhập ngay nào
+                        Đăng nhập ngay.
                       </span>
                     </p>
                   </div>

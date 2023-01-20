@@ -1,53 +1,54 @@
-import React, { useRef } from 'react'
-import { Editor } from '@tinymce/tinymce-react';
+import React, { useRef } from "react";
+import SunEditor from 'suneditor-react';
+import 'assets/css/suneditor.min.css';
 
 interface Props {
-    key?: any,
-    value: any,
-    type?: string,
-    size?: any,
-    placeholder?: string,
-    readOnly?: boolean,
-    disabled?: boolean,
-    autoFocus?: boolean,
-    onChange: Function,
-    rows?: any
+  key?: any;
+  value: any;
+  type?: string;
+  size?: any;
+  placeholder?: string;
+  readOnly?: boolean;
+  disabled?: boolean;
+  autoFocus?: boolean;
+  onChange: Function;
+  rows?: any;
 }
 
-const CCkEditor = (props: Props) => { 
-  const editorRef = useRef(null);
-  const handelChange = (e:any, editor:any) => {
-
-  }
-  const handelBlur = (e:any) => {
-    let content = editorRef.current.getContent();
-    props.onChange(content)
-  } 
-    return (
-      <>
-        <Editor
-          apiKey='z2vm023zuhxufhboc64q7b1o93q3upwbvenxl4wdfunm5hp7'
-          onInit={(evt, editor) => editorRef.current = editor}
-          initialValue={props.value}
-          onEditorChange={handelChange}
-          onBlur={handelBlur}
-          init={{
-            height: 500,
-            menubar: false,
-            plugins: [
-              'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-              'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-              'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
-            ],
-            toolbar: 'undo redo | blocks | ' +
-              'bold italic forecolor | alignleft aligncenter ' +
-              'alignright alignjustify | bullist numlist outdent indent | ' +
-              'removeformat | code | help',
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-          }}
-        />
-      </>
-    )
-}
+const CCkEditor = (props: Props) => {
+  const handelChange = (content: any) => {
+    props.onChange(content);
+  };
+  return (
+    <>
+      <SunEditor
+        setContents = {props.value}
+        onChange={(content:any) => { handelChange(content) }}
+        setOptions={{
+          imageGalleryUrl: process.env.Image_Gallery_Url,
+          buttonList: [
+            ['undo', 'redo'],
+            ['font', 'fontSize', 'formatBlock'],
+            ['paragraphStyle', 'blockquote'],
+            ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+            ['fontColor', 'hiliteColor', 'textStyle'],
+            ['removeFormat'],
+            '/', // Line break
+            ['outdent', 'indent'],
+            ['align', 'horizontalRule', 'list', 'lineHeight'],
+            ['table', 'link', 'image', 'video', 'audio'], 
+            ['imageGallery'],
+            ['fullScreen', 'showBlocks', 'codeView'],
+            ['preview', 'print'],
+            ['save', 'template']
+          ],
+          defaultTag: "div",
+          minHeight: "300px",
+          showPathLabel: false,    
+        }}
+       />
+    </>
+  );
+};
 
 export default CCkEditor;

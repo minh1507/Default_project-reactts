@@ -14,12 +14,23 @@ export const Actions: any = {
       items: res.Data,
     });
   },
-  GetItemTinTuc: async (ma: string, limit: string, dispatch: any) => {
+  GetItemTinTuc: async (arr: any, ma: string, limit: string, dispatch: any) => {
     let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(ma, limit);
 
     if (res && res.Success) {
       dispatch({
         type: "GetItemTinTucPortal",
+        items: res.Data[0],
+        array: arr,
+      });
+    }
+  },
+  GetItemBlog: async (ma: string, limit: string, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetItemPortal(ma, limit);
+
+    if (res && res.Success) {
+      dispatch({
+        type: "GetItemBlogPortal",
         items: res.Data[0],
       });
     }
@@ -36,8 +47,6 @@ export const Actions: any = {
       maMonHocCha
     );
 
-    console.log(2);
-    console.log(res);
     dispatch({
       type: "GetItemsKhoaHoc",
       items: res.Data,

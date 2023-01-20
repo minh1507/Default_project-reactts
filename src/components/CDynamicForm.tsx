@@ -11,7 +11,6 @@ import CInputFile from './CInputFile';
 import CInputNumber from './CInputNumber';
 import CRadio from './CRadio';
 import CSelect from './CSelect';
-import CCkEditor2 from './CCkEditor2';
 interface Props {    
     initValues:any,
     formDefs:any,    
@@ -165,13 +164,6 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
             {RequiredControl(propDef, value)}
         </>
     }
-    const CkEditor2Render = (propDef:IControlDefs) => {
-        let value = InitValues[propDef.Key];
-        return <>
-            <CCkEditor2 disabled={propDef.IsDisabled} key={propDef.Key} type={propDef.IsPassword == true?"password":"text"} onChange={(e:any) => {onChangeValue(propDef.Key, e)}} value={value} />
-            {RequiredControl(propDef, value)}
-        </>
-    }
     const InputTextRender = (propDef:IControlDefs) => {
         let value = InitValues[propDef.Key];
         return <>
@@ -245,9 +237,7 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
             case ControlType.UploadFile:
                 return UploadFileRender(propDef);                                                
             case ControlType.CkEditor:
-                return CkEditorRender(propDef);
-            case ControlType.CkEditor2:
-                return CkEditor2Render(propDef);                                                
+                return CkEditorRender(propDef);                                                
             default:
                 return <></>;
         }

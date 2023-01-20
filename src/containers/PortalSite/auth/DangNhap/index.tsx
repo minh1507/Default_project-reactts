@@ -19,8 +19,6 @@ const DangNhap = (props: Props) => {
   const history = useHistory();
   const [item, setItem] = useState(false);
   const [forgetPass, setForgetPass] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [dialogVisible_SocialLogin, setDialogVisible_SocialLogin] =
     useState(false);
   const [dialogVisible_RestorePassword, setDialogVisible_RestorePassword] =
@@ -280,7 +278,7 @@ const DangNhap = (props: Props) => {
                             register();
                           }}
                         >
-                          hãy tạo ngay nào.
+                          Hãy tạo ngay.
                         </span>
                       </p>
                     )}

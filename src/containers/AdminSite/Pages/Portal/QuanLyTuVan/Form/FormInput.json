@@ -1,0 +1,57 @@
+{
+  "Key": "TuVan",
+  "Title": "Tư vấn",
+  "Rows": 5,
+  "Controls": [
+    {
+      "Key": "Ten",
+      "Title": "Tên",
+      "Type": "InputText",
+      "Row": 1,
+      "ColLabel": 2,
+      "ColControl": 10,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    },
+    {
+      "Key": "Sdt",
+      "Title": "Số điện thoại",
+      "Type": "InputText",
+      "Row": 2,
+      "ColLabel": 2,
+      "ColControl": 10,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    },
+    {
+      "Key": "Email",
+      "Title": "Email",
+      "Type": "InputText",
+      "Row": 3,
+      "ColLabel": 2,
+      "ColControl": 10,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    },
+    {
+      "Key": "GioiTinh",
+      "Title": "Giới tính",
+      "Type": "InputText",
+      "Row": 4,
+      "ColLabel": 2,
+      "ColControl": 10,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    },
+    {
+      "Key": "NoiDung",
+      "Title": "Nội dung",
+      "Type": "CkEditor",
+      "Row": 5,
+      "ColLabel": 2,
+      "ColControl": 10,
+      "ColSpanControl": 12,
+      "IsDisabled": true
+    }
+  ]
+}

@@ -1,18 +1,10 @@
 import { Guid } from "common/Enums";
-
-export interface IModelItem {
-  TenNhomTinTuc: string;
-  DanhSachTinTuc: danhSachTintuc[];
-}
-
 export interface danhSachTintuc {
   Id: String;
-  TenNhomTinTuc: String;
   TieuDe: String;
   MoTa: String;
   URL_AnhDaiDien: String;
-  Small: String;
-  Logo: String;
+  Img: String;
 }
 
 export interface IModelGen {
@@ -23,9 +15,12 @@ export interface IModelGen {
 
 export interface IModelGenCon {
   Id: String;
+  HocPhiGiamGia: number;
+  HocPhiGoc: number;
   IdMonHoc: String;
   TieuDe: String;
   URL_AnhDaiDien: String;
+  ThoiGianHoc: String;
 }
 
 export interface IModelMonHocCon {
@@ -47,11 +42,6 @@ export interface IModelMonHoc {
   DanhSachMonHocCon: [];
 }
 
-export interface IModelSuKien {
-  TenNhomSuKien: String;
-  DanhSachSuKien: danhSachSuKien[];
-}
-
 export interface danhSachSuKien {
   IdSuKien: String;
   TenSuKien: String;
@@ -67,6 +57,10 @@ export interface danhSachSuKien {
 
 export interface IState {
   DataItemsTinTuc: {
+    TenNhomTinTuc: string;
+    DanhSachTinTuc: danhSachTintuc[];
+  };
+  DataItemsBlog: {
     TenNhomTinTuc: string;
     DanhSachTinTuc: danhSachTintuc[];
   };
@@ -86,6 +80,10 @@ export interface IState {
 }
 export const InitState: IState = {
   DataItemsTinTuc: {
+    TenNhomTinTuc: "",
+    DanhSachTinTuc: [],
+  },
+  DataItemsBlog: {
     TenNhomTinTuc: "",
     DanhSachTinTuc: [],
   },

@@ -1,314 +1,338 @@
 {
-    "routes": [
+  "routes": [
+    {
+      "code": "Home",
+      "url": "/home",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyTinTuc",
+      "url": "/quan-ly-tin-tuc",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyHocVien",
+      "url": "/quan-ly-hoc-vien",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "Organ",
+      "url": "/organ",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyGiaoVien",
+      "url": "/quan-ly-giao-vien",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyMenu",
+      "url": "/quan-ly-menu",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyTuVan",
+      "url": "/quan-ly-tu-van",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyNhomTinTuc",
+      "url": "/quan-ly-nhom-tin-tuc",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyNhomAnh",
+      "url": "/quan-ly-nhom-anh",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyMonHoc",
+      "url": "/quan-ly-mon-hoc",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyAnh",
+      "url": "/quan-ly-anh",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyNhomSuKien",
+      "url": "/quan-ly-nhom-su-kien",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "Account",
+      "url": "/account",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "Role",
+      "url": "/role",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "Permission",
+      "url": "/permission",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "Config",
+      "url": "/config",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "Log",
+      "url": "/log",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "Category0",
+      "url": "/category0",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "Category1",
+      "url": "/category1",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "Profile",
+      "url": "/profile",
+      "isLayout": true,
+      "isMenu": false
+    },
+    {
+      "code": "Setting",
+      "url": "/setting",
+      "isLayout": true,
+      "isMenu": false
+    },
+    {
+      "code": "Support",
+      "url": "/support",
+      "isLayout": true,
+      "isMenu": false
+    },
+    {
+      "code": "Page401",
+      "url": "/page401",
+      "isLayout": false,
+      "isMenu": false
+    },
+    {
+      "code": "Page404",
+      "url": "/page404",
+      "isLayout": false,
+      "isMenu": false
+    },
+    {
+      "code": "Login",
+      "url": "/login",
+      "isLayout": false,
+      "isMenu": false
+    },
+    {
+      "code": "Signup",
+      "url": "/signup",
+      "isLayout": false,
+      "isMenu": false
+    },
+    {
+      "code": "RestorePassword",
+      "url": "/restore-password",
+      "isLayout": false,
+      "isMenu": false
+    },
+    {
+      "code": "QuanLyKhoaHoc",
+      "url": "/quan-ly-khoa-hoc",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLySuKien",
+      "url": "/quan-ly-su-kien",
+      "isLayout": true,
+      "isMenu": true
+    }
+  ],
+  "menu": [
+    {
+      "code": "Home",
+      "name": "Trang chủ",
+      "url": "/home",
+      "icon": "bi bi-grid"
+    },
+    {
+      "code": "User",
+      "name": "Người dùng",
+      "url": "/user",
+      "icon": "bi bi-person",
+      "subMenu": [
         {
-            "code": "Home",
-            "url": "/home",
-            "isLayout": true,
-            "isMenu": true
+          "code": "Organ",
+          "name": "Cơ cấu tổ chức",
+          "url": "/organ",
+          "icon": "bi bi-grid"
         },
         {
-            "code": "QuanLyTinTuc",
-            "url": "/quan-ly-tin-tuc",
-            "isLayout": true,
-            "isMenu": true
+          "code": "Account",
+          "name": "Tài khoản",
+          "url": "/account",
+          "icon": "bi bi-grid"
         },
         {
-            "code": "Organ",
-            "url": "/organ",
-            "isLayout": true,
-            "isMenu": true
+          "code": "Role",
+          "name": "Vai trò",
+          "url": "/role",
+          "icon": "bi bi-grid"
         },
         {
-            "code": "QuanLyGiaoVien",
-            "url": "/quan-ly-giao-vien",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "QuanLyMenu",
-            "url": "/quan-ly-menu",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "QuanLyNhomTinTuc",
-            "url": "/quan-ly-nhom-tin-tuc",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "QuanLyNhomAnh",
-            "url": "/quan-ly-nhom-anh",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "QuanLyMonHoc",
-            "url": "/quan-ly-mon-hoc",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "QuanLyAnh",
-            "url": "/quan-ly-anh",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "QuanLyNhomSuKien",
-            "url": "/quan-ly-nhom-su-kien",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "Account",
-            "url": "/account",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "Role",
-            "url": "/role",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "Permission",
-            "url": "/permission",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "Config",
-            "url": "/config",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "Log",
-            "url": "/log",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "Category0",
-            "url": "/category0",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "Category1",
-            "url": "/category1",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "Profile",
-            "url": "/profile",
-            "isLayout": true,
-            "isMenu": false
-        },
-        {
-            "code": "Setting",
-            "url": "/setting",
-            "isLayout": true,
-            "isMenu": false
-        },
-        {
-            "code": "Support",
-            "url": "/support",
-            "isLayout": true,
-            "isMenu": false
-        },
-        {
-            "code": "Page401",
-            "url": "/page401",
-            "isLayout": false,
-            "isMenu": false
-        },
-        {
-            "code": "Page404",
-            "url": "/page404",
-            "isLayout": false,
-            "isMenu": false
-        },
-        {
-            "code": "Login",
-            "url": "/login",
-            "isLayout": false,
-            "isMenu": false
-        },
-        {
-            "code": "Signup",
-            "url": "/signup",
-            "isLayout": false,
-            "isMenu": false
-        },
-        {
-            "code": "RestorePassword",
-            "url": "/restore-password",
-            "isLayout": false,
-            "isMenu": false
-        },
-        {
-            "code": "QuanLyKhoaHoc",
-            "url": "/quan-ly-khoa-hoc",
-            "isLayout": true,
-            "isMenu": true
-        },
-        {
-            "code": "QuanLySuKien",
-            "url": "/quan-ly-su-kien",
-            "isLayout": true,
-            "isMenu": true
+          "code": "Permission",
+          "name": "Phân quyền",
+          "url": "/permission",
+          "icon": "bi bi-grid"
         }
-    ],
-    "menu": [
+      ]
+    },
+    {
+      "code": "System",
+      "name": "Hệ thống",
+      "url": "/system",
+      "icon": "bi bi-gear",
+      "subMenu": [
         {
-            "code": "Home",
-            "name" : "Trang chủ",
-            "url": "/home",
-            "icon": "bi bi-grid"
+          "code": "Config",
+          "name": "Cấu hình chung",
+          "url": "/config",
+          "icon": "bi bi-grid"
         },
         {
-            "code": "User",
-            "name" : "Người dùng",
-            "url": "/user",
-            "icon": "bi bi-person",
-            "subMenu": [
-                {
-                    "code": "Organ",
-                    "name" : "Cơ cấu tổ chức",
-                    "url": "/organ",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "Account",
-                    "name" : "Tài khoản",
-                    "url": "/account",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "Role",
-                    "name" : "Vai trò",
-                    "url": "/role",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "Permission",
-                    "name" : "Phân quyền",
-                    "url": "/permission",
-                    "icon": "bi bi-grid"
-                }
-            ]
-        },        
-        {
-            "code": "System",
-            "name" : "Hệ thống",
-            "url": "/system",
-            "icon": "bi bi-gear",
-            "subMenu": [
-                {
-                    "code": "Config",
-                    "name" : "Cấu hình chung",
-                    "url": "/config",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "Log",
-                    "name" : "Xem log",
-                    "url": "/log",
-                    "icon": "bi bi-grid"
-                }
-            ]
-        },
-        {
-            "code": "Category",
-            "name" : "Danh mục",
-            "url": "/category",
-            "icon": "bi bi-justify",
-            "subMenu": [
-                {
-                    "code": "Category0",
-                    "name" : "Danh mục 0",
-                    "url": "/category0",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "Category1",
-                    "name" : "Danh mục 1",
-                    "url": "/category1",
-                    "icon": "bi bi-grid"
-                }
-            ]
-        },
-        {
-            "code": "Portal",
-            "name" : "Cổng thông tin",
-            "url": "/portal",
-            "icon": "bi bi-clipboard-data",
-            "subMenu": [
-                {
-                    "code": "QuanLyMenu",
-                    "name" : "Quản lý menu",
-                    "url": "/quan-ly-menu",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "QuanLyMonHoc",
-                    "name" : "Quản lý môn học",
-                    "url": "/quan-ly-mon-hoc",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "QuanLyNhomSuKien",
-                    "name" : "Quản lý nhóm sự kiện",
-                    "url": "/quan-ly-nhom-su-kien",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "QuanLyNhomTinTuc",
-                    "name" : "Quản lý nhóm tin tức",
-                    "url": "/quan-ly-nhom-tin-tuc",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "QuanLyTinTuc",
-                    "name" : "Quản lý tin tức",
-                    "url": "/quan-ly-tin-tuc",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "QuanLyKhoaHoc",
-                    "name": "Quản lý khóa học",
-                    "url": "/quan-ly-khoa-hoc",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "QuanLySuKien",
-                    "name": "Quản lý sự kiện",
-                    "url": "/quan-ly-su-kien",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "QuanLyNhomAnh",
-                    "name": "Quản lý nhóm ảnh",
-                    "url": "/quan-ly-nhom-anh",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "QuanLyAnh",
-                    "name": "Quản lý ảnh",
-                    "url": "/quan-ly-anh",
-                    "icon": "bi bi-grid"
-                },
-                {
-                    "code": "QuanLyGiaoVien",
-                    "name": "Quản lý giáo viên",
-                    "url": "/quan-ly-giao-vien",
-                    "icon": "bi bi-grid"
-                }
-            ]
+          "code": "Log",
+          "name": "Xem log",
+          "url": "/log",
+          "icon": "bi bi-grid"
         }
-    ]
+      ]
+    },
+    {
+      "code": "Category",
+      "name": "Danh mục",
+      "url": "/category",
+      "icon": "bi bi-justify",
+      "subMenu": [
+        {
+          "code": "Category0",
+          "name": "Danh mục 0",
+          "url": "/category0",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "Category1",
+          "name": "Danh mục 1",
+          "url": "/category1",
+          "icon": "bi bi-grid"
+        }
+      ]
+    },
+    {
+      "code": "Portal",
+      "name": "Cổng thông tin",
+      "url": "/portal",
+      "icon": "bi bi-clipboard-data",
+      "subMenu": [
+        {
+          "code": "QuanLyMenu",
+          "name": "Quản lý menu",
+          "url": "/quan-ly-menu",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyMonHoc",
+          "name": "Quản lý môn học",
+          "url": "/quan-ly-mon-hoc",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyNhomSuKien",
+          "name": "Quản lý nhóm sự kiện",
+          "url": "/quan-ly-nhom-su-kien",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyNhomTinTuc",
+          "name": "Quản lý nhóm tin tức",
+          "url": "/quan-ly-nhom-tin-tuc",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyTinTuc",
+          "name": "Quản lý tin tức",
+          "url": "/quan-ly-tin-tuc",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyKhoaHoc",
+          "name": "Quản lý khóa học",
+          "url": "/quan-ly-khoa-hoc",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLySuKien",
+          "name": "Quản lý sự kiện",
+          "url": "/quan-ly-su-kien",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyNhomAnh",
+          "name": "Quản lý nhóm ảnh",
+          "url": "/quan-ly-nhom-anh",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyAnh",
+          "name": "Quản lý ảnh",
+          "url": "/quan-ly-anh",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyGiaoVien",
+          "name": "Quản lý giáo viên",
+          "url": "/quan-ly-giao-vien",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyTuVan",
+          "name": "Quản lý tư vấn",
+          "url": "/quan-ly-tu-van",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyHocVien",
+          "name": "Quản lý học viên",
+          "url": "/quan-ly-hoc-vien",
+          "icon": "bi bi-grid"
+        }
+      ]
+    }
+  ]
 }

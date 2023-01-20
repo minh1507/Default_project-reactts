@@ -21,6 +21,7 @@ export enum Message {
   PolicyChecking = "Đồng ý chính sách trước khi đăng khí",
   Phone_Wrong = "Hãy nhập đúng số điện thoại",
   Password_Wrong = "Mật khẩu phải có ít nhất 8 ký tự, 1 chữ in hoa, chữ thường, số và kí hiệu",
+  TuVan_Wrong = "Hãy nhập đủ thông tin để được tư vấn",
 }
 export enum Guid {
   Empty = "00000000-0000-0000-0000-000000000000",
@@ -28,7 +29,6 @@ export enum Guid {
 export enum ControlType {
   InputText = "InputText",
   CkEditor = "CkEditor",
-  CkEditor2 = "CkEditor2",
   TextArea = "TextArea",
   InputNumber = "InputNumber",
   Select = "Select",
