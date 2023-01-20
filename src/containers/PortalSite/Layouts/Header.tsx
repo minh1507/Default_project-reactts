@@ -77,7 +77,7 @@ const Header = (props: Props) => {
     tree &&
     tree.Data?.map((tree: HData) => (
       <div key={uuidv4()} className="show_catching">
-        <p
+        <span
           className={`${
             headerChange(tree.URL) && "lage"
           } catching la nav navbar_link`}
@@ -86,7 +86,7 @@ const Header = (props: Props) => {
           }}
         >
           {tree.Name}
-        </p>
+        </span>
         {tree.Children.length > 0 && (
           <div className="hide">
             {tree.Children.map((child: any) => (

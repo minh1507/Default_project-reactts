@@ -124,5 +124,19 @@ const UserService = {
     });
     return res;
   },
+  UnActive: async (id: any) => {
+    let res: any = await request({
+      url: `/${Sys_User}/UnActive?UserId=${id}`,
+      method: "get",
+    });
+    return res;
+  },
+  Active: async (id: any) => {
+    let res: any = await request({
+      url: `/${Sys_User}/Active?UserId=${id}`,
+      method: "get",
+    });
+    return res;
+  },
 };
 export default UserService;

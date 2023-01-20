@@ -25,6 +25,7 @@ const HocVienList = (props: Props) => {
   const refNotification = useRef<any>();
   const refDynamicTable = useRef<any>();
   const [dialogVisible, setDialogVisible] = useState(false);
+  const [build, setBuild] = useState(1);
   useEffect(() => {
     Actions.GetItems(dispatch);
   }, []);
@@ -37,9 +38,26 @@ const HocVienList = (props: Props) => {
         );
         return;
       }
+      setBuild(1);
       sethocVienId(getRowId());
       setDialogVisible(true);
     },
+    onClickActivate: () => {
+      if (!getRowId()) {
+        refNotification.current.showNotification(
+          "warning",
+          Message.Require_Row_Selection
+        );
+        return;
+      }
+      setBuild(2);
+      sethocVienId(getRowId());
+      setDialogVisible(true);
+    },
+  };
+
+  const hideDialog = () => {
+    setDialogVisible(false);
   };
   const ReloadTableItems = () => {
     Actions.GetItems(dispatch);
@@ -61,11 +79,16 @@ const HocVienList = (props: Props) => {
         {dialogVisible == true ? (
           <CDialog
             style={{ width: "30%", top: "5%" }}
-            title={"Xem học viên"}
+            title={build == 1 ? "Xem học viên" : "Kích hoạt học viên"}
             dialogVisible={dialogVisible}
             onCancel={() => setDialogVisible(false)}
           >
-            <HocVienForm Id={hocVienId} ReloadTableItems={ReloadTableItems} />
+            <HocVienForm
+              Id={hocVienId}
+              build={build}
+              ReloadTableItems={ReloadTableItems}
+              hideDialog={hideDialog}
+            />
           </CDialog>
         ) : (
           <div></div>

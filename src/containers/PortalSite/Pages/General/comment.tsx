@@ -89,7 +89,7 @@ const Comment = (props: Props) => {
         return (
           <div
             key={uuidv4()}
-            className="mb-3"
+            className="mb-3 mt-3"
             style={{ border: "1px solid gainsboro", borderRadius: "5px 5px" }}
           >
             <div id="main_comment" style={{ padding: "10px 10px" }}>

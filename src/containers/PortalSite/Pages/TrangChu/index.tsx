@@ -36,8 +36,9 @@ import loading from "assets/img/trang-chu.gif";
 import { Message } from "common/Enums";
 import CNotification from "components/CNotification";
 import TuVanService from "services/TuVanService";
-import { IResponseMessage } from "common/Models";
+import { IResponseMessage, IUserInfo } from "common/Models";
 import { String } from "common/String";
+import { Cookie } from "common/Cookie";
 
 interface Props {}
 
@@ -52,6 +53,7 @@ const TrangChu = (props: Props) => {
     Email: "",
     NoiDung: "",
   });
+
   const refNotification = useRef<any>();
 
   const onChangeFormTuVan = (key: string, e: any) => {
@@ -102,6 +104,14 @@ const TrangChu = (props: Props) => {
 
   const GoToOtherPage = (page: string) => {
     history.push(page);
+    window.scrollTo(0, 0);
+  };
+  const GoToDetailPage = (page: string, id: string, search: string) => {
+    history.push({
+      pathname: page,
+      state: { id: id },
+      search: `/${search}`,
+    });
     window.scrollTo(0, 0);
   };
 
@@ -178,6 +188,13 @@ const TrangChu = (props: Props) => {
                           bottom: 0,
                           left: "32.5%",
                         }}
+                        onClick={() =>
+                          GoToDetailPage(
+                            "/chi-tiet-tin-tuc",
+                            child.Id as string,
+                            child.TieuDe as string
+                          )
+                        }
                       >
                         Xem chi tiết
                       </button>
@@ -252,7 +269,7 @@ const TrangChu = (props: Props) => {
 
                       <div className="boxC">
                         <button
-                          className="header_btn bg-danger text-light mt-3"
+                          className="header_btn bg-danger text-light"
                           style={{ width: "120px" }}
                         >
                           Xem chi tiết
@@ -295,12 +312,16 @@ const TrangChu = (props: Props) => {
                     {tree.DanhSachKhoaHoc.map((item: any) => (
                       <div
                         key={uuidv4()}
-                        title="GIÁO ÁN CHỈNH DÁNG"
+                        title={`${item.TieuDe}`}
                         className="col "
                       >
                         <div
                           className="card card_main_container"
-                          style={{ cursor: "pointer" }}
+                          style={{
+                            cursor: "pointer",
+                            height: "360px",
+                            position: "relative",
+                          }}
                         >
                           <img
                             src={item.URL_AnhDaiDien}
@@ -333,18 +354,18 @@ const TrangChu = (props: Props) => {
                               >
                                 {item.HocPhiGoc != 0 ? (
                                   <span>
-                                    {item.HocPhiGoc >= item.HocPhiGiamGia ? (
+                                    {item.HocPhiGoc > item.HocPhiGiamGia ? (
+                                      <span>{String.num(item.HocPhiGoc)}</span>
+                                    ) : (
                                       <span>
                                         {String.num(item.HocPhiGiamGia)}
                                       </span>
-                                    ) : (
-                                      <span>{String.num(item.HocPhiGoc)}</span>
                                     )}
                                   </span>
                                 ) : (
                                   <span className={`decrease`}>Miễn phí </span>
                                 )}
-                              </span>{" "}
+                              </span>
                               {item.HocPhiGiamGia <= item.HocPhiGoc &&
                                 item.HocPhiGoc != 0 && (
                                   <span
@@ -362,17 +383,12 @@ const TrangChu = (props: Props) => {
                                   <span
                                     style={{
                                       marginLeft: "8px",
-                                      color: "red",
+                                      color: "gray",
                                       fontWeight: "300",
+                                      textDecoration: "line-through",
                                     }}
                                   >
-                                    {"-"}
-                                    {(
-                                      100 -
-                                      (item.HocPhiGiamGia / item.HocPhiGoc) *
-                                        100
-                                    ).toFixed()}
-                                    {"%"}
+                                    {String.num(item.HocPhiGiamGia)}₫
                                   </span>
                                 )}
                             </p>
@@ -397,17 +413,19 @@ const TrangChu = (props: Props) => {
                                 textAlign: "justify",
                               }}
                             >
-                              Lorem ipsum dolor, sit amet consectetur
-                              adipisicing elit. Fugiat, nostrum. Ea eligendi
-                              excepturi atque. Dicta dolorem voluptate non
-                              corporis eligendi necessitatibus eius! Voluptates
-                              necessitatibus sunt suscipit dicta facilis! Velit,
-                              itaque?
+                              {item.MoTa}
                             </p>
-                            <div className="d-flex justify-content-center align-items-center mb-1">
+                            <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
                               <button
                                 className="header_btn bg-danger text-light mt-3"
                                 style={{ width: "120px" }}
+                                onClick={() =>
+                                  GoToDetailPage(
+                                    "/khoa-hoc-chi-tiet",
+                                    item.Id as string,
+                                    item.TieuDe as string
+                                  )
+                                }
                               >
                                 Xem chi tiết
                               </button>
@@ -615,6 +633,7 @@ const TrangChu = (props: Props) => {
       </OwlCarousel>
     </div>
   );
+  let userInfo: IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
 
   return (
     <div className="main_container" style={{ backgroundColor: "white" }}>
@@ -622,15 +641,18 @@ const TrangChu = (props: Props) => {
       <div className="banner banner_btn_rout">
         <img src={banner} className="main_banner" />
 
-        <button
-          onClick={() => {
-            GoToOtherPage("/dang-ky");
-          }}
-          className="button-49 banner_btn_ri"
-          role="button"
-        >
-          Đăng ký
-        </button>
+        {!userInfo && (
+          <button
+            onClick={() => {
+              GoToOtherPage("/dang-ky");
+            }}
+            className="button-49 banner_btn_ri"
+            role="button"
+          >
+            Đăng ký
+          </button>
+        )}
+
         <div className="sub_banner">
           <img src={sub_banner_left} className="sub_banner_bt qc" />
           <img src={sub_banner_right} className="sub_banner_bt qd" />

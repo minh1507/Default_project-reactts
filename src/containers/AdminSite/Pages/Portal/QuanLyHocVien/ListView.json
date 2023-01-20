@@ -38,9 +38,17 @@
         "Key": "Show",
         "Title": "",
         "Type": "Button",
-        "TitleTooltip": "Thêm mới",
-        "Icon": "search",
+        "TitleTooltip": "Xem chi tiết",
+        "Icon": "bi bi-person-fill",
         "Action": "onClickShow"
+      },
+      {
+        "Key": "Active",
+        "Title": "",
+        "Type": "Button",
+        "TitleTooltip": "Thay đổi trạng thái",
+        "Icon": "bi bi-lock-fill",
+        "Action": "onClickActivate"
       }
     ]
   }

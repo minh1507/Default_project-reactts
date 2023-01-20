@@ -681,7 +681,7 @@
   }
   .boxC {
     position: absolute;
-    bottom: 5%;
+    bottom: -13px;
     left: 0;
     right: 0;
     display: flex;
@@ -690,13 +690,13 @@
   }
 
   .prefix_card {
-    min-height: 400px;
+    min-height: 350px;
   }
 
   .mo-ta {
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     max-height: 10rem;
     text-align: justify;
@@ -1244,5 +1244,42 @@
       height: 50px;
       // line-height: 88px;
     }
+  }
+
+  .d-dex-f {
+    transform: unset !important;
+  }
+  .animate-charcter {
+    background-image: linear-gradient(
+      -225deg,
+      #231557 0%,
+      #44107a 29%,
+      #ff1361 67%,
+      #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 1rem;
+  }
+
+  @keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  .btn-khhoc {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
   }
 }
