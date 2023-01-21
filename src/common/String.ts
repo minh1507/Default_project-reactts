@@ -18,7 +18,6 @@ export class String {
       new Date(date).getMinutes() +
       " " +
       (new Date(date).getHours() > 12 ? "tối" : "sáng");
-    console.log(newDate);
     return newDate;
   };
 }

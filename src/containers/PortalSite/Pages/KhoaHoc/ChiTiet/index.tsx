@@ -10,6 +10,7 @@ import { InitState } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
 import { useLocation } from "react-router-dom";
+import { String } from "common/String";
 
 interface Props {}
 
@@ -26,7 +27,6 @@ const ChiTiet = (props: Props) => {
   const changeContent = (content: number) => {
     setChange(content);
   };
-  console.log(state);
 
   const con = () => {
     if (change == 1) {
@@ -73,6 +73,8 @@ const ChiTiet = (props: Props) => {
     window.scrollTo(0, 0);
     history.push("/gio-hang");
   };
+
+  console.log(state);
 
   return (
     <div>
@@ -274,19 +276,37 @@ const ChiTiet = (props: Props) => {
               THÔNG TIN KHÓA HỌC
             </p>
             <p className="mb-3">
-              <i className="bi bi-clock" /> 3 tháng
+              <i className="bi bi-clock" /> {state.DataDetail.ThoiGianHoc}
             </p>
             <p className="text-danger mb-3">
               <i className="bi bi-fire" /> Miễn phí gia hạn thêm 3 tháng
             </p>
             <p className="mb-3">
-              <i className="bi bi-box2-heart" /> Đang mở
+              <i className="bi bi-box2-heart" />{" "}
+              {state.DataDetail.TrangThai ? "Đang mở" : "Đã đóng"}
             </p>
             <p className="mb-4">
-              <span style={{ textDecoration: "line-through" }}>5.000.000đ</span>{" "}
-              <span className="text-danger" style={{ fontWeight: "bold" }}>
-                3.000.000 đ
-              </span>
+              <i className="bi bi-cash"></i>{" "}
+              {state.DataDetail.HocPhiGoc <= state.DataDetail.HocPhiGiamGia ? (
+                <span
+                  className="text-danger"
+                  style={{ fontWeight: "bold", fontSize: "1.5rem" }}
+                >
+                  {String.num(state.DataDetail.HocPhiGoc)}đ
+                </span>
+              ) : (
+                <span
+                  className="text-danger"
+                  style={{ fontWeight: "bold", fontSize: "1.5rem" }}
+                >
+                  {String.num(state.DataDetail.HocPhiGiamGia)}đ
+                </span>
+              )}{" "}
+              {state.DataDetail.HocPhiGoc > state.DataDetail.HocPhiGiamGia && (
+                <span style={{ textDecoration: "line-through" }}>
+                  {String.num(state.DataDetail.HocPhiGoc)}đ
+                </span>
+              )}
             </p>
             <div className="d-flex justify-content-center align-items-center flex-column">
               <div className="d-flex mb-2">

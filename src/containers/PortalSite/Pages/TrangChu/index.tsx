@@ -334,7 +334,7 @@ const TrangChu = (props: Props) => {
                               textAlign: "start",
                             }}
                           >
-                            <h6 className="text-danger card-title titleXl head_z">
+                            <h6 className="card-title titleXl head_z">
                               {item.TieuDe}
                             </h6>
                             <p
