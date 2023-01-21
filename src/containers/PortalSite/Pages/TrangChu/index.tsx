@@ -228,7 +228,7 @@ const TrangChu = (props: Props) => {
                     style={{
                       cursor: "pointer",
                       position: "relative",
-                      height: "300px",
+                      height: "360px",
                     }}
                   >
                     <img
@@ -245,7 +245,7 @@ const TrangChu = (props: Props) => {
                         {tree.TenMonHoc}
                       </h5>
                       <p
-                        className="card-text mb-2"
+                        className="card-text"
                         style={{
                           fontSize: "calc(1rem*.9)",
                           color: "grey",
@@ -261,7 +261,6 @@ const TrangChu = (props: Props) => {
                         style={{
                           fontSize: "calc(1rem*.9)",
                           color: "grey",
-                          fontWeight: "bold",
                         }}
                       >
                         {tree.MoTa}
@@ -319,7 +318,7 @@ const TrangChu = (props: Props) => {
                           className="card card_main_container"
                           style={{
                             cursor: "pointer",
-                            height: "370px",
+                            height: "380px",
                             position: "relative",
                           }}
                         >
@@ -409,7 +408,6 @@ const TrangChu = (props: Props) => {
                               className="mo-ta"
                               style={{
                                 fontSize: "calc(1rem*.9)",
-                                fontWeight: "bold",
                                 textAlign: "justify",
                               }}
                             >
