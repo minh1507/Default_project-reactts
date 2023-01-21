@@ -23,10 +23,11 @@ const KhoaHocForm = (props: Props) => {
   let KhoaHocFormInput: any = KhoaHocFormInputJson;
   const refNotification = useRef<any>();
   const refDynamicForm = useRef<any>();
-
+  console.log(state);
   const ActionEvents = {
     onClickSave: async () => {
       let isValid = refDynamicForm.current.onValidation();
+
       if (isValid) {
         let stateValues = refDynamicForm.current.getStateValues();
         let res: IResponseMessage = null;

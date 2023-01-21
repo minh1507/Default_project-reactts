@@ -228,6 +228,7 @@ const TrangChu = (props: Props) => {
                     style={{
                       cursor: "pointer",
                       position: "relative",
+                      height: "300px",
                     }}
                   >
                     <img
@@ -318,7 +319,7 @@ const TrangChu = (props: Props) => {
                           className="card card_main_container"
                           style={{
                             cursor: "pointer",
-                            height: "360px",
+                            height: "370px",
                             position: "relative",
                           }}
                         >
