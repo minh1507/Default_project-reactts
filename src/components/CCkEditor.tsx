@@ -19,6 +19,13 @@ const CCkEditor = (props: Props) => {
   const handelChange = (content: any) => {
     props.onChange(content);
   };
+  const handleImageUploadBefore = (files: any, info: any, uploadHandler: any) => {
+    // uploadHandler is a function
+    console.log(files, info)
+  }
+  const handleImageUpload = (targetImgElement: any, index: any, state: any, imageInfo: any, remainingFilesCount: any) => {
+    console.log(targetImgElement, index, state, imageInfo, remainingFilesCount)
+  }
   return (
     <>
       <SunEditor
@@ -26,6 +33,8 @@ const CCkEditor = (props: Props) => {
         onChange={(content: any) => {
           handelChange(content);
         }}
+        onImageUploadBefore={handleImageUploadBefore}
+        onImageUpload={handleImageUpload}
         setOptions={{
           imageGalleryUrl: process.env.Image_Gallery_Url,
           buttonList: [
