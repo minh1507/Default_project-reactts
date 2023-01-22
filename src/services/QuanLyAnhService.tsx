@@ -51,7 +51,20 @@ const QuanLyAnhService = {
     });
     return res;
   },
-
+  UploadAnhEdtior: async (Files: any) => {
+    var formData = new FormData();
+    if (Files) {
+      for (let i = 0; i < Files.length; i++) {
+        formData.append("file_" + i, Files[i]);
+      }
+      let res: any = await request({
+        url: `/${Por_Anh}/UploadAnhEdtior`,
+        method: "post",
+        data: formData,
+      });
+      return res;
+    }
+  },
   UpdateItem: async (data: any) => {
     let res: any = await request({
       url: `/${Por_Anh}`,

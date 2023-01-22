@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import SunEditor from "suneditor-react";
 import "assets/css/suneditor.min.css";
+import QuanLyAnhService from "services/QuanLyAnhService";
+import { IResponseMessage } from "common/Models";
 
 interface Props {
   key?: any;
@@ -19,13 +21,23 @@ const CCkEditor = (props: Props) => {
   const handelChange = (content: any) => {
     props.onChange(content);
   };
-  const handleImageUploadBefore = (files: any, info: any, uploadHandler: any) => {
-    // uploadHandler is a function
-    console.log(files, info)
+  const uploadToServer = async (files:any) => {
+    let res:IResponseMessage = await QuanLyAnhService.UploadAnhEdtior(files);
+    return res.Data;
   }
-  const handleImageUpload = (targetImgElement: any, index: any, state: any, imageInfo: any, remainingFilesCount: any) => {
-    console.log(targetImgElement, index, state, imageInfo, remainingFilesCount)
+  const handleImageUploadBefore = async (files: any, info: any, uploadHandler: any) => {
+    const src = await uploadToServer(files);
+    const response = {
+      "result": [
+        {
+          "url": src,
+          "name": files[0].name,
+          "size": files[0].size
+        },
+    ]}
+    uploadHandler(response);
   }
+
   return (
     <>
       <SunEditor
@@ -34,7 +46,6 @@ const CCkEditor = (props: Props) => {
           handelChange(content);
         }}
         onImageUploadBefore={handleImageUploadBefore}
-        onImageUpload={handleImageUpload}
         setOptions={{
           imageGalleryUrl: process.env.Image_Gallery_Url,
           buttonList: [
@@ -61,7 +72,7 @@ const CCkEditor = (props: Props) => {
             ["save", "template"],
           ],
           defaultTag: "div",
-          minHeight: "300px",
+          minHeight: "500px",
           showPathLabel: false,
         }}
       />
