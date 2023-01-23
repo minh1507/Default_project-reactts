@@ -149,7 +149,7 @@ const TrangChu = (props: Props) => {
               (child: danhSachTintuc) => (
                 <div
                   key={uuidv4()}
-                  className="card p-0 card_main_container"
+                  className="card p-0 card_main_container wrapper_d"
                   style={{
                     maxWidth: "350px",
                     border: "none",
@@ -157,12 +157,14 @@ const TrangChu = (props: Props) => {
                     minHeight: "425px",
                   }}
                 >
-                  <img
-                    src={child.URL_AnhDaiDien as string}
-                    className="card-img-top"
-                    alt="..."
-                    style={{ height: "200px" }}
-                  />
+                  <div className="wrapper_discard">
+                    <img
+                      src={child.URL_AnhDaiDien as string}
+                      className="card-img-top imov"
+                      alt="..."
+                    />
+                  </div>
+
                   <img src={child.Img as string} className="card_logo" />
                   <div className="card-body main_sub_bd d-flex flex-column">
                     <h5
@@ -224,19 +226,21 @@ const TrangChu = (props: Props) => {
                   className="col "
                 >
                   <div
-                    className="card card_main_container prefix_card"
+                    className="card card_main_container prefix_card wrapper_c"
                     style={{
                       cursor: "pointer",
                       position: "relative",
                       height: "360px",
                     }}
                   >
-                    <img
-                      height={"170px"}
-                      src={tree.URL_AnhDaiDien as string}
-                      className="card-img-top"
-                      alt="..."
-                    />
+                    <div className="wrapper_card">
+                      <img
+                        src={tree.URL_AnhDaiDien as string}
+                        className="card-img-top"
+                        alt="..."
+                      />
+                    </div>
+
                     <div
                       className="card-body card_body_override card-bodys"
                       style={{ textAlign: "start" }}
@@ -315,19 +319,21 @@ const TrangChu = (props: Props) => {
                         className="col "
                       >
                         <div
-                          className="card card_main_container"
+                          className="card card_main_container wrapper_c"
                           style={{
                             cursor: "pointer",
                             height: "380px",
                             position: "relative",
                           }}
                         >
-                          <img
-                            src={item.URL_AnhDaiDien}
-                            className="card-img-top"
-                            alt="..."
-                            height={"170px"}
-                          />
+                          <div className="wrapper_card">
+                            <img
+                              src={item.URL_AnhDaiDien}
+                              className="card-img-top"
+                              alt="..."
+                            />
+                          </div>
+
                           <div
                             className="card-body card-bodys"
                             style={{

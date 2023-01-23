@@ -9,9 +9,23 @@ const QuanLyNhomTinTuc = {
     });
     return res;
   },
+  KienThucPortal: async (ma: String) => {
+    let res: any = await request({
+      url: `/${Por_NhomTinTuc}/KienThucPortal?maNhomTinTuc${ma}`,
+      method: "get",
+    });
+    return res;
+  },
   GetItem: async (id: String) => {
     let res: any = await request({
       url: `/${Por_NhomTinTuc}/${id}`,
+      method: "get",
+    });
+    return res;
+  },
+  GetDSNhomTinTucPortal: async (id: String) => {
+    let res: any = await request({
+      url: `/${Por_NhomTinTuc}/GetDSNhomTinTucPortal?idNhomTinTucCha=${id}`,
       method: "get",
     });
     return res;

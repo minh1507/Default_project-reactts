@@ -1078,19 +1078,45 @@
   }
 
   .chi-tiet {
-    cursor: pointer;
+    // cursor: pointer;
+    // width: 50px;
+    // height: 50px;
+    // color: brown;
+    // border-radius: 50%;
+    // font-size: 12px;
+    // font-weight: bold;
+    // box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    //   rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    //   rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+    //   rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    //   rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    //   rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    position: relative;
+    display: block;
     width: 50px;
     height: 50px;
-    color: brown;
-    border-radius: 50%;
-    font-size: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 10px;
     font-weight: bold;
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-      rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-      rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-      rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-      rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border: none;
+    border-radius: 50%;
+    background-color: #ff9950;
+    box-shadow: 0 0 0 0 #ff995040;
+    animation: pulse 1.5s infinite;
+  }
+
+  .chi-tiet:hover {
+    animation: none;
+  }
+
+  @keyframes pulse {
+    to {
+      box-shadow: 0 0 0 20px #ff995000;
+    }
   }
 
   .gioiThieuPortal {
@@ -1281,5 +1307,39 @@
     bottom: 0;
     left: 0;
     right: 0;
+  }
+
+  .wrapper_card {
+    overflow: hidden;
+    height: 170px;
+  }
+
+  .wrapper_card img {
+    object-fit: cover;
+    transition: transform 0.8s;
+    height: 100%;
+  }
+
+  .wrapper_c:hover img {
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+
+  .wrapper_d:hover .imov {
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+
+  .wrapper_discard {
+    overflow: hidden;
+    height: 200px;
+  }
+
+  .wrapper_discard .imov {
+    object-fit: cover;
+    transition: transform 0.8s;
+    height: 100%;
   }
 }
