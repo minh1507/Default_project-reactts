@@ -4,14 +4,22 @@ import bg17 from "assets/img/bg17.png";
 import bg20 from "assets/img/bg20.jpg";
 import bg18 from "assets/img/bg18.jpg";
 import bg19 from "assets/img/bg19.jpg";
-import bg40 from "assets/img/bg40.png";
+import bg40 from "assets/img/Gioi-thieu.png";
 
 interface Props {}
 
 const ChinhDangChayBo = (props: Props) => {
   return (
     <div style={{ backgroundColor: "white" }}>
-      <img src={bg40} width="100%" height="auto" />
+      <div className="wrapper_img">
+        <img className="mb-3" src={bg40} width="100%" height="auto" />
+        <h1
+          className="reszex"
+          style={{ whiteSpace: "nowrap", fontSize: "4.6rem" }}
+        >
+          CHỈNH DÁNG CHẠY BỘ
+        </h1>
+      </div>
       <div className="main_sub_detal">
         <div className="container mt-2">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center p-3">

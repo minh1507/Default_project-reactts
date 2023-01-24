@@ -46,10 +46,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -57,7 +57,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -65,51 +64,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -140,10 +102,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -151,7 +113,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -159,51 +120,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -234,10 +158,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -245,7 +169,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -253,51 +176,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -328,10 +214,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -339,7 +225,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -347,51 +232,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -422,10 +270,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -433,7 +281,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -441,51 +288,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -516,10 +326,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -527,7 +337,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -535,51 +344,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -610,10 +382,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -621,7 +393,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -629,51 +400,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -704,10 +438,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -715,7 +449,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -723,51 +456,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -798,10 +494,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -809,7 +505,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -817,51 +512,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -892,10 +550,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -903,7 +561,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -911,51 +568,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -986,10 +606,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -997,7 +617,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -1005,51 +624,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
+                </div>
 
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
@@ -1080,10 +662,10 @@ const KienThuc = (props: Props) => {
             style={{ marginBottom: "8px", width: "18.1rem" }}
           >
             <div
-              className="card card_main_container wrapper_c"
+              className="card card_main_container wrapper_c wrapper_lsp"
               style={{
                 cursor: "pointer",
-                height: "380px",
+                height: "370px",
                 width: "18rem",
                 position: "relative",
               }}
@@ -1091,7 +673,6 @@ const KienThuc = (props: Props) => {
               <div className="wrapper_card">
                 <img src={bg40} className="card-img-top" alt="..." />
               </div>
-
               <div
                 className="card-body card-bodys"
                 style={{
@@ -1099,1743 +680,14 @@ const KienThuc = (props: Props) => {
                 }}
               >
                 <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
+                <p style={{ fontSize: "calc(1rem*0.8)" }} className="muted">
+                  25/1/2023
                 </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
+                <div className="d-flex justify-content-between">
+                  <p className="text-kien-thuc-a">0 Lượt xem</p>
+                  <p className="text-kien-thuc">Mới</p>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
 
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
-                <p
-                  className="mo-ta"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    textAlign: "justify",
-                  }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis culpa neque veniam possimus! Dicta laborum enim
-                  earum exercitationem rem cupiditate, esse doloribus. Dolorum
-                  quaerat molestias dolore nihil! Iure, veritatis numquam?
-                </p>
-                <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
-                  <button
-                    className="header_btn bg-danger text-light mt-3"
-                    style={{ width: "120px" }}
-                  >
-                    Xem chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            key={uuidv4()}
-            title={`hai`}
-            className="col d-flex justify-content-center align-items-center"
-            style={{ marginBottom: "8px", width: "18.1rem" }}
-          >
-            <div
-              className="card card_main_container wrapper_c"
-              style={{
-                cursor: "pointer",
-                height: "380px",
-                width: "18rem",
-                position: "relative",
-              }}
-            >
-              <div className="wrapper_card">
-                <img src={bg40} className="card-img-top" alt="..." />
-              </div>
-
-              <div
-                className="card-body card-bodys"
-                style={{
-                  textAlign: "start",
-                }}
-              >
-                <h6 className="card-title titleXl head_z">{"hai"}</h6>
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    color: "grey",
-                    fontWeight: "bold",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  ></span>
-
-                  <span
-                    style={{
-                      fontSize: "calc(1rem * 1.3)",
-                      color: "red",
-                    }}
-                  >
-                    ₫
-                  </span>
-
-                  <span
-                    style={{
-                      marginLeft: "8px",
-                      color: "gray",
-                      fontWeight: "300",
-                      textDecoration: "line-through",
-                    }}
-                  >
-                    {String.num(1000)}₫
-                  </span>
-                </p>
-
-                <p
-                  className=" card-text"
-                  style={{
-                    fontSize: "calc(1rem*.9)",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Dự kiến: <span className="text-dark">{"Hai"}</span>
-                </p>
                 <p
                   className="mo-ta"
                   style={{
