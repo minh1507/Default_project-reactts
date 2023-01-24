@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { connect } from "react-redux";
-import bg40 from "assets/img/bg40.png";
+import bg40 from "assets/img/Khoahoc.png";
 import MainCard from "../General/MainCard";
 import { InitState, Item } from "./InitState";
 import { Actions } from "./Action";
@@ -19,7 +19,11 @@ const KhoaHoc = (props: Props) => {
 
   return (
     <div style={{ backgroundColor: "#f5f5fa" }}>
-      <img className="mb-3" src={bg40} width="100%" height="auto" />
+      <div className="wrapper_img">
+        <img className="mb-3" src={bg40} width="100%" height="auto" />
+        <h1 className="reszex">KHÓA HỌC</h1>
+      </div>
+
       <div className="container-khoa-hoc pb-3">
         <div className="side-left-khoa-hoc">
           <p className="text-head-mon-hoc">Môn học</p>

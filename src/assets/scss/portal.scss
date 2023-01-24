@@ -1160,7 +1160,7 @@
   .banner_btn_ri {
     position: absolute !important;
     top: 53%;
-    left: 22%;
+    left: 20%;
     z-index: 999;
     width: 200px;
     height: 50px;
@@ -1170,14 +1170,13 @@
   .button-49:after {
     width: 200px;
     height: 50px;
-    // line-height: 78px;
     font-size: 1.2rem;
     font-weight: 900;
-    background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
+    background: linear-gradient(transparent 5% 5%, #ff013c 5%);
     border: 0;
     color: #fff;
     letter-spacing: 3px;
-    box-shadow: 6px 0px 0px #00e6f6;
+    border-radius: 8px;
     outline: transparent;
     position: relative;
     user-select: none;
@@ -1393,7 +1392,7 @@
   }
 
   .item-mon-hoc:hover {
-    background-color: #e8e8ee;
+    background-color: #eee8e8;
     cursor: pointer;
   }
 
@@ -1409,6 +1408,11 @@
     display: flex;
     overflow-y: scroll;
     margin-bottom: 8px;
+    width: 100%;
+  }
+
+  .wrapper_kien_thuc_office {
+    flex-direction: column;
   }
 
   .menu-khoa-hoc::-webkit-scrollbar {
@@ -1427,7 +1431,7 @@
   }
 
   .item-menu-khoa-hoc:hover {
-    background-color: #e8e8ee;
+    background-color: #eee8e8;
     cursor: pointer;
   }
 
@@ -1442,6 +1446,9 @@
   }
 
   @media screen and (max-width: 961px) {
+    .reszex {
+      font-size: 2rem !important;
+    }
     .container-khoa-hoc {
       flex-direction: column;
     }
@@ -1453,15 +1460,17 @@
       overflow-x: scroll;
       width: 100%;
       margin-bottom: 8px;
+      position: unset;
+      top: unset;
     }
 
     .item-menu-khoa-hoc {
-      background-color: #e8e8ee;
+      background-color: #eee8e8;
       margin-left: 8px;
     }
 
     .item-mon-hoc {
-      background-color: #e8e8ee;
+      background-color: #eee8e8;
       margin-left: 8px;
     }
     .text-head-mon-hoc {
@@ -1469,6 +1478,27 @@
     }
     .side-right-khoa-hoc {
       padding: 0;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .reszex {
+      font-size: unset !important;
+    }
+  }
+
+  .wrapper_img {
+    object-fit: cover;
+    position: relative;
+    .reszex {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      letter-spacing: 0.5rem;
+      font-style: italic;
+      font-size: 5rem;
+      color: white;
+      font-weight: bold;
     }
   }
 }
