@@ -1342,4 +1342,128 @@
     transition: transform 0.8s;
     height: 100%;
   }
+
+  .container-khoa-hoc {
+    padding: 0 24px 0 24px;
+    display: flex;
+  }
+
+  .side-left-khoa-hoc {
+    width: 300px;
+    max-height: 100vh;
+    overflow-y: scroll;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    color: rgb(56, 56, 61);
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 8px;
+    padding: 12px 8px;
+  }
+
+  .side-left-khoa-hoc::-webkit-scrollbar {
+    display: none;
+  }
+
+  .side-left-khoa-hoc {
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .text-head-mon-hoc {
+    margin-bottom: 8px;
+    padding-left: 16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+    color: rgb(39, 39, 42);
+  }
+
+  .item-mon-hoc {
+    display: flex;
+    padding: 7px 16px;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 8px;
+    transition: all 0.3s ease 0s;
+  }
+
+  .item-mon-hoc:hover {
+    background-color: #e8e8ee;
+    cursor: pointer;
+  }
+
+  .side-right-khoa-hoc {
+    padding: 0 0 0 16px;
+    width: 100%;
+  }
+
+  .menu-khoa-hoc {
+    background-color: white;
+    border-radius: 8px;
+    padding: 12px 8px;
+    display: flex;
+    overflow-y: scroll;
+  }
+
+  .menu-khoa-hoc::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-khoa-hoc {
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .item-menu-khoa-hoc {
+    padding: 7px 16px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+
+  .item-menu-khoa-hoc:hover {
+    background-color: #e8e8ee;
+    cursor: pointer;
+  }
+
+  .item-mon-hoc-text {
+    margin-left: 8px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    max-height: 1rem;
+    width: 170px;
+  }
+
+  @media screen and (max-width: 961px) {
+    .container-khoa-hoc {
+      flex-direction: column;
+    }
+    .side-left-khoa-hoc {
+      flex-direction: row;
+      max-height: unset;
+      max-width: 100%;
+      overflow-y: unset;
+      overflow-x: scroll;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    .item-menu-khoa-hoc {
+      background-color: #e8e8ee;
+      margin-left: 8px;
+    }
+
+    .item-mon-hoc {
+      background-color: #e8e8ee;
+      margin-left: 8px;
+    }
+    .text-head-mon-hoc {
+      display: none;
+    }
+    .side-right-khoa-hoc {
+      padding: 0;
+    }
+  }
 }

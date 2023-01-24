@@ -22,7 +22,6 @@ const KienThuc = (props: Props) => {
       dispatch
     );
   }, []);
-  console.log(state);
 
   return (
     <div style={{ backgroundColor: "white" }}>

@@ -2,195 +2,58 @@ import React, { useEffect, useReducer, useState } from "react";
 import { connect } from "react-redux";
 import bg40 from "assets/img/bg40.png";
 import MainCard from "../General/MainCard";
+import { InitState, Item } from "./InitState";
+import { Actions } from "./Action";
+import { Reducer } from "./Reducer";
+import { String } from "common/String";
 
 interface Props {}
 
 const KhoaHoc = (props: Props) => {
-  const [change, setChange] = useState(1);
+  const [state, dispatch] = useReducer(Reducer, InitState);
 
-  const changeUl = (num: number) => {
-    setChange(num);
-  };
+  useEffect(() => {
+    Actions.GetMonHocPortal("GA1", "20", dispatch);
+  }, []);
 
   return (
-    <div style={{ backgroundColor: "white" }}>
-      <img src={bg40} width="100%" height="auto" />
-
-      <div className="box_sub_d mt-4" style={{ padding: "0 10px" }}>
-        <div className="dropdown">
-          <button
-            className="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Menu
-          </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-          </ul>
+    <div style={{ backgroundColor: "#f5f5fa" }}>
+      <img className="mb-3" src={bg40} width="100%" height="auto" />
+      <div className="container-khoa-hoc pb-3">
+        <div className="side-left-khoa-hoc">
+          <p className="text-head-mon-hoc">Môn học</p>
+          {state.DataItem &&
+            state.DataItem.DanhSachMonHocCon.map((value: Item) => (
+              <div className="item-mon-hoc">
+                <img
+                  src={value.URL_AnhDaiDien as string}
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    aspectRatio: "auto 40 / 40",
+                    borderRadius: "8px",
+                  }}
+                />
+                <span className="item-mon-hoc-text">
+                  {String.giaoAn(value.TenMonHoc as string)}
+                </span>
+              </div>
+            ))}
         </div>
-      </div>
-
-      <div className="mt-5 chen" style={{ textAlign: "center" }}>
-        <ul
-          id="menu_bar"
-          style={{
-            listStyle: "none",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "20px",
-          }}
-        >
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(1);
-              }}
-              className={`${
-                change == 1 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              All
-            </h5>
-          </li>
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(2);
-              }}
-              className={`${
-                change == 2 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              Khóa học của tôi
-            </h5>
-          </li>
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(3);
-              }}
-              className={`${
-                change == 3 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              Cho người mới
-            </h5>
-          </li>
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(4);
-              }}
-              className={`${
-                change == 4 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              Cải thiện thành tích
-            </h5>
-          </li>
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(5);
-              }}
-              className={`${
-                change == 5 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              Chạy road
-            </h5>
-          </li>
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(6);
-              }}
-              className={`${
-                change == 6 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              Chạy trail
-            </h5>
-          </li>
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(7);
-              }}
-              className={`${
-                change == 7 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              Chỉnh dáng
-            </h5>
-          </li>
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(8);
-              }}
-              className={`${
-                change == 8 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              Ironman
-            </h5>
-          </li>
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(9);
-              }}
-              className={`${
-                change == 9 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              Cho trẻ em
-            </h5>
-          </li>
-          <li>
-            <h5
-              style={{ margin: 0 }}
-              onClick={() => {
-                changeUl(10);
-              }}
-              className={`${
-                change == 10 ? "menu_active" : "menu_unactive"
-              } menu_one_line`}
-            >
-              Combo
-            </h5>
-          </li>
-        </ul>
-
-        <MainCard paths="/khoa-hoc-chi-tiet" />
+        <div className="side-right-khoa-hoc">
+          <div className="menu-khoa-hoc">
+            <div className="item-menu-khoa-hoc">Tất cả</div>
+            <div className="item-menu-khoa-hoc">Khóa học của tôi</div>
+            <div className="item-menu-khoa-hoc">Cho người mới</div>
+            <div className="item-menu-khoa-hoc">Cải thiện thành tích</div>
+            <div className="item-menu-khoa-hoc">Chạy road</div>
+            <div className="item-menu-khoa-hoc">Chạy trail</div>
+            <div className="item-menu-khoa-hoc">Chỉnh dáng</div>
+            <div className="item-menu-khoa-hoc">Ironman</div>
+            <div className="item-menu-khoa-hoc">Cho trẻ em</div>
+            <div className="item-menu-khoa-hoc">Combo</div>
+          </div>
+        </div>
       </div>
     </div>
   );
