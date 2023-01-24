@@ -1346,11 +1346,15 @@
   .container-khoa-hoc {
     padding: 0 24px 0 24px;
     display: flex;
+    position: relative;
   }
 
   .side-left-khoa-hoc {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1%;
     width: 300px;
-    max-height: 100vh;
+    max-height: 98vh;
     overflow-y: scroll;
     background-color: white;
     display: flex;
