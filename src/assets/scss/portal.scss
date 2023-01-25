@@ -1531,4 +1531,10 @@
   .wrapper_lsp:hover {
     --_p: 100%;
   }
+  .img_card_tc {
+    height: 100%;
+    width: 200px;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+  }
 }

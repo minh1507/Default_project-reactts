@@ -33,13 +33,13 @@ const GioHang = (props: Props) => {
                     />
                   </th>
                   <td>
-                    <img src={ban} width="150px" height="auto" />
+                    <img src={ban} className="img_card_tc" />
                   </td>
                   <td>
                     <p className="mb-1" style={{ width: "400px" }}>
                       GIÁO ÁN 6 THÁNG FM SUB 4 CHO NGƯỜI PACE 7-8
                     </p>
-                    <p className="mb-1" style={{ fontSize: "calc(1rem *0.7)" }}>
+                    <p className="mb-1" style={{ fontSize: "calc(1rem *0.8)" }}>
                       25/12/2022 at 8.00 PM
                     </p>
                     <div>
@@ -90,13 +90,13 @@ const GioHang = (props: Props) => {
                     />
                   </th>
                   <td>
-                    <img src={ban} width="150px" height="auto" />
+                    <img src={ban} className="img_card_tc" />
                   </td>
                   <td>
                     <p className="mb-1" style={{ width: "400px" }}>
                       GIÁO ÁN 6 THÁNG FM SUB 4 CHO NGƯỜI PACE 7-8
                     </p>
-                    <p className="mb-1" style={{ fontSize: "calc(1rem *0.7)" }}>
+                    <p className="mb-1" style={{ fontSize: "calc(1rem *0.8)" }}>
                       25/12/2022 at 8.00 PM
                     </p>
                     <div>
