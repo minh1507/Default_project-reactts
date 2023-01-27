@@ -273,7 +273,7 @@ const TrangChu = (props: Props) => {
                       <div className="boxC">
                         <button
                           className="header_btn bg-danger text-light"
-                          style={{ width: "120px" }}
+                          style={{ width: "110px" }}
                         >
                           Xem chi tiết
                         </button>
@@ -422,7 +422,7 @@ const TrangChu = (props: Props) => {
                             <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
                               <button
                                 className="header_btn bg-danger text-light mt-3"
-                                style={{ width: "120px", marginBottom: "8px" }}
+                                style={{ width: "110px", marginBottom: "8px" }}
                                 onClick={() =>
                                   GoToDetailPage(
                                     "/khoa-hoc-chi-tiet",
