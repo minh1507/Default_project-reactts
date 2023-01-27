@@ -1385,7 +1385,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 1%;
-    width: 300px;
+    width: 400px;
     max-height: 98vh;
     overflow-y: scroll;
     background-color: white;
@@ -1396,6 +1396,20 @@
     line-height: 20px;
     border-radius: 8px;
     padding: 12px 8px;
+    transition: 0.5s;
+  }
+
+  .side-left-khoa-hoc-active {
+    width: 0;
+  }
+  .kh-item-side-left-active {
+    display: block;
+  }
+
+  .kh-item-side-left {
+    position: absolute;
+    z-index: -1;
+    transition: 2s;
   }
 
   .side-left-khoa-hoc::-webkit-scrollbar {
@@ -1415,6 +1429,14 @@
     color: rgb(39, 39, 42);
   }
 
+  .kh-child-ct {
+    cursor: pointer;
+  }
+
+  .kh-child-item-nav-left {
+    margin-left: 8px;
+  }
+
   .item-mon-hoc {
     display: flex;
     padding: 7px 16px;
@@ -1422,11 +1444,8 @@
     align-items: center;
     border-radius: 8px;
     transition: all 0.3s ease 0s;
-  }
-
-  .item-mon-hoc:hover {
-    background-color: #eee8e8;
-    cursor: pointer;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
   }
 
   .side-right-khoa-hoc {
@@ -1469,13 +1488,22 @@
   }
 
   .item-mon-hoc-text {
+    font-weight: bold;
     margin-left: 8px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    max-height: 1rem;
-    width: 170px;
+    max-height: 1.5rem;
+    width: 216px;
+  }
+
+  .kh-arrow {
+    transform: rotate(180deg);
+  }
+
+  .kh-size-arrow {
+    font-size: 0.8rem;
   }
 
   @media screen and (max-width: 961px) {
@@ -1569,5 +1597,54 @@
     width: 200px;
     aspect-ratio: 3/2;
     object-fit: cover;
+  }
+
+  .khoa-hoc-header {
+    margin-bottom: 8px;
+    .text-kh-header {
+      font-size: 16px;
+      font-weight: bold;
+      padding: 12px 16px;
+      border: 1px solid black;
+      background-color: white;
+      cursor: pointer;
+    }
+  }
+  .kh-search-bar {
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    width: 50px;
+    transition: 2s;
+    cursor: pointer;
+  }
+  .kh-search-bar-active {
+    width: 30vw !important;
+  }
+
+  .kh-search-icon-active {
+    display: none;
+  }
+
+  .kh-input {
+    display: none;
+  }
+  .kh-input-active {
+    display: block;
+    width: 100%;
+    z-index: 5;
+    outline: none;
+    border: none;
+  }
+
+  .kh-contain-result {
+    opacity: 0.7;
+    .kh-result {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
   }
 }
