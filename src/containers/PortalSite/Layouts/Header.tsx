@@ -79,8 +79,8 @@ const Header = (props: Props) => {
       <div key={uuidv4()} className="show_catching">
         <span
           className={`${
-            headerChange(tree.URL) && "lage"
-          } catching la nav navbar_link`}
+            headerChange(tree.URL) && "lage dumsa"
+          } catching la nav navbar_link sups`}
           onClick={() => {
             GoToOtherPage(tree.URL as string);
           }}
@@ -236,20 +236,29 @@ const Header = (props: Props) => {
               </select>
             </div>
           </div>
-          <div className="d-flex navbar_container_main">{navbar}</div>
+          <div className="d-flex navbar_container_main ">{navbar}</div>
           <div className="d-flex gap-3 align-items-center error_nav">
             <a href="#" className="header_bottom_link">
               <i className="bi bi-chat"></i>
             </a>
-            <span
-              style={{ cursor: "pointer" }}
-              onClick={() => {
-                GoToOtherPage("/gio-hang");
-              }}
-              className="header_bottom_link"
-            >
-              <i className="bi bi-cart"></i>
-            </span>
+            {userInfo && (
+              <span
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  GoToOtherPage("/gio-hang");
+                }}
+                className="header_bottom_link position-relative"
+              >
+                <span
+                  style={{ fontSize: "calc(1rem*0.7)" }}
+                  className="position-absolute top-100 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                  9+
+                  <span className="visually-hidden">unread messages</span>
+                </span>
+                <i className="bi bi-cart" style={{ fontSize: "1.3rem" }}></i>
+              </span>
+            )}
 
             {userInfo ? (
               <div className="btn-group ">

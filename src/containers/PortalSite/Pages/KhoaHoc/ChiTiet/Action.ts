@@ -1,4 +1,5 @@
 import { IResponseMessage } from "common/Models";
+import GioHangService from "services/GioHangService";
 import KhoaHocService from "services/KhoaHocService";
 
 export const Actions: any = {
@@ -8,5 +9,9 @@ export const Actions: any = {
       type: "getDetail",
       items: res.Data,
     });
+  },
+  CreateGioHang: async (data: any, dispatch: any) => {
+    let res: IResponseMessage = await GioHangService.CreateGioHang(data);
+    return res;
   },
 };

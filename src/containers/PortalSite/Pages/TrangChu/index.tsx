@@ -149,7 +149,7 @@ const TrangChu = (props: Props) => {
               (child: danhSachTintuc) => (
                 <div
                   key={uuidv4()}
-                  className="card p-0 card_main_container"
+                  className="card p-0 card_main_container wrapper_d"
                   style={{
                     maxWidth: "350px",
                     border: "none",
@@ -157,20 +157,22 @@ const TrangChu = (props: Props) => {
                     minHeight: "425px",
                   }}
                 >
-                  <img
-                    src={child.URL_AnhDaiDien as string}
-                    className="card-img-top"
-                    alt="..."
-                    style={{ height: "200px" }}
-                  />
+                  <div className="wrapper_discard">
+                    <img
+                      src={child.URL_AnhDaiDien as string}
+                      className="card-img-top imov"
+                      alt="..."
+                    />
+                  </div>
+
                   <img src={child.Img as string} className="card_logo" />
                   <div className="card-body main_sub_bd d-flex flex-column">
-                    <h5
-                      className="card-title text-danger mt-4 mb-2 text-uppercase"
+                    <h6
+                      className="card-title mt-4 mb-2 text-uppercase"
                       style={{ fontStyle: "italic" }}
                     >
                       {child.TieuDe}
-                    </h5>
+                    </h6>
                     <p
                       className="card-text gioiThieuPortal"
                       style={{ textAlign: "justify" }}
@@ -180,13 +182,6 @@ const TrangChu = (props: Props) => {
                     <div style={{ flexGrow: 1, position: "relative" }}>
                       <button
                         className="header_btn bg-danger text-light"
-                        style={{
-                          width: "110px",
-                          height: "35px",
-                          position: "absolute",
-                          bottom: 0,
-                          left: "32.5%",
-                        }}
                         onClick={() =>
                           GoToDetailPage(
                             "/chi-tiet-tin-tuc",
@@ -224,26 +219,28 @@ const TrangChu = (props: Props) => {
                   className="col "
                 >
                   <div
-                    className="card card_main_container prefix_card"
+                    className="card card_main_container prefix_card wrapper_c"
                     style={{
                       cursor: "pointer",
                       position: "relative",
-                      height: "360px",
+                      // height: "365px",
                     }}
                   >
-                    <img
-                      height={"170px"}
-                      src={tree.URL_AnhDaiDien as string}
-                      className="card-img-top"
-                      alt="..."
-                    />
+                    <div className="wrapper_card">
+                      <img
+                        src={tree.URL_AnhDaiDien as string}
+                        className="card-img-top"
+                        alt="..."
+                      />
+                    </div>
+
                     <div
                       className="card-body card_body_override card-bodys"
                       style={{ textAlign: "start" }}
                     >
-                      <h5 className="text-danger card-title head_z ">
+                      <h6 className="card-title head_z mb-1">
                         {tree.TenMonHoc}
-                      </h5>
+                      </h6>
                       <p
                         className="card-text"
                         style={{
@@ -252,7 +249,7 @@ const TrangChu = (props: Props) => {
                           fontWeight: "bold",
                         }}
                       >
-                        <span className="text-primary">
+                        <span className="text-danger">
                           {tree.GiaGiaoDong} ₫
                         </span>
                       </p>
@@ -269,7 +266,6 @@ const TrangChu = (props: Props) => {
                       <div className="boxC">
                         <button
                           className="header_btn bg-danger text-light"
-                          style={{ width: "120px" }}
                         >
                           Xem chi tiết
                         </button>
@@ -284,7 +280,6 @@ const TrangChu = (props: Props) => {
         <div className="mt-5">
           <button
             className="header_btn bg-danger text-light "
-            style={{ width: "120px" }}
           >
             Xem tất cả
           </button>
@@ -315,19 +310,21 @@ const TrangChu = (props: Props) => {
                         className="col "
                       >
                         <div
-                          className="card card_main_container"
+                          className="card card_main_container wrapper_c"
                           style={{
                             cursor: "pointer",
-                            height: "380px",
-                            position: "relative",
+                            // height: "385px",
+                            // position: "relative",
                           }}
                         >
-                          <img
-                            src={item.URL_AnhDaiDien}
-                            className="card-img-top"
-                            alt="..."
-                            height={"170px"}
-                          />
+                          <div className="wrapper_card">
+                            <img
+                              src={item.URL_AnhDaiDien}
+                              className="card-img-top"
+                              alt="..."
+                            />
+                          </div>
+
                           <div
                             className="card-body card-bodys"
                             style={{
@@ -347,7 +344,7 @@ const TrangChu = (props: Props) => {
                             >
                               <span
                                 style={{
-                                  fontSize: "calc(1rem * 1.3)",
+                                  fontSize: "calc(1rem * 1.1)",
                                   color: "red",
                                 }}
                               >
@@ -369,7 +366,7 @@ const TrangChu = (props: Props) => {
                                 item.HocPhiGoc != 0 && (
                                   <span
                                     style={{
-                                      fontSize: "calc(1rem * 1.3)",
+                                      fontSize: "calc(1rem * 1.1)",
                                       color: "red",
                                     }}
                                   >
@@ -416,7 +413,6 @@ const TrangChu = (props: Props) => {
                             <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
                               <button
                                 className="header_btn bg-danger text-light mt-3"
-                                style={{ width: "120px" }}
                                 onClick={() =>
                                   GoToDetailPage(
                                     "/khoa-hoc-chi-tiet",
@@ -437,7 +433,6 @@ const TrangChu = (props: Props) => {
                 <div className="mt-5">
                   <button
                     className="header_btn bg-danger text-light "
-                    style={{ width: "120px" }}
                   >
                     Xem tất cả
                   </button>
@@ -462,21 +457,24 @@ const TrangChu = (props: Props) => {
                 <div
                   key={uuidv4()}
                   className="card mb-3 p-0"
-                  style={{ width: "450px" }}
+                  style={{ width: "470px" }}
                 >
-                  <div className="row g-0" style={{ minHeight: "200px" }}>
-                    <div className="col-md-4" style={{ minHeight: "100%" }}>
+                  <div className="row g-0">
+                    <div
+                      className="col-md-4"
+                      // style={{ minHeight: "100%", objectFit: "cover" }}
+                    >
                       <img
                         src={child.URL_AnhDaiDien as string}
-                        style={{ width: "100%", height: "100%" }}
+                        style={{ width: "100%", height: "220px", borderTopLeftRadius: 5, borderBottomLeftRadius: 5 }}
                         alt="..."
                       />
                     </div>
                     <div className="col-md-8">
-                      <div className="card-body p-3">
+                      <div className="card-body p-2">
                         <div className="d-flex justify-content-between">
-                          <h5
-                            className="m-0"
+                          <h6
+                            className="card-title titleXl head_z"
                             style={{
                               textAlign: "start",
                               width: "210px",
@@ -484,7 +482,7 @@ const TrangChu = (props: Props) => {
                             }}
                           >
                             {child.TenSuKien}
-                          </h5>
+                          </h6>
                           <span className="d-flex justify-content-center align-items-center chi-tiet">
                             Chi tiết
                           </span>
@@ -492,7 +490,7 @@ const TrangChu = (props: Props) => {
                         <p
                           className="card-text mt-2"
                           style={{
-                            fontSize: "calc(1rem *.8)",
+                            fontSize: "0.9rem",
                             textAlign: "start",
                           }}
                         >
@@ -501,7 +499,7 @@ const TrangChu = (props: Props) => {
                         <div
                           className="mt-2"
                           style={{
-                            fontSize: "calc(1rem *.8)",
+                            fontSize: "0.9rem",
                             textAlign: "start",
                           }}
                         >
@@ -517,7 +515,7 @@ const TrangChu = (props: Props) => {
                         <p
                           className="card-text mt-2 mb-3"
                           style={{
-                            fontSize: "calc(1rem *.8)",
+                            fontSize: "0.9rem",
                             textAlign: "start",
                           }}
                         >
@@ -527,12 +525,12 @@ const TrangChu = (props: Props) => {
                         </p>
 
                         {child.TrangThai == 0 ? (
-                          <button
-                            className="header_btn bg-danger text-light mt-2"
-                            style={{ width: "120px" }}
-                          >
-                            Đăng ký
-                          </button>
+                          <p className="text-danger cursor-pointer">
+                            <i className="bi bi-hand-index-fill"></i>{" "}
+                            <span style={{ fontWeight: "bold" }}>
+                              Đăng ký
+                            </span>
+                          </p>
                         ) : child.TrangThai == 1 ? (
                           <p>
                             <span>
@@ -579,7 +577,7 @@ const TrangChu = (props: Props) => {
   );
 
   const blog = state.DataItemsBlog && (
-    <div className=" mt-5">
+    <div className="container-xl mt-5">
       <h2 className="text-danger text-center text-uppercase tieu-de">
         {state.DataItemsBlog.TenNhomTinTuc}
       </h2>
@@ -602,28 +600,30 @@ const TrangChu = (props: Props) => {
             <div
               key={uuidv4()}
               className="item card_carosel"
-              style={{ backgroundColor: "#1e1e1e", height: "100% !important" }}
+              // style={{ 
+              //   backgroundColor: "#1e1e1e", 
+              //   height: "100% !important" 
+              // }}
             >
               <div>
-                <img src={item.URL_AnhDaiDien as string} height="210px" />
+                <img src={item.URL_AnhDaiDien as string} height="180px" style={{ borderRadius: 5 }} />
                 <div
-                  className="text-center text-light "
-                  style={{ padding: "0 20px" }}
+                  // className="text-center text-light "
+                  // style={{ padding: "0 20px" }}
                 >
-                  <h5 className="mt-1 fst-italic text-uppercase p-2">
+                  <h6 className="mt-1 card-title cursor-pointer">
                     {item.TieuDe}
-                  </h5>
+                  </h6>
                   <p className="owl_text" style={{ wordWrap: "break-word" }}>
                     {item.MoTa}
                   </p>
-                  <div className="d-flex justify-content-center align-items-center">
+                  {/* <div className="d-flex justify-content-center align-items-center">
                     <button
                       className="header_btn bg-danger text-light mt-3"
-                      style={{ width: "120px" }}
                     >
                       Xem chi tiết
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

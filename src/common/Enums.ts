@@ -22,6 +22,7 @@ export enum Message {
   Phone_Wrong = "Hãy nhập đúng số điện thoại",
   Password_Wrong = "Mật khẩu phải có ít nhất 8 ký tự, 1 chữ in hoa, chữ thường, số và kí hiệu",
   TuVan_Wrong = "Hãy nhập đủ thông tin để được tư vấn",
+  Add_To_Cart = "Thêm vào giỏ hàng thành công",
 }
 export enum Guid {
   Empty = "00000000-0000-0000-0000-000000000000",

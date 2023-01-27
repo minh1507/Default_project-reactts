@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { connect } from "react-redux";
 import bg37 from "assets/img/bg37.png";
 import bg38 from "assets/img/bg38.png";
@@ -11,6 +11,9 @@ import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
 import { useLocation } from "react-router-dom";
 import { String } from "common/String";
+import { IResponseMessage } from "common/Models";
+import { Message } from "common/Enums";
+import CNotification from "components/CNotification";
 
 interface Props {}
 
@@ -19,6 +22,7 @@ const ChiTiet = (props: Props) => {
   const [change, setChange] = useState(1);
   const [state, dispatch] = useReducer(Reducer, InitState);
   const location = useLocation();
+  const refNotification = useRef<any>();
 
   useEffect(() => {
     Actions.GetDetailKhoaHoc(location.state.id, dispatch);
@@ -26,6 +30,16 @@ const ChiTiet = (props: Props) => {
 
   const changeContent = (content: number) => {
     setChange(content);
+  };
+
+  const addToCard = async () => {
+    let res: IResponseMessage = await Actions.CreateGioHang({
+      idKhoaHoc: state.DataDetail.Id,
+      giaTien: state.DataDetail.HocPhiGiamGia,
+    });
+    if (res.Success) {
+      refNotification.current.showNotification("success", Message.Add_To_Cart);
+    }
   };
 
   const con = () => {
@@ -69,15 +83,11 @@ const ChiTiet = (props: Props) => {
     history.push("/khoa-hoc-thu");
   };
 
-  const goToGioHang = () => {
-    window.scrollTo(0, 0);
-    history.push("/gio-hang");
-  };
-
   console.log(state);
 
   return (
     <div>
+      <CNotification ref={refNotification} />
       <img src={bg37} width="100%" height="auto" />
       <div className="main_course_detail">
         <div
@@ -318,9 +328,10 @@ const ChiTiet = (props: Props) => {
                 >
                   MUA NGAY
                 </button>
+
                 <button
                   onClick={() => {
-                    goToGioHang();
+                    addToCard();
                   }}
                   className=" bg-info text-dark"
                   style={{
