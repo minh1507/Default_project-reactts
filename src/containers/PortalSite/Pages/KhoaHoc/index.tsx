@@ -53,10 +53,9 @@ const KhoaHoc = (props: Props) => {
       setDissable(!dissable);
     }
   };
-  console.log(state);
 
   return (
-    <div style={{ backgroundColor: "#f5f5fa" }}>
+    <div style={{ backgroundColor: "white" }}>
       <div className="wrapper_img">
         <img className="mb-3" src={bg40} width="100%" height="auto" />
         <h1 className="reszex">KHÓA HỌC</h1>
@@ -118,16 +117,105 @@ const KhoaHoc = (props: Props) => {
                     <i className={`bi bi-caret-down-fill kh-size-arrow`}></i>
                   </span>
                 </div>
-                {show && (idCheck as string) == (value.Id as string) && (
-                  <div className="mt-3 w-100 h-100 kh-child-item-nav-left">
-                    ok
-                  </div>
-                )}
+
+                <div
+                  className={`mt-3 w-100 kh-child-item-nav-left ${
+                    show &&
+                    (idCheck as string) == (value.Id as string) &&
+                    "kh-child-item-nav-left-active"
+                  }`}
+                >
+                  <p className="kh-ch-child-text">
+                    <span className="retangle-text-kh">
+                      <i className="bi bi-square"></i> bai 1
+                    </span>
+                  </p>
+                  <p className="kh-ch-child-text">
+                    <span className="retangle-text-kh">
+                      <i className="bi bi-square"></i> bai 2
+                    </span>
+                  </p>
+                  <p className="kh-ch-child-text">
+                    <span className="retangle-text-kh">
+                      <i className="bi bi-square"></i> bai 3
+                    </span>
+                  </p>
+                  <p className="kh-ch-child-text">
+                    <span className="retangle-text-kh">
+                      <i className="bi bi-square"></i> bai 4
+                    </span>
+                  </p>
+                </div>
               </div>
             ))}
         </div>
-        <div className="side-right-khoa-hoc">
-          <div className="row d-flex">hi</div>
+        <div className={`side-right-khoa-hoc ${changeNav && "kh-right-ddil"}`}>
+          <div className="d-flex justify-content-between kso-kh mb-3">
+            <div className="left-kh-right-bar d-flex">
+              <img src={bg40} className="img-kh-cls" />
+              <div className="kh-img-right">
+                <h5>Ten khoa hoc</h5>
+                <p className="mb-2 timer-kh">20/12/2023</p>
+                <p>Thay Minh</p>
+                <p className="text-kh-line-jus">
+                  Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
+                  elit. Vel perferendis nostrum odio maxime delectus beatae,
+                  maiores, nulla placeat omnis ea accusantium possimus quam
+                  ratione. Magnam adipisci iusto maiores labore animi.
+                </p>
+              </div>
+            </div>
+            <div className="right-kh-right-bar ">
+              <div>
+                <p className="gia-tien-kh-l">2.000.000₫</p>
+                <p className="gia-tien-kh-lk">1.000.000₫</p>
+              </div>
+            </div>
+          </div>
+          <div className="d-flex justify-content-between kso-kh mb-3">
+            <div className="left-kh-right-bar d-flex">
+              <img src={bg40} className="img-kh-cls" />
+              <div className="kh-img-right">
+                <h5>Ten khoa hoc</h5>
+                <p className="mb-2 timer-kh">20/12/2023</p>
+                <p>Thay Minh</p>
+                <p className="text-kh-line-jus">
+                  Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
+                  elit. Vel perferendis nostrum odio maxime delectus beatae,
+                  maiores, nulla placeat omnis ea accusantium possimus quam
+                  ratione. Magnam adipisci iusto maiores labore animi.
+                </p>
+              </div>
+            </div>
+            <div className="right-kh-right-bar ">
+              <div>
+                <p className="gia-tien-kh-l">2.000.000₫</p>
+                <p className="gia-tien-kh-lk">1.000.000₫</p>
+              </div>
+            </div>
+          </div>
+          <div className="d-flex justify-content-between kso-kh mb-3">
+            <div className="left-kh-right-bar d-flex">
+              <img src={bg40} className="img-kh-cls" />
+              <div className="kh-img-right">
+                <h5>Ten khoa hoc</h5>
+                <p className="mb-2 timer-kh">20/12/2023</p>
+                <p>Thay Minh</p>
+                <p className="text-kh-line-jus">
+                  Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
+                  elit. Vel perferendis nostrum odio maxime delectus beatae,
+                  maiores, nulla placeat omnis ea accusantium possimus quam
+                  ratione. Magnam adipisci iusto maiores labore animi.
+                </p>
+              </div>
+            </div>
+            <div className="right-kh-right-bar ">
+              <div>
+                <p className="gia-tien-kh-l">2.000.000₫</p>
+                <p className="gia-tien-kh-lk">1.000.000₫</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
