@@ -189,6 +189,39 @@
     cursor: pointer;
   }
 
+  .sups {
+    padding: 8px 5px;
+  }
+
+  .sups::before,
+  .sups::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    background-color: rgb(225, 25, 25);
+    transition: 0.5s;
+  }
+
+  .sups::after {
+    left: 0;
+    bottom: -10px;
+  }
+
+  .sups::before {
+    right: 0;
+    top: -10px;
+  }
+
+  .dumsa::after,
+  .dumsa::before {
+    width: 100%;
+  }
+
+  .sups:hover::after,
+  .sups:hover::before {
+    width: 100%;
+  }
   .lage {
     opacity: 1;
     background-repeat: repeat;
@@ -275,7 +308,7 @@
   .navbar_container_main {
     flex-grow: 1;
     max-width: 680px;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .header_mob_scene {
@@ -681,7 +714,7 @@
   }
   .boxC {
     position: absolute;
-    bottom: 5px;
+    bottom: 12px;
     left: 0;
     right: 0;
     display: flex;

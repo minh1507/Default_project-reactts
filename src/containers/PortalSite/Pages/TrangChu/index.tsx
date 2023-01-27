@@ -230,7 +230,7 @@ const TrangChu = (props: Props) => {
                     style={{
                       cursor: "pointer",
                       position: "relative",
-                      height: "360px",
+                      height: "365px",
                     }}
                   >
                     <div className="wrapper_card">
@@ -245,7 +245,7 @@ const TrangChu = (props: Props) => {
                       className="card-body card_body_override card-bodys"
                       style={{ textAlign: "start" }}
                     >
-                      <h5 className="text-danger card-title head_z ">
+                      <h5 className="card-title head_z mb-1">
                         {tree.TenMonHoc}
                       </h5>
                       <p
@@ -256,7 +256,7 @@ const TrangChu = (props: Props) => {
                           fontWeight: "bold",
                         }}
                       >
-                        <span className="text-primary">
+                        <span className="text-danger">
                           {tree.GiaGiaoDong} ₫
                         </span>
                       </p>
@@ -322,7 +322,7 @@ const TrangChu = (props: Props) => {
                           className="card card_main_container wrapper_c"
                           style={{
                             cursor: "pointer",
-                            height: "380px",
+                            height: "385px",
                             position: "relative",
                           }}
                         >
@@ -422,7 +422,7 @@ const TrangChu = (props: Props) => {
                             <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
                               <button
                                 className="header_btn bg-danger text-light mt-3"
-                                style={{ width: "120px" }}
+                                style={{ width: "120px", marginBottom: "8px" }}
                                 onClick={() =>
                                   GoToDetailPage(
                                     "/khoa-hoc-chi-tiet",

@@ -328,6 +328,7 @@ const ChiTiet = (props: Props) => {
                 >
                   MUA NGAY
                 </button>
+
                 <button
                   onClick={() => {
                     addToCard();

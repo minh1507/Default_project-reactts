@@ -79,8 +79,8 @@ const Header = (props: Props) => {
       <div key={uuidv4()} className="show_catching">
         <span
           className={`${
-            headerChange(tree.URL) && "lage"
-          } catching la nav navbar_link`}
+            headerChange(tree.URL) && "lage dumsa"
+          } catching la nav navbar_link sups`}
           onClick={() => {
             GoToOtherPage(tree.URL as string);
           }}
@@ -236,7 +236,7 @@ const Header = (props: Props) => {
               </select>
             </div>
           </div>
-          <div className="d-flex navbar_container_main">{navbar}</div>
+          <div className="d-flex navbar_container_main ">{navbar}</div>
           <div className="d-flex gap-3 align-items-center error_nav">
             <a href="#" className="header_bottom_link">
               <i className="bi bi-chat"></i>
