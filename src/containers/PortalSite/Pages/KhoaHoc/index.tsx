@@ -277,7 +277,7 @@ const KhoaHoc = (props: Props) => {
                   <div className="card-body card-bodys">
                     <h5 className="card-title">Tên khóa học</h5>
                     <p className="card-text popse-khso-p">
-                      <small className="text-muted">20/12/2023</small>
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
 
                     <p className="card-text gia-tien-kh-l">
@@ -316,7 +316,7 @@ const KhoaHoc = (props: Props) => {
                   <div className="card-body card-bodys">
                     <h5 className="card-title">Tên khóa học</h5>
                     <p className="card-text popse-khso-p">
-                      <small className="text-muted">20/12/2023</small>
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
 
                     <p className="card-text gia-tien-kh-l">
@@ -355,7 +355,7 @@ const KhoaHoc = (props: Props) => {
                   <div className="card-body card-bodys">
                     <h5 className="card-title">Tên khóa học</h5>
                     <p className="card-text popse-khso-p">
-                      <small className="text-muted">20/12/2023</small>
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
 
                     <p className="card-text gia-tien-kh-l">
