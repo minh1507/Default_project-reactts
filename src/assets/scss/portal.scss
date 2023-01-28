@@ -1767,7 +1767,8 @@
     aspect-ratio: 3/2;
     object-fit: cover;
     height: 100%;
-    transition: 2s;
+    transition: 0.5s;
+    filter: brightness(90%);
   }
 
   .kh-img-right {
@@ -1805,10 +1806,6 @@
     font-size: 14px;
   }
 
-  .left-kh-right-bar:hover .img-kh-cls {
-    filter: brightness(60%);
-  }
-
   .kh-right-ddil {
     padding: 0 !important;
   }
@@ -1840,5 +1837,9 @@
 
   .slide-element:hover {
     background-color: #f7f9fa;
+  }
+
+  .border-popse:hover img {
+    filter: brightness(100%);
   }
 }

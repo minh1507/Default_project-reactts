@@ -270,8 +270,8 @@ const KhoaHoc = (props: Props) => {
               style={{ maxWidth: "100%" }}
             >
               <div className="row g-0">
-                <div className="col-md-5">
-                  <img src={bg40} className="img-kh-cls" alt="..." />
+                <div className="col-md-5 ">
+                  <img src={bg40} className="img-kh-cls " alt="..." />
                 </div>
                 <div className="col-md-7">
                   <div className="card-body card-bodys">
