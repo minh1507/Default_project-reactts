@@ -30,7 +30,6 @@ import bg26 from "assets/img/bg26.png";
 import bg27 from "assets/img/bg27.png";
 import bg28 from "assets/img/bg28.png";
 import bg23 from "assets/img/bg23.png";
-import bg13 from "assets/img/bg13.png";
 import formImg from "assets/img/form-image.jpg";
 import loading from "assets/img/trang-chu.gif";
 import { Message } from "common/Enums";
@@ -264,9 +263,7 @@ const TrangChu = (props: Props) => {
                       </p>
 
                       <div className="boxC">
-                        <button
-                          className="header_btn bg-danger text-light"
-                        >
+                        <button className="header_btn bg-danger text-light">
                           Xem chi tiết
                         </button>
                       </div>
@@ -278,9 +275,7 @@ const TrangChu = (props: Props) => {
           </div>
         </div>
         <div className="mt-5">
-          <button
-            className="header_btn bg-danger text-light "
-          >
+          <button className="header_btn bg-danger text-light ">
             Xem tất cả
           </button>
         </div>
@@ -431,9 +426,7 @@ const TrangChu = (props: Props) => {
                   </div>
                 </div>
                 <div className="mt-5">
-                  <button
-                    className="header_btn bg-danger text-light "
-                  >
+                  <button className="header_btn bg-danger text-light ">
                     Xem tất cả
                   </button>
                 </div>
@@ -466,7 +459,12 @@ const TrangChu = (props: Props) => {
                     >
                       <img
                         src={child.URL_AnhDaiDien as string}
-                        style={{ width: "100%", height: "220px", borderTopLeftRadius: 5, borderBottomLeftRadius: 5 }}
+                        style={{
+                          width: "100%",
+                          height: "220px",
+                          borderTopLeftRadius: 5,
+                          borderBottomLeftRadius: 5,
+                        }}
                         alt="..."
                       />
                     </div>
@@ -527,9 +525,7 @@ const TrangChu = (props: Props) => {
                         {child.TrangThai == 0 ? (
                           <p className="text-danger cursor-pointer">
                             <i className="bi bi-hand-index-fill"></i>{" "}
-                            <span style={{ fontWeight: "bold" }}>
-                              Đăng ký
-                            </span>
+                            <span style={{ fontWeight: "bold" }}>Đăng ký</span>
                           </p>
                         ) : child.TrangThai == 1 ? (
                           <p>
@@ -600,16 +596,20 @@ const TrangChu = (props: Props) => {
             <div
               key={uuidv4()}
               className="item card_carosel"
-              // style={{ 
-              //   backgroundColor: "#1e1e1e", 
-              //   height: "100% !important" 
+              // style={{
+              //   backgroundColor: "#1e1e1e",
+              //   height: "100% !important"
               // }}
             >
               <div>
-                <img src={item.URL_AnhDaiDien as string} height="180px" style={{ borderRadius: 5 }} />
+                <img
+                  src={item.URL_AnhDaiDien as string}
+                  height="180px"
+                  style={{ borderRadius: 5 }}
+                />
                 <div
-                  // className="text-center text-light "
-                  // style={{ padding: "0 20px" }}
+                // className="text-center text-light "
+                // style={{ padding: "0 20px" }}
                 >
                   <h6 className="mt-1 card-title cursor-pointer">
                     {item.TieuDe}
