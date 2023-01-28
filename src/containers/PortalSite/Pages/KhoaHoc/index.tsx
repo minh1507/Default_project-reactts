@@ -274,7 +274,7 @@ const KhoaHoc = (props: Props) => {
                   <img src={bg40} className="img-kh-cls" alt="..." />
                 </div>
                 <div className="col-md-7">
-                  <div className="card-body">
+                  <div className="card-body card-bodys">
                     <h5 className="card-title">Tên khóa học</h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023</small>
@@ -287,7 +287,7 @@ const KhoaHoc = (props: Props) => {
                     <p className="card-text posp-khso text-dark">
                       Phụ trách: thầy Nghĩa
                     </p>
-                    <p className="card-text posp-khso mb-3">
+                    <p className="card-text posp-khso mb-1">
                       Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
                       elit. Vel perferendis nostrum odio maxime delectus beatae,
                       maiores, nulla placeat omnis ea accusantium possimus quam
@@ -295,7 +295,7 @@ const KhoaHoc = (props: Props) => {
                       ipsum dolor sit, amet consectetur adipisicing elit. Quae
                       iure neque mollitia nostrum numquam laborum error est qui.
                     </p>
-                    <div className="d-flex justify-content-center ">
+                    <div className="d-flex justify-content-center mb-1">
                       <button className="header_btn bg-danger text-light chio-kh-khso">
                         Xem tất cả
                       </button>
@@ -313,7 +313,7 @@ const KhoaHoc = (props: Props) => {
                   <img src={bg40} className="img-kh-cls" alt="..." />
                 </div>
                 <div className="col-md-7">
-                  <div className="card-body">
+                  <div className="card-body card-bodys">
                     <h5 className="card-title">Tên khóa học</h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023</small>
@@ -326,7 +326,7 @@ const KhoaHoc = (props: Props) => {
                     <p className="card-text posp-khso text-dark">
                       Phụ trách: thầy Nghĩa
                     </p>
-                    <p className="card-text posp-khso mb-3">
+                    <p className="card-text posp-khso mb-1">
                       Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
                       elit. Vel perferendis nostrum odio maxime delectus beatae,
                       maiores, nulla placeat omnis ea accusantium possimus quam
@@ -334,7 +334,7 @@ const KhoaHoc = (props: Props) => {
                       ipsum dolor sit, amet consectetur adipisicing elit. Quae
                       iure neque mollitia nostrum numquam laborum error est qui.
                     </p>
-                    <div className="d-flex justify-content-center ">
+                    <div className="d-flex justify-content-center mb-1">
                       <button className="header_btn bg-danger text-light chio-kh-khso">
                         Xem tất cả
                       </button>
@@ -352,7 +352,7 @@ const KhoaHoc = (props: Props) => {
                   <img src={bg40} className="img-kh-cls" alt="..." />
                 </div>
                 <div className="col-md-7">
-                  <div className="card-body">
+                  <div className="card-body card-bodys">
                     <h5 className="card-title">Tên khóa học</h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023</small>
@@ -365,7 +365,7 @@ const KhoaHoc = (props: Props) => {
                     <p className="card-text posp-khso text-dark">
                       Phụ trách: thầy Nghĩa
                     </p>
-                    <p className="card-text posp-khso mb-3">
+                    <p className="card-text posp-khso mb-1">
                       Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
                       elit. Vel perferendis nostrum odio maxime delectus beatae,
                       maiores, nulla placeat omnis ea accusantium possimus quam
@@ -373,7 +373,7 @@ const KhoaHoc = (props: Props) => {
                       ipsum dolor sit, amet consectetur adipisicing elit. Quae
                       iure neque mollitia nostrum numquam laborum error est qui.
                     </p>
-                    <div className="d-flex justify-content-center ">
+                    <div className="d-flex justify-content-center mb-1">
                       <button className="header_btn bg-danger text-light chio-kh-khso">
                         Xem tất cả
                       </button>
@@ -381,6 +381,38 @@ const KhoaHoc = (props: Props) => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="d-flex justify-content-center ">
+              <nav aria-label="Page navigation example ">
+                <ul className="pagination">
+                  <li className="page-item ">
+                    <a className="page-link" href="#">
+                      Previous
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link" href="#">
+                      1
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link" href="#">
+                      2
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link" href="#">
+                      3
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link" href="#">
+                      Next
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>

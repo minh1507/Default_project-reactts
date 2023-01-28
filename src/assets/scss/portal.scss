@@ -1415,6 +1415,9 @@
     padding: 4px 5px;
   }
 
+  .page-link {
+    color: black;
+  }
   .posp-khso {
     text-align: justify;
     line-height: 1.6rem;
@@ -1423,6 +1426,7 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     max-height: 8rem;
+    font-size: calc(1rem * 0.9);
   }
 
   .chio-kh-khso {
@@ -1825,8 +1829,8 @@
   .slide-element {
     height: 70px;
     width: 95%;
-    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 2px;
-    border-radius: 4px;
+    box-shadow: #d1d7dc 0px 0px 0px 2px;
+    border-radius: 2px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -1835,6 +1839,6 @@
   }
 
   .slide-element:hover {
-    background-color: rgba(252, 230, 230, 0.3);
+    background-color: #f7f9fa;
   }
 }
