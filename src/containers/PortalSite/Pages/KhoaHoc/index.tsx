@@ -201,8 +201,6 @@ const KhoaHoc = (props: Props) => {
                       <h2
                         className="accordion-header"
                         id={`panelsStayOpen-heading${value.Id}`}
-                        data-bs-dismiss="offcanvas"
-                        aria-label="Close"
                       >
                         <div className="d-flex justify-content-between">
                           <span
@@ -210,6 +208,8 @@ const KhoaHoc = (props: Props) => {
                             onClick={() => {
                               changeName(value.TenMonHoc as string);
                             }}
+                            data-bs-dismiss="offcanvas"
+                            aria-label="Close"
                           >
                             {value.TenMonHoc}
                           </span>
