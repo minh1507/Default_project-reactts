@@ -5,7 +5,6 @@ import MainCard from "../General/MainCard";
 import { InitState, Item } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
-import { String } from "common/String";
 const { v4: uuidv4 } = require("uuid");
 import ba1 from "assets/img/ba2.jpg";
 
@@ -16,6 +15,7 @@ const KhoaHoc = (props: Props) => {
   const [slidekh, setSlidekh] = useState(false);
   const [slide, setSlide] = useState(0);
   const [name, setName] = useState("");
+  const [width, setWidth] = useState(window.innerWidth);
   const data = [
     { name: "Top khóa học bán chạy nhất" },
     { name: "Khóa học mới" },
@@ -40,6 +40,10 @@ const KhoaHoc = (props: Props) => {
   ];
   useEffect(() => {
     Actions.GetMonHocPortal("GA1", "20", dispatch);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
   const wrapData = () => {
@@ -83,51 +87,55 @@ const KhoaHoc = (props: Props) => {
         <h1 className="reszex">KHÓA HỌC</h1>
       </div>
 
-      <div className="container-xl">
-        <h3 className="text-danger text-center text-uppercase tieu-de mb-3">
-          Chủ đề nổi bật
-        </h3>
+      <div className="container-xl ">
+        {width > 1110 && (
+          <h3 className="text-danger text-center text-uppercase tieu-de mb-3">
+            Chủ đề nổi bật
+          </h3>
+        )}
 
-        <div className="kh-sl-ca1">
-          <div className="gv-kh mb-4">
-            <div className="gv-c" ref={kh1}>
-              <div className=" slide-father">
-                {data &&
-                  wrapData().map((value: any) => {
-                    return (
-                      <div className="slide-child">
-                        <div className="slide-element">{value.name}</div>
-                      </div>
-                    );
-                  })}
+        {width > 1110 && (
+          <div className="kh-sl-ca1">
+            <div className="gv-kh mb-4">
+              <div className="gv-c" ref={kh1}>
+                <div className=" slide-father">
+                  {data &&
+                    wrapData().map((value: any) => {
+                      return (
+                        <div key={uuidv4()} className="slide-child">
+                          <div className="slide-element">{value.name}</div>
+                        </div>
+                      );
+                    })}
+                </div>
+              </div>
+              <div className="gv-c" ref={kh2}>
+                <div className=" slide-father">
+                  {data &&
+                    wrapData().map((value: any) => {
+                      return (
+                        <div key={uuidv4()} className="slide-child">
+                          <div className="slide-element">{value.name}</div>
+                        </div>
+                      );
+                    })}
+                </div>
               </div>
             </div>
-            <div className="gv-c" ref={kh2}>
-              <div className=" slide-father">
-                {data &&
-                  wrapData().map((value: any) => {
-                    return (
-                      <div className="slide-child">
-                        <div className="slide-element">{value.name}</div>
-                      </div>
-                    );
-                  })}
-              </div>
-            </div>
+            {!slidekh && (
+              <p className="nextKHNB" onClick={nextKHNB}>
+                <i className="bi bi-arrow-right-circle-fill"></i>
+              </p>
+            )}
+            {slidekh && (
+              <p className="prevKHNB" onClick={prevKHNB}>
+                <i className="bi bi-arrow-left-circle-fill"></i>
+              </p>
+            )}
           </div>
-          {!slidekh && (
-            <p className="nextKHNB" onClick={nextKHNB}>
-              <i className="bi bi-arrow-right-circle-fill"></i>
-            </p>
-          )}
-          {slidekh && (
-            <p className="prevKHNB" onClick={prevKHNB}>
-              <i className="bi bi-arrow-left-circle-fill"></i>
-            </p>
-          )}
-        </div>
+        )}
 
-        <img className="mb-4" src={ba1} width="100%" height="auto" />
+        <img className="mb-4 kh-cdnb1x" src={ba1} width="100%" height="auto" />
 
         {name ? (
           <h3 className="text-danger text-center text-uppercase tieu-de mb-3 kh-apeperar">
@@ -140,14 +148,6 @@ const KhoaHoc = (props: Props) => {
         )}
 
         <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
-          {/* <p
-              className="text-kh-header"
-              onClick={() => {
-                changeNavState();
-              }}
-            >
-              <i className="bi bi-filter"></i>
-            </p> */}
           <div className={`kh-search-bar`}>
             <span>
               <i className={`bi bi-search`}></i>
@@ -160,94 +160,129 @@ const KhoaHoc = (props: Props) => {
           </div>
         </div>
 
-        <div className="container-khoa-hoc pb-3">
-          <div className={`side-left-khoa-hoc `}>
-            <div className="accordion pim" id="accordionPanelsStayOpenExample">
-              {state.DataItem &&
-                state.DataItem.DanhSachMonHocCon.map((value: Item) => (
-                  <div className="accordion-item pim">
-                    <h2
-                      className="accordion-header"
-                      id={`panelsStayOpen-heading${value.Id}`}
-                    >
-                      <div className="d-flex justify-content-between">
-                        <span
-                          className="text-kh-nav-leftbar"
-                          onClick={() => {
-                            changeName(value.TenMonHoc as string);
-                          }}
-                        >
-                          {value.TenMonHoc}
-                        </span>
-                        <span
-                          className="accordion-button"
-                          data-bs-toggle="collapse"
-                          data-bs-target={`#panelsStayOpen-collapse${value.Id}`}
-                          aria-expanded="true"
-                          aria-controls={`panelsStayOpen-collapse${value.Id}`}
-                        ></span>
-                      </div>
-                    </h2>
-                    <div
-                      id={`panelsStayOpen-collapse${value.Id}`}
-                      className="accordion-collapse collapse "
-                      aria-labelledby={`panelsStayOpen-heading${value.Id}`}
-                    >
-                      <div className="accordion-body pim">
-                        <div
-                          className="accordion "
-                          id="accordionPanelsStayOpenExample"
-                        >
-                          <div className="accordion-item pom">
-                            <h2
-                              className="accordion-header"
-                              id="panelsStayOpen-headingOne"
-                            >
-                              <div className="d-flex justify-content-between">
-                                <span
-                                  className="text-kh-nav-leftbar"
-                                  onClick={() => {
-                                    changeName("Bai 1");
-                                  }}
-                                >
-                                  Bai 1
-                                </span>
-                                <span
-                                  className="accordion-button"
-                                  data-bs-toggle="collapse"
-                                  data-bs-target={`#panelsStayOpen-collapseOne`}
-                                  aria-expanded="true"
-                                  aria-controls={`panelsStayOpen-collapseOne`}
-                                ></span>
-                              </div>
-                            </h2>
-                            <div
-                              id="panelsStayOpen-collapseOne"
-                              className="accordion-collapse collapse"
-                              aria-labelledby="panelsStayOpen-headingOne"
-                            >
-                              <div className="accordion-body pim">
-                                <div
-                                  className="accordion"
-                                  // id="accordionPanelsStayOpenExample"
-                                >
-                                  <div className="accordion-item pom">
-                                    <h2
-                                      className="accordion-header"
-                                      // id="panelsStayOpen-heading2"
-                                    >
-                                      <div className="d-flex justify-content-between">
-                                        <span
-                                          className="text-kh-nav-leftbar"
-                                          style={{ padding: "16px 0" }}
-                                          onClick={() => {
-                                            changeName("Bai 1 trong bai 1");
-                                          }}
-                                        >
-                                          Bai 1 trong bai 1
-                                        </span>
-                                      </div>
-                                    </h2>
+        {width <= 1110 && (
+          <a
+            className="mob-kh-btn"
+            data-bs-toggle="offcanvas"
+            href="#offcanvasExample"
+            role="button"
+            aria-controls="offcanvasExample"
+          >
+            <i className="bi bi-filter"></i>
+          </a>
+        )}
+
+        {width <= 1110 && (
+          <div
+            className="offcanvas offcanvas-start"
+            tabIndex={-1}
+            id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel"
+          >
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="offcanvasExampleLabel">
+                Menu
+              </h5>
+              <button
+                type="button"
+                className="btn-close text-reset"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="offcanvas-body">
+              <div
+                className="accordion pim"
+                id="accordionPanelsStayOpenExample"
+              >
+                {state.DataItem &&
+                  state.DataItem.DanhSachMonHocCon.map((value: Item) => (
+                    <div key={uuidv4()} className="accordion-item pim">
+                      <h2
+                        className="accordion-header"
+                        id={`panelsStayOpen-heading${value.Id}`}
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                      >
+                        <div className="d-flex justify-content-between">
+                          <span
+                            className="text-kh-nav-leftbar"
+                            onClick={() => {
+                              changeName(value.TenMonHoc as string);
+                            }}
+                          >
+                            {value.TenMonHoc}
+                          </span>
+                          <span
+                            className="accordion-button"
+                            data-bs-toggle="collapse"
+                            data-bs-target={`#panelsStayOpen-collapse${value.Id}`}
+                            aria-expanded="true"
+                            aria-controls={`panelsStayOpen-collapse${value.Id}`}
+                          ></span>
+                        </div>
+                      </h2>
+                      <div
+                        id={`panelsStayOpen-collapse${value.Id}`}
+                        className="accordion-collapse collapse "
+                        aria-labelledby={`panelsStayOpen-heading${value.Id}`}
+                      >
+                        <div className="accordion-body pim">
+                          <div
+                            className="accordion "
+                            id="accordionPanelsStayOpenExample"
+                          >
+                            <div className="accordion-item pom">
+                              <h2
+                                className="accordion-header"
+                                id="panelsStayOpen-headingOne"
+                              >
+                                <div className="d-flex justify-content-between">
+                                  <span
+                                    className="text-kh-nav-leftbar"
+                                    onClick={() => {
+                                      changeName("Bai 1");
+                                    }}
+                                  >
+                                    Bai 1
+                                  </span>
+                                  <span
+                                    className="accordion-button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target={`#panelsStayOpen-collapseOne`}
+                                    aria-expanded="true"
+                                    aria-controls={`panelsStayOpen-collapseOne`}
+                                  ></span>
+                                </div>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseOne"
+                                className="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingOne"
+                              >
+                                <div className="accordion-body pim">
+                                  <div
+                                    className="accordion"
+                                    // id="accordionPanelsStayOpenExample"
+                                  >
+                                    <div className="accordion-item pom">
+                                      <h2
+                                        className="accordion-header"
+                                        // id="panelsStayOpen-heading2"
+                                      >
+                                        <div className="d-flex justify-content-between">
+                                          <span
+                                            className="text-kh-nav-leftbar"
+                                            style={{ padding: "16px 0" }}
+                                            onClick={() => {
+                                              changeName("Bai 1 trong bai 1");
+                                            }}
+                                          >
+                                            Bai 1 trong bai 1
+                                          </span>
+                                        </div>
+                                      </h2>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -256,10 +291,117 @@ const KhoaHoc = (props: Props) => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+              </div>
             </div>
           </div>
+        )}
+
+        <div className="container-khoa-hoc pb-3">
+          {width > 980 && (
+            <div className={`side-left-khoa-hoc `}>
+              <div
+                className="accordion pim"
+                id="accordionPanelsStayOpenExample"
+              >
+                {state.DataItem &&
+                  state.DataItem.DanhSachMonHocCon.map((value: Item) => (
+                    <div key={uuidv4()} className="accordion-item pim">
+                      <h2
+                        className="accordion-header"
+                        id={`panelsStayOpen-heading${value.Id}`}
+                      >
+                        <div className="d-flex justify-content-between">
+                          <span
+                            className="text-kh-nav-leftbar"
+                            onClick={() => {
+                              changeName(value.TenMonHoc as string);
+                            }}
+                          >
+                            {value.TenMonHoc}
+                          </span>
+                          <span
+                            className="accordion-button"
+                            data-bs-toggle="collapse"
+                            data-bs-target={`#panelsStayOpen-collapse${value.Id}`}
+                            aria-expanded="true"
+                            aria-controls={`panelsStayOpen-collapse${value.Id}`}
+                          ></span>
+                        </div>
+                      </h2>
+                      <div
+                        id={`panelsStayOpen-collapse${value.Id}`}
+                        className="accordion-collapse collapse "
+                        aria-labelledby={`panelsStayOpen-heading${value.Id}`}
+                      >
+                        <div className="accordion-body pim">
+                          <div
+                            className="accordion "
+                            id="accordionPanelsStayOpenExample"
+                          >
+                            <div className="accordion-item pom">
+                              <h2
+                                className="accordion-header"
+                                id="panelsStayOpen-headingOne"
+                              >
+                                <div className="d-flex justify-content-between">
+                                  <span
+                                    className="text-kh-nav-leftbar"
+                                    onClick={() => {
+                                      changeName("Bai 1");
+                                    }}
+                                  >
+                                    Bai 1
+                                  </span>
+                                  <span
+                                    className="accordion-button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target={`#panelsStayOpen-collapseOne`}
+                                    aria-expanded="true"
+                                    aria-controls={`panelsStayOpen-collapseOne`}
+                                  ></span>
+                                </div>
+                              </h2>
+                              <div
+                                id="panelsStayOpen-collapseOne"
+                                className="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingOne"
+                              >
+                                <div className="accordion-body pim">
+                                  <div
+                                    className="accordion"
+                                    // id="accordionPanelsStayOpenExample"
+                                  >
+                                    <div className="accordion-item pom">
+                                      <h2
+                                        className="accordion-header"
+                                        // id="panelsStayOpen-heading2"
+                                      >
+                                        <div className="d-flex justify-content-between">
+                                          <span
+                                            className="text-kh-nav-leftbar"
+                                            style={{ padding: "16px 0" }}
+                                            onClick={() => {
+                                              changeName("Bai 1 trong bai 1");
+                                            }}
+                                          >
+                                            Bai 1 trong bai 1
+                                          </span>
+                                        </div>
+                                      </h2>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
 
           <div className={`side-right-khoa-hoc `}>
             <div

@@ -83,8 +83,6 @@ const ChiTiet = (props: Props) => {
     history.push("/khoa-hoc-thu");
   };
 
-  console.log(state);
-
   return (
     <div>
       <CNotification ref={refNotification} />

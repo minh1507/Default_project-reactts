@@ -1711,7 +1711,7 @@
     margin-left: 8px;
     display: flex;
     padding: 2px 8px;
-    width: 400px;
+    min-width: 200px;
     transition: 2s;
     cursor: pointer;
     align-items: center;
@@ -1745,11 +1745,6 @@
     }
   }
 
-  @media screen and (max-width: 980px) {
-    .side-left-khoa-hoc {
-      display: none !important;
-    }
-  }
   .left-kh-right-bar {
     width: 100%;
   }
@@ -1917,5 +1912,18 @@
 
   .kh-apeperar {
     transition: all 2s ease-in-out;
+  }
+
+  .mob-kh-btn {
+    border: 4px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 8px;
+    color: black;
+    text-decoration: none;
+    padding: 2px 8px;
+    box-shadow: rgb(24 19 19 / 19%) 0px 0px 0px 2px;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
   }
 }
