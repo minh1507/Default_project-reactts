@@ -38,10 +38,6 @@ const Header = (props: Props) => {
   const refNotification = useRef<any>();
 
   let userInfo: IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
-  const tabbar = () => {
-    setchange(!change);
-  };
-
   const GoToOtherPage = (page: string) => {
     setchange(false);
     history.push(page);
@@ -139,16 +135,6 @@ const Header = (props: Props) => {
 
   return (
     <div className="headers">
-      {change && (
-        <div
-          className="mob_scene_in"
-          style={{ padding: "20px 10px", color: "white" }}
-        >
-          <ul className="mt-2" style={{ listStyle: "none", padding: 0 }}>
-            {navbarMob}
-          </ul>
-        </div>
-      )}
       <CNotification ref={refNotification} />
 
       <div className="header_top bg-danger text-light ">
@@ -305,23 +291,31 @@ const Header = (props: Props) => {
             )}
           </div>
           <div className="header_mob_scene">
-            {!change ? (
-              <i
-                onClick={() => {
-                  tabbar();
-                }}
-                className="bi bi-list"
-                style={{ fontSize: "2rem" }}
-              ></i>
-            ) : (
-              <i
-                onClick={() => {
-                  tabbar();
-                }}
-                className="bi bi-x-lg"
-                style={{ fontSize: "2rem" }}
-              ></i>
-            )}
+            <i
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
+              className="bi bi-list"
+              style={{ fontSize: "2rem" }}
+            ></i>
+          </div>
+
+          <div
+            className="offcanvas offcanvas-end"
+            tabIndex={-1}
+            id="offcanvasRight"
+            aria-labelledby="offcanvasRightLabel"
+          >
+            <div className="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Menu</h5>
+              <button
+                type="button"
+                className="btn-close text-reset"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="offcanvas-body">...</div>
           </div>
         </div>
       </div>

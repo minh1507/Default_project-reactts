@@ -181,7 +181,7 @@ const KhoaHoc = (props: Props) => {
           >
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-                Menu
+                Danh sách môn học
               </h5>
               <button
                 type="button"
