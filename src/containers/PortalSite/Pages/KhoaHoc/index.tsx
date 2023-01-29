@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { connect } from "react-redux";
 import bg40 from "assets/img/Khoahoc.png";
 import MainCard from "../General/MainCard";
@@ -7,17 +7,15 @@ import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
 import { String } from "common/String";
 const { v4: uuidv4 } = require("uuid");
+import ba1 from "assets/img/ba2.jpg";
 
 interface Props {}
 
 const KhoaHoc = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
-  const [change, setChange] = useState(false);
-  const [changeNav, setChangeNav] = useState(false);
-  const [changeNavLeft, setChangeNavLeft] = useState(false);
-  const [show, setShow] = useState(false);
-  const [idCheck, setIdCheck] = useState("");
+  const [slidekh, setSlidekh] = useState(false);
   const [slide, setSlide] = useState(0);
+  const [name, setName] = useState("");
   const data = [
     { name: "Top khóa học bán chạy nhất" },
     { name: "Khóa học mới" },
@@ -44,32 +42,38 @@ const KhoaHoc = (props: Props) => {
     Actions.GetMonHocPortal("GA1", "20", dispatch);
   }, []);
 
-  const changeState = () => {
-    setChange(!change);
-  };
-
-  const showNav = (Id: any) => {
-    setShow(!show);
-    if (!show) {
-      setIdCheck(Id);
-    } else {
-      setIdCheck("");
-    }
-  };
-
-  const changeNavState = () => {
-    setChangeNav(!changeNav);
-    if (!changeNavLeft) {
-      setTimeout(() => {
-        setChangeNavLeft(!changeNavLeft);
-      }, 500);
-    } else {
-      setChangeNavLeft(!changeNavLeft);
-    }
-  };
-
   const wrapData = () => {
-    return data.slice(slide, slide + 20);
+    return data.slice(slide, slide + 10);
+  };
+
+  const kh2 = useRef(null);
+  const kh1 = useRef(null);
+  const nextKHNB = () => {
+    setTimeout(() => {
+      setSlidekh(true);
+    }, 600);
+
+    kh2.current.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "start",
+    });
+  };
+
+  const prevKHNB = () => {
+    setTimeout(() => {
+      setSlidekh(false);
+    }, 600);
+
+    kh1.current.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "start",
+    });
+  };
+
+  const changeName = (name: string) => {
+    setName(name);
   };
 
   return (
@@ -83,22 +87,59 @@ const KhoaHoc = (props: Props) => {
         <h3 className="text-danger text-center text-uppercase tieu-de mb-3">
           Chủ đề nổi bật
         </h3>
-        <div className=" slide-father mb-4">
-          {data &&
-            wrapData().map((value: any) => {
-              return (
-                <div className="slide-child">
-                  <div className="slide-element">{value.name}</div>
-                </div>
-              );
-            })}
+
+        <div className="kh-sl-ca1">
+          <div className="gv-kh mb-4">
+            <div className="gv-c" ref={kh1}>
+              <div className=" slide-father">
+                {data &&
+                  wrapData().map((value: any) => {
+                    return (
+                      <div className="slide-child">
+                        <div className="slide-element">{value.name}</div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+            <div className="gv-c" ref={kh2}>
+              <div className=" slide-father">
+                {data &&
+                  wrapData().map((value: any) => {
+                    return (
+                      <div className="slide-child">
+                        <div className="slide-element">{value.name}</div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          </div>
+          {!slidekh && (
+            <p className="nextKHNB" onClick={nextKHNB}>
+              <i className="bi bi-arrow-right-circle-fill"></i>
+            </p>
+          )}
+          {slidekh && (
+            <p className="prevKHNB" onClick={prevKHNB}>
+              <i className="bi bi-arrow-left-circle-fill"></i>
+            </p>
+          )}
         </div>
 
-        <h3 className="text-danger text-center text-uppercase tieu-de mb-3">
-          Khóa học
-        </h3>
+        <img className="mb-4" src={ba1} width="100%" height="auto" />
 
-        <div className="container-khoa-hoc khoa-hoc-header flex-column">
+        {name ? (
+          <h3 className="text-danger text-center text-uppercase tieu-de mb-3 kh-apeperar">
+            {name}
+          </h3>
+        ) : (
+          <h3 className="text-danger text-center text-uppercase tieu-de mb-3">
+            Khóa học
+          </h3>
+        )}
+
+        <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
           {/* <p
               className="text-kh-header"
               onClick={() => {
@@ -129,16 +170,23 @@ const KhoaHoc = (props: Props) => {
                       className="accordion-header"
                       id={`panelsStayOpen-heading${value.Id}`}
                     >
-                      <button
-                        className="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target={`#panelsStayOpen-collapse${value.Id}`}
-                        aria-expanded="true"
-                        aria-controls={`panelsStayOpen-collapse${value.Id}`}
-                      >
-                        {value.TenMonHoc}
-                      </button>
+                      <div className="d-flex justify-content-between">
+                        <span
+                          className="text-kh-nav-leftbar"
+                          onClick={() => {
+                            changeName(value.TenMonHoc as string);
+                          }}
+                        >
+                          {value.TenMonHoc}
+                        </span>
+                        <span
+                          className="accordion-button"
+                          data-bs-toggle="collapse"
+                          data-bs-target={`#panelsStayOpen-collapse${value.Id}`}
+                          aria-expanded="true"
+                          aria-controls={`panelsStayOpen-collapse${value.Id}`}
+                        ></span>
+                      </div>
                     </h2>
                     <div
                       id={`panelsStayOpen-collapse${value.Id}`}
@@ -155,16 +203,23 @@ const KhoaHoc = (props: Props) => {
                               className="accordion-header"
                               id="panelsStayOpen-headingOne"
                             >
-                              <button
-                                className="accordion-button "
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#panelsStayOpen-collapseOne"
-                                aria-expanded="true"
-                                aria-controls="panelsStayOpen-collapseOne"
-                              >
-                                Bai 1
-                              </button>
+                              <div className="d-flex justify-content-between">
+                                <span
+                                  className="text-kh-nav-leftbar"
+                                  onClick={() => {
+                                    changeName("Bai 1");
+                                  }}
+                                >
+                                  Bai 1
+                                </span>
+                                <span
+                                  className="accordion-button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target={`#panelsStayOpen-collapseOne`}
+                                  aria-expanded="true"
+                                  aria-controls={`panelsStayOpen-collapseOne`}
+                                ></span>
+                              </div>
                             </h2>
                             <div
                               id="panelsStayOpen-collapseOne"
@@ -181,16 +236,17 @@ const KhoaHoc = (props: Props) => {
                                       className="accordion-header"
                                       // id="panelsStayOpen-heading2"
                                     >
-                                      <button
-                                        className="accordion-button"
-                                        type="button"
-                                        // data-bs-toggle="collapse"
-                                        // data-bs-target="#panelsStayOpen-collapse2"
-                                        // aria-expanded="true"
-                                        // aria-controls="panelsStayOpen-collapse2"
-                                      >
-                                        Bai 1
-                                      </button>
+                                      <div className="d-flex justify-content-between">
+                                        <span
+                                          className="text-kh-nav-leftbar"
+                                          style={{ padding: "16px 0" }}
+                                          onClick={() => {
+                                            changeName("Bai 1 trong bai 1");
+                                          }}
+                                        >
+                                          Bai 1 trong bai 1
+                                        </span>
+                                      </div>
                                     </h2>
                                   </div>
                                 </div>
@@ -203,77 +259,18 @@ const KhoaHoc = (props: Props) => {
                   </div>
                 ))}
             </div>
-            {/* {state.DataItem &&
-              state.DataItem.DanhSachMonHocCon.map((value: Item) => (
-                <div key={uuidv4()} className={`accordion-item`}>
-                  <div
-                    onClick={() => {
-                      showNav(value.Id);
-                    }}
-                    className="d-flex justify-content-between w-100 kh-child-ct"
-                  >
-                    <span className="item-mon-hoc-text">
-                      {String.giaoAn(value.TenMonHoc as string)}
-                    </span>
-                    <span
-                      className={`${
-                        show &&
-                        (idCheck as string) == (value.Id as string) &&
-                        "kh-arrow"
-                      }`}
-                    >
-                      <i className={`bi bi-caret-down-fill kh-size-arrow`}></i>
-                    </span>
-                  </div>
-
-                  <div
-                    className={`mt-3 w-100 kh-child-item-nav-left ${
-                      show &&
-                      (idCheck as string) == (value.Id as string) &&
-                      "kh-child-item-nav-left-active"
-                    }`}
-                  >
-                    <div className="d-flex justify-content-between w-100 kh-child-ct round-kh-text">
-                      <span className="item-mon-hoc-text round-kh-text">
-                        Bai1
-                      </span>
-                      <i
-                        className={`bi bi-caret-down-fill kh-size-arrow text-danger`}
-                      ></i>
-                    </div>
-                    <div className="d-flex justify-content-between w-100 kh-child-ct round-kh-text">
-                      <span className="item-mon-hoc-text round-kh-text">
-                        Bai1
-                      </span>
-                      <i
-                        className={`bi bi-caret-down-fill kh-size-arrow text-danger`}
-                      ></i>
-                    </div>
-                    <div className="d-flex justify-content-between w-100 kh-child-ct round-kh-text">
-                      <span className="item-mon-hoc-text round-kh-text">
-                        Bai1
-                      </span>
-                      <i
-                        className={`bi bi-caret-down-fill kh-size-arrow text-danger`}
-                      ></i>
-                    </div>
-                  </div>
-                </div>
-              ))} */}
           </div>
 
-          <div
-            className={`side-right-khoa-hoc ${changeNav && "kh-right-ddil"}`}
-          >
+          <div className={`side-right-khoa-hoc `}>
             <div
               className="card mb-3 border-popse"
               style={{ maxWidth: "100%" }}
             >
               <div className="row g-0">
-                <div className="col-md-5 ">
+                <div className="col-md-4 ">
                   <img src={bg40} className="img-kh-cls " alt="..." />
                 </div>
-                <div className="col-md-7">
+                <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">Tên khóa học</h5>
                     <p className="card-text popse-khso-p">
@@ -295,11 +292,6 @@ const KhoaHoc = (props: Props) => {
                       ipsum dolor sit, amet consectetur adipisicing elit. Quae
                       iure neque mollitia nostrum numquam laborum error est qui.
                     </p>
-                    <div className="d-flex justify-content-center mb-1">
-                      <button className="header_btn bg-danger text-light chio-kh-khso">
-                        Xem tất cả
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -309,10 +301,10 @@ const KhoaHoc = (props: Props) => {
               style={{ maxWidth: "100%" }}
             >
               <div className="row g-0">
-                <div className="col-md-5">
+                <div className="col-md-4">
                   <img src={bg40} className="img-kh-cls" alt="..." />
                 </div>
-                <div className="col-md-7">
+                <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">Tên khóa học</h5>
                     <p className="card-text popse-khso-p">
@@ -334,11 +326,6 @@ const KhoaHoc = (props: Props) => {
                       ipsum dolor sit, amet consectetur adipisicing elit. Quae
                       iure neque mollitia nostrum numquam laborum error est qui.
                     </p>
-                    <div className="d-flex justify-content-center mb-1">
-                      <button className="header_btn bg-danger text-light chio-kh-khso">
-                        Xem tất cả
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -348,10 +335,10 @@ const KhoaHoc = (props: Props) => {
               style={{ maxWidth: "100%" }}
             >
               <div className="row g-0">
-                <div className="col-md-5">
+                <div className="col-md-4">
                   <img src={bg40} className="img-kh-cls" alt="..." />
                 </div>
-                <div className="col-md-7">
+                <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">Tên khóa học</h5>
                     <p className="card-text popse-khso-p">
@@ -373,11 +360,6 @@ const KhoaHoc = (props: Props) => {
                       ipsum dolor sit, amet consectetur adipisicing elit. Quae
                       iure neque mollitia nostrum numquam laborum error est qui.
                     </p>
-                    <div className="d-flex justify-content-center mb-1">
-                      <button className="header_btn bg-danger text-light chio-kh-khso">
-                        Xem tất cả
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
