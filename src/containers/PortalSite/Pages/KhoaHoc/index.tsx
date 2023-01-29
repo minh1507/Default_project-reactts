@@ -160,7 +160,7 @@ const KhoaHoc = (props: Props) => {
           </div>
         </div>
 
-        {width <= 1110 && (
+        {width <= 980 && (
           <a
             className="mob-kh-btn"
             data-bs-toggle="offcanvas"
@@ -172,7 +172,7 @@ const KhoaHoc = (props: Props) => {
           </a>
         )}
 
-        {width <= 1110 && (
+        {width <= 980 && (
           <div
             className="offcanvas offcanvas-start"
             tabIndex={-1}
@@ -299,7 +299,8 @@ const KhoaHoc = (props: Props) => {
 
         <div className="container-khoa-hoc pb-3">
           {width > 980 && (
-            <div className={`side-left-khoa-hoc `}>
+            <div className={`side-left-khoa-hoc ji-kh`}>
+              <h5 className="kik-kh-kuki">Môn học</h5>
               <div
                 className="accordion pim"
                 id="accordionPanelsStayOpenExample"
