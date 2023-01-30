@@ -8,6 +8,7 @@ import { Reducer } from "./Reducer";
 const { v4: uuidv4 } = require("uuid");
 import { String } from "common/String";
 import OwlCarousel from "react-owl-carousel";
+import ba1 from "assets/img/ba2.jpg";
 
 interface Props {}
 
@@ -121,36 +122,461 @@ const KienThuc = (props: Props) => {
         <div className="kt-contain-head mb-3">
           <div className="kt-head-left">
             <img
-              src="https://kenh14cdn.com/zoom/460_289/203336854389633024/2023/1/30/photo1675045528930-1675045529015786877736.jpg"
+              src="https://www.invert.vn/media/uploads/uploads/2022/12/03143614-3-hinh-anh-dep.jpeg"
               className="img-head-left"
             />
-            <h3>
-              Cháy lớn tại dãy xưởng tạm, lực lượng PCCC & CNCH Hà Nội căng mình
-              dập lửa trong giá lạnh
-            </h3>
-            <p>
-              Khoảng 20h30, một vụ hỏa hoạn đã xảy ra tại làng Ngọc Trục (Đại
-              Mỗ, Nam Từ Liêm, Hà Nội), thời tiết hanh khô và giá rét khiến công
-              việc chữa cháy vô cùng vất vả.
-            </p>
+            <div className="full-kt-box">
+              <h3>
+                Cháy lớn tại dãy xưởng tạm, lực lượng PCCC & CNCH Hà Nội căng
+                mình dập lửa trong giá lạnh
+              </h3>
+              <p>
+                Khoảng 20h30, một vụ hỏa hoạn đã xảy ra tại làng Ngọc Trục (Đại
+                Mỗ, Nam Từ Liêm, Hà Nội), thời tiết hanh khô và giá rét khiến
+                công việc chữa cháy vô cùng vất vả.
+              </p>
+            </div>
           </div>
+
           <div className="kt-head-right">
             <div className="img-head-righta">
               <img
-                src="https://kenh14cdn.com/zoom/280_175/203336854389633024/2023/1/29/photo1675007082817-1675007083123336849306.jpg"
+                src="https://www.invert.vn/media/uploads/uploads/2022/12/03143614-3-hinh-anh-dep.jpeg"
                 className="img-head-right"
               />
             </div>
 
             <div className="img-head-righta">
               <img
-                src="https://kenh14cdn.com/zoom/280_175/203336854389633024/2023/1/29/photo1674980103724-1674980104092331791569.jpg"
+                src="https://www.invert.vn/media/uploads/uploads/2022/12/03143614-3-hinh-anh-dep.jpeg"
                 className="img-head-right"
               />
             </div>
           </div>
         </div>
+        <img className="mb-4 kh-cdnb1x" src={ba1} width="100%" height="auto" />
         {blog}
+        <div className="d-flex kt-contain-main mt-3">
+          <div className="kt-left-contain">
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-1675003064458937811576.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Câu đố Tiếng Việt: "Con gì hay gây tai họa, làm ảnh hưởng
+                      đến người khác?"
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Nếu bạn đang căng thẳng thì hãy thử giải ngay câu đố vui
+                      sau đây. Chắc chắn, câu đố sẽ đem đến cho bạn những giây
+                      phút thư giãn cùng tiếng cười sảng khoái.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
+                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
+                      đón” từ năm 3 tuổi
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
+                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
+                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
+                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
+                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
+                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
+                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
+                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
+                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
+                      cay khiến đối phương cứng họng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
+                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
+                      đón” từ năm 3 tuổi
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
+                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
+                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
+                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
+                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
+                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
+                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
+                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
+                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
+                      cay khiến đối phương cứng họng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
+                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
+                      đón” từ năm 3 tuổi
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
+                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
+                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
+                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
+                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
+                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
+                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
+                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
+                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
+                      cay khiến đối phương cứng họng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
+                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
+                      đón” từ năm 3 tuổi
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
+                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
+                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
+                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
+                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
+                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
+                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
+                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
+                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
+                      cay khiến đối phương cứng họng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
+                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
+                      đón” từ năm 3 tuổi
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
+                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
+                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
+                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
+                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
+                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
+                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
+                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
+                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
+                      cay khiến đối phương cứng họng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
+                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
+                      đón” từ năm 3 tuổi
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
+                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
+                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
+                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
+                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
+                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
+                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
+                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
+                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
+                      cay khiến đối phương cứng họng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
+                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
+                      đón” từ năm 3 tuổi
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
+                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
+                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
+                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
+                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
+                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
+                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
+                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
+                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
+                      cay khiến đối phương cứng họng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
+                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
+                      đón” từ năm 3 tuổi
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
+                    </p>
+
+                    <p className="card-text posp-khso text-dark">
+                      Tác giả: Hoàng Dương
+                    </p>
+                    <p className="card-text posp-khso mb-1">
+                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
+                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
+                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
+                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
+                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
+                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
+                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
+                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
+                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
+                      cay khiến đối phương cứng họng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="d-flex justify-content-center mt-3">
+              <nav aria-label="Page navigation example ">
+                <ul className="pagination">
+                  <li className="page-item ">
+                    <a className="page-link" href="#">
+                      Previous
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link" href="#">
+                      1
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link" href="#">
+                      2
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link" href="#">
+                      3
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link" href="#">
+                      Next
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div className="kt-right-contain d-flex flex-column gap-2">
+            <div className="img-contain-right-box-class">
+              <img
+                className="img-kt-right"
+                src="https://images.pexels.com/photos/4050325/pexels-photo-4050325.jpeg?auto=compress&cs=tinysrgb&w=600"
+              />
+              <img
+                className="img-kt-right"
+                src="https://images.pexels.com/photos/4050325/pexels-photo-4050325.jpeg?auto=compress&cs=tinysrgb&w=600"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

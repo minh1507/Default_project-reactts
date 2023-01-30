@@ -1978,4 +1978,29 @@
     background-position: center;
     aspect-ratio: 3/2;
   }
+
+  .kt-contain-main {
+    .kt-left-contain {
+      width: 80%;
+      // background-color: white;
+      border-radius: 4px;
+      // padding: 8px;
+    }
+
+    .kt-right-contain {
+      position: relative;
+      width: 20%;
+      padding: 0 8px;
+      .img-contain-right-box-class {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 2%;
+        .img-kt-right {
+          width: 100%;
+          object-fit: cover;
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
 }
