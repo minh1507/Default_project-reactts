@@ -35,7 +35,6 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
-    "styled-components": "^5.3.6",
     "suneditor": "^2.44.3",
     "suneditor-react": "^3.4.1",
     "thunk": "^0.0.1",
