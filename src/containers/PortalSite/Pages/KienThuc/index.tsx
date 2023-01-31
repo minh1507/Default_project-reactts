@@ -57,7 +57,7 @@ const KienThuc = (props: Props) => {
   const blog = DanhSachTinTuc && (
     <>
       <OwlCarousel
-        className="owl-theme mt-4"
+        className="owl-theme mt-3"
         autoplay
         loop
         nav
@@ -154,7 +154,7 @@ const KienThuc = (props: Props) => {
             </div>
           </div>
         </div>
-        <img className="mb-4 kh-cdnb1x" src={ba1} width="100%" height="auto" />
+        <img className=" kh-cdnb1x" src={ba1} width="100%" height="auto" />
         {blog}
         <div className="d-flex kt-contain-main mt-3">
           <div className="kt-left-contain">

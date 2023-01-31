@@ -1,0 +1,42 @@
+{
+  "Key": "GiaoVien",
+  "Title": "Giáo viên",
+  "Rows": 2,
+  "Controls": [
+    {
+      "Key": "TieuDe",
+      "Title": "Tiêu đề",
+      "Type": "InputText",
+      "IsRequired": true,
+      "Row": 1,
+      "ColLabel": 3,
+      "ColControl": 9,
+      "ColSpanControl": 12
+    },
+    {
+      "Key": "TrangThaiBanGhi",
+      "Title": "Trạng thái",
+      "Type": "Checkbox",
+      "IsRequired": true,
+      "Placeholder": "---Chọn---",
+      "Options": [
+        { "value": true, "label": "Hoạt động" },
+        { "value": false, "label": "Không hoạt động" }
+      ],
+      "Row": 2,
+      "ColLabel": 3,
+      "ColControl": 9,
+      "ColSpanControl": 12
+    }
+  ],
+  "ActionDefs": [
+    {
+      "Key": "Save",
+      "Title": "Lưu",
+      "Type": "Submit",
+      "TitleTooltip": "",
+      "Icon": "circle-check",
+      "Action": "onClickSave"
+    }
+  ]
+}

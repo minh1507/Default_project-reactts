@@ -43,6 +43,11 @@ export enum UserType {
   Internal = 1,
   Public = 2,
 }
+
+export enum GiaoDienPortal {
+  TrangChu = 0,
+}
+
 export const Thang = [
   "1",
   "2",

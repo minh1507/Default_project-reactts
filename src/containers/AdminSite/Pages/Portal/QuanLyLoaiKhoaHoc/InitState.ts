@@ -1,0 +1,11 @@
+export interface IModelItem {
+  Id: String;
+  TieuDe: String;
+  TrangThaiBanGhi: String;
+}
+export interface IState {
+  DataItems: IModelItem[];
+}
+export const InitState: IState = {
+  DataItems: [],
+};

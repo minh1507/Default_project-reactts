@@ -31,6 +31,12 @@
       "isMenu": true
     },
     {
+      "code": "QuanLyGiaoDien",
+      "url": "/quan-ly-giao-dien",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
       "code": "QuanLyMenu",
       "url": "/quan-ly-menu",
       "isLayout": true,
@@ -63,6 +69,12 @@
     {
       "code": "QuanLyAnh",
       "url": "/quan-ly-anh",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
+      "code": "QuanLyLoaiKhoaHoc",
+      "url": "/quan-ly-loai-khoa-hoc",
       "isLayout": true,
       "isMenu": true
     },
@@ -330,6 +342,18 @@
           "code": "QuanLyHocVien",
           "name": "Quản lý học viên",
           "url": "/quan-ly-hoc-vien",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyLoaiKhoaHoc",
+          "name": "Quản lý loại khóa học",
+          "url": "/quan-ly-loai-khoa-hoc",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyGiaoDien",
+          "name": "Quản lý giao diện",
+          "url": "/quan-ly-giao-dien",
           "icon": "bi bi-grid"
         }
       ]
