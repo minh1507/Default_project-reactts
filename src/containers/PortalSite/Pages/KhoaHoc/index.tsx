@@ -16,6 +16,7 @@ const KhoaHoc = (props: Props) => {
   const [slide, setSlide] = useState(0);
   const [name, setName] = useState("");
   const [width, setWidth] = useState(window.innerWidth);
+  const [reLength, setReLength] = useState(0);
   const data = [
     { name: "Top khóa học bán chạy nhất" },
     { name: "Khóa học mới" },
@@ -38,100 +39,80 @@ const KhoaHoc = (props: Props) => {
     { name: "9" },
     { name: "10" },
   ];
+  const kh1 = useRef(null);
+
   useEffect(() => {
     Actions.GetMonHocPortal("GA1", "20", dispatch);
+    Actions.GetHoatDongPortal(dispatch);
   }, []);
 
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
-  const wrapData = () => {
-    return data.slice(slide, slide + 10);
+  // useEffect(() => {
+  //   kh1.current.childNodes[reLength].scrollIntoView({
+  //     behavior: "smooth",
+  //     block: "nearest",
+  //     inline: "start",
+  //   });
+  // }, [reLength]);
+
+  const nextLength = () => {
+    if (reLength < data.length) {
+      let data = reLength + 1;
+      setReLength(data);
+    }
   };
 
-  const kh2 = useRef(null);
-  const kh1 = useRef(null);
-  const nextKHNB = () => {
-    setTimeout(() => {
-      setSlidekh(true);
-    }, 600);
+  const prevLength = () => {
+    if (reLength > 0) {
+      let data = reLength - 1;
+      setReLength(data);
+    }
+  };
 
-    kh2.current.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "start",
-    });
+  const nextKHNB = () => {
+    nextLength();
   };
 
   const prevKHNB = () => {
-    setTimeout(() => {
-      setSlidekh(false);
-    }, 600);
-
-    kh1.current.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "start",
-    });
+    prevLength();
   };
 
   const changeName = (name: string) => {
     setName(name);
   };
 
+  console.log(state);
+
   return (
     <div style={{ backgroundColor: "white" }}>
-      <div className="wrapper_img mb-4">
+      <div className="wrapper_img mb-3">
         <img className="mb-3" src={bg40} width="100%" height="auto" />
         <h1 className="reszex">KHÓA HỌC</h1>
       </div>
 
       <div className="container-xl ">
         {width > 1110 && (
-          <h3 className="text-danger text-center text-uppercase tieu-de mb-3">
-            Chủ đề nổi bật
-          </h3>
-        )}
-
-        {width > 1110 && (
           <div className="kh-sl-ca1">
-            <div className="gv-kh mb-4">
-              <div className="gv-c" ref={kh1}>
-                <div className=" slide-father">
-                  {data &&
-                    wrapData().map((value: any) => {
-                      return (
-                        <div key={uuidv4()} className="slide-child">
-                          <div className="slide-element">{value.name}</div>
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
-              <div className="gv-c" ref={kh2}>
-                <div className=" slide-father">
-                  {data &&
-                    wrapData().map((value: any) => {
-                      return (
-                        <div key={uuidv4()} className="slide-child">
-                          <div className="slide-element">{value.name}</div>
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
+            <div className="gv-kh mb-4" ref={kh1}>
+              {state.DataHoatDong &&
+                state.DataHoatDong.map((value: any) => {
+                  return (
+                    <div key={uuidv4()} className="slide-child">
+                      <div className="slide-element">{value.TieuDe}</div>
+                    </div>
+                  );
+                })}
             </div>
-            {!slidekh && (
-              <p className="nextKHNB" onClick={nextKHNB}>
-                <i className="bi bi-arrow-right-circle-fill"></i>
-              </p>
-            )}
-            {slidekh && (
-              <p className="prevKHNB" onClick={prevKHNB}>
-                <i className="bi bi-arrow-left-circle-fill"></i>
-              </p>
-            )}
+            <p className="nextKHNB" onClick={nextKHNB}>
+              <i className="bi bi-arrow-right-circle-fill"></i>
+            </p>
+
+            <p className="prevKHNB" onClick={prevKHNB}>
+              <i className="bi bi-arrow-left-circle-fill"></i>
+            </p>
           </div>
         )}
 
@@ -301,10 +282,7 @@ const KhoaHoc = (props: Props) => {
           {width > 980 && (
             <div className={`side-left-khoa-hoc ji-kh`}>
               <h5 className="kik-kh-kuki">Môn học</h5>
-              <div
-                className="accordion pim"
-                id="accordionPanelsStayOpenExample"
-              >
+              <div className="accordion" id="accordionPanelsStayOpenExample">
                 {state.DataItem &&
                   state.DataItem.DanhSachMonHocCon.map((value: Item) => (
                     <div key={uuidv4()} className="accordion-item pim">
@@ -410,7 +388,7 @@ const KhoaHoc = (props: Props) => {
               style={{ maxWidth: "100%" }}
             >
               <div className="row g-0">
-                <div className="col-md-4 ">
+                <div className="col-md-4 try-kh-ui">
                   <img src={bg40} className="img-kh-cls " alt="..." />
                 </div>
                 <div className="col-md-8">
@@ -444,7 +422,7 @@ const KhoaHoc = (props: Props) => {
               style={{ maxWidth: "100%" }}
             >
               <div className="row g-0">
-                <div className="col-md-4">
+                <div className="col-md-4 try-kh-ui">
                   <img src={bg40} className="img-kh-cls" alt="..." />
                 </div>
                 <div className="col-md-8">
@@ -478,7 +456,7 @@ const KhoaHoc = (props: Props) => {
               style={{ maxWidth: "100%" }}
             >
               <div className="row g-0">
-                <div className="col-md-4">
+                <div className="col-md-4 try-kh-ui">
                   <img src={bg40} className="img-kh-cls" alt="..." />
                 </div>
                 <div className="col-md-8">

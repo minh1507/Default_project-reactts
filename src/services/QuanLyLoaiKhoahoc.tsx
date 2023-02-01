@@ -8,6 +8,14 @@ const QuanLyLoaiKhoaHocService = {
     });
     return res;
   },
+  GetHoatDong: async () => {
+    let res: any = await request({
+      url: `/${Por_LoaiKhoaHoc}/HoatDong/Portal`,
+      method: "get",
+    });
+    return res;
+  },
+
   GetCategories: async () => {
     let res: any = await request({
       url: `/${Por_LoaiKhoaHoc}/Categories`,

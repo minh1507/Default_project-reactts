@@ -11,6 +11,11 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DataItem: action.items,
       };
+    case "GetHoatDong":
+      return {
+        ...state,
+        DataHoatDong: action.items,
+      };
     default:
       return state;
   }

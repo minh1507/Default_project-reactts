@@ -120,15 +120,15 @@ const KienThuc = (props: Props) => {
           </div>
         </div>
         <div className="kt-contain-head mb-3">
-          <div className="kt-head-left">
+          <div className="kt-head-left" style={{ cursor: "pointer" }}>
             <img
-              src="https://www.invert.vn/media/uploads/uploads/2022/12/03143614-3-hinh-anh-dep.jpeg"
+              src="https://media.vov.vn/sites/default/files/styles/large/public/2021-12/v10c.jpg"
               className="img-head-left"
             />
             <div className="full-kt-box">
-              <h3>
+              <h3 style={{ fontSize: "1.5rem" }}>
                 Cháy lớn tại dãy xưởng tạm, lực lượng PCCC & CNCH Hà Nội căng
-                mình dập lửa trong giá lạnh
+                mình dập lửa trong giá lạnh{" "}
               </h3>
               <p>
                 Khoảng 20h30, một vụ hỏa hoạn đã xảy ra tại làng Ngọc Trục (Đại
@@ -139,16 +139,17 @@ const KienThuc = (props: Props) => {
           </div>
 
           <div className="kt-head-right">
-            <div className="img-head-righta">
+            <div className="img-head-righta" style={{ cursor: "pointer" }}>
               <img
-                src="https://www.invert.vn/media/uploads/uploads/2022/12/03143614-3-hinh-anh-dep.jpeg"
+                src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/14/base64-16341571948261078837500.png"
                 className="img-head-right"
               />
+              <div className="img-head-rightab">ok</div>
             </div>
 
-            <div className="img-head-righta">
+            <div className="img-head-righta" style={{ cursor: "pointer" }}>
               <img
-                src="https://www.invert.vn/media/uploads/uploads/2022/12/03143614-3-hinh-anh-dep.jpeg"
+                src="https://s1.media.ngoisao.vn/resize_580/news/2022/09/04/dan-tinh-ran-ran-truoc-buc-anh-quy-tu-dan-nam-than-dinh-dam-cua-showbiz-viet-cach-day-8-nam-1-ngoisaovn-w999-h511.jpeg"
                 className="img-head-right"
               />
             </div>
