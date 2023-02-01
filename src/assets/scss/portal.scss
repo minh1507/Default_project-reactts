@@ -2042,4 +2042,116 @@
   .dropdown-toggle::after {
     content: none;
   }
+  .sk-head {
+    background-color: #eeeeee;
+    height: 70px;
+    padding: 8px 0;
+  }
+
+  .hex3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3rem;
+    height: 50px;
+    width: 50px;
+    background: rgb(243, 67, 67);
+    -webkit-clip-path: polygon(
+      50% 0%,
+      95% 25%,
+      95% 75%,
+      50% 100%,
+      5% 75%,
+      5% 25%
+    );
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  }
+
+  .hex4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3rem;
+    height: 50px;
+    width: 50px;
+    background: black;
+    -webkit-clip-path: polygon(
+      50% 0%,
+      95% 25%,
+      95% 75%,
+      50% 100%,
+      5% 75%,
+      5% 25%
+    );
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  }
+
+  .sk-head-middle {
+    margin-left: 8px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+  }
+
+  .text-sk-heade-fa {
+    font-size: 0.8rem;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .sk-right-heade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sk-btn-head {
+    height: 70%;
+    font-size: 0.8rem;
+    border: none;
+    background-color: rgba(255, 109, 109, 0.578);
+    border-radius: 4px;
+    padding: 0 8px;
+  }
+
+  .round-sk-head {
+    font-size: 0.8rem;
+    border: 1px solid lightcoral;
+    height: 50px;
+    width: 50px;
+    .bot-head-sk {
+      border-top: 1px solid lightcoral;
+    }
+  }
+
+  .text-overrid-head {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 16px;
+    .amc {
+      font-size: unset;
+    }
+  }
+
+  .change-head-sk-text {
+    font-size: 2rem;
+  }
+
+  .kamc {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sk-active-ab {
+    color: rgba(255, 0, 0, 0.793);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .sk-unactive-ab {
+    cursor: pointer;
+  }
 }

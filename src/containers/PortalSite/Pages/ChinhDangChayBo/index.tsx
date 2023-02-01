@@ -12,7 +12,7 @@ const ChinhDangChayBo = (props: Props) => {
   return (
     <div style={{ backgroundColor: "white" }}>
       <div className="wrapper_img">
-        <img className="mb-3" src={bg40} width="100%" height="auto" />
+        <img className="" src={bg40} width="100%" height="auto" />
         <h1
           className="reszex"
           style={{ whiteSpace: "nowrap", fontSize: "4.6rem" }}
@@ -20,8 +20,75 @@ const ChinhDangChayBo = (props: Props) => {
           CHỈNH DÁNG CHẠY BỘ
         </h1>
       </div>
-      <div className="main_sub_detal">
-        <div className="container mt-2">
+      <div className="sk-head mb-3">
+        <div className="container-xl d-flex justify-content-between">
+          <div className="d-flex">
+            <div className="hex4">
+              <i className="bi bi-calendar4-week"></i>
+            </div>
+            <div className="sk-head-middle">
+              <h5 className="text-sk-heade-fa text-uppercase text-danger">
+                Sự kiện sắp diễn ra
+              </h5>
+              <h5 className="text-sk-heade-fa">
+                Giải chạy bộ quanh hồ tây, gặp gỡ khách mời nổi tiếng
+              </h5>
+            </div>
+            <div className="sk-head-middle text-overrid-head">
+              <h5 className="text-sk-heade-fa amc text-uppercase text-danger">
+                Diễn ra sau
+              </h5>
+              <h5
+                className="text-sk-heade-fa amc kamc"
+                style={{ marginLeft: "8px" }}
+              >
+                <span className="change-head-sk-text">2</span> Tháng{" "}
+                <span className="change-head-sk-text">20</span> Ngày{" "}
+                <span className="change-head-sk-text">12</span> Giờ{" "}
+                <span className="change-head-sk-text">22</span> Phút
+              </h5>
+            </div>
+          </div>
+          <div className="sk-right-heade">
+            <button className="sk-btn-head">Đăng ký ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="container-xl">
+        <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
+          <div className={`kh-search-bar`}>
+            <span>
+              <i className={`bi bi-search`}></i>
+            </span>
+
+            <input placeholder="Tìm kiếm" className="kh-input" />
+          </div>
+          <div className="kh-contain-result">
+            Tìm thấy <span className="kh-result">10</span> kết quả
+          </div>
+        </div>
+      </div>
+
+      <div className="sk-menu-bar">
+        <div className="container-xl d-flex gap-3">
+          <div className="hex3">
+            <i className="bi bi-heart-fill"></i>
+          </div>
+          <div className="d-flex align-items-center">
+            <h5 className="sk-active-ab">Kỹ Thuật</h5>
+          </div>
+          <div className="d-flex align-items-center">
+            <h5 className="sk-unactive-ab">Rèn luyện</h5>
+          </div>
+          <div className="d-flex align-items-center">
+            <h5 className="sk-unactive-ab">Chia sẻ</h5>
+          </div>
+        </div>
+      </div>
+
+      <div className="main_sub_detal" style={{ padding: 0 }}>
+        <div className="container">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center p-3">
             <div className="card mb-3 p-0" style={{ width: "450px" }}>
               <div className="row g-0" style={{ minHeight: "200px" }}>
