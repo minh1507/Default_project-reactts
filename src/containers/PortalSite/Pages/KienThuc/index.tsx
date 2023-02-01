@@ -111,14 +111,91 @@ const KienThuc = (props: Props) => {
         <h1 className="reszex">KIẾN THỨC</h1>
       </div>
       <div className="container-xl pb-3">
-        <div className="container-khoa-hoc mb-1 wrapper_kien_thuc_office">
+        {/* <div className="container-khoa-hoc mb-1 wrapper_kien_thuc_office">
           <div className="menu-khoa-hoc">
             {state.DataItem &&
               state.DataItem.map((value: Item) => (
                 <div className="item-menu-khoa-hoc">{value.Ten}</div>
               ))}
           </div>
-        </div>
+        </div> */}
+
+        <nav className="navbar navbar-expand-lg navbar-light bg-light mb-3 colorful-kt">
+          <div className="container-fluid">
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Kỹ thuật
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Rèn luyện
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
         <div className="kt-contain-head mb-3">
           <div className="kt-head-left" style={{ cursor: "pointer" }}>
             <img
@@ -144,7 +221,7 @@ const KienThuc = (props: Props) => {
                 src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/14/base64-16341571948261078837500.png"
                 className="img-head-right"
               />
-              <div className="img-head-rightab">ok</div>
+              <h5 className="img-head-rightab text-center">Test 1</h5>
             </div>
 
             <div className="img-head-righta" style={{ cursor: "pointer" }}>
@@ -152,6 +229,7 @@ const KienThuc = (props: Props) => {
                 src="https://s1.media.ngoisao.vn/resize_580/news/2022/09/04/dan-tinh-ran-ran-truoc-buc-anh-quy-tu-dan-nam-than-dinh-dam-cua-showbiz-viet-cach-day-8-nam-1-ngoisaovn-w999-h511.jpeg"
                 className="img-head-right"
               />
+              <h5 className="img-head-rightab text-center">Test 2</h5>
             </div>
           </div>
         </div>
@@ -159,7 +237,10 @@ const KienThuc = (props: Props) => {
         {blog}
         <div className="d-flex kt-contain-main mt-3">
           <div className="kt-left-contain">
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
               <div className="row g-0">
                 <div className="col-md-4 ">
                   <img
@@ -176,9 +257,34 @@ const KienThuc = (props: Props) => {
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
+                    <p className="card-text posp-khso mb-1">
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
+              <div className="row g-0">
+                <div className="col-md-4 ">
+                  <img
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
+                    className="img-kh-cls "
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body card-bodys">
+                    <h5 className="card-title">
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
+                    </h5>
+                    <p className="card-text popse-khso-p">
+                      <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
                     <p className="card-text posp-khso mb-1">
                       Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
@@ -189,11 +295,14 @@ const KienThuc = (props: Props) => {
                 </div>
               </div>
             </div>
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
               <div className="row g-0">
                 <div className="col-md-4 ">
                   <img
-                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-1675003064458937811576.jpg"
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
                     className="img-kh-cls "
                     alt="..."
                   />
@@ -201,30 +310,28 @@ const KienThuc = (props: Props) => {
                 <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">
-                      Câu đố Tiếng Việt: "Con gì hay gây tai họa, làm ảnh hưởng
-                      đến người khác?"
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
                     </h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
-                    </p>
                     <p className="card-text posp-khso mb-1">
-                      Nếu bạn đang căng thẳng thì hãy thử giải ngay câu đố vui
-                      sau đây. Chắc chắn, câu đố sẽ đem đến cho bạn những giây
-                      phút thư giãn cùng tiếng cười sảng khoái.
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
               <div className="row g-0">
                 <div className="col-md-4 ">
                   <img
-                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
                     className="img-kh-cls "
                     alt="..."
                   />
@@ -232,38 +339,28 @@ const KienThuc = (props: Props) => {
                 <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">
-                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
-                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
-                      đón” từ năm 3 tuổi
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
                     </h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
-                    </p>
                     <p className="card-text posp-khso mb-1">
-                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
-                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
-                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
-                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
-                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
-                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
-                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
-                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
-                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
-                      cay khiến đối phương cứng họng.
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
               <div className="row g-0">
                 <div className="col-md-4 ">
                   <img
-                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
                     className="img-kh-cls "
                     alt="..."
                   />
@@ -271,38 +368,28 @@ const KienThuc = (props: Props) => {
                 <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">
-                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
-                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
-                      đón” từ năm 3 tuổi
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
                     </h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
-                    </p>
                     <p className="card-text posp-khso mb-1">
-                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
-                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
-                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
-                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
-                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
-                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
-                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
-                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
-                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
-                      cay khiến đối phương cứng họng.
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
               <div className="row g-0">
                 <div className="col-md-4 ">
                   <img
-                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
                     className="img-kh-cls "
                     alt="..."
                   />
@@ -310,38 +397,28 @@ const KienThuc = (props: Props) => {
                 <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">
-                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
-                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
-                      đón” từ năm 3 tuổi
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
                     </h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
-                    </p>
                     <p className="card-text posp-khso mb-1">
-                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
-                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
-                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
-                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
-                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
-                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
-                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
-                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
-                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
-                      cay khiến đối phương cứng họng.
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
               <div className="row g-0">
                 <div className="col-md-4 ">
                   <img
-                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
                     className="img-kh-cls "
                     alt="..."
                   />
@@ -349,38 +426,28 @@ const KienThuc = (props: Props) => {
                 <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">
-                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
-                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
-                      đón” từ năm 3 tuổi
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
                     </h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
-                    </p>
                     <p className="card-text posp-khso mb-1">
-                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
-                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
-                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
-                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
-                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
-                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
-                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
-                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
-                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
-                      cay khiến đối phương cứng họng.
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
               <div className="row g-0">
                 <div className="col-md-4 ">
                   <img
-                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
                     className="img-kh-cls "
                     alt="..."
                   />
@@ -388,38 +455,28 @@ const KienThuc = (props: Props) => {
                 <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">
-                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
-                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
-                      đón” từ năm 3 tuổi
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
                     </h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
-                    </p>
                     <p className="card-text posp-khso mb-1">
-                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
-                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
-                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
-                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
-                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
-                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
-                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
-                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
-                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
-                      cay khiến đối phương cứng họng.
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
               <div className="row g-0">
                 <div className="col-md-4 ">
                   <img
-                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
                     className="img-kh-cls "
                     alt="..."
                   />
@@ -427,38 +484,28 @@ const KienThuc = (props: Props) => {
                 <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">
-                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
-                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
-                      đón” từ năm 3 tuổi
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
                     </h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
-                    </p>
                     <p className="card-text posp-khso mb-1">
-                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
-                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
-                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
-                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
-                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
-                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
-                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
-                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
-                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
-                      cay khiến đối phương cứng họng.
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
+            <div
+              className="card border-popse mb-3"
+              style={{ maxWidth: "100%" }}
+            >
               <div className="row g-0">
                 <div className="col-md-4 ">
                   <img
-                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
+                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/30/photo-1-1675049066382717747176.jpg"
                     className="img-kh-cls "
                     alt="..."
                   />
@@ -466,67 +513,15 @@ const KienThuc = (props: Props) => {
                 <div className="col-md-8">
                   <div className="card-body card-bodys">
                     <h5 className="card-title">
-                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
-                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
-                      đón” từ năm 3 tuổi
+                      Hai đối tượng vác dao vào tận nhà dân truy sát
                     </h5>
                     <p className="card-text popse-khso-p">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
-                    </p>
                     <p className="card-text posp-khso mb-1">
-                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
-                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
-                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
-                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
-                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
-                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
-                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
-                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
-                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
-                      cay khiến đối phương cứng họng.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card border-popse" style={{ maxWidth: "100%" }}>
-              <div className="row g-0">
-                <div className="col-md-4 ">
-                  <img
-                    src="https://kenh14cdn.com/thumb_w/620/203336854389633024/2023/1/29/photo-1-16749989389431750670835.jpg"
-                    className="img-kh-cls "
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body card-bodys">
-                    <h5 className="card-title">
-                      Mỹ nhân lai đối đầu Ba Trà ở Chị Chị Em Em 2: Từng là
-                      người khiến Minh Hằng “nể phục”, được Vũ Ngọc Đãng “săn
-                      đón” từ năm 3 tuổi
-                    </h5>
-                    <p className="card-text popse-khso-p">
-                      <small className="text-muted">20/12/2023 8:00 Tối</small>
-                    </p>
-
-                    <p className="card-text posp-khso text-dark">
-                      Tác giả: Hoàng Dương
-                    </p>
-                    <p className="card-text posp-khso mb-1">
-                      Chị Chị Em Em 2 là bộ phim điện ảnh Việt đang rất được
-                      công chúng quan tâm. Phim xoay quanh cuộc đời của 2 đại mỹ
-                      nhân trứ danh Sài thành xưa là Ba Trà và Tư Nhị do Minh
-                      Hằng và Ngọc Trinh đảm nhận. Ngoài 2 nữ chính, một cái tên
-                      nữa cũng rất được chú ý sau Chị Chị Em Em là Emma Lê, một
-                      mỹ nhân lai đảm nhận vai diễn thuộc hội phản diện, đối đầu
-                      với "cô Ba" Minh Hằng. Cụ thể trong phim cô hóa thân vào
-                      nhân vật Lucie Huệ - người chị em nhưng luôn sẵn sàng đấu
-                      khẩu với Ba Trà, liên tục thốt ra những lời cạnh khóe sâu
-                      cay khiến đối phương cứng họng.
+                      Do mâu thuẫn cá nhân, anh T. bị hai đối tượng mang dao vào
+                      tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
+                      thương khiến anh T. phải đi cấp cứu trong đêm.
                     </p>
                   </div>
                 </div>
