@@ -1773,7 +1773,7 @@
   .img-kh-cls {
     width: 100%;
     object-fit: cover;
-    height: 100%;
+    height: 190px;
     transition: 0.5s;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -1925,7 +1925,7 @@
   }
 
   .full-kt-box {
-    padding-left: 8px;
+    margin-top: 10px;
   }
   .mob-kh-btn {
     border: 4px;
@@ -1946,26 +1946,39 @@
     // padding: 8px 8px;
     display: flex;
     height: auto;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    border-radius: 5px;
     // gap: 8px;
     .kt-head-left {
+      padding: 15px 15px 0px 15px;
       width: 60%;
-      height: 70%;
+      border-right: thin solid #ebebeb;
       .img-head-left {
         width: 100%;
-        aspect-ratio: 3/2;
+        height: 280px;
         object-fit: cover;
       }
     }
     .kt-head-right {
+      padding: 15px 10px 0px 15px;
       width: 40%;
       display: flex;
       flex-direction: column;
+      .subnews-head-right {
+        display: flex;
+        margin-bottom: 10px;
+      }
+      .img-head-lefta {
+        padding-left: 5px;
+        width: 55%;
+      }
       .img-head-righta {
-        width: 100%;
-        height: 50%;
+        width: 45%;
+        height: 100%;
         position: relative;
         .img-head-right {
           width: 100%;
+          height: 90px;
           aspect-ratio: 3/2;
           object-fit: cover;
         }
@@ -1996,7 +2009,7 @@
 
   .kt-contain-main {
     .kt-left-contain {
-      width: 80%;
+      width: 70%;
       // background-color: white;
       border-radius: 4px;
       // padding: 8px;
@@ -2004,14 +2017,15 @@
 
     .kt-right-contain {
       position: relative;
-      width: 20%;
-      padding: 0 8px;
+      width: 30%;
+      padding: 0px 0px 0px 50px;
       .img-contain-right-box-class {
         position: sticky;
         position: -webkit-sticky;
         top: 0.7%;
         .img-kt-right {
           width: 100%;
+          height: 415px;
           object-fit: cover;
           margin-bottom: 8px;
         }
@@ -2028,6 +2042,7 @@
     display: flex;
     top: 0;
     // display: block;
+    // padding: 15px 15px 0px 0px;
     justify-content: center;
     align-items: center;
     width: 100%;
