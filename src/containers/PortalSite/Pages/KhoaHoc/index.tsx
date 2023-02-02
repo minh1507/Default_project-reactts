@@ -5,6 +5,10 @@ import MainCard from "../General/MainCard";
 import { InitState, Item } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
+import bt1 from "assets/img/bt1.jpeg";
+import bt2 from "assets/img/bt2.jpeg";
+import bt3 from "assets/img/bt3.jpeg";
+import bt4 from "assets/img/bt4.jpg";
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
@@ -13,19 +17,41 @@ const KhoaHoc = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
   const [name, setName] = useState("");
   const [width, setWidth] = useState(window.innerWidth);
-  const [reLength, setReLength] = useState(0);
+  const [reLength, setReLength] = useState(1);
   const kh1 = useRef(null);
+  const [anh, setAnh] = useState([
+    { name: bt1 },
+    { name: bt2 },
+    { name: bt3 },
+    { name: bt4 },
+    { name: bt3 },
+    { name: bt2 },
+    { name: bt1 },
+    { name: bt2 },
+    { name: bt3 },
+    { name: bt4 },
+  ]);
 
   const nextLength = () => {
-    if (reLength < state.DataHoatDong.length - 1) {
+    if (reLength < state.DataHoatDong.length - 2) {
       setReLength(reLength + 1);
     }
   };
+  console.log(reLength);
 
   const prevLength = () => {
-    if (reLength > 0) {
+    if (reLength > 1) {
       setReLength(reLength - 1);
     }
+  };
+
+  const random = (index: any) => {
+    if (index > 10) {
+      let i = Math.floor(index / 10);
+      return String(anh[index].name);
+    }
+    let data = Math.floor(Math.random() * anh.length);
+    return String(anh[index].name);
   };
 
   const nextKHNB = () => {
@@ -50,14 +76,31 @@ const KhoaHoc = (props: Props) => {
       kh1.current.children[reLength].scrollIntoView({
         behavior: "smooth",
         block: "nearest",
-        inline: "start",
+        inline: "center",
       });
     }
   }, [reLength]);
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = kh1.current.offsetLeft;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
   const changeName = (name: string) => {
     setName(name);
   };
+
+  // console.log(scrollPosition);
+  console.log(kh1);
 
   return (
     <div style={{ backgroundColor: "white" }}>
@@ -75,9 +118,13 @@ const KhoaHoc = (props: Props) => {
           <div className="kh-sl-ca1">
             <div className="gv-kh mb-4" ref={kh1}>
               {state.DataHoatDong &&
-                state.DataHoatDong.map((value: any) => {
+                state.DataHoatDong.map((value: any, index: any) => {
                   return (
-                    <div key={uuidv4()} className="slide-child">
+                    <div
+                      key={uuidv4()}
+                      className="slide-child"
+                      style={{ backgroundImage: `url(${random(index)})` }}
+                    >
                       <div className="slide-element">{value.TieuDe}</div>
                     </div>
                   );
@@ -106,11 +153,8 @@ const KhoaHoc = (props: Props) => {
         )}
 
         <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
-          <div className={`kh-search-bar`}>
-            <span>
-              <i className={`bi bi-search`}></i>
-            </span>
-
+          <div className={`kh-search-bar `}>
+            <i className={`bi bi-search i-kh-ab`}></i>
             <input placeholder="Tìm kiếm" className="kh-input" />
           </div>
           <div className="kh-contain-result">
@@ -272,6 +316,11 @@ const KhoaHoc = (props: Props) => {
                             className="text-kh-nav-leftbar"
                             onClick={() => {
                               changeName(value.TenMonHoc as string);
+                            }}
+                            style={{
+                              color: `${
+                                value.TenMonHoc == name ? "#dd3645" : "black"
+                              }`,
                             }}
                           >
                             {value.TenMonHoc}

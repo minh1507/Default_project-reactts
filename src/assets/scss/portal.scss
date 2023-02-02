@@ -1449,7 +1449,7 @@
     border: none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-      border-radius: 5px;
+    border-radius: 5px;
   }
 
   .accordion-button:not(.collapsed) {
@@ -1719,14 +1719,26 @@
       align-items: center;
     }
   }
+
+  .kh-search-bar:focus-within .i-kh-ab {
+    transition: 1s;
+    position: absolute;
+    z-index: -1;
+  }
+  .i-kh-ab {
+    transition: all 2s;
+  }
+  .kh-search-bar:focus-within {
+    box-shadow: rgba(209, 2, 2, 0.405) 0px 0px 0px 2px;
+  }
   .kh-search-bar {
-    box-shadow: rgba(24, 19, 19, 0.193) 0px 0px 0px 2px;
+    box-shadow: rgba(93, 0, 0, 0.405) 0px 0px 0px 2px;
     // background-color: white;
     // margin-left: 8px;
     display: flex;
     padding: 2px 8px;
     min-width: 302px;
-    transition: 2s;
+    transition: 0.5s;
     cursor: pointer;
     align-items: center;
     border-radius: 5px;
@@ -1828,23 +1840,32 @@
     width: 24.13%;
     display: inline-block;
     margin-right: 10px;
+    position: relative;
+    border-radius: 3px 3px;
+  }
+
+  .img-fli-kh-ojo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
   }
 
   .slide-element {
+    color: #fff;
     height: 50px;
     width: 100%;
-    box-shadow: #d1d7dc 0px 0px 0px 2px;
     border-radius: 2px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    padding: 0 16px;
-  }
-
-  .slide-element:hover {
-    background-color: #f7f9fa;
+    // text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+    //   0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #b498a6;
+    // padding: 0 16px;
   }
 
   .border-popse:hover img {
@@ -1893,9 +1914,10 @@
       font-size: 25px;
       cursor: pointer;
       transition: 0.2s;
+      color: rgb(204, 89, 89);
     }
     .nextKHNB:hover {
-      color: rgb(204, 89, 89);
+      color: rgba(204, 89, 89, 0.72);
     }
 
     .prevKHNB {
@@ -1905,9 +1927,10 @@
       font-size: 25px;
       cursor: pointer;
       transition: 0.2s;
+      color: rgb(204, 89, 89);
     }
     .prevKHNB:hover {
-      color: rgb(204, 89, 89);
+      color: rgba(204, 89, 89, 0.72);
     }
   }
 
