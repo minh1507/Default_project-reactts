@@ -17,7 +17,7 @@
       "Key": "TrangThaiBanGhi",
       "Title": "Trạng thái",
       "Type": "Checkbox",
-      "IsRequired": true,
+      "IsRequired": false,
       "Placeholder": "---Chọn---",
       "Options": [
         { "value": true, "label": "Hoạt động" },

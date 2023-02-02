@@ -1439,7 +1439,7 @@
 
   .pim {
     border: unset;
-    border-top: 1px solid grey;
+    border-top: 1px solid #d1d7dc;
     border-radius: unset;
     // border: unset unset 1px solid red unset;
   }
@@ -1449,7 +1449,7 @@
     border: none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    border-radius: unset;
+      border-radius: 5px;
   }
 
   .accordion-button:not(.collapsed) {
@@ -1541,17 +1541,15 @@
   }
 
   .kik-kh-kuki {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .try-kh-ui {
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    padding: 1px;
-    border-radius: 4px;
+    //box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 
   .side-right-khoa-hoc {
-    padding: 0 0 0 16px;
+    padding: 0 0 0 50px;
     width: 100%;
   }
 
@@ -1727,11 +1725,11 @@
     // margin-left: 8px;
     display: flex;
     padding: 2px 8px;
-    min-width: 290.78px;
+    min-width: 302px;
     transition: 2s;
     cursor: pointer;
     align-items: center;
-    border-radius: 4px;
+    border-radius: 5px;
   }
 
   .kh-search-icon-active {
@@ -1756,7 +1754,7 @@
     padding-left: 8px;
     opacity: 0.7;
     .kh-result {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: bold;
     }
   }
@@ -1774,11 +1772,11 @@
 
   .img-kh-cls {
     width: 100%;
-    aspect-ratio: 3/2;
     object-fit: cover;
     height: 100%;
     transition: 0.5s;
-    filter: brightness(90%);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
 
   .kh-img-right {
@@ -1833,7 +1831,7 @@
   }
 
   .slide-element {
-    height: 70px;
+    height: 50px;
     width: 100%;
     box-shadow: #d1d7dc 0px 0px 0px 2px;
     border-radius: 2px;
@@ -1883,14 +1881,16 @@
       border: 1px solid red;
     }
   }
-
+  .co-or {
+    color: #eb8a2f;
+  }
   .kh-sl-ca1 {
     position: relative;
     .nextKHNB {
       position: absolute;
-      right: -10px;
-      top: 50px;
-      font-size: 2.3rem;
+      right: -5px;
+      top: 15px;
+      font-size: 25px;
       cursor: pointer;
       transition: 0.2s;
     }
@@ -1900,9 +1900,9 @@
 
     .prevKHNB {
       position: absolute;
-      left: -10px;
-      top: 50px;
-      font-size: 2.3rem;
+      left: -5px;
+      top: 15px;
+      font-size: 25px;
       cursor: pointer;
       transition: 0.2s;
     }

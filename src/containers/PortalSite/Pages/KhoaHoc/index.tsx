@@ -93,6 +93,10 @@ const KhoaHoc = (props: Props) => {
         <h1 className="reszex">KHÓA HỌC</h1>
       </div>
 
+      <h4 className="text-danger text-center text-uppercase tieu-de mb-3">
+        Loại khóa học
+      </h4>
+
       <div className="container-xl ">
         {width > 1110 && (
           <div className="kh-sl-ca1">
@@ -116,16 +120,16 @@ const KhoaHoc = (props: Props) => {
           </div>
         )}
 
-        <img className="mb-4 kh-cdnb1x" src={ba1} width="100%" height="auto" />
+        {/* <img className="mb-4 kh-cdnb1x" src={ba1} width="100%" height="auto" /> */}
 
         {name ? (
-          <h3 className="text-danger text-center text-uppercase tieu-de mb-3 kh-apeperar">
+          <h4 className="text-danger text-center text-uppercase tieu-de mb-3 kh-apeperar">
             {name}
-          </h3>
+          </h4>
         ) : (
-          <h3 className="text-danger text-center text-uppercase tieu-de mb-3">
-            Khóa học
-          </h3>
+          <h4 className="text-danger text-center text-uppercase tieu-de mb-3">
+            Danh sách khóa học
+          </h4>
         )}
 
         <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
@@ -388,99 +392,47 @@ const KhoaHoc = (props: Props) => {
               style={{ maxWidth: "100%" }}
             >
               <div className="row g-0">
-                <div className="col-md-4 try-kh-ui">
+                <div className="col-md-3 try-kh-ui">
                   <img src={bg40} className="img-kh-cls " alt="..." />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-9">
                   <div className="card-body card-bodys">
-                    <h5 className="card-title">Tên khóa học</h5>
-                    <p className="card-text popse-khso-p">
-                      <small className="text-muted">20/12/2023 8:00 Tối</small>
-                    </p>
-
-                    <p className="card-text gia-tien-kh-l">
-                      2.000.000₫{" "}
-                      <span className="gia-tien-giam-gias">1.000.000₫</span>
-                    </p>
-                    <p className="card-text posp-khso text-dark">
-                      Phụ trách: thầy Nghĩa
-                    </p>
-                    <p className="card-text posp-khso mb-1">
-                      Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Vel perferendis nostrum odio maxime delectus beatae,
-                      maiores, nulla placeat omnis ea accusantium possimus quam
-                      ratione. Magnam adipisci iusto maiores labore animi. Lorem
-                      ipsum dolor sit, amet consectetur adipisicing elit. Quae
-                      iure neque mollitia nostrum numquam laborum error est qui.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="card mb-3 border-popse"
-              style={{ maxWidth: "100%" }}
-            >
-              <div className="row g-0">
-                <div className="col-md-4 try-kh-ui">
-                  <img src={bg40} className="img-kh-cls" alt="..." />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body card-bodys">
-                    <h5 className="card-title">Tên khóa học</h5>
-                    <p className="card-text popse-khso-p">
-                      <small className="text-muted">20/12/2023 8:00 Tối</small>
-                    </p>
-
-                    <p className="card-text gia-tien-kh-l">
-                      2.000.000₫{" "}
-                      <span className="gia-tien-giam-gias">1.000.000₫</span>
-                    </p>
-                    <p className="card-text posp-khso text-dark">
-                      Phụ trách: thầy Nghĩa
-                    </p>
-                    <p className="card-text posp-khso mb-1">
-                      Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Vel perferendis nostrum odio maxime delectus beatae,
-                      maiores, nulla placeat omnis ea accusantium possimus quam
-                      ratione. Magnam adipisci iusto maiores labore animi. Lorem
-                      ipsum dolor sit, amet consectetur adipisicing elit. Quae
-                      iure neque mollitia nostrum numquam laborum error est qui.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="card mb-3 border-popse"
-              style={{ maxWidth: "100%" }}
-            >
-              <div className="row g-0">
-                <div className="col-md-4 try-kh-ui">
-                  <img src={bg40} className="img-kh-cls" alt="..." />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body card-bodys">
-                    <h5 className="card-title">Tên khóa học</h5>
-                    <p className="card-text popse-khso-p">
-                      <small className="text-muted">20/12/2023 8:00 Tối</small>
-                    </p>
-
-                    <p className="card-text gia-tien-kh-l">
-                      2.000.000₫{" "}
-                      <span className="gia-tien-giam-gias">1.000.000₫</span>
-                    </p>
-                    <p className="card-text posp-khso text-dark">
-                      Phụ trách: thầy Nghĩa
-                    </p>
-                    <p className="card-text posp-khso mb-1">
-                      Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Vel perferendis nostrum odio maxime delectus beatae,
-                      maiores, nulla placeat omnis ea accusantium possimus quam
-                      ratione. Magnam adipisci iusto maiores labore animi. Lorem
-                      ipsum dolor sit, amet consectetur adipisicing elit. Quae
-                      iure neque mollitia nostrum numquam laborum error est qui.
-                    </p>
+                    <div className="row">
+                      <div className="col-md-10">
+                        <h5 className="card-title">Tên khóa học</h5>
+                        <p className="card-text popse-khso-p">
+                          <small className="text-muted">20/12/2023 8:00 Tối</small>
+                        </p>
+                        <p className="card-text posp-khso text-dark">
+                          Giảng viên: Coach Lê Quang
+                        </p>
+                        <span className="star-rate">
+                          <i className="bi bi-star-fill co-or" aria-hidden="true"></i>
+                          &nbsp;
+                          <i className="bi bi-star-fill co-or" aria-hidden="true"></i>
+                          &nbsp;
+                          <i className="bi bi-star co-or" aria-hidden="true"></i>
+                          &nbsp;
+                          <i className="bi bi-star co-or" aria-hidden="true"></i>
+                          &nbsp;
+                          <i className="bi bi-star co-or" aria-hidden="true"></i> 
+                          &nbsp;
+                          (45)
+                        </span>
+                        <p className="card-text posp-khso mb-1">
+                          Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Vel perferendis nostrum odio maxime delectus beatae,
+                          maiores, nulla placeat omnis ea accusantium possimus quam
+                          ratione.
+                        </p>
+                      </div>
+                      <div className="col-md-2">
+                        <p className="card-text gia-tien-kh-l">
+                          <span>2.000.000₫{" "}</span>
+                        </p>
+                        <span className="gia-tien-giam-gias">1.000.000₫</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
