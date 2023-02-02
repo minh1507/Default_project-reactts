@@ -5,9 +5,10 @@ import MainCard from "../General/MainCard";
 import { InitState, Item } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
-import bt1 from "assets/img/bt1.jpg";
+import bt1 from "assets/img/bt1.jpeg";
 import bt2 from "assets/img/bt2.jpeg";
 import bt3 from "assets/img/bt3.jpeg";
+import bt4 from "assets/img/bt4.jpg";
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
@@ -16,29 +17,30 @@ const KhoaHoc = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
   const [name, setName] = useState("");
   const [width, setWidth] = useState(window.innerWidth);
-  const [reLength, setReLength] = useState(0);
+  const [reLength, setReLength] = useState(1);
   const kh1 = useRef(null);
   const [anh, setAnh] = useState([
-    { name: bt3 },
+    { name: bt1 },
     { name: bt2 },
     { name: bt3 },
-    { name: bt2 },
+    { name: bt4 },
     { name: bt3 },
     { name: bt2 },
-    { name: bt3 },
+    { name: bt1 },
     { name: bt2 },
     { name: bt3 },
-    { name: bt2 },
+    { name: bt4 },
   ]);
 
   const nextLength = () => {
-    if (reLength < state.DataHoatDong.length - 1) {
+    if (reLength < state.DataHoatDong.length - 2) {
       setReLength(reLength + 1);
     }
   };
+  console.log(reLength);
 
   const prevLength = () => {
-    if (reLength > 0) {
+    if (reLength > 1) {
       setReLength(reLength - 1);
     }
   };

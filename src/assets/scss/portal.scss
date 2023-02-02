@@ -1841,7 +1841,7 @@
   }
 
   .slide-element {
-    color: white;
+    color: #fff;
     height: 50px;
     width: 100%;
     border-radius: 2px;
@@ -1850,6 +1850,8 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    // text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+    //   0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #b498a6;
     // padding: 0 16px;
   }
 
