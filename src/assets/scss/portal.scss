@@ -1449,7 +1449,7 @@
     border: none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-      border-radius: 5px;
+    border-radius: 5px;
   }
 
   .accordion-button:not(.collapsed) {
@@ -1828,23 +1828,29 @@
     width: 24.13%;
     display: inline-block;
     margin-right: 10px;
+    position: relative;
+  }
+
+  .img-fli-kh-ojo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
   }
 
   .slide-element {
+    color: white;
     height: 50px;
     width: 100%;
-    box-shadow: #d1d7dc 0px 0px 0px 2px;
     border-radius: 2px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    padding: 0 16px;
-  }
-
-  .slide-element:hover {
-    background-color: #f7f9fa;
+    // padding: 0 16px;
   }
 
   .border-popse:hover img {
@@ -1893,9 +1899,10 @@
       font-size: 25px;
       cursor: pointer;
       transition: 0.2s;
+      color: rgb(204, 89, 89);
     }
     .nextKHNB:hover {
-      color: rgb(204, 89, 89);
+      color: rgba(204, 89, 89, 0.72);
     }
 
     .prevKHNB {
@@ -1905,9 +1912,10 @@
       font-size: 25px;
       cursor: pointer;
       transition: 0.2s;
+      color: rgb(204, 89, 89);
     }
     .prevKHNB:hover {
-      color: rgb(204, 89, 89);
+      color: rgba(204, 89, 89, 0.72);
     }
   }
 
