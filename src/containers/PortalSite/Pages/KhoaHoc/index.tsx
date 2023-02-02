@@ -153,11 +153,8 @@ const KhoaHoc = (props: Props) => {
         )}
 
         <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
-          <div className={`kh-search-bar`}>
-            <span>
-              <i className={`bi bi-search`}></i>
-            </span>
-
+          <div className={`kh-search-bar `}>
+            <i className={`bi bi-search i-kh-ab`}></i>
             <input placeholder="Tìm kiếm" className="kh-input" />
           </div>
           <div className="kh-contain-result">
@@ -319,6 +316,11 @@ const KhoaHoc = (props: Props) => {
                             className="text-kh-nav-leftbar"
                             onClick={() => {
                               changeName(value.TenMonHoc as string);
+                            }}
+                            style={{
+                              color: `${
+                                value.TenMonHoc == name ? "#dd3645" : "black"
+                              }`,
                             }}
                           >
                             {value.TenMonHoc}
