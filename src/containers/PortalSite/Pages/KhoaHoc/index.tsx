@@ -6,69 +6,25 @@ import { InitState, Item } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
 const { v4: uuidv4 } = require("uuid");
-import ba1 from "assets/img/ba2.jpg";
 
 interface Props {}
 
 const KhoaHoc = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
-  const [slidekh, setSlidekh] = useState(false);
-  const [slide, setSlide] = useState(0);
   const [name, setName] = useState("");
   const [width, setWidth] = useState(window.innerWidth);
   const [reLength, setReLength] = useState(0);
-  const data = [
-    { name: "Top khóa học bán chạy nhất" },
-    { name: "Khóa học mới" },
-    { name: "Khóa học được yêu thích" },
-    { name: "Khóa học cho người mới" },
-    { name: "Các khóa nâng thể trạng" },
-    { name: "Tăng cường thể lực" },
-    { name: "Bài tập hàng ngày" },
-    { name: "8" },
-    { name: "9" },
-    { name: "10" },
-    { name: "Top khóa học bán chạy nhất" },
-    { name: "Khóa học mới" },
-    { name: "Khóa học được yêu thích" },
-    { name: "Khóa học cho người mới" },
-    { name: "Các khóa nâng thể trạng" },
-    { name: "Tăng cường thể lực" },
-    { name: "Bài tập hàng ngày" },
-    { name: "8" },
-    { name: "9" },
-    { name: "10" },
-  ];
   const kh1 = useRef(null);
 
-  useEffect(() => {
-    Actions.GetMonHocPortal("GA1", "20", dispatch);
-    Actions.GetHoatDongPortal(dispatch);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-  }, []);
-
-  // useEffect(() => {
-  //   kh1.current.childNodes[reLength].scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "nearest",
-  //     inline: "start",
-  //   });
-  // }, [reLength]);
-
   const nextLength = () => {
-    if (reLength < data.length) {
-      let data = reLength + 1;
-      setReLength(data);
+    if (reLength < state.DataHoatDong.length - 1) {
+      setReLength(reLength + 1);
     }
   };
 
   const prevLength = () => {
     if (reLength > 0) {
-      let data = reLength - 1;
-      setReLength(data);
+      setReLength(reLength - 1);
     }
   };
 
@@ -80,11 +36,28 @@ const KhoaHoc = (props: Props) => {
     prevLength();
   };
 
+  useEffect(() => {
+    Actions.GetMonHocPortal("GA1", "20", dispatch);
+    Actions.GetHoatDongPortal(dispatch);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+
+  useEffect(() => {
+    if (width > 1110 && kh1.current.children.length > 0) {
+      kh1.current.children[reLength].scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
+    }
+  }, [reLength]);
+
   const changeName = (name: string) => {
     setName(name);
   };
-
-  console.log(state);
 
   return (
     <div style={{ backgroundColor: "white" }}>
@@ -292,7 +265,7 @@ const KhoaHoc = (props: Props) => {
                     <div key={uuidv4()} className="accordion-item pim">
                       <h2
                         className="accordion-header"
-                        id={`panelsStayOpen-heading${value.Id}`}
+                        id={`heading${value.Id}`}
                       >
                         <div className="d-flex justify-content-between">
                           <span
@@ -304,18 +277,20 @@ const KhoaHoc = (props: Props) => {
                             {value.TenMonHoc}
                           </span>
                           <span
-                            className="accordion-button"
+                            className="accordion-button collapsed"
                             data-bs-toggle="collapse"
-                            data-bs-target={`#panelsStayOpen-collapse${value.Id}`}
-                            aria-expanded="true"
-                            aria-controls={`panelsStayOpen-collapse${value.Id}`}
+                            data-bs-target={`#collapse${value.Id}`}
+                            aria-expanded="false"
+                            aria-controls={`collapse${value.Id}`}
                           ></span>
                         </div>
                       </h2>
                       <div
-                        id={`panelsStayOpen-collapse${value.Id}`}
-                        className="accordion-collapse collapse "
-                        aria-labelledby={`panelsStayOpen-heading${value.Id}`}
+                        id={`collapse${value.Id}`}
+                        className="accordion-collapse collapse"
+                        // aria-labelledby={`heading${value.Id}`}
+                        aria-labelledby={`heading${value.Id}`}
+                        data-bs-parent="#accordionExample"
                       >
                         <div className="accordion-body pim">
                           <div
@@ -337,7 +312,7 @@ const KhoaHoc = (props: Props) => {
                                     Bai 1
                                   </span>
                                   <span
-                                    className="accordion-button"
+                                    className="accordion-button collapsed"
                                     data-bs-toggle="collapse"
                                     data-bs-target={`#panelsStayOpen-collapseOne`}
                                     aria-expanded="true"
@@ -401,34 +376,50 @@ const KhoaHoc = (props: Props) => {
                       <div className="col-md-10">
                         <h5 className="card-title">Tên khóa học</h5>
                         <p className="card-text popse-khso-p">
-                          <small className="text-muted">20/12/2023 8:00 Tối</small>
+                          <small className="text-muted">
+                            20/12/2023 8:00 Tối
+                          </small>
                         </p>
                         <p className="card-text posp-khso text-dark">
                           Giảng viên: Coach Lê Quang
                         </p>
                         <span className="star-rate">
-                          <i className="bi bi-star-fill co-or" aria-hidden="true"></i>
+                          <i
+                            className="bi bi-star-fill co-or"
+                            aria-hidden="true"
+                          ></i>
                           &nbsp;
-                          <i className="bi bi-star-fill co-or" aria-hidden="true"></i>
+                          <i
+                            className="bi bi-star-fill co-or"
+                            aria-hidden="true"
+                          ></i>
                           &nbsp;
-                          <i className="bi bi-star co-or" aria-hidden="true"></i>
+                          <i
+                            className="bi bi-star co-or"
+                            aria-hidden="true"
+                          ></i>
                           &nbsp;
-                          <i className="bi bi-star co-or" aria-hidden="true"></i>
+                          <i
+                            className="bi bi-star co-or"
+                            aria-hidden="true"
+                          ></i>
                           &nbsp;
-                          <i className="bi bi-star co-or" aria-hidden="true"></i> 
-                          &nbsp;
-                          (45)
+                          <i
+                            className="bi bi-star co-or"
+                            aria-hidden="true"
+                          ></i>
+                          &nbsp; (45)
                         </span>
                         <p className="card-text posp-khso mb-1">
-                          Mo ta Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Vel perferendis nostrum odio maxime delectus beatae,
-                          maiores, nulla placeat omnis ea accusantium possimus quam
-                          ratione.
+                          Mo ta Lorem ipsum dolor sit amet consectetur,
+                          adipisicing elit. Vel perferendis nostrum odio maxime
+                          delectus beatae, maiores, nulla placeat omnis ea
+                          accusantium possimus quam ratione.
                         </p>
                       </div>
                       <div className="col-md-2">
                         <p className="card-text gia-tien-kh-l">
-                          <span>2.000.000₫{" "}</span>
+                          <span>2.000.000₫ </span>
                         </p>
                         <span className="gia-tien-giam-gias">1.000.000₫</span>
                       </div>
