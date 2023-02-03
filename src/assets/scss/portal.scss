@@ -1860,13 +1860,17 @@
     filter: brightness(100%);
   }
 
+  .slide-child:last-child {
+    margin-right: 0.59%;
+  }
+
   .gv-kh {
     overflow-x: hidden;
     width: 100%;
     position: relative;
     white-space: nowrap;
     scroll-behavior: smooth;
-    padding-left: 10px;
+    padding-left: 0.6%;
   }
 
   .accordion-button {
@@ -2243,5 +2247,9 @@
   // }
   .round-de {
     width: "100%";
+  }
+
+  .gv-kh:last-child {
+    margin: 0 !important;
   }
 }

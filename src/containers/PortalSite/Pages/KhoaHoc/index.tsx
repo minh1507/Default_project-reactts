@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState, useMemo } from "react";
 import { connect } from "react-redux";
 import bg40 from "assets/img/Khoahoc.png";
 import MainCard from "../General/MainCard";
@@ -106,19 +106,17 @@ const KhoaHoc = (props: Props) => {
     setName(name);
   };
 
-  // console.log(scrollPosition);
-  console.log(kh1);
-
   return (
     <div style={{ backgroundColor: "white" }}>
       <div className="wrapper_img mb-3">
         <img className="mb-3" src={bg40} width="100%" height="auto" />
         <h1 className="reszex">KHÓA HỌC</h1>
       </div>
-
-      <h4 className="text-danger text-center text-uppercase tieu-de mb-3">
-        Loại khóa học
-      </h4>
+      {width > 1110 && (
+        <h4 className="text-danger text-center text-uppercase tieu-de mb-3">
+          Loại khóa học
+        </h4>
+      )}
 
       <div className="container-xl ">
         {width > 1110 && (
