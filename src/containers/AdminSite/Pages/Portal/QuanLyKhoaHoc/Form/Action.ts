@@ -18,17 +18,21 @@ export const Actions: any = {
     } else {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
-        TieuDe: "",
-        MoTa: "",
-        NoiDung: "",
-        IdGiaoVien: "",
+        IdMonHoc: Guid.Empty,
+        IdGiaoVien: Guid.Empty,
         URL_AnhDaiDien: "",
-        NgayXuatBan: new Date(),
+        URL_VideoDaiDien: "",
+        TieuDe: "",
+        TrangThai: true,
+        TyLeDanhGia: 0,
         HocPhiGoc: 0,
         HocPhiGiamGia: 0,
-        IdMonHoc: "",
+        ThoiGianHoc: "",
+        ThoiGianTruyCapQC: "",
+        GioiThieu: "",
+        NoiDung: "",
         TrangThaiBanGhi: true,
-        TrangThai: true,
+        CreatedDateTime: new Date()
       };
       dispatch({
         type: "GetItem",
@@ -38,7 +42,6 @@ export const Actions: any = {
   },
   CreateItem: async (item: IModelItem, dispatch: any) => {
     let res: IResponseMessage = await KhoaHocService.CreateItem(item);
-
     return res;
   },
   UpdateItem: async (item: IModelItem, dispatch: any) => {

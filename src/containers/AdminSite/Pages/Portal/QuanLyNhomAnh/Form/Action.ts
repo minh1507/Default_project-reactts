@@ -17,8 +17,7 @@ export const Actions: any = {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
         Ma: 1,
-        Ten: "",
-        TrangThaiBanGhi: true,
+        Ten: ""
       };
       dispatch({
         type: "GetItem",

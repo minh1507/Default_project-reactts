@@ -59,7 +59,7 @@ const KhoaHocList = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog style={{width: "80%", top: "5%"}} title={khoaHocId ? "Sửa khóa học": "Tạo mới khóa học"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog style={{width: "95%", top: "1%"}} title={khoaHocId ? "Sửa khóa học": "Tạo mới khóa học"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <KhoaHocForm Id={khoaHocId} ReloadTableItems = {ReloadTableItems} />
             </CDialog>
             :<div></div>

@@ -7,7 +7,6 @@ export interface IModelItem {
   Ten: String;
   URL_Anh: String;
   IdNhomAnh: String;
-  TrangThaiBanGhi: Boolean;
 }
 export interface IState {
   DataItem: IModelItem;
@@ -19,8 +18,7 @@ export const InitState: IState = {
     Ma: "",
     Ten: "",
     URL_Anh: "",
-    IdNhomAnh: "",
-    TrangThaiBanGhi: true,
+    IdNhomAnh: ""
   },
   Options: [],
 };

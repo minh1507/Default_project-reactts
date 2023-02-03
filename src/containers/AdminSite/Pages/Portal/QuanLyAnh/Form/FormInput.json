@@ -45,21 +45,6 @@
       "ColLabel": 4,
       "ColControl": 8,
       "ColSpanControl": 12
-    },
-    {
-      "Key": "TrangThaiBanGhi",
-      "Title": "Trạng thái",
-      "Type": "Select",
-      "IsRequired": true,
-      "Placeholder": "---Chọn---",
-      "Options": [
-        { "value": true, "label": "Hoạt động" },
-        { "value": false, "label": "Không hoạt động" }
-      ],
-      "Row": 5,
-      "ColLabel": 4,
-      "ColControl": 8,
-      "ColSpanControl": 12
     }
   ],
   "ActionDefs": [

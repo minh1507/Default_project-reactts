@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import SunEditor from "suneditor-react";
+import SunEditorCore from "suneditor/src/lib/core";
 import "assets/css/suneditor.min.css";
 import QuanLyAnhService from "services/QuanLyAnhService";
 import { IResponseMessage } from "common/Models";
@@ -18,7 +19,14 @@ interface Props {
 }
 
 const CCkEditor = (props: Props) => {
+  const editor = useRef<SunEditorCore>();
+
+  // The sunEditor parameter will be set to the core suneditor instance when this function is called
+   const getSunEditorInstance = (sunEditor: SunEditorCore) => {
+      editor.current = sunEditor;
+  };
   const handelChange = (content: any) => {
+    editor.current.setContents(content)
     props.onChange(content);
   };
   const uploadToServer = async (files:any) => {
@@ -37,11 +45,11 @@ const CCkEditor = (props: Props) => {
     ]}
     uploadHandler(response);
   }
-
   return (
     <>
       <SunEditor
-        setContents={props.value}
+        getSunEditorInstance={getSunEditorInstance}
+        defaultValue={props.value}
         onChange={(content: any) => {
           handelChange(content);
         }}
@@ -71,7 +79,7 @@ const CCkEditor = (props: Props) => {
             ["preview", "print"],
             ["save", "template"],
           ],
-          defaultTag: "div",
+          defaultTag: "",
           minHeight: "500px",
           showPathLabel: false,
         }}
