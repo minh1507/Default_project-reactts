@@ -17,7 +17,7 @@ interface Props {
     actionEvents?:any,
     alignLabel?:any
     options?:IControlOptions[],
-    onchangeC?:any
+    onchange?:any
 }
 
 const CDynamicForm = forwardRef((props: Props, ref) => {      
@@ -27,13 +27,14 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
         setInitValues(props.initValues)
     }, [props.initValues])
     const onChangeValue = (key: string, value: any) => {       
+        console.log(InitValues)     
         setInitValues({
             ...InitValues,
             [key]: value
         })
-        if(props.onchangeC)
+        if(props.onchange)
         {
-            props.onchangeC(key, value)
+            props.onchange(key, value)
         } 
     }
     const handleKeyDown = (event:any) => {
@@ -128,7 +129,7 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
     const DateRender = (propDef:IControlDefs) => {
         let value = InitValues[propDef.Key];
         return <>
-            <CDate key={propDef.Key} onChange={(e:any) => {onChangeValue(propDef.Key, e)}} value={value} />
+            <CDate disabled={propDef.IsDisabled} key={propDef.Key} onChange={(e:any) => {onChangeValue(propDef.Key, e)}} value={value} />
             {RequiredControl(propDef, value)}
         </>
     }    
@@ -160,7 +161,7 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
     const CkEditorRender = (propDef:IControlDefs) => {
         let value = InitValues[propDef.Key];
         return <>
-            <CCkEditor disabled={propDef.IsDisabled} key={propDef.Key} type={propDef.IsPassword == true?"password":"text"} onChange={(e:any) => {onChangeValue(propDef.Key, e)}} value={value} />
+            <CCkEditor disabled={propDef.IsDisabled} key={propDef.Key} onChange={(e:any) => {onChangeValue(propDef.Key, e)}} value={value} />
             {RequiredControl(propDef, value)}
         </>
     }

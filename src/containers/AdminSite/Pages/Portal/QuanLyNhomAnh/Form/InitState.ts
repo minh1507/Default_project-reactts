@@ -5,7 +5,6 @@ export interface IModelItem {
   Id: String;
   Ma: Number;
   Ten: String;
-  TrangThaiBanGhi: Boolean;
 }
 export interface IState {
   DataItem: IModelItem;
@@ -15,8 +14,7 @@ export const InitState: IState = {
   DataItem: {
     Id: Guid.Empty,
     Ma: 0,
-    Ten: "",
-    TrangThaiBanGhi: true,
+    Ten: ""
   },
   Options: [],
 };

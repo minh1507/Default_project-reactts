@@ -33,8 +33,7 @@ export const Actions: any = {
         Ma: "",
         Ten: "",
         URL_Anh: "",
-        IdNhomAnh: "",
-        TrangThaiBanGhi: true,
+        IdNhomAnh: ""
       };
       dispatch({
         type: "GetItem",
