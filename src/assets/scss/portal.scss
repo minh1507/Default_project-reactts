@@ -1951,7 +1951,8 @@
     // padding: 8px 8px;
     display: flex;
     height: auto;
-    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
+      rgb(0 0 0 / 30%) 0px 1px 3px -1px;
     border-radius: 5px;
     // gap: 8px;
     .kt-head-left {
@@ -2174,4 +2175,66 @@
   .sk-unactive-ab {
     cursor: pointer;
   }
+
+  .crossline {
+    width: 20%;
+    border: 1px solid grey;
+  }
+
+  .kt-su-aba {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .change-kt-sudo {
+    background-color: transparent;
+  }
+
+  .kt-du-aba {
+    padding: 8px 0;
+  }
+
+  .rule-kt-abac:first-child {
+    border-top: none;
+  }
+
+  .role-kt-bili {
+    width: 100%;
+    display: flex;
+  }
+
+  .dubi-kt-left {
+    width: 80%;
+  }
+
+  .dubi-kt-right {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 8px;
+  }
+
+  .color-rim {
+    color: #334862;
+  }
+
+  .color-rim-area {
+    color: #000 !important;
+  }
+
+  .color-rim-area-ht {
+    border: unset !important;
+  }
+
+  .pim-kt-role {
+    margin-left: 16px;
+    width: 100%;
+    // border-left: 1px solid #334862 !important;
+  }
+
+  // .pim-kt-role-a {
+  //   display: inline-block;
+  //   height: 80%;
+  //   border-left: 1px solid #334862 !important;
+  // }
 }

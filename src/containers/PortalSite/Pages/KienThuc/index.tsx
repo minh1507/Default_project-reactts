@@ -15,24 +15,26 @@ interface Props {}
 const KienThuc = (props: Props) => {
   const [change, setChange] = useState(1);
   const [state, dispatch] = useReducer(Reducer, InitState);
+  const [name, setName] = useState("");
+  const [repName, setRepName] = useState("");
 
   const changeUl = (num: number) => {
     setChange(num);
   };
 
   const DanhSachTinTuc = [
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
-    { TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 1, name: "a", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 2, name: "b", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 3, name: "c", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 4, name: "d", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 5, name: "e", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 6, name: "f", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 7, name: "g", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 8, name: "h", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 9, name: "i", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 10, name: "k", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 11, name: "l", TieuDe: "Bai1", MoTa: "Bai2" },
+    { Id: 12, name: "m", TieuDe: "Bai1", MoTa: "Bai2" },
   ];
   // const customDiv = styled.div``;
 
@@ -54,8 +56,18 @@ const KienThuc = (props: Props) => {
     },
   };
 
+  const changeStatus = (name: any) => {
+    setName(name);
+  };
+
+  const changeStatusright = (name: any) => {
+    setRepName(name);
+  };
+
+  console.log(repName);
+
   return (
-    <div style={{ backgroundColor: "#f5f5fa" }}>
+    <div style={{ backgroundColor: "white" }}>
       <div className="wrapper_img">
         <img className="mb-3" src={bg40} width="100%" height="auto" />
         <h1 className="reszex">KIẾN THỨC</h1>
@@ -71,13 +83,13 @@ const KienThuc = (props: Props) => {
                 />
                 <div className="full-kt-box">
                   <h5>
-                    Cháy lớn tại dãy xưởng tạm, lực lượng PCCC & CNCH Hà Nội căng
-                    mình dập lửa trong giá lạnh{" "}
+                    Cháy lớn tại dãy xưởng tạm, lực lượng PCCC & CNCH Hà Nội
+                    căng mình dập lửa trong giá lạnh{" "}
                   </h5>
                   <p>
-                    Khoảng 20h30, một vụ hỏa hoạn đã xảy ra tại làng Ngọc Trục (Đại
-                    Mỗ, Nam Từ Liêm, Hà Nội), thời tiết hanh khô và giá rét khiến
-                    cùng vất vả.
+                    Khoảng 20h30, một vụ hỏa hoạn đã xảy ra tại làng Ngọc Trục
+                    (Đại Mỗ, Nam Từ Liêm, Hà Nội), thời tiết hanh khô và giá rét
+                    khiến cùng vất vả.
                   </p>
                 </div>
               </div>
@@ -89,10 +101,12 @@ const KienThuc = (props: Props) => {
                       src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/14/base64-16341571948261078837500.png"
                       className="img-head-right"
                     />
-                    <h5 className="img-head-rightab text-center cursor-pointer"><i className="bi bi-eye"></i></h5>
+                    <h5 className="img-head-rightab text-center cursor-pointer">
+                      <i className="bi bi-eye"></i>
+                    </h5>
                   </div>
                   <div className="img-head-lefta">
-                      <p>Bắc Bộ và Bắc Trung Bộ có mưa, sương mù</p>
+                    <p>Bắc Bộ và Bắc Trung Bộ có mưa, sương mù</p>
                   </div>
                 </div>
                 <div className="subnews-head-right">
@@ -101,10 +115,12 @@ const KienThuc = (props: Props) => {
                       src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/14/base64-16341571948261078837500.png"
                       className="img-head-right"
                     />
-                    <h5 className="img-head-rightab text-center cursor-pointer"><i className="bi bi-eye"></i></h5>
+                    <h5 className="img-head-rightab text-center cursor-pointer">
+                      <i className="bi bi-eye"></i>
+                    </h5>
                   </div>
                   <div className="img-head-lefta">
-                      <p>Bắc Bộ và Bắc Trung Bộ có mưa, sương mù</p>
+                    <p>Bắc Bộ và Bắc Trung Bộ có mưa, sương mù</p>
                   </div>
                 </div>
                 <div className="subnews-head-right">
@@ -113,10 +129,12 @@ const KienThuc = (props: Props) => {
                       src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/14/base64-16341571948261078837500.png"
                       className="img-head-right"
                     />
-                    <h5 className="img-head-rightab text-center cursor-pointer"><i className="bi bi-eye"></i></h5>
+                    <h5 className="img-head-rightab text-center cursor-pointer">
+                      <i className="bi bi-eye"></i>
+                    </h5>
                   </div>
                   <div className="img-head-lefta">
-                      <p>Bắc Bộ và Bắc Trung Bộ có mưa, sương mù</p>
+                    <p>Bắc Bộ và Bắc Trung Bộ có mưa, sương mù</p>
                   </div>
                 </div>
                 <div className="subnews-head-right">
@@ -125,26 +143,16 @@ const KienThuc = (props: Props) => {
                       src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/14/base64-16341571948261078837500.png"
                       className="img-head-right"
                     />
-                    <h5 className="img-head-rightab text-center cursor-pointer"><i className="bi bi-eye"></i></h5>
+                    <h5 className="img-head-rightab text-center cursor-pointer">
+                      <i className="bi bi-eye"></i>
+                    </h5>
                   </div>
                   <div className="img-head-lefta">
-                      <p>Bắc Bộ và Bắc Trung Bộ có mưa, sương mù</p>
+                    <p>Bắc Bộ và Bắc Trung Bộ có mưa, sương mù</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="kt-right-contain d-flex flex-column gap-2">
-            <div className="img-contain-right-box-class">
-              <img
-                className="img-kt-right"
-                src="https://images.pexels.com/photos/4050325/pexels-photo-4050325.jpeg?auto=compress&cs=tinysrgb&w=600"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="d-flex kt-contain-main mt-3">
-          <div className="kt-left-contain">
             <div
               className="card border-popse mb-3"
               style={{ maxWidth: "100%" }}
@@ -469,7 +477,80 @@ const KienThuc = (props: Props) => {
             </div>
           </div>
           <div className="kt-right-contain d-flex flex-column gap-2">
-
+            <div className="img-contain-right-box-class">
+              <div className={`side-left-khoa-hoc ji-kh`}>
+                <h5
+                  className="kik-kh-kuki text-uppercase kt-su-aba"
+                  style={{ fontSize: "1.2rem", margin: 0 }}
+                >
+                  Chuyên mục
+                </h5>
+                <div className="mt-3 mb-3 crossline"></div>
+                <div className="accordion" id="accordionPanelsStayOpenExample">
+                  {DanhSachTinTuc &&
+                    DanhSachTinTuc.map((value: any) => (
+                      <div
+                        key={uuidv4()}
+                        className={`accordion-item pim change-kt-sudo rule-kt-abac`}
+                      >
+                        <h2
+                          className="accordion-header"
+                          id={`heading${value.Id}`}
+                        >
+                          <div className="d-flex justify-content-between">
+                            <span
+                              className="text-kh-nav-leftbar role-kt-bili"
+                              onClick={() => changeStatus(value.name)}
+                            >
+                              <div
+                                className={`dubi-kt-left color-rim ${
+                                  name == value.name && "color-rim-area"
+                                }`}
+                              >
+                                Test
+                              </div>
+                              <div className="dubi-kt-right">(12)</div>
+                            </span>
+                            <span
+                              className="accordion-button collapsed kt-du-aba"
+                              data-bs-toggle="collapse"
+                              data-bs-target={`#collapse${value.Id}`}
+                              aria-expanded="false"
+                              aria-controls={`collapse${value.Id}`}
+                            ></span>
+                          </div>
+                        </h2>
+                        <div
+                          id={`collapse${value.Id}`}
+                          className="accordion-collapse collapse"
+                          aria-labelledby={`heading${value.Id}`}
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div className="accordion-body pim">
+                            <div
+                              className="accordion "
+                              id="accordionPanelsStayOpenExample"
+                            >
+                              <div className="accordion-item pom pim-kt-role">
+                                <h2
+                                  className="accordion-header"
+                                  id="panelsStayOpen-headingOne"
+                                >
+                                  <div className="d-flex justify-content-between">
+                                    <span className="text-kh-nav-leftbar kt-du-aba pim-kt-role-a">
+                                      Bai 1 (2)
+                                    </span>
+                                  </div>
+                                </h2>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
