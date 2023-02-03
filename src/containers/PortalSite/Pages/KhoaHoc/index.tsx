@@ -17,7 +17,7 @@ const KhoaHoc = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
   const [name, setName] = useState("");
   const [width, setWidth] = useState(window.innerWidth);
-  const [reLength, setReLength] = useState(1);
+  const [reLength, setReLength] = useState(0);
   const kh1 = useRef(null);
   const [anh, setAnh] = useState([
     { name: bt1 },
@@ -33,15 +33,21 @@ const KhoaHoc = (props: Props) => {
   ]);
 
   const nextLength = () => {
-    if (reLength < state.DataHoatDong.length - 2) {
+    if (
+      // reLength < state.DataHoatDong.length - 2 &&
+      reLength + 4 <
+      state.DataHoatDong.length
+    ) {
+      setReLength(reLength + 4);
+    } else {
       setReLength(reLength + 1);
     }
   };
   console.log(reLength);
 
   const prevLength = () => {
-    if (reLength > 1) {
-      setReLength(reLength - 1);
+    if (reLength >= 4) {
+      setReLength(reLength - 4);
     }
   };
 
