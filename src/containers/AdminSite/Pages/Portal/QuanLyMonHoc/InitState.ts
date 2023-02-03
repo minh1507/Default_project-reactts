@@ -1,4 +1,4 @@
-import { MonHoc, Guid } from "common/Enums";
+import { Guid } from "common/Enums";
 
 export interface IModelItem {
   Id: String;
@@ -25,8 +25,8 @@ export const InitState: IState = {
   DataTree: [
     {
       Id: Guid.Empty,
-      Code: MonHoc,
-      Name: MonHoc,
+      Code: "CayMonHoc",
+      Name: "Cây môn học",
       Children: [],
     },
   ],

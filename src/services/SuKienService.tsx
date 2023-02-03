@@ -8,6 +8,13 @@ const SuKienService = {
         });
         return res
     },
+    GetItemstim: async () => {
+        let res: any = await request({
+          url: `/${Por_SuKien}/DanhSach`,
+          method: "get",
+        });
+        return res;
+    },
     GetCategories: async () => {        
         let res:any = await request({
             url: `/${Por_SuKien}/Categories`,

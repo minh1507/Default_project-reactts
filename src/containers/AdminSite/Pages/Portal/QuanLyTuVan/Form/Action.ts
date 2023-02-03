@@ -17,7 +17,7 @@ export const Actions: any = {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
         Ten: "",
-        GioiTinh: "",
+        GioiTinh: 0,
         Sdt: "",
         Email: "",
         NoiDung: "",

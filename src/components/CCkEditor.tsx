@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SunEditor from "suneditor-react";
 import SunEditorCore from "suneditor/src/lib/core";
 import "assets/css/suneditor.min.css";
@@ -19,14 +19,16 @@ interface Props {
 }
 
 const CCkEditor = (props: Props) => {
-  const editor = useRef<SunEditorCore>();
-
-  // The sunEditor parameter will be set to the core suneditor instance when this function is called
-   const getSunEditorInstance = (sunEditor: SunEditorCore) => {
-      editor.current = sunEditor;
-  };
+  const [content, setContent] = useState();
+  useEffect(() => {
+    var val:any = content;
+    if(val == "<p><br></p>")
+    {
+      val = "";
+    }
+    handelChange(val)
+  }, [content])
   const handelChange = (content: any) => {
-    editor.current.setContents(content)
     props.onChange(content);
   };
   const uploadToServer = async (files:any) => {
@@ -48,10 +50,9 @@ const CCkEditor = (props: Props) => {
   return (
     <>
       <SunEditor
-        getSunEditorInstance={getSunEditorInstance}
-        defaultValue={props.value}
+        setContents={props.value}
         onChange={(content: any) => {
-          handelChange(content);
+          setContent(content)
         }}
         onImageUploadBefore={handleImageUploadBefore}
         setOptions={{
@@ -80,8 +81,7 @@ const CCkEditor = (props: Props) => {
             ["save", "template"],
           ],
           defaultTag: "",
-          minHeight: "500px",
-          showPathLabel: false,
+          minHeight: "500px"
         }}
       />
     </>

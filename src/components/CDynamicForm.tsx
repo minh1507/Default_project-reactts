@@ -27,7 +27,6 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
         setInitValues(props.initValues)
     }, [props.initValues])
     const onChangeValue = (key: string, value: any) => {       
-        console.log(InitValues)     
         setInitValues({
             ...InitValues,
             [key]: value

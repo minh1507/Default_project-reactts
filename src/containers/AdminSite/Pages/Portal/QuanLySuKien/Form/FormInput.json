@@ -37,8 +37,8 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "DiaChi",
-      "Title": "Địa chỉ",
+      "Key": "URL_AnhDaiDien",
+      "Title": "Ảnh giới thiệu",
       "Type": "InputText",
       "IsRequired": true,
       "Row": 4,
@@ -47,49 +47,45 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "URL_AnhDaiDien",
-      "Title": "Ảnh đại diện",
-      "Type": "InputText",
-      "IsRequired": true,
-      "Row": 5,
-      "ColLabel": 2,
-      "ColControl": 10,
-      "ColSpanControl": 12
-    },
-    {
       "Key": "TrangThai",
-      "Title": "Trạng thái sự kiện",
+      "Title": "Tình trạng",
       "Type": "Select",
-      "IsRequired": true,
       "Placeholder": "---Chọn---",
       "Options": [
         { "value": 0, "label": "Chưa diễn ra" },
         { "value": 1, "label": "Đang diễn ra" },
         { "value": 2, "label": "Đã diễn ra" }
       ],
-      "Row": 6,
+      "Row": 5,
       "ColLabel": 2,
-      "ColControl": 10,
+      "ColControl": 4,
+      "ColSpanControl": 12
+    },
+    {
+      "Key": "ThoiGian",
+      "Title": "Thời gian diễn ra",
+      "Type": "Date",
+      "Row": 5,
+      "ColLabel": 2,
+      "ColControl": 4,
       "ColSpanControl": 12
     },
     {
       "Key": "GiaTien",
       "Title": "Giá tiền",
       "Type": "InputNumber",
-      "IsRequired": true,
-      "Row": 7,
+      "Row": 6,
       "ColLabel": 2,
-      "ColControl": 10,
+      "ColControl": 4,
       "ColSpanControl": 12
     },
     {
-      "Key": "ThoiGian",
-      "Title": "Thời gian",
-      "Type": "Date",
-      "IsRequired": true,
-      "Row": 8,
+      "Key": "DiaChi",
+      "Title": "Địa chỉ",
+      "Type": "InputText",
+      "Row": 6,
       "ColLabel": 2,
-      "ColControl": 10,
+      "ColControl": 4,
       "ColSpanControl": 12
     },
     {
@@ -97,23 +93,17 @@
       "Title": "Nội dung",
       "Type": "CkEditor",
       "IsRequired": true,
-      "Row": 9,
+      "Row": 7,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
     },
     {
       "Key": "TrangThaiBanGhi",
-      "Title": "Trạng thái",
+      "Title": "",
       "CheckboxLabel": "Hoạt động",
       "Type": "Checkbox",
-      "Placeholder": "---Chọn---",
-      "IsRequired": true,
-      "Options": [
-        { "value": true, "label": "Hoạt động" },
-        { "value": false, "label": "Không hoạt động" }
-      ],
-      "Row": 10,
+      "Row": 8,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12

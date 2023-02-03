@@ -24,7 +24,7 @@
         "Key": "Show",
         "Title": "",
         "Type": "Button",
-        "TitleTooltip": "Thêm mới",
+        "TitleTooltip": "Xem chi tiết",
         "Icon": "search",
         "Action": "onClickShow"
       }

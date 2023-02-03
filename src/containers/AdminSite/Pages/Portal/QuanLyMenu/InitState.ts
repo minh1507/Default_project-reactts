@@ -1,3 +1,5 @@
+import { Guid } from "common/Enums";
+
 export interface IModelItem {
   id: String;
   ma: String;
@@ -8,10 +10,9 @@ export interface IModelItem {
   TrangThaiBanGhi: Boolean;
 }
 export interface IModelTree {
-  id: String;
-  ma: String;
-  ten: String;
-  thutu: String;
+  Id: String;
+  Code: String;
+  Name: String;
   Children: Array<IModelTree>;
 }
 export interface IState {
@@ -20,5 +21,12 @@ export interface IState {
 }
 export const InitState: IState = {
   DataItems: [],
-  DataTree: [],
+  DataTree: [    
+    {
+      Id: Guid.Empty,
+      Code: "CayMenu",
+      Name: "Cây menu",
+      Children: [],
+    },
+  ],
 };

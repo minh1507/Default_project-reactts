@@ -7,8 +7,11 @@ import { InitState } from './InitState';
 import { Actions } from './Action';
 import { Reducer } from './Reducer';
 import khoaHocListViewJson from './ListView.json';
-import KhoaHocForm from './Form'
+import FormKhoaHoc from './Form'
+import FormGiaoAnLyThuyet from './FormGiaoAnLyThuyet'
+import FormGiaoAnThucHanh from './FormGiaoAnThucHanh'
 import { IResponseMessage } from 'common/Models';
+import ATab from 'components/ATab';
 
 interface Props {
 
@@ -56,11 +59,19 @@ const KhoaHocList = (props: Props) => {
     let ButtonGroupsRender = () => {
         return <CDynamicButton actionDefs={KhoaHocListView.DataGrid.ActionDefs} actions={ActionEvents} />;
     }    
+    const TabKhoaHocRender = () => {
+        return <ATab key="KhoaHoc" activeName="ThongTinKhoaHoc" onTabClick={() => {}}
+        tabsPanel={[
+            {label:"Thông tin", name: "ThongTinKhoaHoc", panel:<FormKhoaHoc Id={khoaHocId} ReloadTableItems = {ReloadTableItems} />},
+            {label:"Giáo án lý thuyết", name: "GiaoAnLyThuyet", panel: <FormGiaoAnLyThuyet />},           
+            {label:"Giáo án thực hành", name: "GiaoAnThucHanh", panel: <FormGiaoAnThucHanh />},   
+        ]} ></ATab>
+    }
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
             <CDialog style={{width: "95%", top: "1%"}} title={khoaHocId ? "Sửa khóa học": "Tạo mới khóa học"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
-                <KhoaHocForm Id={khoaHocId} ReloadTableItems = {ReloadTableItems} />
+                {TabKhoaHocRender()}
             </CDialog>
             :<div></div>
         }

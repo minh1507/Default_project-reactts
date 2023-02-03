@@ -4,8 +4,8 @@
 	"Rows": 8,		
 	"Controls" : [
 		{
-			"Key": "Ten",
-			"Title": "Tên",     
+			"Key": "Ma",
+			"Title": "Mã",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 1,
@@ -14,8 +14,8 @@
 			"ColSpanControl": 12
 		},
 		{
-			"Key": "Ma",
-			"Title": "Mã",     
+			"Key": "Ten",
+			"Title": "Tên",     
 			"Type": "InputText",
 			"IsRequired": true,
 			"Row": 2,
@@ -24,41 +24,48 @@
 			"ColSpanControl": 12
 		},
 		{
+			"Key": "GioiTinh",
+			"Title": "Giới tính",     
+			"Type": "Select",
+			"Placeholder": "---Chọn---", 
+			"Options": [{ "value": true, "label": "Nam" },{ "value": false, "label": "Nữ" }],
+			"Row": 3,
+			"ColLabel": 2, 
+			"ColControl": 4, 
+			"ColSpanControl": 12
+		},
+		{
 			"Key": "NgaySinh",
 			"Title": "Ngày sinh",     
 			"Type": "Date",
-			"IsRequired": true,
 			"Row": 3,
 			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColControl": 4, 
 			"ColSpanControl": 12
 		},
 		{
 			"Key": "Email",
 			"Title": "Email",     
 			"Type": "InputText",
-			"IsRequired": true,
 			"Row": 4,
 			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColControl": 4, 
 			"ColSpanControl": 12
 		},
 		{
 			"Key": "Phone",
 			"Title": "Số điện thoại",     
 			"Type": "InputText",
-			"IsRequired": true,
-			"Row": 5,
+			"Row": 4,
 			"ColLabel": 2, 
-			"ColControl": 10, 
+			"ColControl": 4, 
 			"ColSpanControl": 12
 		},
 		{
 			"Key": "ChungChi",
 			"Title": "Chứng chỉ",     
 			"Type": "TextArea",
-			"IsRequired": true,
-			"Row": 6,
+			"Row": 5,
 			"ColLabel": 2, 
 			"ColControl": 10, 
 			"ColSpanControl": 12
@@ -67,20 +74,7 @@
 			"Key": "ThanhTich",
 			"Title": "Thành tích",     
 			"Type": "TextArea",
-			"IsRequired": true,
-			"Row": 7,
-			"ColLabel": 2, 
-			"ColControl": 10, 
-			"ColSpanControl": 12
-		},
-		{
-			"Key": "GioiTinh",
-			"Title": "Giới tính",     
-			"Type": "Select",
-			"IsRequired": true,
-			"Placeholder": "---Chọn---", 
-			"Options": [{ "value": true, "label": "Nam" },{ "value": false, "label": "Nữ" }],
-			"Row": 8,
+			"Row": 6,
 			"ColLabel": 2, 
 			"ColControl": 10, 
 			"ColSpanControl": 12
