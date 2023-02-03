@@ -120,11 +120,7 @@ const KhoaHoc = (props: Props) => {
               {state.DataHoatDong &&
                 state.DataHoatDong.map((value: any, index: any) => {
                   return (
-                    <div
-                      key={uuidv4()}
-                      className="slide-child"
-                      style={{ backgroundImage: `url(${random(index)})` }}
-                    >
+                    <div key={uuidv4()} className="slide-child">
                       <div className="slide-element">{value.TieuDe}</div>
                     </div>
                   );
