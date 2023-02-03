@@ -39,9 +39,10 @@ const KhoaHoc = (props: Props) => {
       state.DataHoatDong.length
     ) {
       setReLength(reLength + 4);
-    } else {
-      setReLength(reLength + 1);
     }
+    // if (reLength + 3 < state.DataHoatDong.length) {
+    //   setReLength(reLength + 1);
+    // }
   };
   console.log(reLength);
 

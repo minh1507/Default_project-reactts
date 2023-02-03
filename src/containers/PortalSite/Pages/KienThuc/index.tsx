@@ -478,7 +478,7 @@ const KienThuc = (props: Props) => {
           </div>
           <div className="kt-right-contain d-flex flex-column gap-2">
             <div className="img-contain-right-box-class">
-              <div className={`side-left-khoa-hoc ji-kh`}>
+              <div className={`side-left-khoa-hoc ji-kh rout-kba-dun`}>
                 <h5
                   className="kik-kh-kuki text-uppercase kt-su-aba"
                   style={{ fontSize: "1.2rem", margin: 0 }}
@@ -486,7 +486,10 @@ const KienThuc = (props: Props) => {
                   Chuyên mục
                 </h5>
                 <div className="mt-3 mb-3 crossline"></div>
-                <div className="accordion" id="accordionPanelsStayOpenExample">
+                <div
+                  className="accordion round-de"
+                  id="accordionPanelsStayOpenExample"
+                >
                   {DanhSachTinTuc &&
                     DanhSachTinTuc.map((value: any) => (
                       <div
