@@ -11,8 +11,8 @@
       "Placeholder": "---Chọn---",
       "Options": [{ "label": "Trang chủ", "value": 0 }],
       "Row": 1,
-      "ColLabel": 2,
-      "ColControl": 10,
+      "ColLabel": 3,
+      "ColControl": 9,
       "ColSpanControl": 12
     },
     {
@@ -21,8 +21,8 @@
       "Type": "TextArea",
       "IsRequired": true,
       "Row": 2,
-      "ColLabel": 2,
-      "ColControl": 10,
+      "ColLabel": 3,
+      "ColControl": 9,
       "ColSpanControl": 12
     }
   ],

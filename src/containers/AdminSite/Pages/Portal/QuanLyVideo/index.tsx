@@ -12,16 +12,16 @@ import { connect } from "react-redux";
 import { InitState } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
-import nhomAnhListViewJson from "./ListView.json";
-import NhomAnhForm from "./Form";
+import videoListViewJson from "./ListView.json";
+import VideoForm from "./Form";
 import { IResponseMessage } from "common/Models";
 
 interface Props {}
 
-const QuanLyNhomAnh = (props: Props) => {
+const QuanLyVideo = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
-  const [nhomAnhId, setnhomAnhId] = useState("");
-  const NhomAnhListView: any = nhomAnhListViewJson;
+  const [nhomVideoId, setnhomVideoId] = useState("");
+  const videoListView: any = videoListViewJson;
   const refNotification = useRef<any>();
   const refConfirm_DeleteItem = useRef<any>();
   const refDynamicTable = useRef<any>();
@@ -31,7 +31,7 @@ const QuanLyNhomAnh = (props: Props) => {
   }, []);
   const ActionEvents = {
     onClickCreate: () => {
-      setnhomAnhId("");
+      setnhomVideoId("");
       setDialogVisible(true);
     },
     onClickUpdate: () => {
@@ -42,7 +42,7 @@ const QuanLyNhomAnh = (props: Props) => {
         );
         return;
       }
-      setnhomAnhId(getRowId());
+      setnhomVideoId(getRowId());
       setDialogVisible(true);
     },
     onClickDelete: async () => {
@@ -72,7 +72,7 @@ const QuanLyNhomAnh = (props: Props) => {
   let ButtonGroupsRender = () => {
     return (
       <CDynamicButton
-        actionDefs={NhomAnhListView.DataGrid.ActionDefs}
+        actionDefs={videoListView.DataGrid.ActionDefs}
         actions={ActionEvents}
       />
     );
@@ -82,12 +82,12 @@ const QuanLyNhomAnh = (props: Props) => {
       <>
         {dialogVisible == true ? (
           <CDialog
-            style={{ width: "300px", top: "5%" }}
-            title={nhomAnhId ? "Sửa nhóm ảnh" : "Tạo mới nhóm ảnh"}
+            style={{ width: "40%", top: "5%", minWidth: "300px" }}
+            title={nhomVideoId ? "Sửa nhóm video" : "Tạo mới nhóm video"}
             dialogVisible={dialogVisible}
             onCancel={() => setDialogVisible(false)}
           >
-            <NhomAnhForm Id={nhomAnhId} ReloadTableItems={ReloadTableItems} />
+            <VideoForm Id={nhomVideoId} ReloadTableItems={ReloadTableItems} />
           </CDialog>
         ) : (
           <div></div>
@@ -99,7 +99,7 @@ const QuanLyNhomAnh = (props: Props) => {
     <>
       <CConfirm
         ref={refConfirm_DeleteItem}
-        Title="Thao tác này sẽ xóa nhóm ảnh này"
+        Title="Thao tác này sẽ xóa nhóm video này"
         Ok={async () => {
           await DeleteById();
         }}
@@ -108,14 +108,14 @@ const QuanLyNhomAnh = (props: Props) => {
       <CNotification ref={refNotification} />
       {DialogMemo}
       <ACard
-        title={NhomAnhListView.DataGrid.Title}
+        title={videoListView.DataGrid.Title}
         buttonGroups={ButtonGroupsRender()}
       >
         <CDynamicTable
           ref={refDynamicTable}
-          id={NhomAnhListView.DataGrid.Key}
-          key={NhomAnhListView.DataGrid.Key}
-          columnDefs={NhomAnhListView.DataGrid.ColumnDefs}
+          id={videoListView.DataGrid.Key}
+          key={videoListView.DataGrid.Key}
+          columnDefs={videoListView.DataGrid.ColumnDefs}
           dataItems={state.DataItems}
         />
       </ACard>
@@ -125,4 +125,4 @@ const QuanLyNhomAnh = (props: Props) => {
 const mapState = ({ ...state }) => ({});
 const mapDispatchToProps = {};
 
-export default connect(mapState, mapDispatchToProps)(QuanLyNhomAnh);
+export default connect(mapState, mapDispatchToProps)(QuanLyVideo);

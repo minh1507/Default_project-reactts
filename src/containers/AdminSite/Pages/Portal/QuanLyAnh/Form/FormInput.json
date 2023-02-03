@@ -38,7 +38,7 @@
     },
     {
       "Key": "Files",
-      "Title": "Link ảnh",
+      "Title": "File ảnh",
       "Type": "UploadFile",
       "IsRequired": true,
       "Row": 4,
