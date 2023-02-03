@@ -15,12 +15,12 @@
       },
       {
         "Key": "URL_AnhDaiDien",
-        "Title": "Link ảnh",
+        "Title": "Ảnh giới thiệu",
         "Align": "center"
       },
       {
         "Key": "GiaGiaoDong",
-        "Title": "Giá dao động",
+        "Title": "Giá giao động",
         "Align": "center"
       },
       {

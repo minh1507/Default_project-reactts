@@ -122,7 +122,7 @@ const QuanLyMonHoc = (props: Props) => {
       <>
         {dialogVisible == true ? (
           <CDialog
-            style={{ width: "80%" }}
+            style={{ width: "45%" }}
             title={MonHocId_List ? "Sửa môn học" : "Tạo mới môn học"}
             dialogVisible={dialogVisible}
             onCancel={() => setDialogVisible(false)}
