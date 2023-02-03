@@ -28,20 +28,20 @@ const KhoaHocForm = (props: Props) => {
     onClickSave: async () => {
       let isValid = refDynamicForm.current.onValidation();
       console.log(refDynamicForm.current.getStateValues())
-      // if (isValid) {
-      //   let stateValues = refDynamicForm.current.getStateValues();
-      //   let res: IResponseMessage = null;
+      if (isValid) {
+        let stateValues = refDynamicForm.current.getStateValues();
+        let res: IResponseMessage = null;
 
-      //   if (props.Id) {
-      //     res = await Actions.UpdateItem(stateValues);
-      //   } else {
-      //     res = await Actions.CreateItem(stateValues);
-      //   }
-      //   if (res.Success) {
-      //     refNotification.current.showNotification("success", res.Message);
-      //     props.ReloadTableItems();
-      //   }
-      // }
+        if (props.Id) {
+          res = await Actions.UpdateItem(stateValues);
+        } else {
+          res = await Actions.CreateItem(stateValues);
+        }
+        if (res.Success) {
+          refNotification.current.showNotification("success", res.Message);
+          props.ReloadTableItems();
+        }
+      }
     },
   };
   return (

@@ -6,31 +6,29 @@
       {
         "Key": "TenMonHoc",
         "Title": "Môn học",
-        "Align": "center"
+        "Align": "left",
+        "Width": "250"
       },
       {
         "Key": "TenGiaoVien",
         "Title": "Giáo viên",
-        "Align": "center"
+        "Align": "center",
+        "Width": "200"
       },
       {
-        "Key": "HocPhiGoc",
-        "Title": "Học phí gốc",
-        "Align": "center"
+        "Key": "TieuDe",
+        "Title": "Tiêu đề",
+        "Align": "left",
+        "Width": "500"
       },
       {
         "Key": "ThoiGianHoc",
-        "Title": "Thời gian học",
-        "Align": "center"
-      },
-      {
-        "Key": "HocPhiGiamGia",
-        "Title": "Học phí giảm giá",
+        "Title": "Thời hạn",
         "Align": "center"
       },
       {
         "Key": "TrangThai",
-        "Title": "Trạng thái khóa học",
+        "Title": "Trạng thái",
         "Align": "center",
         "Options": [
           { "value": true, "label": "Mở" },
