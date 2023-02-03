@@ -1376,6 +1376,10 @@
     transform: scale(1.5);
   }
 
+  .rout-kba-dun {
+    width: 100%;
+  }
+
   .wrapper_discard {
     overflow: hidden;
     height: 200px;
@@ -1396,7 +1400,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 1%;
-    width: 100%;
+    width: 400px;
     max-height: 98vh;
     overflow-y: scroll;
     height: auto !important;
