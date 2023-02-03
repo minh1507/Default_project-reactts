@@ -1396,7 +1396,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 1%;
-    width: 400px;
+    width: 100%;
     max-height: 98vh;
     overflow-y: scroll;
     height: auto !important;
@@ -2237,4 +2237,7 @@
   //   height: 80%;
   //   border-left: 1px solid #334862 !important;
   // }
+  .round-de {
+    width: "100%";
+  }
 }

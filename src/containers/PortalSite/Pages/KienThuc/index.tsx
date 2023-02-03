@@ -486,7 +486,10 @@ const KienThuc = (props: Props) => {
                   Chuyên mục
                 </h5>
                 <div className="mt-3 mb-3 crossline"></div>
-                <div className="accordion" id="accordionPanelsStayOpenExample">
+                <div
+                  className="accordion round-de"
+                  id="accordionPanelsStayOpenExample"
+                >
                   {DanhSachTinTuc &&
                     DanhSachTinTuc.map((value: any) => (
                       <div
