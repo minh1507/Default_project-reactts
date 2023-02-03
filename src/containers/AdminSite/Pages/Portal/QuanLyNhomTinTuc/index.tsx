@@ -143,7 +143,7 @@ const QuanLyNhomTinTuc = (props: Props) => {
       <div className="row">
         <div className="col-sm-4">
           <ACard
-            title={"Nhóm tin tức"}
+            title={"Cây nhóm tin tức"}
             buttonGroups={ButtonGroupsRender_TreeTinTuc()}
           >
             <CTree

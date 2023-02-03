@@ -145,7 +145,7 @@ const QuanLyMonHoc = (props: Props) => {
       <div className="row">
         <div className="col-sm-4">
           <ACard
-            title={"Môn học"}
+            title={"Cây môn học"}
             buttonGroups={ButtonGroupsRender_TreeMonHoc()}
           >
             <CTree

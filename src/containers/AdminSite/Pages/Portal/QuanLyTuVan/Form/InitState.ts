@@ -4,7 +4,7 @@ import { IControlOptions } from "common/Models";
 export interface IModelItem {
   Id: String;
   Ten: String;
-  GioiTinh: String;
+  GioiTinh: Number;
   Sdt: String;
   Email: String;
   NoiDung: String;
@@ -17,7 +17,7 @@ export const InitState: IState = {
   DataItem: {
     Id: Guid.Empty,
     Ten: "",
-    GioiTinh: "",
+    GioiTinh: 0,
     Sdt: "",
     Email: "",
     NoiDung: "",

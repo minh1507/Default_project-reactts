@@ -4,9 +4,14 @@
         "Title": "Danh sách tin tức",
         "ColumnDefs": [
             {                
+                "Key": "NhomTinTuc",
+                "Title": "Nhóm tin tức",                
+                "Align": "left"    
+            },
+            {                
                 "Key": "TieuDe",
                 "Title": "Tiêu đề",                
-                "Align": "center"    
+                "Align": "left"
             },
             {
                 "Key": "TacGia",
@@ -20,16 +25,13 @@
                 "Format": "dd/MM/yyyy"
             },
             {
-                "Key": "LuotXem",
-                "Title": "Lượt xem",                
-                "Align": "center"
-            },
-            {
-                "Key": "TinMoi",
-                "Title": "Tin mới",               
+                "Key": "TrangThaiBanGhi",
+                "Title": "Trạng thái",
                 "Align": "center",
-                "Options": [{ "value": true, "label": "Có" },{ "value": false, "label": "Không" }]
- 
+                "Options": [
+                  { "value": true, "label": "Hoạt động" },
+                  { "value": false, "label": "Không hoạt động" }
+                ]
             }
         ],
         "ActionDefs": [

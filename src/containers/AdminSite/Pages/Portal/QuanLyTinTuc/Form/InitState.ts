@@ -29,7 +29,7 @@ export const InitState: IState = {
     URL_AnhDaiDien: "",
     NgayXuatBan: new Date(),
     TinNoiBat: false,
-    TinMoi: true,
+    TinMoi: false,
     LuotXem: 0,
     IdNhomTinTuc: "",
     TrangThaiBanGhi: true,

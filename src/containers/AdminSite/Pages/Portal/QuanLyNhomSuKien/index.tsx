@@ -143,7 +143,7 @@ const QuanLyNhomSuKien = (props: Props) => {
       <div className="row">
         <div className="col-sm-4">
           <ACard
-            title={"Nhóm sự kiện"}
+            title={"Cây nhóm sự kiện"}
             buttonGroups={ButtonGroupsRender_TreeSuKien()}
           >
             <CTree

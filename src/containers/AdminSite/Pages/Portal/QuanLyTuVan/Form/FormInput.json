@@ -10,8 +10,7 @@
       "Row": 1,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12,
-      "IsDisabled": true
+      "ColSpanControl": 12
     },
     {
       "Key": "Sdt",
@@ -20,8 +19,7 @@
       "Row": 2,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12,
-      "IsDisabled": true
+      "ColSpanControl": 12
     },
     {
       "Key": "Email",
@@ -30,18 +28,18 @@
       "Row": 3,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12,
-      "IsDisabled": true
+      "ColSpanControl": 12
     },
     {
       "Key": "GioiTinh",
       "Title": "Giới tính",
-      "Type": "InputText",
+			"Type": "Select",
+			"Placeholder": "---Chọn---", 
+			"Options": [{ "value": 0, "label": "Nam" },{ "value": 1, "label": "Nữ" },{ "value": 2, "label": "Khác" }],
       "Row": 4,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12,
-      "IsDisabled": true
+      "ColSpanControl": 12
     },
     {
       "Key": "NoiDung",
@@ -50,8 +48,7 @@
       "Row": 5,
       "ColLabel": 2,
       "ColControl": 10,
-      "ColSpanControl": 12,
-      "IsDisabled": true
+      "ColSpanControl": 12
     }
   ]
 }

@@ -60,7 +60,7 @@ const TuVanList = (props: Props) => {
       <>
         {dialogVisible == true ? (
           <CDialog
-            style={{ width: "80%", top: "5%" }}
+            style={{ width: "50%", top: "5%" }}
             title={"Xem tư vấn"}
             dialogVisible={dialogVisible}
             onCancel={() => setDialogVisible(false)}

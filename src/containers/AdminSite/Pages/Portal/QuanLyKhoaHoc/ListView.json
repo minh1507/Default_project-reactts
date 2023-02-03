@@ -28,7 +28,7 @@
       },
       {
         "Key": "TrangThai",
-        "Title": "Trạng thái",
+        "Title": "Tình trạng",
         "Align": "center",
         "Options": [
           { "value": true, "label": "Mở" },

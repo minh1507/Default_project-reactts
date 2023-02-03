@@ -14,12 +14,6 @@
                 "Align": "center"   
             },
             {
-                "Key": "URL",
-                "Title": "Đường dẫn",                
-                "Align": "center"  
-
-            },
-            {
                 "Key": "ThuTu",
                 "Title": "Thứ tự",
                 "Align": "center"

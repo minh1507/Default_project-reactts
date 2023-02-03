@@ -9,8 +9,8 @@ export interface IModelItem {
 }
 export interface IModelTree {
   Id: String;
-  Ma: String;
-  Ten: String;
+  Code: String;
+  Name: String;
   Children: Array<IModelTree>;
 }
 export interface IState {
@@ -19,5 +19,12 @@ export interface IState {
 }
 export const InitState: IState = {
   DataItems: [],
-  DataTree: [],
+  DataTree: [
+    {
+      Id: Guid.Empty,
+      Code: "CayNhomTinTuc",
+      Name: "Cây nhóm tin tức",
+      Children: [],
+    },
+  ],
 };

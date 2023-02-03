@@ -27,7 +27,6 @@ const KhoaHocForm = (props: Props) => {
   const ActionEvents = {
     onClickSave: async () => {
       let isValid = refDynamicForm.current.onValidation();
-      console.log(refDynamicForm.current.getStateValues())
       if (isValid) {
         let stateValues = refDynamicForm.current.getStateValues();
         let res: IResponseMessage = null;

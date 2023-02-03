@@ -11,8 +11,7 @@
         "Row": 1,
         "ColLabel": 4,
         "ColControl": 8,
-        "ColSpanControl": 12,
-        "IsDisabled": true
+        "ColSpanControl": 12
       },
       {
         "Key": "Email",
@@ -21,8 +20,7 @@
         "Row": 2,
         "ColLabel": 4,
         "ColControl": 8,
-        "ColSpanControl": 12,
-        "IsDisabled": true
+        "ColSpanControl": 12
       },
       {
         "Key": "Phone",
@@ -31,8 +29,7 @@
         "Row": 3,
         "ColLabel": 4,
         "ColControl": 8,
-        "ColSpanControl": 12,
-        "IsDisabled": true
+        "ColSpanControl": 12
       },
       {
         "Key": "Address",
@@ -41,22 +38,17 @@
         "Row": 4,
         "ColLabel": 4,
         "ColControl": 8,
-        "ColSpanControl": 12,
-        "IsDisabled": true
+        "ColSpanControl": 12
       },
       {
         "Key": "IsActive",
-        "Title": "Trạng thái",
-        "Type": "Select",
-        "Options": [
-          { "value": true, "label": "Hoạt động" },
-          { "value": false, "label": "Không hoạt động" }
-        ],
+        "Title": "",
+        "CheckboxLabel": "Hoạt động",
+        "Type": "Checkbox",
         "Row": 5,
         "ColLabel": 4,
         "ColControl": 8,
-        "ColSpanControl": 12,
-        "IsDisabled": true
+        "ColSpanControl": 12
       }
     ]
   },
