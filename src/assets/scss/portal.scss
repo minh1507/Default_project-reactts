@@ -440,6 +440,7 @@
 
   .underline-head-tt:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 
   .card_logo {
@@ -1201,6 +1202,9 @@
       flex-direction: column;
       gap: 2rem;
     }
+    .kop-ata-kh-left {
+      width: 100% !important;
+    }
   }
 
   .banner_btn_rout {
@@ -1621,6 +1625,9 @@
   }
 
   @media screen and (max-width: 961px) {
+    .dra-left-kti {
+      width: 100% !important;
+    }
     .reszex {
       font-size: 2rem !important;
     }

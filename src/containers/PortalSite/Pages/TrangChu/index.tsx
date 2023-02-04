@@ -418,32 +418,32 @@ const TrangChu = (props: Props) => {
                             </p>
                             <p>
                               <span className="star-rate">
-                                      <i
-                                        className="bi bi-star-fill co-or"
-                                        aria-hidden="true"
-                                      ></i>
-                                      &nbsp;
-                                      <i
-                                        className="bi bi-star-fill co-or"
-                                        aria-hidden="true"
-                                      ></i>
-                                      &nbsp;
-                                      <i
-                                        className="bi bi-star co-or"
-                                        aria-hidden="true"
-                                      ></i>
-                                      &nbsp;
-                                      <i
-                                        className="bi bi-star co-or"
-                                        aria-hidden="true"
-                                      ></i>
-                                      &nbsp;
-                                      <i
-                                        className="bi bi-star co-or"
-                                        aria-hidden="true"
-                                      ></i>
-                                      &nbsp; (45)
-                                    </span>
+                                <i
+                                  className="bi bi-star-fill co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star-fill co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp; (45)
+                              </span>
                             </p>
 
                             <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
