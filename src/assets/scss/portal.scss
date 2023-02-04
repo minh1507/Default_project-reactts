@@ -433,9 +433,13 @@
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   }
 
-  .card_main_container .wrapper_card:hover {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
-    transform: translateY(-1%);
+  // .card_main_container:hover .wrapper_card {
+  //   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+  //   transform: translateY(-1%);
+  // }
+
+  .underline-head-tt:hover {
+    text-decoration: underline;
   }
 
   .card_logo {
@@ -2252,4 +2256,19 @@
   .gv-kh:last-child {
     margin: 0 !important;
   }
+
+  .change-tt-aba {
+    width: 17.3rem;
+  }
+
+  .kt-round-dudat {
+    display: flex;
+    justify-content: center;
+  }
+
+  // @media screen and (max-width: 1200px) {
+  //   .change-tt-aba {
+  //     width: 17rem !important;
+  //   }
+  // }
 }

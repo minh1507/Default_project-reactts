@@ -36,8 +36,7 @@ const ChiTiet = (props: Props) => {
             {state.DataDetail.TieuDe}
           </h3>
           <p className="mb-3">
-            Tác giả:{" "}
-            <span className="animate-charcter">{state.DataDetail.TacGia}</span>
+            Tác giả: <span>{state.DataDetail.TacGia}</span>
           </p>
 
           <img

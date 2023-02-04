@@ -167,8 +167,15 @@ const TrangChu = (props: Props) => {
                   <img src={child.Img as string} className="card_logo" />
                   <div className="card-body main_sub_bd d-flex flex-column">
                     <h6
-                      className="card-title mt-4 mb-2 text-uppercase"
+                      className="card-title mt-4 mb-2 text-uppercase underline-head-tt"
                       style={{ fontStyle: "italic" }}
+                      onClick={() =>
+                        GoToDetailPage(
+                          "/chi-tiet-tin-tuc",
+                          child.Id as string,
+                          child.TieuDe as string
+                        )
+                      }
                     >
                       {child.TieuDe}
                     </h6>
@@ -209,13 +216,13 @@ const TrangChu = (props: Props) => {
           {state.DataItemsGiaoAn.TenMonHoc}
         </h3>
         <div className="container mt-5">
-          <div className="row row-cols-1 row-cols-md-4 g-3">
+          <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat">
             {state.DataItemsGiaoAn.DanhSachMonHocCon.map(
               (tree: IModelMonHocCon) => (
                 <div
                   key={uuidv4()}
                   title={`${tree.TenMonHoc}`}
-                  className="col "
+                  className="col change-tt-aba"
                 >
                   <div
                     className="card card_main_container prefix_card wrapper_c"
@@ -237,7 +244,10 @@ const TrangChu = (props: Props) => {
                       className="card-body card_body_override card-bodys"
                       style={{ textAlign: "start" }}
                     >
-                      <h6 className="card-title head_z mb-1">
+                      <h6
+                        className="card-title head_z mb-1 underline-head-tt"
+                        onClick={() => GoToOtherPage("/khoa-hoc")}
+                      >
                         {tree.TenMonHoc}
                       </h6>
                       <p
@@ -263,7 +273,10 @@ const TrangChu = (props: Props) => {
                       </p>
 
                       <div className="boxC">
-                        <button className="header_btn bg-danger text-light">
+                        <button
+                          className="header_btn bg-danger text-light"
+                          onClick={() => GoToOtherPage("/khoa-hoc")}
+                        >
                           Xem chi tiết
                         </button>
                       </div>
@@ -297,19 +310,17 @@ const TrangChu = (props: Props) => {
                   {tree.TenMonHoc}
                 </h3>
                 <div className="container mt-5">
-                  <div className="row row-cols-1 row-cols-md-4 g-3">
+                  <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat">
                     {tree.DanhSachKhoaHoc.map((item: any) => (
                       <div
                         key={uuidv4()}
                         title={`${item.TieuDe}`}
-                        className="col "
+                        className="col change-tt-aba"
                       >
                         <div
                           className="card card_main_container wrapper_c"
                           style={{
                             cursor: "pointer",
-                            // height: "385px",
-                            // position: "relative",
                           }}
                         >
                           <div className="wrapper_card">
@@ -326,7 +337,16 @@ const TrangChu = (props: Props) => {
                               textAlign: "start",
                             }}
                           >
-                            <h6 className="card-title titleXl ">
+                            <h6
+                              className="card-title titleXl underline-head-tt"
+                              onClick={() =>
+                                GoToDetailPage(
+                                  "/khoa-hoc-chi-tiet",
+                                  item.Id as string,
+                                  item.TieuDe as string
+                                )
+                              }
+                            >
                               {item.TieuDe}
                             </h6>
                             <p
@@ -396,15 +416,7 @@ const TrangChu = (props: Props) => {
                                 {item.ThoiGianHoc}
                               </span>
                             </p>
-                            <p
-                              className="mo-ta"
-                              style={{
-                                fontSize: "calc(1rem*.9)",
-                                textAlign: "justify",
-                              }}
-                            >
-                              {item.MoTa}
-                            </p>
+
                             <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
                               <button
                                 className="header_btn bg-danger text-light mt-3"
@@ -426,7 +438,10 @@ const TrangChu = (props: Props) => {
                   </div>
                 </div>
                 <div className="mt-5">
-                  <button className="header_btn bg-danger text-light ">
+                  <button
+                    className="header_btn bg-danger text-light "
+                    onClick={() => GoToOtherPage("/khoa-hoc")}
+                  >
                     Xem tất cả
                   </button>
                 </div>
