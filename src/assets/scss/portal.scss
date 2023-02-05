@@ -2271,10 +2271,15 @@
     display: flex;
     justify-content: center;
   }
-
   .money {
     color: red;
     font-size: calc(1.1rem);
     font-weight: bold;
+  }
+  .rstm-tree-item--active {
+    background-color: unset;
+    color: black;
+    box-shadow: unset;
+    border-bottom: 1px solid black;
   }
 }
