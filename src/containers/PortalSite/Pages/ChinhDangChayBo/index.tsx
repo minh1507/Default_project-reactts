@@ -108,7 +108,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",
@@ -173,7 +173,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",
@@ -238,7 +238,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",
@@ -303,7 +303,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",
@@ -368,7 +368,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",
@@ -433,7 +433,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",
@@ -498,7 +498,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",
@@ -563,7 +563,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",
@@ -628,7 +628,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",
@@ -693,7 +693,7 @@ const ChinhDangChayBo = (props: Props) => {
                   <div className="card-body p-2">
                     <div className="d-flex justify-content-between">
                       <h5
-                        className="card-title titleXl head_z"
+                        className="card-title  head_z"
                         style={{
                           textAlign: "start",
                           width: "210px",

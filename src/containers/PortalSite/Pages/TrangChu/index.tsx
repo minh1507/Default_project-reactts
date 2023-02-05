@@ -153,8 +153,7 @@ const TrangChu = (props: Props) => {
                   style={{
                     maxWidth: "350px",
                     border: "none",
-                    cursor: "pointer",
-                    minHeight: "425px",
+                    cursor: "pointer"
                   }}
                 >
                   <div className="wrapper_discard">
@@ -244,30 +243,15 @@ const TrangChu = (props: Props) => {
                       className="card-body card_body_override card-bodys"
                       style={{ textAlign: "start" }}
                     >
-                      <h6
-                        className="card-title head_z mb-1 underline-head-tt"
+                      <p
+                        className="card-title underline-head-tt"
                         onClick={() => GoToOtherPage("/khoa-hoc")}
                       >
                         {tree.TenMonHoc}
-                      </h6>
-                      <p
-                        className="card-text"
-                        style={{
-                          fontSize: "calc(1rem*.9)",
-                          color: "grey",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        <span className="text-danger">
-                          {tree.GiaGiaoDong} ₫
-                        </span>
                       </p>
+                      <p className="money">{String.num(tree.GiaGiaoDongTu)}₫ - {String.num(tree.GiaGiaoDongDen)}₫</p>
                       <p
                         className=" card-text text-dark mo-ta mb-1"
-                        style={{
-                          fontSize: "calc(1rem*.9)",
-                          color: "grey",
-                        }}
                       >
                         {tree.MoTa}
                       </p>
@@ -342,8 +326,8 @@ const TrangChu = (props: Props) => {
                               textAlign: "start",
                             }}
                           >
-                            <h6
-                              className="card-title titleXl underline-head-tt"
+                            <p
+                              className="card-title  underline-head-tt"
                               onClick={() =>
                                 GoToDetailPage(
                                   "/khoa-hoc-chi-tiet",
@@ -353,7 +337,45 @@ const TrangChu = (props: Props) => {
                               }
                             >
                               {item.TieuDe}
-                            </h6>
+                            </p>
+                            <p className=" card-text">
+                              Thời hạn khóa học:{" "} {item.ThoiHan} {" "} tháng
+                            </p>
+                            {
+                              item.ThoiHanTruyCapMienPhi ?
+                              <p className=" card-text">
+                                Miễn phí truy cập thêm:{" "} {item.ThoiHanTruyCapMienPhi} {" "} tháng
+                              </p>:<></>
+                            }
+                            <p className="mb-1 mt-1">
+                              <span className="star-rate">
+                                <i
+                                  className="bi bi-star-fill co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star-fill co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp; (45)
+                              </span>
+                            </p>
                             <p
                               className=" card-text"
                               style={{
@@ -408,49 +430,6 @@ const TrangChu = (props: Props) => {
                                   </span>
                                 )}
                             </p>
-
-                            <p
-                              className=" card-text"
-                              style={{
-                                fontSize: "calc(1rem*.9)",
-                                fontWeight: "bold",
-                              }}
-                            >
-                              Dự kiến:{" "}
-                              <span className="text-dark">
-                                {item.ThoiGianHoc}
-                              </span>
-                            </p>
-                            <p className="mb-1">
-                              <span className="star-rate">
-                                <i
-                                  className="bi bi-star-fill co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp;
-                                <i
-                                  className="bi bi-star-fill co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp;
-                                <i
-                                  className="bi bi-star co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp;
-                                <i
-                                  className="bi bi-star co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp;
-                                <i
-                                  className="bi bi-star co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp; (45)
-                              </span>
-                            </p>
-
                             {/* <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
                               <button
                                 className="header_btn bg-danger text-light mt-3"
@@ -521,10 +500,10 @@ const TrangChu = (props: Props) => {
                       <div className="card-body p-2">
                         <div className="d-flex justify-content-between">
                           <h6
-                            className="card-title titleXl head_z"
+                            className="card-title  head_z"
                             style={{
                               textAlign: "start",
-                              width: "210px",
+                              width: "250px",
                               fontSize: "1.15rem",
                             }}
                           >

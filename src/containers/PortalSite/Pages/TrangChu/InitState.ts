@@ -27,7 +27,8 @@ export interface IModelMonHocCon {
   Id: String;
   TenMonHoc: String;
   MoTa: String;
-  GiaGiaoDong: String;
+  GiaGiaoDongTu: Number;
+  GiaGiaoDongDen: Number;
   URL_AnhDaiDien: String;
   IdMonHocCha: String;
 }

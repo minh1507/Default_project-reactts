@@ -14,8 +14,14 @@
   }
   .card-title {
     color: #082346;
-    font-size: 19px;
+    font-size: 1.1rem;
     font-weight: bold;
+    line-height: 20px;
+  }
+  .card-text {
+    color: #6a6f73;
+    font-size: 14px;
+    line-height: 18px;
   }
   .text_f:hover {
     opacity: 0.8;
@@ -417,7 +423,7 @@
   /* main sub detail */
 
   .main_sub_bd {
-    padding: 15px 18px 15px 18px;
+    padding: 15px 15px 15px 15px;
   }
 
   .main_sub_detal {
@@ -690,16 +696,6 @@
     }
   }
 
-  .titleXl {
-    font-size: unset !important;
-    font-weight: 700;
-  }
-
-  h6 {
-    font-size: 0.8rem;
-    margin: 0;
-  }
-
   .doContent {
     border-bottom: 2px solid red;
     cursor: pointer;
@@ -720,7 +716,7 @@
   }
 
   .card-bodys {
-    padding: 9px 10px 5px 10px !important;
+    padding: 10px 10px 10px 10px !important;
   }
 
   h5 {
@@ -743,8 +739,9 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    height: 5.3rem;
+    height: 4.4rem;
     text-align: justify;
+    color: #6a6f73 !important;
   }
 
   .undoRemoveContent {
@@ -1176,8 +1173,8 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    max-height: 7rem;
-    height: 7rem;
+    max-height: 5.5rem;
+    height: 5.5rem;
   }
 
   .qb {
@@ -1365,7 +1362,7 @@
 
   .wrapper_card {
     overflow: hidden;
-    height: 170px;
+    height: 150px;
   }
 
   .wrapper_card img {
@@ -2273,5 +2270,11 @@
   .kt-round-dudat {
     display: flex;
     justify-content: center;
+  }
+
+  .money {
+    color: red;
+    font-size: calc(1.1rem);
+    font-weight: bold;
   }
 }

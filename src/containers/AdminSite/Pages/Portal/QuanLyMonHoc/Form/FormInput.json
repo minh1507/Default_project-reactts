@@ -34,19 +34,29 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "MoTa",
-      "Title": "Mô tả",
-      "Type": "TextArea",
+      "Key": "GiaGiaoDongTu",
+      "Title": "Giá giao động từ",
+      "Type": "InputNumber",
+      "IsRequired": true,
       "Row": 4,
       "ColLabel": 2,
-      "ColControl": 10,
+      "ColControl": 4,
       "ColSpanControl": 12
     },
     {
-      "Key": "GiaGiaoDong",
-      "Title": "Giá giao động",
-      "Type": "InputText",
+      "Key": "GiaGiaoDongDen",
+      "Title": "Giá giao động đến",
+      "Type": "InputNumber",
       "IsRequired": true,
+      "Row": 4,
+      "ColLabel": 2,
+      "ColControl": 4,
+      "ColSpanControl": 12
+    },
+    {
+      "Key": "MoTa",
+      "Title": "Mô tả",
+      "Type": "TextArea",
       "Row": 5,
       "ColLabel": 2,
       "ColControl": 10,
