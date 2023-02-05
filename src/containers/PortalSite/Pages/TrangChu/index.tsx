@@ -143,12 +143,12 @@ const TrangChu = (props: Props) => {
   };
 
   const gioiThieu = state.DataItemsTinTuc && (
-    <div key={uuidv4()} className="main_sub_detal mt-2">
+    <div key={uuidv4()} className="main_sub_detal rout-zx mt-2">
       <div className="container-xl d-flex flex-column">
         <h3 className="text-danger text-uppercase tieu-de">
           {state.DataItemsTinTuc.TenNhomTinTuc}
         </h3>
-        <div className="container mt-5">
+        <div className="container-xl mt-3">
           <div className="row gap-3 justify-content-center align-items-center">
             {state.DataItemsTinTuc.DanhSachTinTuc.map(
               (child: danhSachTintuc) => (
@@ -217,12 +217,12 @@ const TrangChu = (props: Props) => {
   );
 
   const giaoan = state.DataItemsGiaoAn && (
-    <div className="main_sub_detal mt-2 mb-2 ">
+    <div className="main_sub_detal rout-zxz mt-2 mb-2 ">
       <div className="container-xl d-flex flex-column">
         <h3 className="text-danger text-uppercase tieu-de">
           {state.DataItemsGiaoAn.TenMonHoc}
         </h3>
-        <div className="container mt-5">
+        <div className="container mt-3">
           <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat">
             {state.DataItemsGiaoAn.DanhSachMonHocCon.map(
               (tree: IModelMonHocCon) => (
@@ -469,12 +469,12 @@ const TrangChu = (props: Props) => {
     ));
 
   const suKien = state.DataItemsSuKien && (
-    <div className="main_sub_detal mt-2 mb-2">
+    <div className="main_sub_detal rout-zxa mb-2">
       <div className="container-xl d-flex flex-column">
         <h3 className="text-danger text-uppercase tieu-de">
           {state.DataItemsSuKien.TenNhomSuKien}
         </h3>
-        <div className="container mt-5">
+        <div className="container mt-3">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
             {state.DataItemsSuKien.DanhSachSuKien.map(
               (child: danhSachSuKien) => (

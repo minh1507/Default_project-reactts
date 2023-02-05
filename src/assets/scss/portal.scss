@@ -220,7 +220,7 @@
 
   .sups::after {
     left: 0;
-    bottom: -5px;
+    bottom: 0;
   }
 
   .sups::before {
@@ -2274,6 +2274,21 @@
 
   .kt-round-dudat {
     display: flex;
+  }
+
+  .rout-zx {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  .rout-zxz {
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  .rout-zxa {
+    padding-top: 0;
+    padding-bottom: 15px;
   }
 
   .uoy-tt {
