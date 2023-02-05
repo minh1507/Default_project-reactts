@@ -14,8 +14,13 @@
         "Align": "center"
       },
       {
-        "Key": "GiaGiaoDong",
-        "Title": "Giá giao động",
+        "Key": "GiaGiaoDongTu",
+        "Title": "Giá giao động từ",
+        "Align": "center"
+      },
+      {
+        "Key": "GiaGiaoDongDen",
+        "Title": "Giá giao động đến",
         "Align": "center"
       },
       {

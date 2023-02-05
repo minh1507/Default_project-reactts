@@ -112,9 +112,9 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "ThoiGianHoc",
-      "Title": "Thời hạn khoá học",
-      "Type": "InputText",
+      "Key": "ThoiHan",
+      "Title": "Thời hạn",
+      "Type": "InputNumber",
       "IsRequired": true,
       "Row": 6,
       "ColLabel": 2,
@@ -122,9 +122,9 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "ThoiGianTruyCapQC",
-      "Title": "Thời gian quảng cáo",
-      "Type": "InputText",
+      "Key": "ThoiHanTruyCapMienPhi",
+      "Title": "Thời hạn truy cập miễn phí",
+      "Type": "InputNumber",
       "IsRequired": false,
       "Row": 6,
       "ColLabel": 2,

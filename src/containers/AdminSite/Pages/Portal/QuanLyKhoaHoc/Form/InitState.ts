@@ -12,8 +12,8 @@ export interface IModelItem {
   TyLeDanhGia: Number;
   HocPhiGoc: Number;
   HocPhiGiamGia: Number;
-  ThoiGianHoc: String;
-  ThoiGianTruyCapQC: String;
+  ThoiHan: Number;
+  ThoiHanTruyCapMienPhi: Number;
   GioiThieu: String;
   NoiDung: String;
   TrangThaiBanGhi: Boolean;
@@ -35,8 +35,8 @@ export const InitState: IState = {
     TyLeDanhGia: 0,
     HocPhiGoc: 0,
     HocPhiGiamGia: 0,
-    ThoiGianHoc: "",
-    ThoiGianTruyCapQC: "",
+    ThoiHan: 0,
+    ThoiHanTruyCapMienPhi: 0,
     GioiThieu: "",
     NoiDung: "",
     TrangThaiBanGhi: true,

@@ -5,7 +5,8 @@ export interface IModelItem {
   Ma: String;
   Ten: String;
   MoTa: String;
-  GiaGiaoDong: String;
+  GiaGiaoDongTu: Number;
+  GiaGiaoDongDen: Number;
   IdMonHocCha?: String;
   TrangThaiBanGhi: Boolean;
   URL_AnhDaiDien: String;
@@ -17,9 +18,10 @@ export const InitState: IState = {
   DataItem: {
     Id: Guid.Empty,
     Ma: "",
-    MoTa: "",
-    GiaGiaoDong: "",
     Ten: "",
+    MoTa: "",
+    GiaGiaoDongTu: 0,
+    GiaGiaoDongDen: 0,
     URL_AnhDaiDien: "",
     IdMonHocCha: Guid.Empty,
     TrangThaiBanGhi: true,
