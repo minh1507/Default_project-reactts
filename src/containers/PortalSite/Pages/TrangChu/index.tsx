@@ -650,7 +650,16 @@ const TrangChu = (props: Props) => {
                   style={{ borderRadius: 5 }}
                 />
                 <div>
-                  <h6 className="mt-1 card-title cursor-pointer">
+                  <h6
+                    className="mt-1 card-title cursor-pointer underline-head-tt"
+                    onClick={() =>
+                      GoToDetailPage(
+                        "/chi-tiet-tin-tuc",
+                        item.Id as string,
+                        item.TieuDe as string
+                      )
+                    }
+                  >
                     {item.TieuDe}
                   </h6>
                   <p className="owl_text" style={{ wordWrap: "break-word" }}>
