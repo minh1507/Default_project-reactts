@@ -521,7 +521,7 @@ const TrangChu = (props: Props) => {
                       <div className="card-body p-2">
                         <div className="d-flex justify-content-between">
                           <h6
-                            className="card-title titleXl head_z"
+                            className="card-title titleXl head_z underline-head-tt"
                             style={{
                               textAlign: "start",
                               width: "210px",
@@ -530,7 +530,16 @@ const TrangChu = (props: Props) => {
                           >
                             {child.TenSuKien}
                           </h6>
-                          <span className="d-flex justify-content-center align-items-center chi-tiet">
+                          <span
+                            className="d-flex justify-content-center align-items-center chi-tiet"
+                            // onClick={() =>
+                            //   GoToDetailPage(
+                            //     "/chi-tiet-tin-tuc",
+                            //     child.Id as string,
+                            //     child.TieuDe as string
+                            //   )
+                            // }
+                          >
                             Chi tiết
                           </span>
                         </div>
