@@ -557,7 +557,7 @@
     text-align: center;
   }
   .style17:after {
-    content: "§";
+    content: "";
     display: inline-block;
     position: relative;
     top: -14px;
@@ -2267,10 +2267,24 @@
     width: 17.3rem;
   }
 
+  .tieu-de-ava {
+    text-align: unset !important;
+    padding-bottom: 25px;
+  }
+
   .kt-round-dudat {
     display: flex;
-    justify-content: center;
   }
+
+  .uoy-tt {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tieude-avb {
+    font-size: 1.3rem;
+  }
+
   .money {
     color: red;
     font-size: calc(1.1rem);

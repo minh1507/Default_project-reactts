@@ -105,10 +105,15 @@ const TrangChu = (props: Props) => {
     history.push(page);
     window.scrollTo(0, 0);
   };
-  const GoToDetailPage = (page: string, id: string, search: string) => {
+  const GoToDetailPage = (
+    page: string,
+    id: string,
+    search: string,
+    type: string
+  ) => {
     history.push({
       pathname: page,
-      state: { id: id },
+      state: { id: id, type: type },
       search: `/${search}`,
     });
     window.scrollTo(0, 0);
@@ -173,7 +178,8 @@ const TrangChu = (props: Props) => {
                         GoToDetailPage(
                           "/chi-tiet-tin-tuc",
                           child.Id as string,
-                          child.TieuDe as string
+                          child.TieuDe as string,
+                          "tintuc"
                         )
                       }
                     >
@@ -192,7 +198,8 @@ const TrangChu = (props: Props) => {
                           GoToDetailPage(
                             "/chi-tiet-tin-tuc",
                             child.Id as string,
-                            child.TieuDe as string
+                            child.TieuDe as string,
+                            "tintuc"
                           )
                         }
                       >
@@ -272,7 +279,7 @@ const TrangChu = (props: Props) => {
             )}
           </div>
         </div>
-        <div className="mt-5">
+        {/* <div className="mt-5">
           <button
             className="header_btn bg-danger text-light "
             onClick={() => {
@@ -281,7 +288,7 @@ const TrangChu = (props: Props) => {
           >
             Xem tất cả
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -294,12 +301,12 @@ const TrangChu = (props: Props) => {
           <div>
             <div className="style17 container-xl"></div>
 
-            <div className="main_sub_detal mt-2 mb-2">
-              <div className="container-xl d-flex flex-column">
-                <h3 className="text-danger text-uppercase tieu-de">
+            <div className="main_sub_detal tieu-de-ava pt-0 mb-2">
+              <div className="container d-flex flex-column">
+                <h3 className="text-danger text-uppercase tieu-de tieude-avb">
                   {tree.TenMonHoc}
                 </h3>
-                <div className="container mt-5">
+                <div className="container uoy-tt mt-1">
                   <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat">
                     {tree.DanhSachKhoaHoc.map((item: any) => (
                       <div
@@ -333,7 +340,8 @@ const TrangChu = (props: Props) => {
                                 GoToDetailPage(
                                   "/khoa-hoc-chi-tiet",
                                   item.Id as string,
-                                  item.TieuDe as string
+                                  item.TieuDe as string,
+                                  "khoahoc"
                                 )
                               }
                             >
@@ -453,14 +461,6 @@ const TrangChu = (props: Props) => {
                     ))}
                   </div>
                 </div>
-                <div className="mt-5">
-                  <button
-                    className="header_btn bg-danger text-light "
-                    onClick={() => GoToOtherPage("/khoa-hoc")}
-                  >
-                    Xem tất cả
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -504,6 +504,14 @@ const TrangChu = (props: Props) => {
                         <div className="d-flex justify-content-between">
                           <h6
                             className="card-title titleXl head_z underline-head-tt"
+                            onClick={() =>
+                              GoToDetailPage(
+                                "/chi-tiet-tin-tuc",
+                                child.IdSuKien as string,
+                                child.TenSuKien as string,
+                                "sukien"
+                              )
+                            }
                             style={{
                               textAlign: "start",
                               width: "250px",
@@ -514,13 +522,14 @@ const TrangChu = (props: Props) => {
                           </h6>
                           <span
                             className="d-flex justify-content-center align-items-center chi-tiet"
-                            // onClick={() =>
-                            //   GoToDetailPage(
-                            //     "/chi-tiet-tin-tuc",
-                            //     child.Id as string,
-                            //     child.TieuDe as string
-                            //   )
-                            // }
+                            onClick={() =>
+                              GoToDetailPage(
+                                "/chi-tiet-tin-tuc",
+                                child.IdSuKien as string,
+                                child.TenSuKien as string,
+                                "sukien"
+                              )
+                            }
                           >
                             Chi tiết
                           </span>
@@ -647,7 +656,8 @@ const TrangChu = (props: Props) => {
                       GoToDetailPage(
                         "/chi-tiet-tin-tuc",
                         item.Id as string,
-                        item.TieuDe as string
+                        item.TieuDe as string,
+                        "tintuc"
                       )
                     }
                   >
