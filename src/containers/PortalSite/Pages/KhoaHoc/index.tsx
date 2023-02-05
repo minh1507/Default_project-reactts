@@ -9,6 +9,8 @@ import bt1 from "assets/img/bt1.jpeg";
 import bt2 from "assets/img/bt2.jpeg";
 import bt3 from "assets/img/bt3.jpeg";
 import bt4 from "assets/img/bt4.jpg";
+import TreeMenu from "react-simple-tree-menu";
+import 'react-simple-tree-menu/dist/main.css';
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
@@ -304,110 +306,21 @@ const KhoaHoc = (props: Props) => {
           {width > 980 && (
             <div className={`side-left-khoa-hoc ji-kh`}>
               <h5 className="kik-kh-kuki">Môn học</h5>
-              <div className="accordion" id="accordionPanelsStayOpenExample">
-                {state.DataItem &&
-                  state.DataItem.DanhSachMonHocCon.map((value: Item) => (
-                    <div key={uuidv4()} className="accordion-item pim">
-                      <h2
-                        className="accordion-header"
-                        id={`heading${value.Id}`}
-                      >
-                        <div className="d-flex justify-content-between">
-                          <span
-                            className="text-kh-nav-leftbar"
-                            onClick={() => {
-                              changeName(value.TenMonHoc as string);
-                            }}
-                            style={{
-                              color: `${
-                                value.TenMonHoc == name ? "#dd3645" : "black"
-                              }`,
-                            }}
-                          >
-                            {value.TenMonHoc}
-                          </span>
-                          <span
-                            className="accordion-button collapsed"
-                            data-bs-toggle="collapse"
-                            data-bs-target={`#collapse${value.Id}`}
-                            aria-expanded="false"
-                            aria-controls={`collapse${value.Id}`}
-                          ></span>
-                        </div>
-                      </h2>
-                      <div
-                        id={`collapse${value.Id}`}
-                        className="accordion-collapse collapse"
-                        // aria-labelledby={`heading${value.Id}`}
-                        aria-labelledby={`heading${value.Id}`}
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div className="accordion-body pim">
-                          <div
-                            className="accordion "
-                            id="accordionPanelsStayOpenExample"
-                          >
-                            <div className="accordion-item pom">
-                              <h2
-                                className="accordion-header"
-                                id="panelsStayOpen-headingOne"
-                              >
-                                <div className="d-flex justify-content-between">
-                                  <span
-                                    className="text-kh-nav-leftbar"
-                                    onClick={() => {
-                                      changeName("Bai 1");
-                                    }}
-                                  >
-                                    Bai 1
-                                  </span>
-                                  <span
-                                    className="accordion-button collapsed"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target={`#panelsStayOpen-collapseOne`}
-                                    aria-expanded="true"
-                                    aria-controls={`panelsStayOpen-collapseOne`}
-                                  ></span>
-                                </div>
-                              </h2>
-                              <div
-                                id="panelsStayOpen-collapseOne"
-                                className="accordion-collapse collapse"
-                                aria-labelledby="panelsStayOpen-headingOne"
-                              >
-                                <div className="accordion-body pim">
-                                  <div
-                                    className="accordion"
-                                    // id="accordionPanelsStayOpenExample"
-                                  >
-                                    <div className="accordion-item pom">
-                                      <h2
-                                        className="accordion-header"
-                                        // id="panelsStayOpen-heading2"
-                                      >
-                                        <div className="d-flex justify-content-between">
-                                          <span
-                                            className="text-kh-nav-leftbar"
-                                            style={{ padding: "16px 0" }}
-                                            onClick={() => {
-                                              changeName("Bai 1 trong bai 1");
-                                            }}
-                                          >
-                                            Bai 1 trong bai 1
-                                          </span>
-                                        </div>
-                                      </h2>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-              </div>
+              <TreeMenu
+                data={[{
+                  key: "0",
+                  label: "Motor_+SEP+_1",
+                  nodes: [
+                    {
+                      key: "1",
+                      label: "1.5",
+                      nodes: []
+                    }
+                  ]
+                }]}
+                initialOpenNodes={[]}
+                hasSearch={false}
+                onClickItem={() => {}}/>
             </div>
           )}
 
@@ -470,7 +383,7 @@ const KhoaHoc = (props: Props) => {
                         </p>
                       </div>
                       <div className="col-md-2">
-                        <p className="card-text gia-tien-kh-l">
+                        <p className="card-text gia-tien-kh-l marginBottom-5">
                           <span>2.000.000₫ </span>
                         </p>
                         <span className="gia-tien-giam-gias">1.000.000₫</span>
