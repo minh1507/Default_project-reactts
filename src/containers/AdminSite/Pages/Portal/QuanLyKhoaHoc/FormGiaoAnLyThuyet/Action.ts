@@ -1,11 +1,44 @@
 import { Guid } from "common/Enums";
 import { IResponseMessage } from "common/Models";
+import { async } from "q";
 import GiaoAnLyThuyet from "services/GiaoAnLyThuyet";
-
+import QuanLyNhomVideo from "services/QuanLyNhomVideo";
+import QuanLyVideo from "services/QuanLyVideo";
 export const Actions: any = {
     DeleteById: async (id:String, dispatch:any) => {                
         let res:IResponseMessage = await GiaoAnLyThuyet.DeleteById(id);               
         return res;
+    },
+    GetDsNhomVideo: async () => {
+        let res:IResponseMessage = await QuanLyNhomVideo.GetCategories();    
+        if(res.Success)
+        {
+            return res.Data;
+        }           
+        return null;
+    },
+    setURL_VideoGiaoAnLyThuyet: (URL_Video:any, dispatch:any) => {
+        dispatch({
+            type: "setURL_VideoGiaoAnLyThuyet",
+            item: URL_Video,
+          });
+    },
+    GetDsVideoByIdNhomVideo: async (IdNhomVideo:any, dispatch:any) => {
+        if(IdNhomVideo) {
+            let res:IResponseMessage = await QuanLyVideo.GetDsVideoByIdNhomVideo(IdNhomVideo);    
+            if (res && res.Success) {
+                dispatch({
+                  type: "GetItemsVideo",
+                  item: res.Data.Items,
+                });
+            }
+        }
+        else {
+            dispatch({
+                type: "GetItemsVideo",
+                item: []
+            });
+        }
     },
     GetItem: async (id: String, dispatch: any) => {
         if (id) {

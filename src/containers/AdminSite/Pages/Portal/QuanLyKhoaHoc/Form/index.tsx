@@ -18,7 +18,7 @@ const KhoaHocForm = (props: Props) => {
   useEffect(() => {
     Actions.GetItem(props.Id, dispatch);
     Actions.GetTreeList("IdMonHoc", dispatch);
-    Actions.GetCategories("IdGiaoVien", dispatch);
+    Actions.GetCategories("IdLoaiKhoaHoc", dispatch);
   }, [props.Id]);
   let KhoaHocFormInput: any = KhoaHocFormInputJson;
   const refNotification = useRef<any>();

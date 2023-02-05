@@ -8,6 +8,14 @@ const QuanLyVideoService = {
     });
     return res;
   },
+  GetDsVideoByIdNhomVideo: async (IdNhomVideo:any) => {
+    let res: any = await request({
+      url: `/${Por_Video}/List?page=1&pageSize=10&totalLimitItems=1000&searchBy=IdNhomVideo%3D%22${IdNhomVideo}%22`,
+      method: "get",
+    });
+    return res;
+  },
+  
   GetItemstim: async () => {
     let res: any = await request({
       url: `/${Por_Video}/DanhSach`,
