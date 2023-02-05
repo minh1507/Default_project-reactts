@@ -53,6 +53,7 @@ const TrangChu = (props: Props) => {
     NoiDung: "",
   });
   const refNotification = useRef<any>();
+  let userInfo: IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
 
   const onChangeFormTuVan = (key: string, e: any) => {
     setTuVan({
@@ -225,11 +226,10 @@ const TrangChu = (props: Props) => {
                   className="col change-tt-aba"
                 >
                   <div
-                    className="card card_main_container prefix_card wrapper_c"
+                    className="card card_main_container  wrapper_c"
                     style={{
                       cursor: "pointer",
                       position: "relative",
-                      // height: "365px",
                     }}
                   >
                     <div className="wrapper_card">
@@ -263,7 +263,7 @@ const TrangChu = (props: Props) => {
                         </span>
                       </p>
                       <p
-                        className=" card-text text-dark mo-ta"
+                        className=" card-text text-dark mo-ta mb-1"
                         style={{
                           fontSize: "calc(1rem*.9)",
                           color: "grey",
@@ -272,14 +272,14 @@ const TrangChu = (props: Props) => {
                         {tree.MoTa}
                       </p>
 
-                      <div className="boxC">
+                      {/* <div className="boxC">
                         <button
                           className="header_btn bg-danger text-light"
                           onClick={() => GoToOtherPage("/khoa-hoc")}
                         >
                           Xem chi tiết
                         </button>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -288,7 +288,12 @@ const TrangChu = (props: Props) => {
           </div>
         </div>
         <div className="mt-5">
-          <button className="header_btn bg-danger text-light ">
+          <button
+            className="header_btn bg-danger text-light "
+            onClick={() => {
+              GoToOtherPage("/khoa-hoc");
+            }}
+          >
             Xem tất cả
           </button>
         </div>
@@ -416,7 +421,7 @@ const TrangChu = (props: Props) => {
                                 {item.ThoiGianHoc}
                               </span>
                             </p>
-                            <p>
+                            <p className="mb-1">
                               <span className="star-rate">
                                 <i
                                   className="bi bi-star-fill co-or"
@@ -446,7 +451,7 @@ const TrangChu = (props: Props) => {
                               </span>
                             </p>
 
-                            <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
+                            {/* <div className="d-flex justify-content-center align-items-center mb-1 btn-khhoc">
                               <button
                                 className="header_btn bg-danger text-light mt-3"
                                 onClick={() =>
@@ -459,7 +464,7 @@ const TrangChu = (props: Props) => {
                               >
                                 Xem chi tiết
                               </button>
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       </div>
@@ -637,37 +642,20 @@ const TrangChu = (props: Props) => {
       >
         {state.DataItemsBlog.DanhSachTinTuc &&
           state.DataItemsBlog.DanhSachTinTuc.map((item: danhSachTintuc) => (
-            <div
-              key={uuidv4()}
-              className="item card_carosel"
-              // style={{
-              //   backgroundColor: "#1e1e1e",
-              //   height: "100% !important"
-              // }}
-            >
+            <div key={uuidv4()} className="item card_carosel">
               <div>
                 <img
                   src={item.URL_AnhDaiDien as string}
                   height="180px"
                   style={{ borderRadius: 5 }}
                 />
-                <div
-                // className="text-center text-light "
-                // style={{ padding: "0 20px" }}
-                >
+                <div>
                   <h6 className="mt-1 card-title cursor-pointer">
                     {item.TieuDe}
                   </h6>
                   <p className="owl_text" style={{ wordWrap: "break-word" }}>
                     {item.MoTa}
                   </p>
-                  {/* <div className="d-flex justify-content-center align-items-center">
-                    <button
-                      className="header_btn bg-danger text-light mt-3"
-                    >
-                      Xem chi tiết
-                    </button>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -675,7 +663,6 @@ const TrangChu = (props: Props) => {
       </OwlCarousel>
     </div>
   );
-  let userInfo: IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
 
   return (
     <div className="main_container" style={{ backgroundColor: "white" }}>
