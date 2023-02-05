@@ -424,7 +424,9 @@ const KhoaHoc = (props: Props) => {
                   <div className="card-body card-bodys">
                     <div className="row">
                       <div className="col-md-10">
-                        <h5 className="card-title">Tên khóa học</h5>
+                        <h5 className="card-title underline-head-tt">
+                          Tên khóa học
+                        </h5>
                         <p className="card-text popse-khso-p">
                           <small className="text-muted">
                             20/12/2023 8:00 Tối

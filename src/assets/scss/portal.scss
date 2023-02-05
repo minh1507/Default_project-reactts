@@ -433,9 +433,14 @@
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   }
 
-  .card_main_container .wrapper_card:hover {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
-    transform: translateY(-1%);
+  // .card_main_container:hover .wrapper_card {
+  //   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+  //   transform: translateY(-1%);
+  // }
+
+  .underline-head-tt:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
 
   .card_logo {
@@ -1197,6 +1202,9 @@
       flex-direction: column;
       gap: 2rem;
     }
+    .kop-ata-kh-left {
+      width: 100% !important;
+    }
   }
 
   .banner_btn_rout {
@@ -1617,6 +1625,9 @@
   }
 
   @media screen and (max-width: 961px) {
+    .dra-left-kti {
+      width: 100% !important;
+    }
     .reszex {
       font-size: 2rem !important;
     }
@@ -2251,5 +2262,14 @@
 
   .gv-kh:last-child {
     margin: 0 !important;
+  }
+
+  .change-tt-aba {
+    width: 17.3rem;
+  }
+
+  .kt-round-dudat {
+    display: flex;
+    justify-content: center;
   }
 }
