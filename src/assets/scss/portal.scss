@@ -2274,4 +2274,11 @@
     display: flex;
     justify-content: center;
   }
+
+  .rstm-tree-item--active {
+    background-color: unset;
+    color: black;
+    box-shadow: unset;
+    border-bottom: 1px solid black;
+  }
 }

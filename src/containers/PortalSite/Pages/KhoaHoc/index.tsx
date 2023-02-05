@@ -10,7 +10,7 @@ import bt2 from "assets/img/bt2.jpeg";
 import bt3 from "assets/img/bt3.jpeg";
 import bt4 from "assets/img/bt4.jpg";
 import TreeMenu from "react-simple-tree-menu";
-import 'react-simple-tree-menu/dist/main.css';
+import "react-simple-tree-menu/dist/main.css";
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
@@ -18,6 +18,7 @@ interface Props {}
 const KhoaHoc = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
   const [name, setName] = useState("");
+  const [accName, setAccName] = useState("");
   const [width, setWidth] = useState(window.innerWidth);
   const [reLength, setReLength] = useState(0);
   const kh1 = useRef(null);
@@ -108,6 +109,13 @@ const KhoaHoc = (props: Props) => {
     setName(name);
   };
 
+  const changeSetaccName = (name: string) => {
+    console.log(name);
+    setAccName(name);
+  };
+
+  console.log(accName);
+
   return (
     <div style={{ backgroundColor: "white" }}>
       <div className="wrapper_img mb-3">
@@ -145,9 +153,9 @@ const KhoaHoc = (props: Props) => {
 
         {/* <img className="mb-4 kh-cdnb1x" src={ba1} width="100%" height="auto" /> */}
 
-        {name ? (
+        {accName ? (
           <h4 className="text-danger text-center text-uppercase tieu-de mb-3 kh-apeperar">
-            {name}
+            {accName}
           </h4>
         ) : (
           <h4 className="text-danger text-center text-uppercase tieu-de mb-3">
@@ -307,20 +315,36 @@ const KhoaHoc = (props: Props) => {
             <div className={`side-left-khoa-hoc ji-kh`}>
               <h5 className="kik-kh-kuki">Môn học</h5>
               <TreeMenu
-                data={[{
-                  key: "0",
-                  label: "Motor_+SEP+_1",
-                  nodes: [
-                    {
-                      key: "1",
-                      label: "1.5",
-                      nodes: []
-                    }
-                  ]
-                }]}
+                data={[
+                  {
+                    key: "0",
+                    label: "Boi dap chay",
+                    nodes: [
+                      {
+                        key: "1",
+                        label: "Bai 1",
+                        nodes: [],
+                      },
+                    ],
+                  },
+                  {
+                    key: "2",
+                    label: "Cho tre em",
+                    nodes: [
+                      {
+                        key: "3",
+                        label: "Bai 1",
+                        nodes: [],
+                      },
+                    ],
+                  },
+                ]}
                 initialOpenNodes={[]}
                 hasSearch={false}
-                onClickItem={() => {}}/>
+                onClickItem={({ key, label, ...props }) => {
+                  changeSetaccName(label);
+                }}
+              />
             </div>
           )}
 
