@@ -82,8 +82,9 @@ const ChiTiet = (props: Props) => {
               {state.DataDetailSuKien.LuotXem} Lượt xem
             </p>
             <h3 className="text-uppercase" style={{ fontWeight: "bold" }}>
-              {state.DataDetail.TieuDe}
+              {state.DataDetailSuKien.Ten}
             </h3>
+
             <img
               className="mb-3"
               src={state.DataDetailSuKien.URL_AnhDaiDien}
@@ -93,6 +94,9 @@ const ChiTiet = (props: Props) => {
                 borderRadius: "2.5px 2.5px",
               }}
             />
+            <p>Lệ phí: {String.num(state.DataDetailSuKien.GiaTien)}₫</p>
+            <p>Địa chỉ: {state.DataDetailSuKien.DiaChi}</p>
+            <p>{state.DataDetailSuKien.MoTa}</p>
 
             <div
               dangerouslySetInnerHTML={{

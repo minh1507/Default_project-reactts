@@ -13,7 +13,7 @@ export interface IState {
   };
   DataDetailSuKien: {
     Id: String;
-    TieuDe: String;
+    Ten: String;
     MoTa: String;
     URL_AnhDaiDien: String;
     TinNoiBat: String;
@@ -21,6 +21,7 @@ export interface IState {
     TacGia: String;
     ThoiGian: string;
     NoiDung: String;
+    GiaTien: String;
   };
 }
 export const InitState: IState = {
@@ -37,7 +38,7 @@ export const InitState: IState = {
   },
   DataDetailSuKien: {
     Id: Guid.Empty,
-    TieuDe: "",
+    Ten: "",
     MoTa: "",
     URL_AnhDaiDien: "",
     TinNoiBat: "",
@@ -45,5 +46,6 @@ export const InitState: IState = {
     TacGia: "",
     ThoiGian: "",
     NoiDung: "",
+    GiaTien: "",
   },
 };
