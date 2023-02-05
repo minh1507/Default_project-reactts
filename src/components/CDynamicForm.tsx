@@ -74,7 +74,8 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
         onValidation: () => { return onValidation() },
         getStateValue: (key:any) => { return getStateValue(key) },
         setStateValue: (key:any, value:any) => { return setStateValue(key, value) },
-        getStateValues: () => { return getStateValues(); }
+        getStateValues: () => { return getStateValues(); },
+        setFirstSubmit: (value:any) => { return setIsFirstSubmit(value) },
     }));
     const onValidation = () => {     
         if(!IsFirstSubmit)

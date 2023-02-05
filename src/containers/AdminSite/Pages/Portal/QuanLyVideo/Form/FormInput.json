@@ -5,7 +5,7 @@
   "Controls": [
     {
       "Key": "IdNhomVideo",
-      "Title": "video",
+      "Title": "Nhóm video",
       "Type": "Select",
       "IsRequired": true,
       "Placeholder": "---Chọn---",
@@ -49,7 +49,7 @@
     {
       "Key": "ThoiLuong",
       "Title": "Thời lượng",
-      "Type": "InputText",
+      "Type": "InputNumber",
       "IsRequired": true,
       "Row": 5,
       "ColLabel": 4,

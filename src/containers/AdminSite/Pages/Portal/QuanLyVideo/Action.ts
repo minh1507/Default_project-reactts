@@ -3,11 +3,11 @@ import QuanLyVideoService from "services/QuanLyVideo";
 
 export const Actions: any = {
   GetItems: async (dispatch: any) => {
-    let res: IResponseMessage = await QuanLyVideoService.GetItems();
+    let res: IResponseMessage = await QuanLyVideoService.GetItemstim();
     if (res && res.Success) {
       dispatch({
         type: "GetItems",
-        items: res.Data.Items,
+        items: res.Data,
       });
     }
   },

@@ -17,7 +17,7 @@ export const Actions: any = {
     } else {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
-        Ma: 1,
+        Ma: "",
         Ten: "",
         IdNhomVideo: "",
       };

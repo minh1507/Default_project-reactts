@@ -4,6 +4,11 @@
     "Title": "Danh sách ảnh",
     "ColumnDefs": [
       {
+        "Key": "NhomAnh",
+        "Title": "Nhóm ảnh",
+        "Align": "center"
+      },
+      {
         "Key": "Ma",
         "Title": "Mã",
         "Align": "center"

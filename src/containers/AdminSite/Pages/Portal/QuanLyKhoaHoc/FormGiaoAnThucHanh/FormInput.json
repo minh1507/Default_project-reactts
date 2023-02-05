@@ -1,7 +1,7 @@
 {
   "Key": "KhoaHoc",
   "Title": "khoa học",
-  "Rows": 6,
+  "Rows": 7,
   "Controls": [
     {
       "Key": "Loai",
@@ -12,7 +12,8 @@
       "Options": [
         { "value": 0, "label": "- Bìa giáo án" },
         { "value": 1, "label": "-- Chương mục" },
-        { "value": 2, "label": "--- Nội dung" }
+        { "value": 2, "label": "--- Bài học" },
+        { "value": 3, "label": "---- Nội dung" }
       ],
       "Row": 1,
       "ColLabel": 2,
@@ -40,10 +41,19 @@
       "ColSpanControl": 12
     },
     {
+      "Key": "GhiChu",
+      "Title": "Ghi chú",
+      "Type": "TextArea",
+      "Row": 4,
+      "ColLabel": 2,
+      "ColControl": 10,
+      "ColSpanControl": 12
+    },
+    {
       "Key": "URL_Video",
       "Title": "Đường dẫn video",
       "Type": "InputText",
-      "Row": 4,
+      "Row": 5,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
@@ -52,7 +62,7 @@
       "Key": "ThoiLuong",
       "Title": "Thời lượng",
       "Type": "InputNumber",
-      "Row": 5,
+      "Row": 6,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
@@ -61,7 +71,7 @@
       "Key": "MienPhi",
       "Title": "Miễn phí",
       "Type": "Checkbox",
-      "Row": 6,
+      "Row": 7,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12

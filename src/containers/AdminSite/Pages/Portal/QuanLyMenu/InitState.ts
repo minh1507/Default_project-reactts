@@ -27,6 +27,6 @@ export const InitState: IState = {
       Code: "CayMenu",
       Name: "Cây menu",
       Children: [],
-    },
+    }
   ],
 };

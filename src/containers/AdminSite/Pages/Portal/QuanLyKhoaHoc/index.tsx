@@ -63,8 +63,8 @@ const KhoaHocList = (props: Props) => {
         return <ATab key="KhoaHoc" activeName="ThongTinKhoaHoc" onTabClick={() => {}}
         tabsPanel={[
             {label:"Thông tin", name: "ThongTinKhoaHoc", panel:<FormKhoaHoc Id={khoaHocId} ReloadTableItems = {ReloadTableItems} />},
-            {label:"Giáo án lý thuyết", name: "GiaoAnLyThuyet", panel: <FormGiaoAnLyThuyet />},           
-            {label:"Giáo án thực hành", name: "GiaoAnThucHanh", panel: <FormGiaoAnThucHanh />},   
+            {label:"Giáo án lý thuyết", name: "GiaoAnLyThuyet", panel: <FormGiaoAnLyThuyet khoaHocId={khoaHocId} />},           
+            {label:"Giáo án thực hành", name: "GiaoAnThucHanh", panel: <FormGiaoAnThucHanh khoaHocId={khoaHocId} />},   
         ]} ></ATab>
     }
     const DialogMemo = useMemo(() => {

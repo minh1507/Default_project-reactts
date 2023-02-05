@@ -8,6 +8,13 @@ const QuanLyAnhService = {
     });
     return res;
   },
+  GetItemstim: async () => {
+    let res: any = await request({
+      url: `/${Por_Anh}/DanhSach`,
+      method: "get",
+    });
+    return res;
+  },
   GetCategories: async () => {
     let res: any = await request({
       url: `/${Por_Anh}/Categories`,
