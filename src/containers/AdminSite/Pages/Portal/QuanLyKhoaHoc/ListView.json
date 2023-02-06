@@ -10,16 +10,15 @@
         "Width": "250"
       },
       {
-        "Key": "TenGiaoVien",
-        "Title": "Giáo viên",
-        "Align": "center",
-        "Width": "200"
-      },
-      {
         "Key": "TieuDe",
         "Title": "Tiêu đề",
         "Align": "left",
         "Width": "500"
+      },
+      {
+        "Key": "TenLoaiKhoaHoc",
+        "Title": "Loại khóa học",
+        "Align": "center"
       },
       {
         "Key": "ThoiHan",

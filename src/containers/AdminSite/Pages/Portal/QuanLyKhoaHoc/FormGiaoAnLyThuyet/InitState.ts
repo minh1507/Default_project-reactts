@@ -17,10 +17,12 @@ export interface IModelTree {
     Children: Array<IModelTree>;
 }
 export interface IState {
+    ItemVideos: any,
     Item: IModelItem,
     Tree: IModelTree[]
 }
 export const InitState: IState = {
+    ItemVideos: [],
     Item: {
         Id: Guid.Empty,
         IdGiaoAnLyThuyet: Guid.Empty,

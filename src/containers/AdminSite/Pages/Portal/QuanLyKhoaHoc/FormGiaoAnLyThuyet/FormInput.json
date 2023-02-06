@@ -42,7 +42,7 @@
     {
       "Key": "URL_Video",
       "Title": "Đường dẫn video",
-      "Type": "InputText",
+      "Type": "InputTextSearch",
       "Row": 4,
       "ColLabel": 2,
       "ColControl": 10,

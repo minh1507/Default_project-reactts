@@ -3,7 +3,7 @@ import { Guid } from "common/Enums";
 import { IModelItem } from "./InitState";
 import KhoaHocService from "services/KhoaHocService";
 import MonHocService from "services/MonHocService";
-import QuanLyGiaoVienService from "services/QuanLyGiaoVienService";
+import QuanLyLoaiKhoahocService from "services/QuanLyLoaiKhoahoc";
 
 export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
@@ -19,7 +19,7 @@ export const Actions: any = {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
         IdMonHoc: Guid.Empty,
-        IdGiaoVien: Guid.Empty,
+        IdLoaiKhoaHoc: Guid.Empty,
         URL_AnhDaiDien: "",
         URL_VideoDaiDien: "",
         TieuDe: "",
@@ -60,12 +60,12 @@ export const Actions: any = {
     return res;
   },
   GetCategories: async (key: any, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyGiaoVienService.GetCategories();
+    let res: IResponseMessage = await QuanLyLoaiKhoahocService.GetList();
     if (res && res.Success) {
       dispatch({
         type: "GetCategories",
         key: key,
-        items: res.Data,
+        items: res.Data.Items,
       });
     }
     return res;

@@ -484,10 +484,7 @@ const TrangChu = (props: Props) => {
                   style={{ width: "470px" }}
                 >
                   <div className="row g-0">
-                    <div
-                      className="col-md-4"
-                      // style={{ minHeight: "100%", objectFit: "cover" }}
-                    >
+                    <div className="col-md-4">
                       <img
                         src={child.URL_AnhDaiDien as string}
                         style={{

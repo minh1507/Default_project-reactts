@@ -11,13 +11,15 @@ import CInputFile from './CInputFile';
 import CInputNumber from './CInputNumber';
 import CRadio from './CRadio';
 import CSelect from './CSelect';
+import CButton from './CButton';
 interface Props {    
     initValues:any,
     formDefs:any,    
     actionEvents?:any,
     alignLabel?:any
     options?:IControlOptions[],
-    onchange?:any
+    onchange?:any,
+    onclick?:any
 }
 
 const CDynamicForm = forwardRef((props: Props, ref) => {      
@@ -165,6 +167,25 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
             {RequiredControl(propDef, value)}
         </>
     }
+    const InputTextSearchRender = (propDef:IControlDefs) => {
+        let value = InitValues[propDef.Key];
+        return <>
+            <div className="row">
+                <div className="col-sm-11">
+                    <CInput disabled={propDef.IsDisabled} key={propDef.Key} type={propDef.IsPassword == true?"password":"text"} onChange={(e:any) => {onChangeValue(propDef.Key, e)}} value={value} />
+                </div>
+                <div className="col-sm-1" style={{paddingLeft: 0}}>
+                    <CButton icon="search" titleTooltip='Tìm kiếm' title="" isFullWidth={true} onClick={() => {
+                        if(props.onclick)
+                        {
+                            props.onclick(propDef.Key)
+                        } 
+                    }}/>  
+                </div>
+            </div>
+            {RequiredControl(propDef, value)}
+        </>
+    }
     const InputTextRender = (propDef:IControlDefs) => {
         let value = InitValues[propDef.Key];
         return <>
@@ -227,6 +248,8 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
                 return RadioButtonRender(propDef);                            
             case ControlType.InputText:
                 return InputTextRender(propDef);
+            case ControlType.InputTextSearch:
+                return InputTextSearchRender(propDef);
             case ControlType.TextArea:
                 return TextAreaRender(propDef);                
             case ControlType.InputNumber:

@@ -7,12 +7,28 @@ export const Reducer = (state: IState = InitState, action: any) => {
       return {
         ...state,
         Tree : nodeTree
-      };      
+      };     
+    case "GetItemsVideo":
+      return {
+        ...state,
+        ItemVideos: [
+          ...action.item
+        ]
+      } 
     case "GetItem":
       return {
         ...state,
         Item : {
           ...action.item
+        }
+      };
+    case "setURL_VideoGiaoAnLyThuyet":
+      console.log(action.item)
+      return {
+        ...state,
+        Item : {
+          ...state.Item, 
+          URL_Video: action.item
         }
       };
     default:

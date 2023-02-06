@@ -17,13 +17,13 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "IdGiaoVien",
-      "Title": "Giáo viên",
+      "Key": "IdLoaiKhoaHoc",
+      "Title": "Loại khóa học",
       "Type": "Select",
-      "IsRequired": true,
+      "IsRequired": false,
       "Placeholder": "---Chọn---",
       "Options": [],
-      "KeyOptions": { "label": "Ten", "value": "Id" },
+      "KeyOptions": { "label": "TieuDe", "value": "Id" },
       "Row": 1,
       "ColLabel": 2,
       "ColControl": 4,

@@ -29,6 +29,7 @@ export enum Guid {
 }
 export enum ControlType {
   InputText = "InputText",
+  InputTextSearch = "InputTextSearch",
   CkEditor = "CkEditor",
   TextArea = "TextArea",
   InputNumber = "InputNumber",

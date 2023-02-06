@@ -35,6 +35,13 @@ const MonHocService = {
 
     return res;
   },
+  GetTreePortal: async () => {
+    let res: any = await request({
+      url: `/${Por_MonHoc}/TreePortal`,
+      method: "get",
+    });
+    return res;
+  },
   GetTree: async () => {
     let res: any = await request({
       url: `/${Por_MonHoc}/Tree`,
