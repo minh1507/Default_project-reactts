@@ -23,8 +23,8 @@ const KhoaHoc = (props: Props) => {
   const [reLength, setReLength] = useState(0);
   const kh1 = useRef(null);
   const [pageCount, setPageCount] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
   const [itemOffset, setItemOffset] = useState(0);
+  const [search, setSearch] = useState("");
 
   const nextLength = () => {
     if (reLength + 4 < state.DataHoatDong.length) {
@@ -32,7 +32,6 @@ const KhoaHoc = (props: Props) => {
     }
   };
 
-  console.log(name);
   const prevLength = () => {
     if (reLength >= 4) {
       setReLength(reLength - 4);
@@ -46,8 +45,6 @@ const KhoaHoc = (props: Props) => {
   const prevKHNB = () => {
     prevLength();
   };
-
-  console.log(state.TreeMonHoc);
 
   useEffect(() => {
     Actions.GetTreeMonHocPortal(dispatch);
@@ -72,11 +69,18 @@ const KhoaHoc = (props: Props) => {
     }
   }, [reLength]);
 
-  useEffect(() => {
-    if (state.DsKhoaHoc) {
-      setPageCount(Math.ceil(state.Count / 10));
+  const fetch = async (key: any) => {
+    if (key) {
+      let res = await Actions.GetKhoaHocCount(key);
+      setPageCount(res);
+    } else {
+      let res = await Actions.GetKhoaHocCount(Guid.Empty);
+      setPageCount(res);
     }
-  }, [state.Count]);
+  };
+  useEffect(() => {
+    fetch(0);
+  }, []);
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * 10) % state.Count;
@@ -87,9 +91,22 @@ const KhoaHoc = (props: Props) => {
     setName(name);
   };
 
+  // const handleKeyDown = (event: any) => {
+  //   if (event.keyCode == 13) {
+  //     Action.
+  //   }
+  // };
   const changeSetaccName = (name: string) => {
     setAccName(name);
   };
+  // useEffect(() => {
+  //   window.addEventListener("keydown", handleKeyDown);
+
+  //   // cleanup this component
+  //   return () => {
+  //     window.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // });
 
   const colorStar = (danhgia: number) => {
     return (
@@ -167,7 +184,14 @@ const KhoaHoc = (props: Props) => {
         <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
           <div className={`kh-search-bar `}>
             <i className={`bi bi-search i-kh-ab`}></i>
-            <input placeholder="Tìm kiếm" className="kh-input" />
+            <input
+              placeholder="Tìm kiếm"
+              className="kh-input"
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
           </div>
           <div className="kh-contain-result">
             Tìm thấy <span className="kh-result">{state && state.Count}</span>{" "}
@@ -327,9 +351,8 @@ const KhoaHoc = (props: Props) => {
                     key,
                     dispatch
                   );
+                  fetch(key);
                   changeSetaccName(label);
-                  // console.log(key);
-                  // console.log(label);
                 }}
               />
             </div>

@@ -5,7 +5,6 @@ import QuanLyLoaiKhoaHocService from "services/QuanLyLoaiKhoahoc";
 
 export const Actions: any = {
   GetKhoaHocPortal: async (start: any, end: any, key: any, dispatch: any) => {
-    console.log(key);
     let ids = key.split("/");
     let id = ids[ids.length - 1];
     let res: IResponseMessage =
@@ -18,6 +17,15 @@ export const Actions: any = {
       start: start,
       end: end,
     });
+  },
+
+  GetKhoaHocCount: async (key: any) => {
+    let ids = key.split("/");
+    let id = ids[ids.length - 1];
+    let res: IResponseMessage =
+      await KhoaHocService.GetKhoaHocTheoIdMonHocPortal(id);
+
+    return Math.ceil(res.Data.length / 10);
   },
   GetKhoaHocChangePortal: async (start: any, end: any, dispatch: any) => {
     dispatch({
