@@ -1,17 +1,15 @@
-import React, { useEffect, useReducer, useRef, useState, useMemo } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { connect } from "react-redux";
 import bg40 from "assets/img/Khoahoc.png";
-import MainCard from "../General/MainCard";
 import { InitState, Item } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
-import bt1 from "assets/img/bt1.jpeg";
-import bt2 from "assets/img/bt2.jpeg";
-import bt3 from "assets/img/bt3.jpeg";
-import bt4 from "assets/img/bt4.jpg";
 import TreeMenu from "react-simple-tree-menu";
 import "react-simple-tree-menu/dist/main.css";
 import { Guid } from "common/Enums";
+import { String } from "common/String";
+import ReactPaginate from "react-paginate";
+
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
@@ -23,18 +21,9 @@ const KhoaHoc = (props: Props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [reLength, setReLength] = useState(0);
   const kh1 = useRef(null);
-  const [anh, setAnh] = useState([
-    { name: bt1 },
-    { name: bt2 },
-    { name: bt3 },
-    { name: bt4 },
-    { name: bt3 },
-    { name: bt2 },
-    { name: bt1 },
-    { name: bt2 },
-    { name: bt3 },
-    { name: bt4 },
-  ]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [itemOffset, setItemOffset] = useState(0);
 
   const nextLength = () => {
     if (reLength + 4 < state.DataHoatDong.length) {
@@ -48,15 +37,6 @@ const KhoaHoc = (props: Props) => {
     }
   };
 
-  const random = (index: any) => {
-    if (index > 10) {
-      let i = Math.floor(index / 10);
-      return String(anh[index].name);
-    }
-    let data = Math.floor(Math.random() * anh.length);
-    return String(anh[index].name);
-  };
-
   const nextKHNB = () => {
     nextLength();
   };
@@ -67,12 +47,15 @@ const KhoaHoc = (props: Props) => {
 
   useEffect(() => {
     Actions.GetTreeMonHocPortal(dispatch);
-    Actions.GetKhoaHocPortal(Guid.Empty, dispatch);
     Actions.GetLoaiKhoaHocHoatDongPortal(dispatch);
   }, []);
 
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+
+  useEffect(() => {
+    Actions.GetKhoaHocPortal(itemOffset, itemOffset + 10, Guid.Empty, dispatch);
   }, []);
 
   useEffect(() => {
@@ -85,19 +68,16 @@ const KhoaHoc = (props: Props) => {
     }
   }, [reLength]);
 
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const handleScroll = () => {
-    const position = kh1.current.offsetLeft;
-    setScrollPosition(position);
-  };
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    if (state.DsKhoaHoc) {
+      setPageCount(Math.ceil(state.Count / 10));
+    }
+  }, [state.Count]);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
+  const handlePageClick = (event: any) => {
+    const newOffset = (event.selected * 10) % state.Count;
+    Actions.GetKhoaHocChangePortal(newOffset, newOffset + 10, dispatch);
+  };
 
   const changeName = (name: string) => {
     setName(name);
@@ -105,6 +85,32 @@ const KhoaHoc = (props: Props) => {
 
   const changeSetaccName = (name: string) => {
     setAccName(name);
+  };
+
+  const colorStar = (danhgia: number) => {
+    return (
+      <span>
+        {[...Array(danhgia)].map(() => (
+          <span key={uuidv4()}>
+            <i className="bi bi-star-fill co-or" aria-hidden="true"></i>
+            &nbsp;
+          </span>
+        ))}
+      </span>
+    );
+  };
+
+  const noColorStar = (danhgia: number) => {
+    return (
+      <span>
+        {[...Array(5 - danhgia)].map(() => (
+          <span key={uuidv4()}>
+            <i className="bi bi-star co-or" aria-hidden="true"></i>
+            &nbsp;
+          </span>
+        ))}
+      </span>
+    );
   };
 
   return (
@@ -160,7 +166,8 @@ const KhoaHoc = (props: Props) => {
             <input placeholder="Tìm kiếm" className="kh-input" />
           </div>
           <div className="kh-contain-result">
-            Tìm thấy <span className="kh-result">10</span> kết quả
+            Tìm thấy <span className="kh-result">{state && state.Count}</span>{" "}
+            kết quả
           </div>
         </div>
 
@@ -319,105 +326,83 @@ const KhoaHoc = (props: Props) => {
 
           <div className={`side-right-khoa-hoc `}>
             <div className="row">
-              {
-                state.DsKhoaHoc.map((e:any, ie:any) => {
-                  return               <div className="col-sm-6">
-                  <div className="card mb-4 border-popse" style={{ maxWidth: "100%" }}>
-                    <div className="row g-0">
-                      <div className="col-sm-4 try-kh-ui">
-                        <img src={bg40} className="img-kh-cls " alt="..." />
-                      </div>
-                      <div className="col-sm-8">
-                        <div className="card-body card-bodys">
-                          <div className="row">
-                            <div className="col-sm-8">
-                              <p className="card-title underline-head-tt mb-1">
-                                Tên khóa học
-                              </p>
-                              <p className="card-text popse-khso-p">
-                                <small className="text-muted">
-                                  20/12/2023 8:00 Tối
-                                </small>
-                              </p>
-                              <p className="card-text posp-khso text-dark">
-                                Thời hạn khóa học:{" "} 3 {" "} tháng
-                              </p>
-                              <p className="card-text posp-khso text-dark">
-                                Miễn phí truy cập thêm:{" "} 3 {" "} tháng
-                              </p>
-                              <span className="star-rate">
-                                <i
-                                  className="bi bi-star-fill co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp;
-                                <i
-                                  className="bi bi-star-fill co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp;
-                                <i
-                                  className="bi bi-star co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp;
-                                <i
-                                  className="bi bi-star co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp;
-                                <i
-                                  className="bi bi-star co-or"
-                                  aria-hidden="true"
-                                ></i>
-                                &nbsp; (45)
-                              </span>
-                            </div>
-                            <div className="col-sm-4">
-                              <p className="card-text gia-tien-kh-l marginBottom-5">
-                                <span>2.000.000₫ </span>
-                              </p>
-                              <span className="gia-tien-giam-gias">1.000.000₫</span>
+              {state.DsKhoaHoc.map((e: any, ie: any) => {
+                return (
+                  <div key={uuidv4()} className="col-sm-6">
+                    <div
+                      className="card mb-4 border-popse"
+                      style={{ maxWidth: "100%" }}
+                    >
+                      <div className="row g-0">
+                        <div className="col-sm-4 try-kh-ui">
+                          {e.URL_AnhDaiDien ? (
+                            <img
+                              src={e.URL_AnhDaiDien}
+                              className="img-kh-cls "
+                              alt="..."
+                            />
+                          ) : (
+                            <img
+                              src="https://bizweb.dktcdn.net/thumb/1024x1024/assets/themes_support/noimage.gif"
+                              className="img-kh-cls "
+                              alt="..."
+                            />
+                          )}
+                        </div>
+                        <div className="col-sm-8">
+                          <div className="card-body card-bodys">
+                            <div className="row">
+                              <div className="col-sm-8">
+                                <p className="card-title underline-head-tt mb-1">
+                                  {e.TieuDe}
+                                </p>
+                                <p className="card-text popse-khso-p">
+                                  <small className="text-muted">
+                                    {String.date(e.CreatedDateTime)}
+                                  </small>
+                                </p>
+                                <p className="card-text posp-khso text-dark">
+                                  Thời hạn khóa học: {e.ThoiHan} tháng
+                                </p>
+                                <p className="card-text posp-khso text-dark">
+                                  Miễn phí truy cập thêm:{" "}
+                                  {e.ThoiHanTruyCapMienPhi} tháng
+                                </p>
+                                <span className="star-rate">
+                                  {colorStar(e.TyLeDanhGia)}
+                                  {noColorStar(e.TyLeDanhGia)} (
+                                  {e.SoLuongNguoiHoc})
+                                </span>
+                              </div>
+                              <div className="col-sm-4">
+                                <p className="card-text gia-tien-kh-l marginBottom-5">
+                                  <span>{String.num(e.HocPhiGoc)}₫ </span>
+                                </p>
+                                <span className="gia-tien-giam-gias">
+                                  {String.num(e.HocPhiGiamGia)}₫
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                })
-              }
+                );
+              })}
             </div>
-            <div className="d-flex justify-content-center ">
-              <nav aria-label="Page navigation example ">
-                <ul className="pagination">
-                  <li className="page-item ">
-                    <a className="page-link" href="#">
-                      Previous
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      2
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      3
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      Next
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+            <div className="d-flex justify-content-center pagi-kh-os">
+              {pageCount > 0 && (
+                <ReactPaginate
+                  breakLabel="..."
+                  nextLabel=">"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={5}
+                  pageCount={pageCount}
+                  previousLabel="<"
+                  className="pagination"
+                />
+              )}
             </div>
           </div>
         </div>
