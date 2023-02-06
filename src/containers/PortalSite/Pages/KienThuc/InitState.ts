@@ -8,7 +8,9 @@ export interface Item {
 
 export interface IState {
   DataItem: Item[];
+  TreeChuyenMuc: any;
 }
 export const InitState: IState = {
   DataItem: [],
+  TreeChuyenMuc: []
 };
