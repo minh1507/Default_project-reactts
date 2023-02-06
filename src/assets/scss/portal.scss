@@ -2275,6 +2275,22 @@
     font-size: 1.1rem !important;
     padding-top: 7px;
     padding-bottom: 7px;
+    padding-right: 0px;
+  }
+  .rstm-tree-item-level0 {
+    padding-left: 0px !important;
+  }
+  .rstm-tree-item-level1 {
+    padding-left: 10px !important;
+  }
+  .rstm-tree-item-level2 {
+    padding-left: 20px !important;
+  }
+  .rstm-tree-item-level3 {
+    padding-left: 30px !important;
+  }
+  .rstm-tree-item-level4 {
+    padding-left: 40px !important;
   }
   .rstm-tree-item--active {
     background-color: #dc3545;

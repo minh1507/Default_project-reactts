@@ -11,6 +11,7 @@ import bt3 from "assets/img/bt3.jpeg";
 import bt4 from "assets/img/bt4.jpg";
 import TreeMenu from "react-simple-tree-menu";
 import "react-simple-tree-menu/dist/main.css";
+import { Guid } from "common/Enums";
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
@@ -47,7 +48,6 @@ const KhoaHoc = (props: Props) => {
     //   setReLength(reLength + 1);
     // }
   };
-  console.log(reLength);
 
   const prevLength = () => {
     if (reLength >= 4) {
@@ -73,8 +73,9 @@ const KhoaHoc = (props: Props) => {
   };
 
   useEffect(() => {
-    Actions.GetMonHocPortal("GA1", "20", dispatch);
-    Actions.GetHoatDongPortal(dispatch);
+    Actions.GetTreeMonHocPortal(dispatch);
+    Actions.GetKhoaHocPortal(Guid.Empty, dispatch);
+    Actions.GetLoaiKhoaHocHoatDongPortal(dispatch);
   }, []);
 
   useEffect(() => {
@@ -110,11 +111,8 @@ const KhoaHoc = (props: Props) => {
   };
 
   const changeSetaccName = (name: string) => {
-    console.log(name);
     setAccName(name);
   };
-
-  console.log(accName);
 
   return (
     <div style={{ backgroundColor: "white" }}>
@@ -315,33 +313,11 @@ const KhoaHoc = (props: Props) => {
             <div className={`side-left-khoa-hoc ji-kh`}>
               <h5 className="kik-kh-kuki">Môn học</h5>
               <TreeMenu
-                data={[
-                  {
-                    key: "0",
-                    label: "Boi dap chay",
-                    nodes: [
-                      {
-                        key: "1",
-                        label: "Bai 1",
-                        nodes: [],
-                      },
-                    ],
-                  },
-                  {
-                    key: "2",
-                    label: "Cho tre em",
-                    nodes: [
-                      {
-                        key: "3",
-                        label: "Bai 1",
-                        nodes: [],
-                      },
-                    ],
-                  },
-                ]}
+                data={state.TreeMonHoc}
                 initialOpenNodes={[]}
                 hasSearch={false}
                 onClickItem={({ key, label, ...props }) => {
+                  Actions.GetKhoaHocPortal(key, dispatch);
                   changeSetaccName(label);
                 }}
               />
@@ -350,140 +326,74 @@ const KhoaHoc = (props: Props) => {
 
           <div className={`side-right-khoa-hoc `}>
             <div className="row">
-              <div className="col-sm-6">
-                <div className="card mb-4 border-popse" style={{ maxWidth: "100%" }}>
-                <div className="row g-0">
-                  <div className="col-sm-4 try-kh-ui">
-                    <img src={bg40} className="img-kh-cls " alt="..." />
-                  </div>
-                  <div className="col-sm-8">
-                    <div className="card-body card-bodys">
-                      <div className="row">
-                        <div className="col-sm-8">
-                          <p className="card-title underline-head-tt mb-1">
-                            Tên khóa học
-                          </p>
-                          <p className="card-text popse-khso-p">
-                            <small className="text-muted">
-                              20/12/2023 8:00 Tối
-                            </small>
-                          </p>
-                          <p className="card-text posp-khso text-dark">
-                            Giảng viên: Coach Lê Quang
-                          </p>
-                          <p className="card-text posp-khso text-dark">
-                            Thời hạn khóa học:{" "} 3 {" "} tháng
-                          </p>
-                          <p className="card-text posp-khso text-dark">
-                            Miễn phí truy cập thêm:{" "} 3 {" "} tháng
-                          </p>
-                          <span className="star-rate">
-                            <i
-                              className="bi bi-star-fill co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp;
-                            <i
-                              className="bi bi-star-fill co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp;
-                            <i
-                              className="bi bi-star co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp;
-                            <i
-                              className="bi bi-star co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp;
-                            <i
-                              className="bi bi-star co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp; (45)
-                          </span>
-                        </div>
-                        <div className="col-sm-4">
-                          <p className="card-text gia-tien-kh-l">
-                            <span>2.000.000₫ </span>
-                          </p>
-                          <span className="gia-tien-giam-gias">1.000.000₫</span>
+              {
+                state.DsKhoaHoc.map((e:any, ie:any) => {
+                  return               <div className="col-sm-6">
+                  <div className="card mb-4 border-popse" style={{ maxWidth: "100%" }}>
+                    <div className="row g-0">
+                      <div className="col-sm-4 try-kh-ui">
+                        <img src={bg40} className="img-kh-cls " alt="..." />
+                      </div>
+                      <div className="col-sm-8">
+                        <div className="card-body card-bodys">
+                          <div className="row">
+                            <div className="col-sm-8">
+                              <p className="card-title underline-head-tt mb-1">
+                                Tên khóa học
+                              </p>
+                              <p className="card-text popse-khso-p">
+                                <small className="text-muted">
+                                  20/12/2023 8:00 Tối
+                                </small>
+                              </p>
+                              <p className="card-text posp-khso text-dark">
+                                Thời hạn khóa học:{" "} 3 {" "} tháng
+                              </p>
+                              <p className="card-text posp-khso text-dark">
+                                Miễn phí truy cập thêm:{" "} 3 {" "} tháng
+                              </p>
+                              <span className="star-rate">
+                                <i
+                                  className="bi bi-star-fill co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star-fill co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp;
+                                <i
+                                  className="bi bi-star co-or"
+                                  aria-hidden="true"
+                                ></i>
+                                &nbsp; (45)
+                              </span>
+                            </div>
+                            <div className="col-sm-4">
+                              <p className="card-text gia-tien-kh-l marginBottom-5">
+                                <span>2.000.000₫ </span>
+                              </p>
+                              <span className="gia-tien-giam-gias">1.000.000₫</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                </div>
-              </div>
-                <div className="col-sm-6">
-                <div className="card mb-4 border-popse" style={{ maxWidth: "100%" }}>
-                <div className="row g-0">
-                  <div className="col-sm-4 try-kh-ui">
-                    <img src={bg40} className="img-kh-cls " alt="..." />
-                  </div>
-                  <div className="col-sm-8">
-                    <div className="card-body card-bodys">
-                      <div className="row">
-                        <div className="col-sm-8">
-                          <p className="card-title underline-head-tt mb-1">
-                            Tên khóa học
-                          </p>
-                          <p className="card-text popse-khso-p">
-                            <small className="text-muted">
-                              20/12/2023 8:00 Tối
-                            </small>
-                          </p>
-                          <p className="card-text posp-khso text-dark">
-                            Giảng viên: Coach Lê Quang
-                          </p>
-                          <p className="card-text posp-khso text-dark">
-                            Thời hạn khóa học:{" "} 3 {" "} tháng
-                          </p>
-                          <p className="card-text posp-khso text-dark">
-                            Miễn phí truy cập thêm:{" "} 3 {" "} tháng
-                          </p>
-                          <span className="star-rate">
-                            <i
-                              className="bi bi-star-fill co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp;
-                            <i
-                              className="bi bi-star-fill co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp;
-                            <i
-                              className="bi bi-star co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp;
-                            <i
-                              className="bi bi-star co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp;
-                            <i
-                              className="bi bi-star co-or"
-                              aria-hidden="true"
-                            ></i>
-                            &nbsp; (45)
-                          </span>
-                        </div>
-                        <div className="col-sm-4">
-                          <p className="card-text gia-tien-kh-l">
-                            <span>2.000.000₫ </span>
-                          </p>
-                          <span className="gia-tien-giam-gias">1.000.000₫</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                </div>
+                })
+              }
             </div>
             <div className="d-flex justify-content-center ">
               <nav aria-label="Page navigation example ">
