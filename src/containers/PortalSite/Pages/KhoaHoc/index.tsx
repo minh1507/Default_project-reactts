@@ -24,8 +24,7 @@ const KhoaHoc = (props: Props) => {
   const kh1 = useRef(null);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const [search, setSearch] = useState("");
-
+  const pa = useRef(null);
   const nextLength = () => {
     if (reLength + 4 < state.DataHoatDong.length) {
       setReLength(reLength + 4);
@@ -68,19 +67,6 @@ const KhoaHoc = (props: Props) => {
       });
     }
   }, [reLength]);
-
-  const fetch = async (key: any) => {
-    if (key) {
-      let res = await Actions.GetKhoaHocCount(key);
-      setPageCount(res);
-    } else {
-      let res = await Actions.GetKhoaHocCount(Guid.Empty);
-      setPageCount(res);
-    }
-  };
-  useEffect(() => {
-    fetch(0);
-  }, []);
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * 10) % state.Count;
@@ -175,12 +161,12 @@ const KhoaHoc = (props: Props) => {
               placeholder="Tìm kiếm"
               className="kh-input"
               onKeyDown={(e) => {
-                // setSearch(e.target.value);
                 if (e.keyCode == 13) {
                   Actions.GetKhoaHocSearch(
                     (e.target as HTMLInputElement).value,
                     dispatch
                   );
+                  state.Count > 0 && (pa.current.state.selected = 0);
                 }
               }}
             />
@@ -343,8 +329,8 @@ const KhoaHoc = (props: Props) => {
                     key,
                     dispatch
                   );
-                  fetch(key);
                   changeSetaccName(label);
+                  state.Count > 0 && (pa.current.state.selected = 0);
                 }}
               />
             </div>
@@ -419,16 +405,20 @@ const KhoaHoc = (props: Props) => {
                 })}
             </div>
             <div className="d-flex justify-content-center pagi-kh-os align-items-center mt-3">
-              {pageCount > 0 && (
+              {state.Count && Math.ceil(state.Count / 10) > 0 ? (
                 <ReactPaginate
+                  ref={pa}
                   breakLabel="..."
                   nextLabel="Sau"
                   onPageChange={handlePageClick}
                   pageRangeDisplayed={3}
-                  pageCount={pageCount}
+                  pageCount={state.Count && Math.ceil(state.Count / 10)}
                   previousLabel="Trước"
                   className="pagination"
+                  initialPage={0}
                 />
+              ) : (
+                <></>
               )}
             </div>
           </div>

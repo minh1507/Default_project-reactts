@@ -40,7 +40,6 @@ export const Reducer = (state: IState = InitState, action: any) => {
         let searchData = state.DataAllItem.filter((x: any) => {
           return x.TieuDe.toLowerCase().includes(action.search.toLowerCase());
         });
-        console.log(searchData);
 
         return {
           ...state,
@@ -48,9 +47,10 @@ export const Reducer = (state: IState = InitState, action: any) => {
           Count: searchData.length,
         };
       } else {
+        let dataNew = state.DataAllItem.slice(0, 10);
         return {
           ...state,
-          DsKhoaHoc: [...state.DataAllItem],
+          DsKhoaHoc: [...dataNew],
           Count: state.DataAllItem.length,
         };
       }
