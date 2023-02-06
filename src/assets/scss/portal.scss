@@ -1450,9 +1450,13 @@
     border-radius: unset;
     // border: unset unset 1px solid red unset;
   }
-
+  .mg-left-15 {
+    margin-left: 15px;
+  }
+  .mg-right-15 {
+    margin-right: 15px;
+  }
   .border-popse {
-    cursor: pointer;
     border: none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -1779,9 +1783,15 @@
     align-items: center;
     flex-direction: column;
   }
-
+  .underline-news {
+    background-color: #d1d7dc;
+    height: 3px;
+    margin-top: 25px;
+    width: 10%;
+  }
   .img-kh-cls {
     width: 100%;
+    padding: 10px;
     object-fit: cover;
     height: 100%;
     transition: 0.5s;
@@ -1979,7 +1989,7 @@
       }
     }
     .kt-head-right {
-      padding: 15px 10px 0px 15px;
+      padding: 15px 15px 0px 15px;
       width: 40%;
       display: flex;
       flex-direction: column;
