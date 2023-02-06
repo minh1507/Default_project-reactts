@@ -2343,14 +2343,44 @@
     color: #000;
   }
 
-  .pagi-kh-os a {
-    font-weight: bold;
+  .pagi-kh-os ul li:first-child {
+    box-shadow: rgb(67, 60, 60) 0px 1px 2px 0px,
+      rgba(67, 60, 60, 0.15) 0px 1px 3px 1px;
+    margin-right: 5px;
+    border-radius: 4px;
+  }
+  .pagi-kh-os ul li:last-child {
+    box-shadow: rgb(67, 60, 60) 0px 1px 2px 0px,
+      rgba(67, 60, 60, 0.15) 0px 1px 3px 1px;
+    margin-left: 5px;
+    border-radius: 4px;
+  }
+
+  .pagi-kh-os {
+    height: auto;
+  }
+
+  .pagi-kh-os li {
     padding: 8px 16px;
-    font-size: 1.3rem;
+  }
+  .pagi-kh-os ul {
+    padding: 12px 0;
   }
 
   .pagi-kh-os ul li:last-child a {
     text-decoration: none;
     color: #000;
+  }
+
+  .pagi-kh-os ul .selected {
+    color: white;
+    background-color: #58bcec;
+    border-radius: 4px;
+    box-shadow: rgb(67, 60, 60) 0px 1px 2px 0px,
+      rgba(67, 60, 60, 0.15) 0px 1px 3px 1px;
+    font-weight: bold;
+  }
+  .pagi-kh-os ul {
+    margin: 0;
   }
 }

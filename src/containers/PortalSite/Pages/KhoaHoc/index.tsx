@@ -328,7 +328,7 @@ const KhoaHoc = (props: Props) => {
           </div>
         )}
 
-        <div className="container-khoa-hoc pb-3">
+        <div className="container-khoa-hoc pb-4">
           {width > 980 && (
             <div className={`side-left-khoa-hoc ji-kh`}>
               <h5 className="kik-kh-kuki">Môn học</h5>
@@ -417,15 +417,15 @@ const KhoaHoc = (props: Props) => {
                 );
               })}
             </div>
-            <div className="d-flex justify-content-center pagi-kh-os">
+            <div className="d-flex justify-content-center pagi-kh-os align-items-center mt-3">
               {pageCount > 0 && (
                 <ReactPaginate
                   breakLabel="..."
-                  nextLabel=">"
+                  nextLabel="Sau"
                   onPageChange={handlePageClick}
-                  pageRangeDisplayed={5}
+                  pageRangeDisplayed={3}
                   pageCount={pageCount}
-                  previousLabel="<"
+                  previousLabel="Trước"
                   className="pagination"
                 />
               )}
