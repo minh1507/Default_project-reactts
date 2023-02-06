@@ -8,6 +8,7 @@ import { Reducer } from "./Reducer";
 import TreeMenu from "react-simple-tree-menu";
 import "react-simple-tree-menu/dist/main.css";
 import { Guid } from "common/Enums";
+import { String } from "common/String";
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
@@ -62,8 +63,10 @@ const KhoaHoc = (props: Props) => {
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
-    const position = kh1.current.offsetLeft;
-    setScrollPosition(position);
+    if (kh1 && kh1.current) {
+      const position = kh1.current.offsetLeft;
+      setScrollPosition(position);
+    }
   };
 
   useEffect(() => {
@@ -82,6 +85,27 @@ const KhoaHoc = (props: Props) => {
     setAccName(name);
   };
 
+  const star = (danhgia: number) => {
+    let colorStar = () => {
+      for (let i = 0; i <= danhgia; i++) {
+        return <i className="bi bi-star-fill co-or" aria-hidden="true"></i>;
+      }
+    };
+
+    let noColorStar = () => {
+      for (let i = 0; i < 5 - danhgia; i++) {
+        return <i className="bi bi-star co-or" aria-hidden="true"></i>;
+      }
+    };
+    return (
+      <span className="star-rate">
+        {colorStar()}
+        &nbsp;
+        {noColorStar()}
+        &nbsp;
+      </span>
+    );
+  };
   console.log(state);
 
   return (
@@ -298,7 +322,7 @@ const KhoaHoc = (props: Props) => {
             <div className="row">
               {state.DsKhoaHoc.map((e: any, ie: any) => {
                 return (
-                  <div className="col-sm-6">
+                  <div key={uuidv4()} className="col-sm-6">
                     <div
                       className="card mb-4 border-popse"
                       style={{ maxWidth: "100%" }}
@@ -312,53 +336,28 @@ const KhoaHoc = (props: Props) => {
                             <div className="row">
                               <div className="col-sm-8">
                                 <p className="card-title underline-head-tt mb-1">
-                                  Tên khóa học
+                                  {e.TieuDe}
                                 </p>
-                                <p className="card-text popse-khso-p">
+                                {/* <p className="card-text popse-khso-p">
                                   <small className="text-muted">
                                     20/12/2023 8:00 Tối
                                   </small>
+                                </p> */}
+                                <p className="card-text posp-khso text-dark">
+                                  Thời hạn khóa học: {e.ThoiHan} tháng
                                 </p>
                                 <p className="card-text posp-khso text-dark">
-                                  Thời hạn khóa học: 3 tháng
+                                  Miễn phí truy cập thêm:{" "}
+                                  {e.ThoiHanTruyCapMienPhi} tháng
                                 </p>
-                                <p className="card-text posp-khso text-dark">
-                                  Miễn phí truy cập thêm: 3 tháng
-                                </p>
-                                <span className="star-rate">
-                                  <i
-                                    className="bi bi-star-fill co-or"
-                                    aria-hidden="true"
-                                  ></i>
-                                  &nbsp;
-                                  <i
-                                    className="bi bi-star-fill co-or"
-                                    aria-hidden="true"
-                                  ></i>
-                                  &nbsp;
-                                  <i
-                                    className="bi bi-star co-or"
-                                    aria-hidden="true"
-                                  ></i>
-                                  &nbsp;
-                                  <i
-                                    className="bi bi-star co-or"
-                                    aria-hidden="true"
-                                  ></i>
-                                  &nbsp;
-                                  <i
-                                    className="bi bi-star co-or"
-                                    aria-hidden="true"
-                                  ></i>
-                                  &nbsp; (45)
-                                </span>
+                                {star(e.TyLeDanhGia)} ({e.SoLuongNguoiHoc})
                               </div>
                               <div className="col-sm-4">
                                 <p className="card-text gia-tien-kh-l marginBottom-5">
-                                  <span>2.000.000₫ </span>
+                                  <span>{String.num(e.HocPhiGiamGia)}₫ </span>
                                 </p>
                                 <span className="gia-tien-giam-gias">
-                                  1.000.000₫
+                                  {String.num(e.HocPhiGoc)}₫
                                 </span>
                               </div>
                             </div>
