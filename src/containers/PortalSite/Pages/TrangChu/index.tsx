@@ -105,10 +105,15 @@ const TrangChu = (props: Props) => {
     history.push(page);
     window.scrollTo(0, 0);
   };
-  const GoToDetailPage = (page: string, id: string, search: string) => {
+  const GoToDetailPage = (
+    page: string,
+    id: string,
+    search: string,
+    type: string
+  ) => {
     history.push({
       pathname: page,
-      state: { id: id },
+      state: { id: id, type: type },
       search: `/${search}`,
     });
     window.scrollTo(0, 0);
@@ -138,12 +143,12 @@ const TrangChu = (props: Props) => {
   };
 
   const gioiThieu = state.DataItemsTinTuc && (
-    <div key={uuidv4()} className="main_sub_detal mt-2">
+    <div key={uuidv4()} className="main_sub_detal rout-zx mt-2">
       <div className="container-xl d-flex flex-column">
         <h3 className="text-danger text-uppercase tieu-de">
           {state.DataItemsTinTuc.TenNhomTinTuc}
         </h3>
-        <div className="container mt-5">
+        <div className="container-xl mt-3">
           <div className="row gap-3 justify-content-center align-items-center">
             {state.DataItemsTinTuc.DanhSachTinTuc.map(
               (child: danhSachTintuc) => (
@@ -153,7 +158,7 @@ const TrangChu = (props: Props) => {
                   style={{
                     maxWidth: "350px",
                     border: "none",
-                    cursor: "pointer"
+                    cursor: "pointer",
                   }}
                 >
                   <div className="wrapper_discard">
@@ -173,7 +178,8 @@ const TrangChu = (props: Props) => {
                         GoToDetailPage(
                           "/chi-tiet-tin-tuc",
                           child.Id as string,
-                          child.TieuDe as string
+                          child.TieuDe as string,
+                          "tintuc"
                         )
                       }
                     >
@@ -192,7 +198,8 @@ const TrangChu = (props: Props) => {
                           GoToDetailPage(
                             "/chi-tiet-tin-tuc",
                             child.Id as string,
-                            child.TieuDe as string
+                            child.TieuDe as string,
+                            "tintuc"
                           )
                         }
                       >
@@ -210,12 +217,12 @@ const TrangChu = (props: Props) => {
   );
 
   const giaoan = state.DataItemsGiaoAn && (
-    <div className="main_sub_detal mt-2 mb-2 ">
+    <div className="main_sub_detal rout-zxz mt-2 mb-2 ">
       <div className="container-xl d-flex flex-column">
         <h3 className="text-danger text-uppercase tieu-de">
           {state.DataItemsGiaoAn.TenMonHoc}
         </h3>
-        <div className="container mt-5">
+        <div className="container mt-3">
           <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat">
             {state.DataItemsGiaoAn.DanhSachMonHocCon.map(
               (tree: IModelMonHocCon) => (
@@ -249,10 +256,11 @@ const TrangChu = (props: Props) => {
                       >
                         {tree.TenMonHoc}
                       </p>
-                      <p className="money">{String.num(tree.GiaGiaoDongTu)}₫ - {String.num(tree.GiaGiaoDongDen)}₫</p>
-                      <p
-                        className=" card-text text-dark mo-ta mb-1"
-                      >
+                      <p className="money">
+                        {String.num(tree.GiaGiaoDongTu)}₫ -{" "}
+                        {String.num(tree.GiaGiaoDongDen)}₫
+                      </p>
+                      <p className=" card-text text-dark mo-ta mb-1">
                         {tree.MoTa}
                       </p>
 
@@ -271,7 +279,7 @@ const TrangChu = (props: Props) => {
             )}
           </div>
         </div>
-        <div className="mt-5">
+        {/* <div className="mt-5">
           <button
             className="header_btn bg-danger text-light "
             onClick={() => {
@@ -280,7 +288,7 @@ const TrangChu = (props: Props) => {
           >
             Xem tất cả
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -293,12 +301,12 @@ const TrangChu = (props: Props) => {
           <div>
             <div className="style17 container-xl"></div>
 
-            <div className="main_sub_detal mt-2 mb-2">
-              <div className="container-xl d-flex flex-column">
-                <h3 className="text-danger text-uppercase tieu-de">
+            <div className="main_sub_detal tieu-de-ava pt-0 mb-2">
+              <div className="container d-flex flex-column">
+                <h3 className="text-danger text-uppercase tieu-de tieude-avb">
                   {tree.TenMonHoc}
                 </h3>
-                <div className="container mt-5">
+                <div className="container uoy-tt mt-1">
                   <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat">
                     {tree.DanhSachKhoaHoc.map((item: any) => (
                       <div
@@ -332,21 +340,24 @@ const TrangChu = (props: Props) => {
                                 GoToDetailPage(
                                   "/khoa-hoc-chi-tiet",
                                   item.Id as string,
-                                  item.TieuDe as string
+                                  item.TieuDe as string,
+                                  "khoahoc"
                                 )
                               }
                             >
                               {item.TieuDe}
                             </p>
                             <p className=" card-text">
-                              Thời hạn khóa học:{" "} {item.ThoiHan} {" "} tháng
+                              Thời hạn khóa học: {item.ThoiHan} tháng
                             </p>
-                            {
-                              item.ThoiHanTruyCapMienPhi ?
+                            {item.ThoiHanTruyCapMienPhi ? (
                               <p className=" card-text">
-                                Miễn phí truy cập thêm:{" "} {item.ThoiHanTruyCapMienPhi} {" "} tháng
-                              </p>:<></>
-                            }
+                                Miễn phí truy cập thêm:{" "}
+                                {item.ThoiHanTruyCapMienPhi} tháng
+                              </p>
+                            ) : (
+                              <></>
+                            )}
                             <p className="mb-1 mt-1">
                               <span className="star-rate">
                                 <i
@@ -450,14 +461,6 @@ const TrangChu = (props: Props) => {
                     ))}
                   </div>
                 </div>
-                <div className="mt-5">
-                  <button
-                    className="header_btn bg-danger text-light "
-                    onClick={() => GoToOtherPage("/khoa-hoc")}
-                  >
-                    Xem tất cả
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -466,12 +469,12 @@ const TrangChu = (props: Props) => {
     ));
 
   const suKien = state.DataItemsSuKien && (
-    <div className="main_sub_detal mt-2 mb-2">
+    <div className="main_sub_detal rout-zxa mb-2">
       <div className="container-xl d-flex flex-column">
         <h3 className="text-danger text-uppercase tieu-de">
           {state.DataItemsSuKien.TenNhomSuKien}
         </h3>
-        <div className="container mt-5">
+        <div className="container mt-3">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
             {state.DataItemsSuKien.DanhSachSuKien.map(
               (child: danhSachSuKien) => (
@@ -497,7 +500,15 @@ const TrangChu = (props: Props) => {
                       <div className="card-body p-2">
                         <div className="d-flex justify-content-between">
                           <h6
-                            className="card-title  head_z"
+                            className="card-title titleXl head_z underline-head-tt"
+                            onClick={() =>
+                              GoToDetailPage(
+                                "/chi-tiet-tin-tuc",
+                                child.IdSuKien as string,
+                                child.TenSuKien as string,
+                                "sukien"
+                              )
+                            }
                             style={{
                               textAlign: "start",
                               width: "250px",
@@ -506,7 +517,17 @@ const TrangChu = (props: Props) => {
                           >
                             {child.TenSuKien}
                           </h6>
-                          <span className="d-flex justify-content-center align-items-center chi-tiet">
+                          <span
+                            className="d-flex justify-content-center align-items-center chi-tiet"
+                            onClick={() =>
+                              GoToDetailPage(
+                                "/chi-tiet-tin-tuc",
+                                child.IdSuKien as string,
+                                child.TenSuKien as string,
+                                "sukien"
+                              )
+                            }
+                          >
                             Chi tiết
                           </span>
                         </div>
@@ -632,7 +653,8 @@ const TrangChu = (props: Props) => {
                       GoToDetailPage(
                         "/chi-tiet-tin-tuc",
                         item.Id as string,
-                        item.TieuDe as string
+                        item.TieuDe as string,
+                        "tintuc"
                       )
                     }
                   >

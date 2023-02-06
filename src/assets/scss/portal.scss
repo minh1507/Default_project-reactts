@@ -223,7 +223,7 @@
 
   .sups::after {
     left: 0;
-    bottom: -5px;
+    bottom: 0;
   }
 
   .sups::before {
@@ -560,7 +560,7 @@
     text-align: center;
   }
   .style17:after {
-    content: "§";
+    content: "";
     display: inline-block;
     position: relative;
     top: -14px;
@@ -2262,10 +2262,39 @@
     width: 17.3rem;
   }
 
+  .tieu-de-ava {
+    text-align: unset !important;
+    padding-bottom: 25px;
+  }
+
   .kt-round-dudat {
     display: flex;
-    justify-content: center;
   }
+
+  .rout-zx {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  .rout-zxz {
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  .rout-zxa {
+    padding-top: 0;
+    padding-bottom: 15px;
+  }
+
+  .uoy-tt {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tieude-avb {
+    font-size: 1.3rem;
+  }
+
   .money {
     color: red;
     font-size: calc(1.1rem);

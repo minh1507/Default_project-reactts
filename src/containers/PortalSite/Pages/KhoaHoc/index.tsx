@@ -37,16 +37,9 @@ const KhoaHoc = (props: Props) => {
   ]);
 
   const nextLength = () => {
-    if (
-      // reLength < state.DataHoatDong.length - 2 &&
-      reLength + 4 <
-      state.DataHoatDong.length
-    ) {
+    if (reLength + 4 < state.DataHoatDong.length) {
       setReLength(reLength + 4);
     }
-    // if (reLength + 3 < state.DataHoatDong.length) {
-    //   setReLength(reLength + 1);
-    // }
   };
 
   const prevLength = () => {
