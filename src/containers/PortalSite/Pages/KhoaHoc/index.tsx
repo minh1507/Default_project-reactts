@@ -91,22 +91,9 @@ const KhoaHoc = (props: Props) => {
     setName(name);
   };
 
-  // const handleKeyDown = (event: any) => {
-  //   if (event.keyCode == 13) {
-  //     Action.
-  //   }
-  // };
   const changeSetaccName = (name: string) => {
     setAccName(name);
   };
-  // useEffect(() => {
-  //   window.addEventListener("keydown", handleKeyDown);
-
-  //   // cleanup this component
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // });
 
   const colorStar = (danhgia: number) => {
     return (
@@ -187,9 +174,14 @@ const KhoaHoc = (props: Props) => {
             <input
               placeholder="Tìm kiếm"
               className="kh-input"
-              value={search}
-              onChange={(e) => {
-                setSearch(e.target.value);
+              onKeyDown={(e) => {
+                // setSearch(e.target.value);
+                if (e.keyCode == 13) {
+                  Actions.GetKhoaHocSearch(
+                    (e.target as HTMLInputElement).value,
+                    dispatch
+                  );
+                }
               }}
             />
           </div>

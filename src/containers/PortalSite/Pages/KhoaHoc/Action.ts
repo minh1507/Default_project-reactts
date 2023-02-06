@@ -18,7 +18,12 @@ export const Actions: any = {
       end: end,
     });
   },
-
+  GetKhoaHocSearch: async (search: any, dispatch: any) => {
+    dispatch({
+      type: "GetItemKhoaHocSearch",
+      search: search,
+    });
+  },
   GetKhoaHocCount: async (key: any) => {
     let ids = key.split("/");
     let id = ids[ids.length - 1];
