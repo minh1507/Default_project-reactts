@@ -717,15 +717,15 @@ const TrangChu = (props: Props) => {
         </div>
       </div>
 
-      <div className="banner_2nd d-flex justify-content-center align-items-center mt-5 mb-2">
+      <div className="banner_2nd d-flex justify-content-center align-items-center mt-5">
         <img src={bg12} style={{ width: "70vw", height: "auto" }} />
       </div>
 
-      <div className="main_sub_detal mt-2 mb-2">
+      <div className="main_sub_detal mb-2">
         <div className="container-xl d-flex flex-column">
           <h2 className="text-danger tieu-de">THÀNH TÍCH HỌC VIÊN</h2>
           <div
-            className="container mt-5 d-flex justify-content-between congrate"
+            className="container mt-2 d-flex justify-content-between congrate"
             style={{ textAlign: "start" }}
           >
             <div className="congrate_child" style={{ width: "40%" }}>
