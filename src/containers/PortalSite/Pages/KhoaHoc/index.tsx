@@ -87,7 +87,7 @@ const KhoaHoc = (props: Props) => {
     return (
       <span>
         {[...Array(danhgia)].map(() => (
-          <span>
+          <span key={uuidv4()}>
             <i className="bi bi-star-fill co-or" aria-hidden="true"></i>
             &nbsp;
           </span>
@@ -100,7 +100,7 @@ const KhoaHoc = (props: Props) => {
     return (
       <span>
         {[...Array(5 - danhgia)].map(() => (
-          <span>
+          <span key={uuidv4()}>
             <i className="bi bi-star co-or" aria-hidden="true"></i>
             &nbsp;
           </span>
@@ -108,8 +108,6 @@ const KhoaHoc = (props: Props) => {
       </span>
     );
   };
-
-  console.log(state);
 
   return (
     <div style={{ backgroundColor: "white" }}>
@@ -325,7 +323,7 @@ const KhoaHoc = (props: Props) => {
             <div className="row">
               {state.DsKhoaHoc.map((e: any, ie: any) => {
                 return (
-                  <div className="col-sm-6">
+                  <div key={uuidv4()} className="col-sm-6">
                     <div
                       className="card mb-4 border-popse"
                       style={{ maxWidth: "100%" }}
