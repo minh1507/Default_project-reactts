@@ -1366,6 +1366,7 @@
   .wrapper_card {
     overflow: hidden;
     height: 150px;
+    padding: 5px;
   }
 
   .wrapper_card img {
@@ -2304,7 +2305,9 @@
   .tieude-avb {
     font-size: 1.3rem;
   }
-
+  .sub-news-noitbat {
+    line-height: 18px;
+  }
   .money {
     color: red;
     font-size: calc(1.1rem);
@@ -2317,7 +2320,7 @@
     padding-right: 0px;
   }
   .rstm-tree-item-level0 {
-    padding-left: 0px !important;
+    padding-left: 5px !important;
   }
   .rstm-tree-item-level1 {
     padding-left: 10px !important;

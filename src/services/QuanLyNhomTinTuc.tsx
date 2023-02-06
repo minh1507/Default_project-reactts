@@ -2,6 +2,13 @@ import { TinTuc } from "common/Enums";
 import request from "common/Request";
 const Por_NhomTinTuc = "Por_NhomTinTuc";
 const QuanLyNhomTinTuc = {
+  GetTreePortal: async () => {
+    let res: any = await request({
+      url: `/${Por_NhomTinTuc}/TreePortal`,
+      method: "get",
+    });
+    return res;
+  },
   GetByParentId: async (idMenuCha: any) => {
     let res: any = await request({
       url: `/${Por_NhomTinTuc}/List/${idMenuCha}`,

@@ -489,7 +489,7 @@ const TrangChu = (props: Props) => {
                         src={child.URL_AnhDaiDien as string}
                         style={{
                           width: "100%",
-                          height: "220px",
+                          height: "200px",
                           borderTopLeftRadius: 5,
                           borderBottomLeftRadius: 5,
                         }}
@@ -557,7 +557,7 @@ const TrangChu = (props: Props) => {
                           </span>
                         </div>
                         <p
-                          className="card-text mt-2 mb-3"
+                          className="card-text mt-2 mb-1"
                           style={{
                             fontSize: "0.9rem",
                             textAlign: "start",

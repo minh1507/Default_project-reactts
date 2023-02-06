@@ -7,10 +7,14 @@ export interface Item {
 }
 
 export interface IState {
+  DataItemTinTucNoiBat: any;
+  DataItemTinTuc: any;
   DataItem: Item[];
   TreeChuyenMuc: any;
 }
 export const InitState: IState = {
+  DataItemTinTucNoiBat: [],
+  DataItemTinTuc: [],
   DataItem: [],
   TreeChuyenMuc: []
 };

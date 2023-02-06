@@ -1,6 +1,20 @@
 import request from "common/Request";
 const Por_TinTuc = "Por_TinTuc";
 const TinTucService = {
+  GetTinTucTheoIdMonHocPortal: async (id: String) => {
+    let res: any = await request({
+      url: `/${Por_TinTuc}/TheoChuyenMuc?idChuyenMuc=${id}`,
+      method: "get",
+    });
+    return res;
+  },
+  GetTinTucNoiBat: async (limit: Number) => {
+    let res: any = await request({
+      url: `/${Por_TinTuc}/TinNoiBat?limit=${limit}`,
+      method: "get",
+    });
+    return res;
+  },
   GetItems: async () => {
     let res: any = await request({
       url: `/${Por_TinTuc}/List?page=1&pageSize=1000&totalLimitItems=0&searchBy=`,

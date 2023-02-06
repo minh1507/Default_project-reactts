@@ -113,11 +113,11 @@ const KhoaHoc = (props: Props) => {
         <img className="mb-3" src={bg40} width="100%" height="auto" />
         <h1 className="reszex">KHÓA HỌC</h1>
       </div>
-      {width > 1110 && (
+      {/* {width > 1110 && (
         <h4 className="text-danger text-center text-uppercase tieu-de mb-3">
           Loại khóa học
         </h4>
-      )}
+      )} */}
 
       <div className="container-xl ">
         {width > 1110 && (
@@ -145,12 +145,12 @@ const KhoaHoc = (props: Props) => {
         {/* <img className="mb-4 kh-cdnb1x" src={ba1} width="100%" height="auto" /> */}
 
         {accName ? (
-          <h4 className="text-danger text-center text-uppercase tieu-de mb-3 kh-apeperar">
-            {accName}
+          <h4 className="text-danger text-center tieu-de mb-3 kh-apeperar">
+            Khóa học chạy bộ - {accName}
           </h4>
         ) : (
-          <h4 className="text-danger text-center text-uppercase tieu-de mb-3">
-            Danh sách khóa học
+          <h4 className="text-danger text-center tieu-de mb-3">
+            Khóa học chạy bộ 
           </h4>
         )}
 
