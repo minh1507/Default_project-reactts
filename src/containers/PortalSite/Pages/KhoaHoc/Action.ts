@@ -5,10 +5,12 @@ import QuanLyLoaiKhoaHocService from "services/QuanLyLoaiKhoahoc";
 
 export const Actions: any = {
   GetKhoaHocPortal: async (start: any, end: any, key: any, dispatch: any) => {
+    console.log(key);
     let ids = key.split("/");
     let id = ids[ids.length - 1];
     let res: IResponseMessage =
       await KhoaHocService.GetKhoaHocTheoIdMonHocPortal(id);
+
     dispatch({
       type: "GetItemKhoaHoc",
       items: res.Data,

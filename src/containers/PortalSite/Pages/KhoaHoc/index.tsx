@@ -9,6 +9,7 @@ import "react-simple-tree-menu/dist/main.css";
 import { Guid } from "common/Enums";
 import { String } from "common/String";
 import ReactPaginate from "react-paginate";
+import noimage from "assets/img/noimage.png";
 
 const { v4: uuidv4 } = require("uuid");
 
@@ -31,6 +32,7 @@ const KhoaHoc = (props: Props) => {
     }
   };
 
+  console.log(name);
   const prevLength = () => {
     if (reLength >= 4) {
       setReLength(reLength - 4);
@@ -44,6 +46,8 @@ const KhoaHoc = (props: Props) => {
   const prevKHNB = () => {
     prevLength();
   };
+
+  console.log(state.TreeMonHoc);
 
   useEffect(() => {
     Actions.GetTreeMonHocPortal(dispatch);
@@ -317,8 +321,15 @@ const KhoaHoc = (props: Props) => {
                 initialOpenNodes={[]}
                 hasSearch={false}
                 onClickItem={({ key, label, ...props }) => {
-                  Actions.GetKhoaHocPortal(key, dispatch);
+                  Actions.GetKhoaHocPortal(
+                    itemOffset,
+                    itemOffset + 10,
+                    key,
+                    dispatch
+                  );
                   changeSetaccName(label);
+                  // console.log(key);
+                  // console.log(label);
                 }}
               />
             </div>
@@ -343,7 +354,7 @@ const KhoaHoc = (props: Props) => {
                             />
                           ) : (
                             <img
-                              src="https://bizweb.dktcdn.net/thumb/1024x1024/assets/themes_support/noimage.gif"
+                              src={noimage}
                               className="img-kh-cls "
                               alt="..."
                             />
