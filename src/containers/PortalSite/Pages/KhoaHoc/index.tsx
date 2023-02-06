@@ -352,70 +352,71 @@ const KhoaHoc = (props: Props) => {
 
           <div className={`side-right-khoa-hoc `}>
             <div className="row">
-              {state.DsKhoaHoc.map((e: any, ie: any) => {
-                return (
-                  <div key={uuidv4()} className="col-sm-6">
-                    <div
-                      className="card mb-4 border-popse"
-                      style={{ maxWidth: "100%" }}
-                    >
-                      <div className="row g-0">
-                        <div className="col-sm-4 try-kh-ui">
-                          {e.URL_AnhDaiDien ? (
-                            <img
-                              src={e.URL_AnhDaiDien}
-                              className="img-kh-cls "
-                              alt="..."
-                            />
-                          ) : (
-                            <img
-                              src={noimage}
-                              className="img-kh-cls "
-                              alt="..."
-                            />
-                          )}
-                        </div>
-                        <div className="col-sm-8">
-                          <div className="card-body card-bodys">
-                            <div className="row">
-                              <div className="col-sm-8">
-                                <p className="card-title underline-head-tt mb-1">
-                                  {e.TieuDe}
-                                </p>
-                                <p className="card-text popse-khso-p">
-                                  <small className="text-muted">
-                                    {String.date(e.CreatedDateTime)}
-                                  </small>
-                                </p>
-                                <p className="card-text posp-khso text-dark">
-                                  Thời hạn khóa học: {e.ThoiHan} tháng
-                                </p>
-                                <p className="card-text posp-khso text-dark">
-                                  Miễn phí truy cập thêm:{" "}
-                                  {e.ThoiHanTruyCapMienPhi} tháng
-                                </p>
-                                <span className="star-rate">
-                                  {colorStar(e.TyLeDanhGia)}
-                                  {noColorStar(e.TyLeDanhGia)} (
-                                  {e.SoLuongNguoiHoc})
-                                </span>
-                              </div>
-                              <div className="col-sm-4">
-                                <p className="card-text gia-tien-kh-l marginBottom-5">
-                                  <span>{String.num(e.HocPhiGoc)}₫ </span>
-                                </p>
-                                <span className="gia-tien-giam-gias">
-                                  {String.num(e.HocPhiGiamGia)}₫
-                                </span>
+              {state.DsKhoaHoc &&
+                state.DsKhoaHoc.map((e: any, ie: any) => {
+                  return (
+                    <div key={uuidv4()} className="col-sm-6">
+                      <div
+                        className="card mb-4 border-popse"
+                        style={{ maxWidth: "100%" }}
+                      >
+                        <div className="row g-0">
+                          <div className="col-sm-4 try-kh-ui">
+                            {e.URL_AnhDaiDien ? (
+                              <img
+                                src={e.URL_AnhDaiDien}
+                                className="img-kh-cls "
+                                alt="..."
+                              />
+                            ) : (
+                              <img
+                                src={noimage}
+                                className="img-kh-cls "
+                                alt="..."
+                              />
+                            )}
+                          </div>
+                          <div className="col-sm-8">
+                            <div className="card-body card-bodys">
+                              <div className="row">
+                                <div className="col-sm-8">
+                                  <p className="card-title underline-head-tt mb-1">
+                                    {e.TieuDe}
+                                  </p>
+                                  <p className="card-text popse-khso-p">
+                                    <small className="text-muted">
+                                      {String.date(e.CreatedDateTime)}
+                                    </small>
+                                  </p>
+                                  <p className="card-text posp-khso text-dark">
+                                    Thời hạn khóa học: {e.ThoiHan} tháng
+                                  </p>
+                                  <p className="card-text posp-khso text-dark">
+                                    Miễn phí truy cập thêm:{" "}
+                                    {e.ThoiHanTruyCapMienPhi} tháng
+                                  </p>
+                                  <span className="star-rate">
+                                    {colorStar(e.TyLeDanhGia)}
+                                    {noColorStar(e.TyLeDanhGia)} (
+                                    {e.SoLuongNguoiHoc})
+                                  </span>
+                                </div>
+                                <div className="col-sm-4">
+                                  <p className="card-text gia-tien-kh-l marginBottom-5">
+                                    <span>{String.num(e.HocPhiGoc)}₫ </span>
+                                  </p>
+                                  <span className="gia-tien-giam-gias">
+                                    {String.num(e.HocPhiGiamGia)}₫
+                                  </span>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
             <div className="d-flex justify-content-center pagi-kh-os align-items-center mt-3">
               {pageCount > 0 && (
