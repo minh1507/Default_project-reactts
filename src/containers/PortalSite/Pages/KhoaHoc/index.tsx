@@ -63,10 +63,8 @@ const KhoaHoc = (props: Props) => {
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
-    if (kh1 && kh1.current) {
-      const position = kh1.current.offsetLeft;
-      setScrollPosition(position);
-    }
+    const position = kh1.current.offsetLeft;
+    setScrollPosition(position);
   };
 
   useEffect(() => {
@@ -85,27 +83,32 @@ const KhoaHoc = (props: Props) => {
     setAccName(name);
   };
 
-  const star = (danhgia: number) => {
-    let colorStar = () => {
-      for (let i = 0; i <= danhgia; i++) {
-        return <i className="bi bi-star-fill co-or" aria-hidden="true"></i>;
-      }
-    };
-
-    let noColorStar = () => {
-      for (let i = 0; i < 5 - danhgia; i++) {
-        return <i className="bi bi-star co-or" aria-hidden="true"></i>;
-      }
-    };
+  const colorStar = (danhgia: number) => {
     return (
-      <span className="star-rate">
-        {colorStar()}
-        &nbsp;
-        {noColorStar()}
-        &nbsp;
+      <span>
+        {[...Array(danhgia)].map(() => (
+          <span>
+            <i className="bi bi-star-fill co-or" aria-hidden="true"></i>
+            &nbsp;
+          </span>
+        ))}
       </span>
     );
   };
+
+  const noColorStar = (danhgia: number) => {
+    return (
+      <span>
+        {[...Array(5 - danhgia)].map(() => (
+          <span>
+            <i className="bi bi-star co-or" aria-hidden="true"></i>
+            &nbsp;
+          </span>
+        ))}
+      </span>
+    );
+  };
+
   console.log(state);
 
   return (
@@ -322,14 +325,26 @@ const KhoaHoc = (props: Props) => {
             <div className="row">
               {state.DsKhoaHoc.map((e: any, ie: any) => {
                 return (
-                  <div key={uuidv4()} className="col-sm-6">
+                  <div className="col-sm-6">
                     <div
                       className="card mb-4 border-popse"
                       style={{ maxWidth: "100%" }}
                     >
                       <div className="row g-0">
                         <div className="col-sm-4 try-kh-ui">
-                          <img src={bg40} className="img-kh-cls " alt="..." />
+                          {e.URL_AnhDaiDien ? (
+                            <img
+                              src={e.URL_AnhDaiDien}
+                              className="img-kh-cls "
+                              alt="..."
+                            />
+                          ) : (
+                            <img
+                              src="https://bizweb.dktcdn.net/thumb/1024x1024/assets/themes_support/noimage.gif"
+                              className="img-kh-cls "
+                              alt="..."
+                            />
+                          )}
                         </div>
                         <div className="col-sm-8">
                           <div className="card-body card-bodys">
@@ -338,11 +353,11 @@ const KhoaHoc = (props: Props) => {
                                 <p className="card-title underline-head-tt mb-1">
                                   {e.TieuDe}
                                 </p>
-                                {/* <p className="card-text popse-khso-p">
+                                <p className="card-text popse-khso-p">
                                   <small className="text-muted">
-                                    20/12/2023 8:00 Tối
+                                    {String.date(e.CreatedDateTime)}
                                   </small>
-                                </p> */}
+                                </p>
                                 <p className="card-text posp-khso text-dark">
                                   Thời hạn khóa học: {e.ThoiHan} tháng
                                 </p>
@@ -350,14 +365,18 @@ const KhoaHoc = (props: Props) => {
                                   Miễn phí truy cập thêm:{" "}
                                   {e.ThoiHanTruyCapMienPhi} tháng
                                 </p>
-                                {star(e.TyLeDanhGia)} ({e.SoLuongNguoiHoc})
+                                <span className="star-rate">
+                                  {colorStar(e.TyLeDanhGia)}
+                                  {noColorStar(e.TyLeDanhGia)} (
+                                  {e.SoLuongNguoiHoc})
+                                </span>
                               </div>
                               <div className="col-sm-4">
                                 <p className="card-text gia-tien-kh-l marginBottom-5">
-                                  <span>{String.num(e.HocPhiGiamGia)}₫ </span>
+                                  <span>{String.num(e.HocPhiGoc)}₫ </span>
                                 </p>
                                 <span className="gia-tien-giam-gias">
-                                  {String.num(e.HocPhiGoc)}₫
+                                  {String.num(e.HocPhiGiamGia)}₫
                                 </span>
                               </div>
                             </div>
