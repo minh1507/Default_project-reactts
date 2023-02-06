@@ -13,6 +13,7 @@ export interface HoatDong {
 
 export interface IState {
   TreeMonHoc: any;
+  DataAllItem: any;
   DataItem: {
     DanhSachMonHocCon: Item[];
   };
@@ -22,6 +23,7 @@ export interface IState {
 }
 export const InitState: IState = {
   TreeMonHoc: [],
+  DataAllItem: [],
   DataItem: {
     DanhSachMonHocCon: [],
   },

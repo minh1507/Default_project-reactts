@@ -11,8 +11,17 @@ export const Actions: any = {
       await KhoaHocService.GetKhoaHocTheoIdMonHocPortal(id);
     dispatch({
       type: "GetItemKhoaHoc",
-      items: res.Data.slice(start, end),
+      items: res.Data,
       count: res.Data.length,
+      start: start,
+      end: end,
+    });
+  },
+  GetKhoaHocChangePortal: async (start: any, end: any, dispatch: any) => {
+    dispatch({
+      type: "GetItemKhoaHocChange",
+      start: start,
+      end: end,
     });
   },
   GetMonHocPortal: async (ma: any, limit: any, dispatch: any) => {

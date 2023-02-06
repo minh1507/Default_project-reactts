@@ -76,7 +76,7 @@ const KhoaHoc = (props: Props) => {
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * 10) % state.Count;
-    Actions.GetKhoaHocPortal(newOffset, newOffset + 10, Guid.Empty, dispatch);
+    Actions.GetKhoaHocChangePortal(newOffset, newOffset + 10, dispatch);
   };
 
   const changeName = (name: string) => {
