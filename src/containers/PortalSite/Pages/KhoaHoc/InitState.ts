@@ -16,8 +16,9 @@ export interface IState {
   DataItem: {
     DanhSachMonHocCon: Item[];
   };
-  DsKhoaHoc: any,
+  DsKhoaHoc: any;
   DataHoatDong: HoatDong[];
+  Count: number;
 }
 export const InitState: IState = {
   TreeMonHoc: [],
@@ -26,4 +27,5 @@ export const InitState: IState = {
   },
   DsKhoaHoc: [],
   DataHoatDong: [],
+  Count: 0,
 };

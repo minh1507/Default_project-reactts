@@ -1,7 +1,6 @@
-import React, { useEffect, useReducer, useRef, useState, useMemo } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { connect } from "react-redux";
 import bg40 from "assets/img/Khoahoc.png";
-import MainCard from "../General/MainCard";
 import { InitState, Item } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
@@ -9,6 +8,8 @@ import TreeMenu from "react-simple-tree-menu";
 import "react-simple-tree-menu/dist/main.css";
 import { Guid } from "common/Enums";
 import { String } from "common/String";
+import ReactPaginate from "react-paginate";
+
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
@@ -20,6 +21,9 @@ const KhoaHoc = (props: Props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [reLength, setReLength] = useState(0);
   const kh1 = useRef(null);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [itemOffset, setItemOffset] = useState(0);
 
   const nextLength = () => {
     if (reLength + 4 < state.DataHoatDong.length) {
@@ -43,12 +47,15 @@ const KhoaHoc = (props: Props) => {
 
   useEffect(() => {
     Actions.GetTreeMonHocPortal(dispatch);
-    Actions.GetKhoaHocPortal(Guid.Empty, dispatch);
     Actions.GetLoaiKhoaHocHoatDongPortal(dispatch);
   }, []);
 
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+
+  useEffect(() => {
+    Actions.GetKhoaHocPortal(itemOffset, itemOffset + 10, Guid.Empty, dispatch);
   }, []);
 
   useEffect(() => {
@@ -61,19 +68,16 @@ const KhoaHoc = (props: Props) => {
     }
   }, [reLength]);
 
-  // const [scrollPosition, setScrollPosition] = useState(0);
-  // const handleScroll = () => {
-  //   const position = kh1.current.offsetLeft;
-  //   setScrollPosition(position);
-  // };
+  useEffect(() => {
+    if (state.DsKhoaHoc) {
+      setPageCount(Math.ceil(state.Count / 10));
+    }
+  }, [state.Count]);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll, { passive: true });
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // });
+  const handlePageClick = (event: any) => {
+    const newOffset = (event.selected * 10) % state.Count;
+    Actions.GetKhoaHocPortal(newOffset, newOffset + 10, Guid.Empty, dispatch);
+  };
 
   const changeName = (name: string) => {
     setName(name);
@@ -162,7 +166,8 @@ const KhoaHoc = (props: Props) => {
             <input placeholder="Tìm kiếm" className="kh-input" />
           </div>
           <div className="kh-contain-result">
-            Tìm thấy <span className="kh-result">10</span> kết quả
+            Tìm thấy <span className="kh-result">{state && state.Count}</span>{" "}
+            kết quả
           </div>
         </div>
 
@@ -386,26 +391,18 @@ const KhoaHoc = (props: Props) => {
                 );
               })}
             </div>
-            <div className="d-flex justify-content-center ">
-              <nav aria-label="Page navigation example ">
-                <ul className="pagination">
-                  <li className="page-item ">
-                    <a className="page-link">Previous</a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link">1</a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link">2</a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link">3</a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link">Next</a>
-                  </li>
-                </ul>
-              </nav>
+            <div className="d-flex justify-content-center pagi-kh-os">
+              {pageCount > 0 && (
+                <ReactPaginate
+                  breakLabel="..."
+                  nextLabel=">"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={5}
+                  pageCount={pageCount}
+                  previousLabel="<"
+                  className="pagination"
+                />
+              )}
             </div>
           </div>
         </div>

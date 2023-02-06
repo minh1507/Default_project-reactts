@@ -4,17 +4,14 @@ export const Reducer = (state: IState = InitState, action: any) => {
     case "GetItemKhoaHoc":
       return {
         ...state,
-        DsKhoaHoc: [
-          ...action.items
-        ]
-      }
+        DsKhoaHoc: [...action.items],
+        Count: action.count,
+      };
     case "GetItemMonHoc":
       return {
         ...state,
-        TreeMonHoc: [
-          ...action.item
-        ]
-      }
+        TreeMonHoc: [...action.item],
+      };
     case "GetItem":
       let data = action.items;
       action.items.DanhSachMonHocCon.forEach((val: any) => {

@@ -4,14 +4,15 @@ import MonHocService from "services/MonHocService";
 import QuanLyLoaiKhoaHocService from "services/QuanLyLoaiKhoahoc";
 
 export const Actions: any = {
-  GetKhoaHocPortal: async (key: any, dispatch: any) => {
+  GetKhoaHocPortal: async (start: any, end: any, key: any, dispatch: any) => {
     let ids = key.split("/");
     let id = ids[ids.length - 1];
     let res: IResponseMessage =
       await KhoaHocService.GetKhoaHocTheoIdMonHocPortal(id);
     dispatch({
       type: "GetItemKhoaHoc",
-      items: res.Data,
+      items: res.Data.slice(start, end),
+      count: res.Data.length,
     });
   },
   GetMonHocPortal: async (ma: any, limit: any, dispatch: any) => {
