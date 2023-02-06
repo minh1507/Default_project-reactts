@@ -61,19 +61,19 @@ const KhoaHoc = (props: Props) => {
     }
   }, [reLength]);
 
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const handleScroll = () => {
-    const position = kh1.current.offsetLeft;
-    setScrollPosition(position);
-  };
+  // const [scrollPosition, setScrollPosition] = useState(0);
+  // const handleScroll = () => {
+  //   const position = kh1.current.offsetLeft;
+  //   setScrollPosition(position);
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // });
 
   const changeName = (name: string) => {
     setName(name);
@@ -390,29 +390,19 @@ const KhoaHoc = (props: Props) => {
               <nav aria-label="Page navigation example ">
                 <ul className="pagination">
                   <li className="page-item ">
-                    <a className="page-link" href="#">
-                      Previous
-                    </a>
+                    <a className="page-link">Previous</a>
                   </li>
                   <li className="page-item">
-                    <a className="page-link" href="#">
-                      1
-                    </a>
+                    <a className="page-link">1</a>
                   </li>
                   <li className="page-item">
-                    <a className="page-link" href="#">
-                      2
-                    </a>
+                    <a className="page-link">2</a>
                   </li>
                   <li className="page-item">
-                    <a className="page-link" href="#">
-                      3
-                    </a>
+                    <a className="page-link">3</a>
                   </li>
                   <li className="page-item">
-                    <a className="page-link" href="#">
-                      Next
-                    </a>
+                    <a className="page-link">Next</a>
                   </li>
                 </ul>
               </nav>

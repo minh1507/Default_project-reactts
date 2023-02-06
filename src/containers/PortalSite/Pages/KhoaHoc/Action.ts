@@ -7,7 +7,8 @@ export const Actions: any = {
   GetKhoaHocPortal: async (key: any, dispatch: any) => {
     let ids = key.split("/");
     let id = ids[ids.length - 1];
-    let res: IResponseMessage = await KhoaHocService.GetKhoaHocTheoIdMonHocPortal(id);
+    let res: IResponseMessage =
+      await KhoaHocService.GetKhoaHocTheoIdMonHocPortal(id);
     dispatch({
       type: "GetItemKhoaHoc",
       items: res.Data,
@@ -20,12 +21,12 @@ export const Actions: any = {
       items: res.Data,
     });
   },
-  GetTreeMonHocPortal: async (dispatch:any) => {
+  GetTreeMonHocPortal: async (dispatch: any) => {
     let res: IResponseMessage = await MonHocService.GetTreePortal();
     var treeJson = JSON.stringify(res.Data);
-    treeJson = treeJson.replace(new RegExp("Id", "g"), "key")
-    treeJson = treeJson.replace(new RegExp("Name", "g"), "label")
-    treeJson = treeJson.replace(new RegExp("Children", "g"), "nodes")
+    treeJson = treeJson.replace(new RegExp("Id", "g"), "key");
+    treeJson = treeJson.replace(new RegExp("Name", "g"), "label");
+    treeJson = treeJson.replace(new RegExp("Children", "g"), "nodes");
     dispatch({
       type: "GetItemMonHoc",
       item: JSON.parse(treeJson),
