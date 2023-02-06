@@ -6,6 +6,7 @@ const KhoaHocService = {
       url: `/${Por_KhoaHoc}/TheoMonHoc?idMonHoc=${id}`,
       method: "get",
     });
+    console.log(res);
     return res;
   },
   GetItems: async () => {
