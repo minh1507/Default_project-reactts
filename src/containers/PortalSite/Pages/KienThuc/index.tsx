@@ -4,6 +4,7 @@ import bg40 from "assets/img/Gioi-thieu.png";
 import { InitState } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
+import TreeMenu from "react-simple-tree-menu";
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
@@ -163,8 +164,11 @@ const KienThuc = (props: Props) => {
                 </div>
               </div>
             )}
+            <h4 className="text-danger text-center text-uppercase tieu-de mb-3">
+              Tin mới cập nhật
+            </h4>
             <div
-              className="card border-popse mb-3"
+              className="card border-popse mb-3 ml-1 mg-left-15 mg-right-15"
               style={{ maxWidth: "100%" }}
             >
               <div className="row g-0">
@@ -180,7 +184,7 @@ const KienThuc = (props: Props) => {
                     <h5 className="card-title underline-head-tt">
                       Hai đối tượng vác dao vào tận nhà dân truy sát
                     </h5>
-                    <p className="card-text">
+                    <p className="card-text  mt-1">
                       <small className="text-muted">20/12/2023 8:00 Tối</small>
                     </p>
                     <p className="card-text posp-khso">
@@ -188,44 +192,10 @@ const KienThuc = (props: Props) => {
                       tận nhà truy sát. Hai đối tượng đã hành hung và đâm bị
                       thương khiến anh T. phải đi cấp cứu trong đêm.
                     </p>
-                    <p className="card-text posp-khso mb-1">
-                      <span>Lượt xem: 0</span> <span>Lượt bình luận: 0</span>
-                    </p>
+                    <div className="underline-news"></div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="d-flex justify-content-center mt-3">
-              <nav aria-label="Page navigation example ">
-                <ul className="pagination">
-                  <li className="page-item ">
-                    <a className="page-link" href="#">
-                      Previous
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      2
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      3
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      Next
-                    </a>
-                  </li>
-                </ul>
-              </nav>
             </div>
           </div>
           {width && width > 961 && (
@@ -241,72 +211,13 @@ const KienThuc = (props: Props) => {
                     Chuyên mục
                   </h5>
                   <div className="mt-3 mb-3 crossline"></div>
-                  <div
-                    className="accordion round-de"
-                    id="accordionPanelsStayOpenExample"
-                  >
-                    {DanhSachTinTuc &&
-                      DanhSachTinTuc.map((value: any) => (
-                        <div
-                          key={uuidv4()}
-                          className={`accordion-item pim change-kt-sudo rule-kt-abac`}
-                        >
-                          <h2
-                            className="accordion-header"
-                            id={`heading${value.Id}`}
-                          >
-                            <div className="d-flex justify-content-between">
-                              <span
-                                className="text-kh-nav-leftbar role-kt-bili"
-                                onClick={() => changeStatus(value.name)}
-                              >
-                                <div
-                                  className={`dubi-kt-left color-rim ${
-                                    name == value.name && "color-rim-area"
-                                  }`}
-                                >
-                                  Test
-                                </div>
-                                <div className="dubi-kt-right">(12)</div>
-                              </span>
-                              <span
-                                className="accordion-button collapsed kt-du-aba"
-                                data-bs-toggle="collapse"
-                                data-bs-target={`#collapse${value.Id}`}
-                                aria-expanded="false"
-                                aria-controls={`collapse${value.Id}`}
-                              ></span>
-                            </div>
-                          </h2>
-                          <div
-                            id={`collapse${value.Id}`}
-                            className="accordion-collapse collapse"
-                            aria-labelledby={`heading${value.Id}`}
-                            data-bs-parent="#accordionExample"
-                          >
-                            <div className="accordion-body pim">
-                              <div
-                                className="accordion "
-                                id="accordionPanelsStayOpenExample"
-                              >
-                                <div className="accordion-item pom pim-kt-role">
-                                  <h2
-                                    className="accordion-header"
-                                    id="panelsStayOpen-headingOne"
-                                  >
-                                    <div className="d-flex justify-content-between">
-                                      <span className="text-kh-nav-leftbar kt-du-aba pim-kt-role-a">
-                                        Bai 1 (2)
-                                      </span>
-                                    </div>
-                                  </h2>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                  </div>
+                  <TreeMenu
+                    data={state.TreeChuyenMuc}
+                    initialOpenNodes={[]}
+                    hasSearch={false}
+                    onClickItem={({ key, label, ...props }) => {
+
+                    }} />
                 </div>
               </div>
             </div>
