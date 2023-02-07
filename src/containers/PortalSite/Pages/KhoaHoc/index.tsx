@@ -9,6 +9,7 @@ import "react-simple-tree-menu/dist/main.css";
 import { Guid } from "common/Enums";
 import { String } from "common/String";
 import ReactPaginate from "react-paginate";
+import noimage from "assets/img/noimage.png";
 
 const { v4: uuidv4 } = require("uuid");
 
@@ -22,9 +23,8 @@ const KhoaHoc = (props: Props) => {
   const [reLength, setReLength] = useState(0);
   const kh1 = useRef(null);
   const [pageCount, setPageCount] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
   const [itemOffset, setItemOffset] = useState(0);
-
+  const pa = useRef(null);
   const nextLength = () => {
     if (reLength + 4 < state.DataHoatDong.length) {
       setReLength(reLength + 4);
@@ -67,12 +67,6 @@ const KhoaHoc = (props: Props) => {
       });
     }
   }, [reLength]);
-
-  useEffect(() => {
-    if (state.DsKhoaHoc) {
-      setPageCount(Math.ceil(state.Count / 10));
-    }
-  }, [state.Count]);
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * 10) % state.Count;
@@ -163,7 +157,19 @@ const KhoaHoc = (props: Props) => {
         <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
           <div className={`kh-search-bar `}>
             <i className={`bi bi-search i-kh-ab`}></i>
-            <input placeholder="Tìm kiếm" className="kh-input" />
+            <input
+              placeholder="Tìm kiếm"
+              className="kh-input"
+              onKeyDown={(e) => {
+                if (e.keyCode == 13) {
+                  Actions.GetKhoaHocSearch(
+                    (e.target as HTMLInputElement).value,
+                    dispatch
+                  );
+                  state.Count > 0 && (pa.current.state.selected = 0);
+                }
+              }}
+            />
           </div>
           <div className="kh-contain-result">
             Tìm thấy <span className="kh-result">{state && state.Count}</span>{" "}
@@ -308,7 +314,7 @@ const KhoaHoc = (props: Props) => {
           </div>
         )}
 
-        <div className="container-khoa-hoc pb-3">
+        <div className="container-khoa-hoc pb-4">
           {width > 980 && (
             <div className={`side-left-khoa-hoc ji-kh`}>
               <h5 className="kik-kh-kuki">Môn học</h5>
@@ -317,8 +323,14 @@ const KhoaHoc = (props: Props) => {
                 initialOpenNodes={[]}
                 hasSearch={false}
                 onClickItem={({ key, label, ...props }) => {
-                  Actions.GetKhoaHocPortal(key, dispatch);
+                  Actions.GetKhoaHocPortal(
+                    itemOffset,
+                    itemOffset + 10,
+                    key,
+                    dispatch
+                  );
                   changeSetaccName(label);
+                  state.Count > 0 && (pa.current.state.selected = 0);
                 }}
               />
             </div>
@@ -326,82 +338,87 @@ const KhoaHoc = (props: Props) => {
 
           <div className={`side-right-khoa-hoc `}>
             <div className="row">
-              {state.DsKhoaHoc.map((e: any, ie: any) => {
-                return (
-                  <div key={uuidv4()} className="col-sm-6">
-                    <div
-                      className="card mb-4 border-popse"
-                      style={{ maxWidth: "100%" }}
-                    >
-                      <div className="row g-0">
-                        <div className="col-sm-4 try-kh-ui">
-                          {e.URL_AnhDaiDien ? (
-                            <img
-                              src={e.URL_AnhDaiDien}
-                              className="img-kh-cls "
-                              alt="..."
-                            />
-                          ) : (
-                            <img
-                              src="https://bizweb.dktcdn.net/thumb/1024x1024/assets/themes_support/noimage.gif"
-                              className="img-kh-cls "
-                              alt="..."
-                            />
-                          )}
-                        </div>
-                        <div className="col-sm-8">
-                          <div className="card-body card-bodys">
-                            <div className="row">
-                              <div className="col-sm-8">
-                                <p className="card-title underline-head-tt mb-1">
-                                  {e.TieuDe}
-                                </p>
-                                <p className="card-text popse-khso-p">
-                                  <small className="text-muted">
-                                    {String.date(e.CreatedDateTime)}
-                                  </small>
-                                </p>
-                                <p className="card-text posp-khso text-dark">
-                                  Thời hạn khóa học: {e.ThoiHan} tháng
-                                </p>
-                                <p className="card-text posp-khso text-dark">
-                                  Miễn phí truy cập thêm:{" "}
-                                  {e.ThoiHanTruyCapMienPhi} tháng
-                                </p>
-                                <span className="star-rate">
-                                  {colorStar(e.TyLeDanhGia)}
-                                  {noColorStar(e.TyLeDanhGia)} (
-                                  {e.SoLuongNguoiHoc})
-                                </span>
-                              </div>
-                              <div className="col-sm-4">
-                                <p className="card-text gia-tien-kh-l marginBottom-5">
-                                  <span>{String.num(e.HocPhiGoc)}₫ </span>
-                                </p>
-                                <span className="gia-tien-giam-gias">
-                                  {String.num(e.HocPhiGiamGia)}₫
-                                </span>
+              {state.DsKhoaHoc &&
+                state.DsKhoaHoc.map((e: any, ie: any) => {
+                  return (
+                    <div key={uuidv4()} className="col-sm-6">
+                      <div
+                        className="card mb-4 border-popse"
+                        style={{ maxWidth: "100%" }}
+                      >
+                        <div className="row g-0">
+                          <div className="col-sm-4 try-kh-ui">
+                            {e.URL_AnhDaiDien ? (
+                              <img
+                                src={e.URL_AnhDaiDien}
+                                className="img-kh-cls "
+                                alt="..."
+                              />
+                            ) : (
+                              <img
+                                src={noimage}
+                                className="img-kh-cls "
+                                alt="..."
+                              />
+                            )}
+                          </div>
+                          <div className="col-sm-8">
+                            <div className="card-body card-bodys">
+                              <div className="row">
+                                <div className="col-sm-8">
+                                  <p className="card-title underline-head-tt mb-1">
+                                    {e.TieuDe}
+                                  </p>
+                                  <p className="card-text popse-khso-p">
+                                    <small className="text-muted">
+                                      {String.date(e.CreatedDateTime)}
+                                    </small>
+                                  </p>
+                                  <p className="card-text posp-khso text-dark">
+                                    Thời hạn khóa học: {e.ThoiHan} tháng
+                                  </p>
+                                  <p className="card-text posp-khso text-dark">
+                                    Miễn phí truy cập thêm:{" "}
+                                    {e.ThoiHanTruyCapMienPhi} tháng
+                                  </p>
+                                  <span className="star-rate">
+                                    {colorStar(e.TyLeDanhGia)}
+                                    {noColorStar(e.TyLeDanhGia)} (
+                                    {e.SoLuongNguoiHoc})
+                                  </span>
+                                </div>
+                                <div className="col-sm-4">
+                                  <p className="card-text gia-tien-kh-l marginBottom-5">
+                                    <span>{String.num(e.HocPhiGoc)}₫ </span>
+                                  </p>
+                                  <span className="gia-tien-giam-gias">
+                                    {String.num(e.HocPhiGiamGia)}₫
+                                  </span>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
-            <div className="d-flex justify-content-center pagi-kh-os">
-              {pageCount > 0 && (
+            <div className="d-flex justify-content-center pagi-kh-os align-items-center mt-3">
+              {state.Count && Math.ceil(state.Count / 10) > 0 ? (
                 <ReactPaginate
+                  ref={pa}
                   breakLabel="..."
-                  nextLabel=">"
+                  nextLabel="Sau"
                   onPageChange={handlePageClick}
-                  pageRangeDisplayed={5}
-                  pageCount={pageCount}
-                  previousLabel="<"
+                  pageRangeDisplayed={3}
+                  pageCount={state.Count && Math.ceil(state.Count / 10)}
+                  previousLabel="Trước"
                   className="pagination"
+                  initialPage={0}
                 />
+              ) : (
+                <></>
               )}
             </div>
           </div>

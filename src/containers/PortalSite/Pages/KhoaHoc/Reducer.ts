@@ -35,6 +35,26 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DataHoatDong: action.items,
       };
+    case "GetItemKhoaHocSearch":
+      if (action.search) {
+        let searchData = state.DataAllItem.filter((x: any) => {
+          return x.TieuDe.toLowerCase().includes(action.search.toLowerCase());
+        });
+
+        return {
+          ...state,
+          DsKhoaHoc: [...searchData],
+          Count: searchData.length,
+        };
+      } else {
+        let dataNew = state.DataAllItem.slice(0, 10);
+        return {
+          ...state,
+          DsKhoaHoc: [...dataNew],
+          Count: state.DataAllItem.length,
+        };
+      }
+
     default:
       return state;
   }

@@ -9,6 +9,7 @@ export const Actions: any = {
     let id = ids[ids.length - 1];
     let res: IResponseMessage =
       await KhoaHocService.GetKhoaHocTheoIdMonHocPortal(id);
+
     dispatch({
       type: "GetItemKhoaHoc",
       items: res.Data,
@@ -16,6 +17,20 @@ export const Actions: any = {
       start: start,
       end: end,
     });
+  },
+  GetKhoaHocSearch: async (search: any, dispatch: any) => {
+    dispatch({
+      type: "GetItemKhoaHocSearch",
+      search: search,
+    });
+  },
+  GetKhoaHocCount: async (key: any) => {
+    let ids = key.split("/");
+    let id = ids[ids.length - 1];
+    let res: IResponseMessage =
+      await KhoaHocService.GetKhoaHocTheoIdMonHocPortal(id);
+
+    return Math.ceil(res.Data.length / 10);
   },
   GetKhoaHocChangePortal: async (start: any, end: any, dispatch: any) => {
     dispatch({
