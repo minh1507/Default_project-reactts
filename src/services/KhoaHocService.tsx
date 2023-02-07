@@ -62,7 +62,7 @@ const KhoaHocService = {
   },
   getById: async (id: any) => {
     let res: any = await request({
-      url: `/${Por_KhoaHoc}/${id}`,
+      url: `/${Por_KhoaHoc}/ChiTiet/${id}`,
       method: "get",
     });
     return res;

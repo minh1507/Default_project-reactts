@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import bg37 from "assets/img/bg37.png";
 import bg38 from "assets/img/bg38.png";
 import bg7 from "assets/img/bg7.png";
-import NoiDung from "./NoiDung";
 import { useHistory } from "react-router-dom";
 import Comment from "../../General/comment";
 import { InitState } from "./InitState";
@@ -12,9 +11,10 @@ import { Reducer } from "./Reducer";
 import { useLocation } from "react-router-dom";
 import { String } from "common/String";
 import { IResponseMessage } from "common/Models";
-import { Message } from "common/Enums";
+import { LabelPortal, Message } from "common/Enums";
 import CNotification from "components/CNotification";
-
+import createDOMPurify from 'dompurify'
+const DOMPurify = createDOMPurify(window)
 interface Props {}
 
 const ChiTiet = (props: Props) => {
@@ -25,6 +25,7 @@ const ChiTiet = (props: Props) => {
   const refNotification = useRef<any>();
 
   useEffect(() => {
+    // new YouTubeToHtml5();
     Actions.GetDetailKhoaHoc(location.state.id, dispatch);
   }, []);
 
@@ -42,33 +43,14 @@ const ChiTiet = (props: Props) => {
     }
   };
 
-  const con = () => {
+  const contentTab = () => {
     if (change == 1) {
       return (
-        <div>
-          <h5 className="text-danger mb-3">GIỚI THIỆU KHÓA HỌC</h5>
-
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `<p className="mb-3" style={{ textAlign: "justify" }}>
-            ${state.DataDetail.MoTa}
-          </p>`,
-            }}
-          ></div>
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(state.DataDetail.GioiThieu) }} /> 
       );
     } else if (change == 2) {
       return (
-        <div>
-          <h5 className="text-danger mb-3 ">NỘI DUNG KHÓA HỌC</h5>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `<p className="mb-3" style={{ textAlign: "justify" }}>
-            ${state.DataDetail.NoiDung}
-          </p>`,
-            }}
-          ></div>
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(state.DataDetail.NoiDung) }} />
       );
     }
   };
@@ -92,21 +74,19 @@ const ChiTiet = (props: Props) => {
           id="main_course_detail_before"
           className="container-xl d-flex justify-content-between"
         >
-          <div id="main_course_detail_after" style={{ width: "69%" }}>
+          <div className="row">
+            <div className="col-sm-8">
             <div
-              className="mb-3"
-              style={{
-                backgroundColor: "white",
-                borderRadius: "2.5px 2.5px",
-                padding: "30px 10px",
-              }}
-            >
-              <img
-                className="mb-2"
-                src={bg38}
-                style={{ width: "100%", height: "auto" }}
+              className="card-chi-tiet-khoa-hoc mb-3">
+              <h4 className="text-danger tieu-de">
+                {state.DataDetail.TieuDe}
+              </h4>
+              <iframe
+                width="100%"
+                height="500px"
+                src={state.DataDetail.TieuDe}
               />
-              <div className="d-flex mb-5 gap-4">
+              <div className="d-flex gap-4">
                 <p
                   onClick={() => changeContent(1)}
                   className={`${change == 1 ? "doContent" : "unDoContent"}`}
@@ -121,7 +101,7 @@ const ChiTiet = (props: Props) => {
                 </p>
               </div>
 
-              <NoiDung content={con()} />
+              {contentTab()}
             </div>
 
             <div
@@ -268,97 +248,76 @@ const ChiTiet = (props: Props) => {
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            id="main_course_detail_after"
-            className="mb-3"
-            style={{
-              width: "29%",
-              backgroundColor: "white",
-              borderRadius: "2.5px 2.5px",
-              padding: "30px 10px",
-              height: "350px",
-            }}
-          >
-            <p className="mb-3" style={{ fontWeight: "bold" }}>
-              THÔNG TIN KHÓA HỌC
-            </p>
-            <p className="mb-3">
-              <i className="bi bi-clock" /> {state.DataDetail.ThoiGianHoc}
-            </p>
-            <p className="text-danger mb-3">
-              <i className="bi bi-fire" /> Miễn phí gia hạn thêm 3 tháng
-            </p>
-            <p className="mb-3">
-              <i className="bi bi-box2-heart" />{" "}
-              {state.DataDetail.TrangThai ? "Đang mở" : "Đã đóng"}
-            </p>
-            <p className="mb-4">
-              <i className="bi bi-cash"></i>{" "}
-              {state.DataDetail.HocPhiGoc <= state.DataDetail.HocPhiGiamGia ? (
-                <span
-                  className="text-danger"
-                  style={{ fontWeight: "bold", fontSize: "1.5rem" }}
-                >
-                  {String.num(state.DataDetail.HocPhiGoc)}đ
-                </span>
-              ) : (
-                <span
-                  className="text-danger"
-                  style={{ fontWeight: "bold", fontSize: "1.5rem" }}
-                >
-                  {String.num(state.DataDetail.HocPhiGiamGia)}đ
-                </span>
-              )}{" "}
-              {state.DataDetail.HocPhiGoc > state.DataDetail.HocPhiGiamGia && (
-                <span style={{ textDecoration: "line-through" }}>
-                  {String.num(state.DataDetail.HocPhiGoc)}đ
-                </span>
-              )}
-            </p>
-            <div className="d-flex justify-content-center align-items-center flex-column">
-              <div className="d-flex mb-2">
-                <button
-                  onClick={() => {
-                    goToThanhToan();
-                  }}
-                  className="header_btn bg-danger text-light"
-                >
-                  MUA NGAY
-                </button>
-
-                <button
-                  onClick={() => {
-                    addToCard();
-                  }}
-                  className=" bg-info text-dark"
-                  style={{
-                    marginLeft: "10px",
-                    border: "none",
-                    borderRadius: "5px 5px",
-                    fontSize: "0.9rem",
-                    fontWeight: "bold",
-                    padding: "5px 10px",
-                  }}
-                >
-                  THÊM VÀO GIỎ
-                </button>
+            </div>
+            <div className="col-sm-4">
+            <div className="card-gio-hang mb-3">
+              <h4 className="tieu-de tieu-de-card text-center">
+                Thông tin khóa học
+              </h4>
+              <div className="thon-tin-mua-hang">
+                <p className="mb-1">
+                  <i className="bi bi-clock" />&ensp; {LabelPortal.ThoiHan} <b>{state.DataDetail.ThoiHan}</b> tháng
+                </p>
+                <p className="mb-1">
+                  <i className="text-danger bi bi-fire" />&ensp; {LabelPortal.MienPhiTruyCap} <b>{state.DataDetail.ThoiHanTruyCapMienPhi}</b> tháng
+                </p>
+                <p className="mb-1">
+                  <i className="bi bi-box2-heart" />&ensp; {state.DataDetail.TrangThai ? "Đang mở" : "Đã đóng"}
+                </p>
+                <p className="mb-4">
+                  <i className="bi bi-cash"></i>&ensp; {state.DataDetail.HocPhiGoc <= state.DataDetail.HocPhiGiamGia ? (
+                    <span
+                      className="text-danger"
+                      style={{ fontWeight: "bold", fontSize: "1.8rem" }}
+                    >
+                      {String.num(state.DataDetail.HocPhiGoc)}đ
+                    </span>
+                  ) : (
+                    <span
+                      className="text-danger"
+                      style={{ fontWeight: "bold", fontSize: "1.5rem" }}
+                    >
+                      {String.num(state.DataDetail.HocPhiGiamGia)}đ
+                    </span>
+                  )}{" "}
+                  {state.DataDetail.HocPhiGoc > state.DataDetail.HocPhiGiamGia && (
+                    <span style={{ textDecoration: "line-through" }}>
+                      {String.num(state.DataDetail.HocPhiGoc)}đ
+                    </span>
+                  )}
+                </p>
+                
+                <div className="d-flex justify-content-center align-items-center flex-column">
+                  <div className="d-flex mb-2">
+                    <button
+                      onClick={() => {
+                        goToThanhToan();
+                      }}
+                      className="btn btn-danger"
+                    >
+                      MUA NGAY
+                    </button>
+                    &ensp;
+                    <button
+                      onClick={() => {
+                        addToCard();
+                      }}
+                      className="btn btn-outline-danger"
+                    >
+                      THÊM VÀO GIỎ
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => {
+                      goToHocPage();
+                    }}
+                    className="btn btn-link text-danger"
+                  >
+                    HỌC THỬ
+                  </button>
+                </div>
               </div>
-              <button
-                onClick={() => {
-                  goToHocPage();
-                }}
-                className=" bg-info text-dark"
-                style={{
-                  border: "none",
-                  borderRadius: "5px 5px",
-                  fontSize: "0.9rem",
-                  fontWeight: "bold",
-                  padding: "5px 10px",
-                }}
-              >
-                HỌC THỬ
-              </button>
+            </div>
             </div>
           </div>
         </div>

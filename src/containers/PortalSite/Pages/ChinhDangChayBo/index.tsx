@@ -43,14 +43,13 @@ const ChinhDangChayBo = (props: Props) => {
           CHỈNH DÁNG CHẠY BỘ
         </h1>
       </div>
-      {/* <div className="sk-head mb-3">
-        <div className="container-xl d-flex justify-content-between">
+      <div className="container-xl d-flex justify-content-between sk-head mb-3">
           <div className="d-flex">
             <div className="hex4">
               <i className="bi bi-calendar4-week"></i>
             </div>
             <div className="sk-head-middle">
-              <h5 className="text-sk-heade-fa text-uppercase text-danger">
+              <h5 className="text-sk-heade-fa text-danger">
                 Sự kiện sắp diễn ra
               </h5>
               <h5 className="text-sk-heade-fa">
@@ -58,8 +57,8 @@ const ChinhDangChayBo = (props: Props) => {
               </h5>
             </div>
             <div className="sk-head-middle text-overrid-head">
-              <h5 className="text-sk-heade-fa amc text-uppercase text-danger">
-                Diễn ra sau
+              <h5 className="text-sk-heade-fa amc text-danger">
+                Diễn ra sau:
               </h5>
               <h5
                 className="text-sk-heade-fa amc kamc"
@@ -76,7 +75,6 @@ const ChinhDangChayBo = (props: Props) => {
             <button className="sk-btn-head">Đăng ký ngay</button>
           </div>
         </div>
-      </div> */}
 
       {/* <div className="container-xl">
         <div className="container-khoa-hoc khoa-hoc-header justify-content-between">

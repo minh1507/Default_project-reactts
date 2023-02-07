@@ -702,6 +702,7 @@
   .doContent {
     border-bottom: 2px solid red;
     cursor: pointer;
+    font-weight: bold;
   }
 
   .unDoContent {
@@ -2088,9 +2089,11 @@
     content: none;
   }
   .sk-head {
+    margin-top: 30px;
+    margin-bottom: 30px !important;
+    border-radius: 15px;
     background-color: #eeeeee;
-    height: 70px;
-    padding: 8px 0;
+    padding: 50px;
   }
 
   .hex3 {
@@ -2142,7 +2145,7 @@
   }
 
   .text-sk-heade-fa {
-    font-size: 0.8rem;
+    font-size: 1.4rem;
     font-family: "Times New Roman", Times, serif;
   }
 
@@ -2154,7 +2157,8 @@
 
   .sk-btn-head {
     height: 70%;
-    font-size: 0.8rem;
+    font-weight: bold;
+    font-size: 1rem;
     border: none;
     background-color: rgba(255, 109, 109, 0.578);
     border-radius: 4px;
@@ -2174,7 +2178,7 @@
   .text-overrid-head {
     flex-direction: row;
     align-items: center;
-    margin-left: 16px;
+    margin-left: 50px;
     .amc {
       font-size: unset;
     }
@@ -2399,4 +2403,24 @@
   .pagi-kh-os ul {
     margin: 0;
   }
+  .card-chi-tiet-khoa-hoc {
+    background-color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+  }
+  .card-gio-hang {
+    background-color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    .thon-tin-mua-hang {
+      padding: 10px;
+    }
+    .tieu-de-card {
+      border-bottom: 1px solid lightgrey;
+      padding-bottom: 8px;
+    }
+  }
+
 }

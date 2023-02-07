@@ -6,7 +6,7 @@ import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
 import TreeMenu from "react-simple-tree-menu";
 import "react-simple-tree-menu/dist/main.css";
-import { Guid } from "common/Enums";
+import { Guid, LabelPortal } from "common/Enums";
 import { String } from "common/String";
 import ReactPaginate from "react-paginate";
 import noimage from "assets/img/noimage.png";
@@ -114,7 +114,7 @@ const KhoaHoc = (props: Props) => {
         <h1 className="reszex">KHÓA HỌC</h1>
       </div>
       {/* {width > 1110 && (
-        <h4 className="text-danger text-center text-uppercase tieu-de mb-3">
+        <h4 className="text-danger text-center tieu-de mb-3">
           Loại khóa học
         </h4>
       )} */}
@@ -375,12 +375,14 @@ const KhoaHoc = (props: Props) => {
                                     </small>
                                   </p>
                                   <p className="card-text posp-khso text-dark">
-                                    Thời hạn khóa học: {e.ThoiHan} tháng
+                                    {LabelPortal.ThoiHan} <b>{e.ThoiHan}</b> tháng
                                   </p>
-                                  <p className="card-text posp-khso text-dark">
-                                    Miễn phí truy cập thêm:{" "}
-                                    {e.ThoiHanTruyCapMienPhi} tháng
-                                  </p>
+                                  {
+                                    e.ThoiHanTruyCapMienPhi && e.ThoiHanTruyCapMienPhi !== 0 ?
+                                    <p className="card-text posp-khso text-dark">
+                                      {LabelPortal.MienPhiTruyCap} <b>{e.ThoiHanTruyCapMienPhi}</b> tháng
+                                    </p>:<></>
+                                  }
                                   <span className="star-rate">
                                     {colorStar(e.TyLeDanhGia)}
                                     {noColorStar(e.TyLeDanhGia)} (

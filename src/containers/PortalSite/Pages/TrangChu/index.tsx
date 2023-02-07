@@ -32,7 +32,7 @@ import bg28 from "assets/img/bg28.png";
 import bg23 from "assets/img/bg23.png";
 import formImg from "assets/img/form-image.jpg";
 import loading from "assets/img/trang-chu.gif";
-import { Message } from "common/Enums";
+import { LabelPortal, Message } from "common/Enums";
 import CNotification from "components/CNotification";
 import TuVanService from "services/TuVanService";
 import { IResponseMessage, IUserInfo } from "common/Models";
@@ -145,7 +145,7 @@ const TrangChu = (props: Props) => {
   const gioiThieu = state.DataItemsTinTuc && (
     <div key={uuidv4()} className="main_sub_detal rout-zx mt-2">
       <div className="container-xl d-flex flex-column">
-        <h4 className="text-danger text-uppercase tieu-de">
+        <h4 className="text-danger tieu-de">
           {state.DataItemsTinTuc.TenNhomTinTuc}
         </h4>
         <div className="container-xl mt-3">
@@ -156,9 +156,7 @@ const TrangChu = (props: Props) => {
                   key={uuidv4()}
                   className="card p-0 card_main_container wrapper_d"
                   style={{
-                    maxWidth: "350px",
-                    border: "none",
-                    cursor: "pointer",
+                    maxWidth: "350px"
                   }}
                 >
                   <div className="wrapper_discard">
@@ -172,7 +170,7 @@ const TrangChu = (props: Props) => {
                   <img src={child.Img as string} className="card_logo" />
                   <div className="card-body main_sub_bd d-flex flex-column">
                     <h6
-                      className="card-title mt-4 mb-2 text-uppercase underline-head-tt"
+                      className="card-title mt-4 mb-2 underline-head-tt"
                       style={{ fontStyle: "italic" }}
                       onClick={() =>
                         GoToDetailPage(
@@ -219,7 +217,7 @@ const TrangChu = (props: Props) => {
   const giaoan = state.DataItemsGiaoAn && (
     <div className="main_sub_detal rout-zxz mt-2 mb-2 ">
       <div className="container-xl d-flex flex-column">
-        <h4 className="text-danger text-uppercase tieu-de">
+        <h4 className="text-danger tieu-de">
           {state.DataItemsGiaoAn.TenMonHoc}
         </h4>
         <div className="container mt-3">
@@ -234,7 +232,6 @@ const TrangChu = (props: Props) => {
                   <div
                     className="card card_main_container  wrapper_c"
                     style={{
-                      cursor: "pointer",
                       position: "relative",
                     }}
                   >
@@ -303,7 +300,7 @@ const TrangChu = (props: Props) => {
 
             <div className="main_sub_detal tieu-de-ava pt-0 mb-2">
               <div className="container d-flex flex-column">
-                <h4 className="text-danger text-uppercase tieu-de tieude-avb">
+                <h4 className="text-danger tieu-de tieude-avb">
                   {tree.TenMonHoc}
                 </h4>
                 <div className="container uoy-tt mt-1">
@@ -316,9 +313,6 @@ const TrangChu = (props: Props) => {
                       >
                         <div
                           className="card card_main_container wrapper_c"
-                          style={{
-                            cursor: "pointer",
-                          }}
                         >
                           <div className="wrapper_card">
                             <img
@@ -348,12 +342,11 @@ const TrangChu = (props: Props) => {
                               {item.TieuDe}
                             </p>
                             <p className=" card-text">
-                              Thời hạn khóa học: {item.ThoiHan} tháng
+                              {LabelPortal.ThoiHan} <b>{item.ThoiHan}</b> tháng
                             </p>
-                            {item.ThoiHanTruyCapMienPhi ? (
+                            {item.ThoiHanTruyCapMienPhi && item.ThoiHanTruyCapMienPhi !== 0 ? (
                               <p className=" card-text">
-                                Miễn phí truy cập thêm:{" "}
-                                {item.ThoiHanTruyCapMienPhi} tháng
+                                {LabelPortal.MienPhiTruyCap} <b>{item.ThoiHanTruyCapMienPhi}</b> tháng
                               </p>
                             ) : (
                               <></>
@@ -471,7 +464,7 @@ const TrangChu = (props: Props) => {
   const suKien = state.DataItemsSuKien && state.DataItemsSuKien.length > 0 && (
     <div className="main_sub_detal rout-zxa mb-2">
       <div className="container-xl d-flex flex-column">
-        <h4 className="text-danger text-uppercase tieu-de">
+        <h4 className="text-danger tieu-de">
           {/* {state.DataItemsSuKien && state.DataItemsSuKien[0].NhomSuKien} */}
           Sự kiện mới nhất
         </h4>
@@ -621,7 +614,7 @@ const TrangChu = (props: Props) => {
 
   const blog = state.DataItemsBlog && (
     <div className="container-xl mt-5">
-      <h4 className="text-danger text-center text-uppercase tieu-de">
+      <h4 className="text-danger text-center tieu-de">
         {state.DataItemsBlog.TenNhomTinTuc}
       </h4>
 
@@ -738,7 +731,6 @@ const TrangChu = (props: Props) => {
                 className={`p1 d-flex ${
                   count == 1 ? "personImg" : "unPersonImg"
                 }`}
-                style={{ cursor: "pointer" }}
               >
                 <img
                   src={bg24}
@@ -761,7 +753,6 @@ const TrangChu = (props: Props) => {
                 className={`p1 d-flex ${
                   count == 2 ? "personImg" : "unPersonImg"
                 }`}
-                style={{ cursor: "pointer" }}
               >
                 <img src={bg25} style={{ borderRadius: "5px 5px" }} />
                 <span className="p-4">
@@ -777,7 +768,6 @@ const TrangChu = (props: Props) => {
                 className={`p1 d-flex ${
                   count == 3 ? "personImg" : "unPersonImg"
                 }`}
-                style={{ cursor: "pointer" }}
               >
                 <img src={bg26} style={{ borderRadius: "5px 5px" }} />
                 <span className="p-4">
@@ -793,7 +783,6 @@ const TrangChu = (props: Props) => {
                 className={`p1 d-flex ${
                   count == 4 ? "personImg" : "unPersonImg"
                 }`}
-                style={{ cursor: "pointer" }}
               >
                 <img src={bg27} style={{ borderRadius: "5px 5px" }} />
                 <span className="p-4">
@@ -809,7 +798,6 @@ const TrangChu = (props: Props) => {
                 className={`p1 d-flex ${
                   count == 5 ? "personImg" : "unPersonImg"
                 }`}
-                style={{ cursor: "pointer" }}
               >
                 <img src={bg28} style={{ borderRadius: "5px 5px" }} />
                 <span className="p-4">

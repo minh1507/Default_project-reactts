@@ -197,7 +197,7 @@ const KienThuc = (props: Props) => {
                   className={`side-left-khoa-hoc ji-kh rout-kba-dun flex-column`}
                 >
                   <h5
-                    className="kik-kh-kuki text-uppercase kt-su-aba"
+                    className="kik-kh-kuki kt-su-aba"
                     style={{ fontSize: "1.2rem", margin: 0 }}
                   >
                     Chuyên mục

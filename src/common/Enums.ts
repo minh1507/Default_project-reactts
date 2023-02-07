@@ -27,6 +27,10 @@ export enum Message {
 export enum Guid {
   Empty = "00000000-0000-0000-0000-000000000000",
 }
+export enum LabelPortal {
+  ThoiHan = "Thời hạn khóa học ",
+  MienPhiTruyCap = "Miễn phí truy cập ",
+}
 export enum ControlType {
   InputText = "InputText",
   InputTextSearch = "InputTextSearch",
