@@ -1,36 +1,54 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { connect } from "react-redux";
-import bg17 from "assets/img/bg17.png";
-import bg20 from "assets/img/bg20.jpg";
-import bg18 from "assets/img/bg18.jpg";
-import bg19 from "assets/img/bg19.jpg";
+import loading from "assets/img/trang-chu.gif";
+import { useHistory } from "react-router-dom";
 import bg40 from "assets/img/Gioi-thieu.png";
 import { InitState } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
 import { Guid } from "common/Enums";
+import { String } from "common/String";
+const { v4: uuidv4 } = require("uuid");
+import ReactPaginate from "react-paginate";
+
 interface Props {}
 
 const ChinhDangChayBo = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
+  const history = useHistory();
   const [activeTab, setActiveTab] = useState("TatCa");
+  const pa = useRef(null);
   useEffect(() => {
     Actions.GetLoaiKhoaHocHoatDongPortal(dispatch);
     Actions.getSuKienPortal(Guid.Empty, dispatch);
   }, [])
-  const onChange = (currentNode:any, selectedNodes:any) => {
-    console.log('onChange::', currentNode, selectedNodes)
-  }
-  const onAction = (node:any, action:any) => {
-    console.log('onAction::', action, node)
-  }
-  const onNodeToggle =  (currentNode:any) => {
-    console.log('onNodeToggle::', currentNode)
-  }
+
   const onChangeTab = (e: any, ie:any) => {
     Actions.getSuKienPortal(e.Id, dispatch);
     setActiveTab(e.Ma);
+    state.Count > 0 && (pa.current.state.selected = 0);
   }
+
+  const GoToDetailPage = (
+    page: string,
+    id: string,
+    search: string,
+    type: string
+  ) => {
+    history.push({
+      pathname: page,
+      state: { id: id, type: type },
+      search: `/${search}`,
+    });
+    window.scrollTo(0, 0);
+  };
+
+  const handlePageClick = (event: any) => {
+    const newOffset = (event.selected * 10) % state.Count;
+    Actions.GetSuKienChangePortal(newOffset, newOffset + 10, dispatch);
+  };
+
+  console.log(state)
 
   return (
     <div style={{ backgroundColor: "white" }}>
@@ -43,72 +61,6 @@ const ChinhDangChayBo = (props: Props) => {
           CHỈNH DÁNG CHẠY BỘ
         </h1>
       </div>
-      {/* <div className="sk-head mb-3">
-        <div className="container-xl d-flex justify-content-between">
-          <div className="d-flex">
-            <div className="hex4">
-              <i className="bi bi-calendar4-week"></i>
-            </div>
-            <div className="sk-head-middle">
-              <h5 className="text-sk-heade-fa text-uppercase text-danger">
-                Sự kiện sắp diễn ra
-              </h5>
-              <h5 className="text-sk-heade-fa">
-                Giải chạy bộ quanh hồ tây, gặp gỡ khách mời nổi tiếng
-              </h5>
-            </div>
-            <div className="sk-head-middle text-overrid-head">
-              <h5 className="text-sk-heade-fa amc text-uppercase text-danger">
-                Diễn ra sau
-              </h5>
-              <h5
-                className="text-sk-heade-fa amc kamc"
-                style={{ marginLeft: "8px" }}
-              >
-                <span className="change-head-sk-text">2</span> Tháng{" "}
-                <span className="change-head-sk-text">20</span> Ngày{" "}
-                <span className="change-head-sk-text">12</span> Giờ{" "}
-                <span className="change-head-sk-text">22</span> Phút
-              </h5>
-            </div>
-          </div>
-          <div className="sk-right-heade">
-            <button className="sk-btn-head">Đăng ký ngay</button>
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="container-xl">
-        <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
-          <div className={`kh-search-bar`}>
-            <span>
-              <i className={`bi bi-search`}></i>
-            </span>
-
-            <input placeholder="Tìm kiếm" className="kh-input" />
-          </div>
-          <div className="kh-contain-result">
-            Tìm thấy <span className="kh-result">10</span> kết quả
-          </div>
-        </div>
-      </div>
-
-      <div className="sk-menu-bar">
-        <div className="container-xl d-flex gap-3">
-          <div className="hex3">
-            <i className="bi bi-heart-fill"></i>
-          </div>
-          <div className="d-flex align-items-center">
-            <h5 className="sk-active-ab">Kỹ Thuật</h5>
-          </div>
-          <div className="d-flex align-items-center">
-            <h5 className="sk-unactive-ab">Rèn luyện</h5>
-          </div>
-          <div className="d-flex align-items-center">
-            <h5 className="sk-unactive-ab">Chia sẻ</h5>
-          </div>
-        </div>
-      </div> */}
       <div className="main_sub_detal" style={{ padding: 0 }}>
         <div className="container-xl">
           <div className="row nhom-su-kien mt-3 mb-3">
@@ -116,7 +68,7 @@ const ChinhDangChayBo = (props: Props) => {
               <ul className="nav nav-tabs">
                 {
                   state.ItemsNhomSuKien.map((e:any, ie:any) => {
-                    return <li className="nav-item" onClick={() => { onChangeTab(e, ie) }}>
+                    return <li key={uuidv4()} className="nav-item" onClick={() => { onChangeTab(e, ie) }}>
                             <a className={"nav-link " + (e.Ma == activeTab ? "active":"")}>{e.Ten}</a>
                           </li>
                   })
@@ -127,12 +79,12 @@ const ChinhDangChayBo = (props: Props) => {
           <div className="row">
             {
               state.ItemsSuKien.map((e:any, ie:any) => {
-                return             <div className="col-sm-4">
+                return             <div key={uuidv4()} className="col-sm-6">
                 <div className="card mb-3 p-0">
-                  {/* <div className="row g-0">
-                    <div className="col-md-4">
+                  <div className="row g-0">
+                    <div className="col-md-3">
                       <img
-                        src={child.URL_AnhDaiDien as string}
+                        src={e.URL_AnhDaiDien as string}
                         style={{
                           width: "100%",
                           height: "200px",
@@ -142,7 +94,7 @@ const ChinhDangChayBo = (props: Props) => {
                         alt="..."
                       />
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-9">
                       <div className="card-body p-2">
                         <div className="d-flex justify-content-between">
                           <h6
@@ -150,8 +102,8 @@ const ChinhDangChayBo = (props: Props) => {
                             onClick={() =>
                               GoToDetailPage(
                                 "/chi-tiet-tin-tuc",
-                                child.IdSuKien as string,
-                                child.TenSuKien as string,
+                                e.Id as string,
+                                e.Ten as string,
                                 "sukien"
                               )
                             }
@@ -161,15 +113,15 @@ const ChinhDangChayBo = (props: Props) => {
                               fontSize: "1.15rem",
                             }}
                           >
-                            {child.TenSuKien}
+                            {e.Ten}
                           </h6>
                           <span
                             className="d-flex justify-content-center align-items-center chi-tiet"
                             onClick={() =>
                               GoToDetailPage(
                                 "/chi-tiet-tin-tuc",
-                                child.IdSuKien as string,
-                                child.TenSuKien as string,
+                                e.Id as string,
+                                e.Ten as string,
                                 "sukien"
                               )
                             }
@@ -184,7 +136,7 @@ const ChinhDangChayBo = (props: Props) => {
                             textAlign: "start",
                           }}
                         >
-                          <i className="bi bi-geo-alt-fill" /> {child.DiaChi}
+                          <i className="bi bi-geo-alt-fill" /> {e.DiaChi}
                         </p>
                         <div
                           className="mt-2"
@@ -195,11 +147,10 @@ const ChinhDangChayBo = (props: Props) => {
                         >
                           <span>
                             <i className="bi bi-calendar-range-fill" />{" "}
-                            {child.Date}
+                            {String.day(e.ThoiGian)}
                           </span>
                           <span style={{ marginLeft: "20px" }}>
-                            <i className="bi bi-clock-fill" /> {child.Time}{" "}
-                            {child.Detech}
+                            <i className="bi bi-clock-fill" /> {String.time(e.ThoiGian)}
                           </span>
                         </div>
                         <p
@@ -210,16 +161,16 @@ const ChinhDangChayBo = (props: Props) => {
                           }}
                         >
                           <i className="bi bi-cash-stack" />{" "}
-                          {child.GiaTien ? child.GiaTien : "0"}
+                          {e.GiaTien ? e.GiaTien : "0"}
                           {" ₫"}
                         </p>
 
-                        {child.TrangThai == 0 ? (
+                        {e.TrangThai == 0 ? (
                           <p className="text-danger cursor-pointer">
                             <i className="bi bi-hand-index-fill"></i>{" "}
                             <span style={{ fontWeight: "bold" }}>Đăng ký</span>
                           </p>
-                        ) : child.TrangThai == 1 ? (
+                        ) : e.TrangThai == 1 ? (
                           <p>
                             <span>
                               <img
@@ -254,42 +205,28 @@ const ChinhDangChayBo = (props: Props) => {
                         )}
                       </div>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               </div>
               })
             }
 
-            <div className="d-flex justify-content-center ">
-              <nav aria-label="Page navigation example ">
-                <ul className="pagination">
-                  <li className="page-item ">
-                    <a className="page-link" href="#">
-                      Previous
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      2
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      3
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      Next
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+<div className="d-flex justify-content-center pagi-kh-os align-items-center mt-3">
+              {state.Count && Math.ceil(state.Count / 10) > 0 ? (
+                <ReactPaginate
+                  ref={pa}
+                  breakLabel="..."
+                  nextLabel="Sau"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={3}
+                  pageCount={state.Count && Math.ceil(state.Count / 10)}
+                  previousLabel="Trước"
+                  className="pagination"
+                  initialPage={0}
+                />
+               ) : (
+                <></>
+              )} 
             </div>
           </div>
         </div>

@@ -9,12 +9,14 @@ export interface Item {
 export interface IState {
   DataItemTinTucNoiBat: any;
   DataItemTinTuc: any;
-  DataItem: Item[];
   TreeChuyenMuc: any;
+  Count: number;
+  DataItemTinTucCopy: any;
 }
 export const InitState: IState = {
   DataItemTinTucNoiBat: [],
   DataItemTinTuc: [],
-  DataItem: [],
-  TreeChuyenMuc: []
+  TreeChuyenMuc: [],
+  Count: 0,
+  DataItemTinTucCopy: [],
 };

@@ -10,7 +10,15 @@ export const Actions: any = {
       items: res.Data,
     });
   },
+  GetSuKienChangePortal: async (start: any, end: any, dispatch: any) => {
+    dispatch({
+      type: "getSuKienPortalChange",
+      start: start,
+      end: end,
+    });
+  },
   getSuKienPortal: async (idNhomSuKien:any, dispatch: any) => {
+    console.log(idNhomSuKien)
     let res: IResponseMessage = await SuKienService.getSuKienPortal(idNhomSuKien);
     dispatch({
       type: "getSuKienPortal",
