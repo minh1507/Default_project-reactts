@@ -8,6 +8,13 @@ const KhoaHocService = {
     });
     return res;
   },
+  getTheoLoaiKhoaHocPortal: async (id: String) => {
+    let res: any = await request({
+      url: `/${Por_KhoaHoc}/TheoLoaiKhoaHoc?idLoaiKhoaHoc=${id}`,
+      method: "get",
+    });
+    return res;
+  },
   GetItems: async () => {
     let res: any = await request({
       url: `/${Por_KhoaHoc}/List?page=1&pageSize=1000&totalLimitItems=0&searchBy=`,
