@@ -8,6 +8,7 @@ export const Reducer = (state: IState = InitState, action: any) => {
         DsKhoaHoc: [...datas],
         Count: action.count,
         DataAllItem: [...action.items],
+        DataAllItemCopy: [...action.items],
       };
     case "GetItemKhoaHocChange":
       let newData = state.DataAllItem.slice(action.start, action.end);
@@ -15,6 +16,7 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DsKhoaHoc: [...newData],
       };
+
     case "GetItemMonHoc":
       return {
         ...state,
@@ -37,23 +39,24 @@ export const Reducer = (state: IState = InitState, action: any) => {
       };
     case "GetItemKhoaHocSearch":
       if (action.search) {
-        let searchData = state.DataAllItem.filter((x: any) => {
+        let searchData = state.DataAllItemCopy.filter((x: any) => {
           return x.TieuDe.toLowerCase().includes(action.search.toLowerCase());
         });
-
         let newSearchData = searchData.slice(0, 10);
 
         return {
           ...state,
           DsKhoaHoc: [...newSearchData],
           Count: searchData.length,
+          DataAllItem: searchData,
         };
       } else {
-        let dataNew = state.DataAllItem.slice(0, 10);
+        let dataNew = state.DataAllItemCopy.slice(0, 10);
         return {
           ...state,
           DsKhoaHoc: [...dataNew],
-          Count: state.DataAllItem.length,
+          Count: state.DataAllItemCopy.length,
+          DataAllItem: state.DataAllItemCopy,
         };
       }
 

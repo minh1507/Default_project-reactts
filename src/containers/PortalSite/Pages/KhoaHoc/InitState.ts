@@ -14,6 +14,7 @@ export interface HoatDong {
 export interface IState {
   TreeMonHoc: any;
   DataAllItem: any;
+  DataAllItemCopy: any;
   DataItem: {
     DanhSachMonHocCon: Item[];
   };
@@ -30,4 +31,5 @@ export const InitState: IState = {
   DsKhoaHoc: [],
   DataHoatDong: [],
   Count: 0,
+  DataAllItemCopy: [],
 };

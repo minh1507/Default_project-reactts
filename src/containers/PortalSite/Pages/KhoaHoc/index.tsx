@@ -150,7 +150,7 @@ const KhoaHoc = (props: Props) => {
           </h4>
         ) : (
           <h4 className="text-danger text-center tieu-de mb-3">
-            Khóa học chạy bộ 
+            Khóa học chạy bộ
           </h4>
         )}
 

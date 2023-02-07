@@ -24,6 +24,7 @@ export const Actions: any = {
       search: search,
     });
   },
+
   GetKhoaHocCount: async (key: any) => {
     let ids = key.split("/");
     let id = ids[ids.length - 1];
@@ -41,6 +42,7 @@ export const Actions: any = {
   },
   GetMonHocPortal: async (ma: any, limit: any, dispatch: any) => {
     let res: IResponseMessage = await MonHocService.getMonHocPortal(ma, limit);
+
     dispatch({
       type: "GetItem",
       items: res.Data,
