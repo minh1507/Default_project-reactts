@@ -41,9 +41,11 @@ export const Reducer = (state: IState = InitState, action: any) => {
           return x.TieuDe.toLowerCase().includes(action.search.toLowerCase());
         });
 
+        let newSearchData = searchData.slice(0, 10);
+
         return {
           ...state,
-          DsKhoaHoc: [...searchData],
+          DsKhoaHoc: [...newSearchData],
           Count: searchData.length,
         };
       } else {
