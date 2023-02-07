@@ -2,9 +2,23 @@ import { Thang } from "common/Enums";
 import request from "common/Request";
 const Por_NhomSuKien = "Por_NhomSuKien";
 const QuanLyNhomSuKien = {
+  GetItems: async () => {        
+    let res:any = await request({
+        url: `/${Por_NhomSuKien}/List?page=1&pageSize=1000&totalLimitItems=0&searchBy=`,
+        method: 'get'
+    });
+    return res
+  },
   GetByParentId: async (idMenuCha: any) => {
     let res: any = await request({
       url: `/${Por_NhomSuKien}/List/${idMenuCha}`,
+      method: "get",
+    });
+    return res;
+  },
+  GetHoatDong: async () => {
+    let res: any = await request({
+      url: `/${Por_NhomSuKien}/HoatDong/Portal`,
       method: "get",
     });
     return res;
@@ -84,9 +98,9 @@ const QuanLyNhomSuKien = {
     });
     return res;
   },
-  CheckDuplicateAttributes: async (id: any, ma: any, idMonHocCha: any) => {
+  CheckDuplicateAttributes: async (id: any, ma: any) => {
     let res: any = await request({
-      url: `/${Por_NhomSuKien}/CheckDuplicateAttributes?id=${id}&ma=${ma}&idMonHocCha=${idMonHocCha}`,
+      url: `/${Por_NhomSuKien}/CheckDuplicateAttributes?id=${id}&ma=${ma}`,
       method: "get",
     });
     return res;

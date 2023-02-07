@@ -2351,9 +2351,21 @@
     padding: 8px 16px;
     font-size: 1.3rem;
   }
-
   .pagi-kh-os ul li:last-child a {
     text-decoration: none;
     color: #000;
+  }
+  .nhom-su-kien {
+    .nav-link {
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+    }
+    .active {
+      color: #dc3545;
+      border-top: 4px solid #dc3545;
+      padding-top: 5px;
+    }
   }
 }

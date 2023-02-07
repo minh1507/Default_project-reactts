@@ -53,5 +53,12 @@ const SuKienService = {
         });
         return res
     },
+    getSuKienPortal: async (id:any) => {        
+        let res:any = await request({
+            url: `/${Por_SuKien}/TheoNhomSuKien?idNhomSuKien=${id}`,
+            method: 'get'
+        });
+        return res
+    },
 }
 export default SuKienService

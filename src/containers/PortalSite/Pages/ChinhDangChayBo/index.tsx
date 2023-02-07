@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { connect } from "react-redux";
 import bg17 from "assets/img/bg17.png";
 import bg20 from "assets/img/bg20.jpg";
 import bg18 from "assets/img/bg18.jpg";
 import bg19 from "assets/img/bg19.jpg";
 import bg40 from "assets/img/Gioi-thieu.png";
-
+import { InitState } from "./InitState";
+import { Actions } from "./Action";
+import { Reducer } from "./Reducer";
+import { Guid } from "common/Enums";
 interface Props {}
 
 const ChinhDangChayBo = (props: Props) => {
+  const [state, dispatch] = useReducer(Reducer, InitState);
+  const [activeTab, setActiveTab] = useState("TatCa");
+  useEffect(() => {
+    Actions.GetLoaiKhoaHocHoatDongPortal(dispatch);
+    Actions.getSuKienPortal(Guid.Empty, dispatch);
+  }, [])
+  const onChange = (currentNode:any, selectedNodes:any) => {
+    console.log('onChange::', currentNode, selectedNodes)
+  }
+  const onAction = (node:any, action:any) => {
+    console.log('onAction::', action, node)
+  }
+  const onNodeToggle =  (currentNode:any) => {
+    console.log('onNodeToggle::', currentNode)
+  }
+  const onChangeTab = (e: any, ie:any) => {
+    Actions.getSuKienPortal(e.Id, dispatch);
+    setActiveTab(e.Ma);
+  }
+
   return (
     <div style={{ backgroundColor: "white" }}>
       <div className="wrapper_img">
@@ -20,7 +43,7 @@ const ChinhDangChayBo = (props: Props) => {
           CHỈNH DÁNG CHẠY BỘ
         </h1>
       </div>
-      <div className="sk-head mb-3">
+      {/* <div className="sk-head mb-3">
         <div className="container-xl d-flex justify-content-between">
           <div className="d-flex">
             <div className="hex4">
@@ -53,9 +76,9 @@ const ChinhDangChayBo = (props: Props) => {
             <button className="sk-btn-head">Đăng ký ngay</button>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="container-xl">
+      {/* <div className="container-xl">
         <div className="container-khoa-hoc khoa-hoc-header justify-content-between">
           <div className={`kh-search-bar`}>
             <span>
@@ -85,661 +108,158 @@ const ChinhDangChayBo = (props: Props) => {
             <h5 className="sk-unactive-ab">Chia sẻ</h5>
           </div>
         </div>
-      </div>
-
+      </div> */}
       <div className="main_sub_detal" style={{ padding: 0 }}>
         <div className="container-xl">
-          <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
+          <div className="row nhom-su-kien mt-3 mb-3">
+            <div className="col-sm-12">
+              <ul className="nav nav-tabs">
+                {
+                  state.ItemsNhomSuKien.map((e:any, ie:any) => {
+                    return <li className="nav-item" onClick={() => { onChangeTab(e, ie) }}>
+                            <a className={"nav-link " + (e.Ma == activeTab ? "active":"")}>{e.Ten}</a>
+                          </li>
+                  })
+                }
+              </ul>
+            </div>
+          </div>
+          <div className="row">
+            {
+              state.ItemsSuKien.map((e:any, ie:any) => {
+                return             <div className="col-sm-4">
+                <div className="card mb-3 p-0">
+                  {/* <div className="row g-0">
+                    <div className="col-md-4">
+                      <img
+                        src={child.URL_AnhDaiDien as string}
                         style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
+                          width: "100%",
+                          height: "200px",
+                          borderTopLeftRadius: 5,
+                          borderBottomLeftRadius: 5,
                         }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
+                        alt="..."
+                      />
                     </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
+                    <div className="col-md-8">
+                      <div className="card-body p-2">
+                        <div className="d-flex justify-content-between">
+                          <h6
+                            className="card-title titleXl head_z underline-head-tt"
+                            onClick={() =>
+                              GoToDetailPage(
+                                "/chi-tiet-tin-tuc",
+                                child.IdSuKien as string,
+                                child.TenSuKien as string,
+                                "sukien"
+                              )
+                            }
+                            style={{
+                              textAlign: "start",
+                              width: "250px",
+                              fontSize: "1.15rem",
+                            }}
+                          >
+                            {child.TenSuKien}
+                          </h6>
+                          <span
+                            className="d-flex justify-content-center align-items-center chi-tiet"
+                            onClick={() =>
+                              GoToDetailPage(
+                                "/chi-tiet-tin-tuc",
+                                child.IdSuKien as string,
+                                child.TenSuKien as string,
+                                "sukien"
+                              )
+                            }
+                          >
+                            Chi tiết
+                          </span>
+                        </div>
+                        <p
+                          className="card-text mt-2"
+                          style={{
+                            fontSize: "0.9rem",
+                            textAlign: "start",
+                          }}
+                        >
+                          <i className="bi bi-geo-alt-fill" /> {child.DiaChi}
+                        </p>
+                        <div
+                          className="mt-2"
+                          style={{
+                            fontSize: "0.9rem",
+                            textAlign: "start",
+                          }}
+                        >
+                          <span>
+                            <i className="bi bi-calendar-range-fill" />{" "}
+                            {child.Date}
+                          </span>
+                          <span style={{ marginLeft: "20px" }}>
+                            <i className="bi bi-clock-fill" /> {child.Time}{" "}
+                            {child.Detech}
+                          </span>
+                        </div>
+                        <p
+                          className="card-text mt-2 mb-1"
+                          style={{
+                            fontSize: "0.9rem",
+                            textAlign: "start",
+                          }}
+                        >
+                          <i className="bi bi-cash-stack" />{" "}
+                          {child.GiaTien ? child.GiaTien : "0"}
+                          {" ₫"}
+                        </p>
+
+                        {child.TrangThai == 0 ? (
+                          <p className="text-danger cursor-pointer">
+                            <i className="bi bi-hand-index-fill"></i>{" "}
+                            <span style={{ fontWeight: "bold" }}>Đăng ký</span>
+                          </p>
+                        ) : child.TrangThai == 1 ? (
+                          <p>
+                            <span>
+                              <img
+                                style={{ width: "30px", height: "30px" }}
+                                src={loading}
+                              />
+                            </span>
+                            <span
+                              className="text-danger"
+                              style={{ fontWeight: "bold" }}
+                            >
+                              Đang diễn ra
+                            </span>
+
+                            <span>
+                              <img
+                                style={{ width: "30px", height: "30px" }}
+                                src={loading}
+                              />
+                            </span>
+                          </p>
+                        ) : (
+                          <p>
+                            <i className="bi bi-x-circle-fill"></i>{" "}
+                            <span
+                              className="text-dark"
+                              style={{ fontWeight: "bold" }}
+                            >
+                              Đã diễn ra
+                            </span>
+                          </p>
+                        )}
+                      </div>
                     </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
-            </div>
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
-                        style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
-                        }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
-                        style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
-                        }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
-                        style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
-                        }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
-                        style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
-                        }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
-                        style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
-                        }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
-                        style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
-                        }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
-                        style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
-                        }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
-                        style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
-                        }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card mb-3 p-0" style={{ width: "470px" }}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={bg17}
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-2">
-                    <div className="d-flex justify-content-between">
-                      <h5
-                        className="card-title  head_z"
-                        style={{
-                          textAlign: "start",
-                          width: "210px",
-                          fontSize: "1.15rem",
-                        }}
-                      >
-                        LÀM VÒNG HỒ TÂY CHO NGƯỜI NGẤT NGÂY
-                      </h5>
-                      <span className="d-flex justify-content-center align-items-center chi-tiet">
-                        Chi tiết
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2 mb-3"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-geo-alt-fill" /> Đường Thanh Niên,
-                      Quận Tây Hồ, Thành phố Hà Nội
-                    </p>
-                    <div
-                      className="mt-2"
-                      style={{ fontSize: "calc(1rem *.9)", textAlign: "start" }}
-                    >
-                      <span>
-                        <i className="bi bi-calendar-range-fill" /> 25/11/2022
-                      </span>
-                      <span style={{ marginLeft: "20px" }}>
-                        <i className="bi bi-clock-fill" /> 9:30 AM
-                      </span>
-                    </div>
-                    <p
-                      className="card-text mt-2"
-                      style={{ fontSize: "calc(1rem *.8)", textAlign: "start" }}
-                    >
-                      <i className="bi bi-cash-stack" /> Miễn Phí
-                    </p>
-                    <p
-                      className="card-text mt-2"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
-                    >
-                      <i className="bi bi-calendar2-x-fill" /> Đã diễn ra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              })
+            }
+
             <div className="d-flex justify-content-center ">
               <nav aria-label="Page navigation example ">
                 <ul className="pagination">

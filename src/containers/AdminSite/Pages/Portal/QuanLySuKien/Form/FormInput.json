@@ -10,7 +10,7 @@
       "IsRequired": true,
       "Placeholder": "---Chọn---",
       "Options": [],
-      "KeyOptions": { "label": "Name", "value": "Id" },
+      "KeyOptions": { "label": "Ten", "value": "Id" },
       "Row": 1,
       "ColLabel": 2,
       "ColControl": 10,
@@ -27,21 +27,11 @@
       "ColSpanControl": 12
     },
     {
-      "Key": "MoTa",
-      "Title": "Mô tả",
-      "Type": "TextArea",
-      "IsRequired": true,
-      "Row": 3,
-      "ColLabel": 2,
-      "ColControl": 10,
-      "ColSpanControl": 12
-    },
-    {
       "Key": "URL_AnhDaiDien",
       "Title": "Ảnh giới thiệu",
       "Type": "InputText",
       "IsRequired": true,
-      "Row": 4,
+      "Row": 3,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
@@ -56,7 +46,7 @@
         { "value": 1, "label": "Đang diễn ra" },
         { "value": 2, "label": "Đã diễn ra" }
       ],
-      "Row": 5,
+      "Row": 4,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -65,7 +55,7 @@
       "Key": "ThoiGian",
       "Title": "Thời gian diễn ra",
       "Type": "Date",
-      "Row": 5,
+      "Row": 4,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -74,7 +64,7 @@
       "Key": "GiaTien",
       "Title": "Giá tiền",
       "Type": "InputNumber",
-      "Row": 6,
+      "Row": 5,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -83,7 +73,7 @@
       "Key": "DiaChi",
       "Title": "Địa chỉ",
       "Type": "InputText",
-      "Row": 6,
+      "Row": 5,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -93,7 +83,7 @@
       "Title": "Nội dung",
       "Type": "CkEditor",
       "IsRequired": true,
-      "Row": 7,
+      "Row": 6,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
@@ -103,7 +93,7 @@
       "Title": "",
       "CheckboxLabel": "Hoạt động",
       "Type": "Checkbox",
-      "Row": 8,
+      "Row": 7,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12

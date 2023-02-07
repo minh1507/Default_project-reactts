@@ -1,30 +1,11 @@
-import { AppName, Guid } from "common/Enums";
-
 export interface IModelItem {
-  Id: String;
-  Ma: String;
-  Ten: String;
-  IdNhomSuKienCha?: String;
-  TrangThaiBanGhi: Boolean;
-}
-export interface IModelTree {
-  Id: String;
-  Code: String;
-  Name: String;
-  Children: Array<IModelTree>;
+    Id: String;
+    Code: String;
+    Name: String;
 }
 export interface IState {
-  DataItems: IModelItem[];
-  DataTree: IModelTree[];
+    DataItems: IModelItem[]
 }
 export const InitState: IState = {
-  DataItems: [],
-  DataTree: [
-    {
-      Id: Guid.Empty,
-      Code: "CayNhomSuKien",
-      Name: "Cây nhóm sự kiện",
-      Children: [],
-    },
-  ],
-};
+    DataItems: []
+};  

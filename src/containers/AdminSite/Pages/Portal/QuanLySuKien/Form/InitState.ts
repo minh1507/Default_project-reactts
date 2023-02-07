@@ -12,7 +12,6 @@ export interface IModelItem {
   IdNhomSuKien: String;
   TrangThaiBanGhi: Boolean;
   TrangThai: Number;
-  MoTa: String;
 }
 export interface IState {
   DataItem: IModelItem;
@@ -22,7 +21,6 @@ export const InitState: IState = {
   DataItem: {
     Id: Guid.Empty,
     Ten: "",
-    MoTa: "",
     NoiDung: "",
     DiaChi: "",
     URL_AnhDaiDien: "",

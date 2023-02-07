@@ -124,7 +124,7 @@ const TrangChu = (props: Props) => {
     Actions.GetItemBlog("TT2", "15", dispatch);
     Actions.GetItemGiaoan("GA1", "8", dispatch);
     Actions.GetItemKhoaHoc("GA1", "8", "4", dispatch);
-    Actions.GetItemSuKien("SK1-1", "4", dispatch);
+    Actions.GetItemSuKien("SuKien", dispatch);
   }, []);
 
   const responsive = {
@@ -468,15 +468,15 @@ const TrangChu = (props: Props) => {
       </div>
     ));
 
-  const suKien = state.DataItemsSuKien && (
+  const suKien = state.DataItemsSuKien && state.DataItemsSuKien.length > 0 && (
     <div className="main_sub_detal rout-zxa mb-2">
       <div className="container-xl d-flex flex-column">
         <h3 className="text-danger text-uppercase tieu-de">
-          {state.DataItemsSuKien.TenNhomSuKien}
+          {state.DataItemsSuKien && state.DataItemsSuKien[0].NhomSuKien}
         </h3>
         <div className="container mt-3">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
-            {state.DataItemsSuKien.DanhSachSuKien.map(
+            {state.DataItemsSuKien.map(
               (child: danhSachSuKien) => (
                 <div
                   key={uuidv4()}

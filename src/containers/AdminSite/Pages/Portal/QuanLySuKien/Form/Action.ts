@@ -18,7 +18,6 @@ export const Actions: any = {
       let itemNew: IModelItem = {
         Id: Guid.Empty,
         Ten: "",
-        MoTa: "",
         NoiDung: "",
         DiaChi: "",
         URL_AnhDaiDien: "",
@@ -43,11 +42,11 @@ export const Actions: any = {
     let res: IResponseMessage = await SuKienService.UpdateItem(item);
     return res;
   },
-  GetTreeList: async (key: any, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomSuKien.GetTreeList();
+  GetNhomSuKienList: async (key: any, dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomSuKien.GetHoatDong();
     if (res && res.Success) {
       dispatch({
-        type: "GetTreeList",
+        type: "GetNhomSuKienList",
         key: key,
         items: res.Data,
       });

@@ -74,10 +74,7 @@ export interface IState {
     DanhSachMonHocCon: IModelMonHocCon[];
   };
   DataItemsKhoaHoc: IModelGen[];
-  DataItemsSuKien: {
-    TenNhomSuKien: String;
-    DanhSachSuKien: danhSachSuKien[];
-  };
+  DataItemsSuKien: [];
 }
 export const InitState: IState = {
   DataItemsTinTuc: {
@@ -97,8 +94,5 @@ export const InitState: IState = {
     DanhSachMonHocCon: [],
   },
   DataItemsKhoaHoc: [],
-  DataItemsSuKien: {
-    TenNhomSuKien: "",
-    DanhSachSuKien: [],
-  },
+  DataItemsSuKien: [],
 };
