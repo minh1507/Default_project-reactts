@@ -37,6 +37,15 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DataHoatDong: action.items,
       };
+    case "GetItemTheoLoaiKhoaHoc":
+      let khTheoKhoaHoc = action.items.slice(0, 10);
+      return {
+        ...state,
+        DsKhoaHoc: [...khTheoKhoaHoc],
+        DataAllItem: action.items,
+        DataAllItemCopy: action.items,
+        Count: action.items.length,
+      };
     case "GetItemKhoaHocSearch":
       if (action.search) {
         let searchData = state.DataAllItemCopy.filter((x: any) => {

@@ -48,6 +48,16 @@ export const Actions: any = {
       items: res.Data,
     });
   },
+  GetKhoaHocTheoLoaiKhoaHoc: async (Id: any, dispatch: any) => {
+    let res: IResponseMessage = await KhoaHocService.getTheoLoaiKhoaHocPortal(
+      Id
+    );
+
+    dispatch({
+      type: "GetItemTheoLoaiKhoaHoc",
+      items: res.Data,
+    });
+  },
   GetTreeMonHocPortal: async (dispatch: any) => {
     let res: IResponseMessage = await MonHocService.GetTreePortal();
     var treeJson = JSON.stringify(res.Data);

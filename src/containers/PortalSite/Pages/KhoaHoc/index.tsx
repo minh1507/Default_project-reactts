@@ -10,6 +10,7 @@ import { Guid } from "common/Enums";
 import { String } from "common/String";
 import ReactPaginate from "react-paginate";
 import noimage from "assets/img/noimage.png";
+import { useHistory } from "react-router-dom";
 
 const { v4: uuidv4 } = require("uuid");
 
@@ -22,9 +23,11 @@ const KhoaHoc = (props: Props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [reLength, setReLength] = useState(0);
   const kh1 = useRef(null);
-  const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
+  const history = useHistory();
+  const [theoKhoaHoc, setTheoKhoaHoc] = useState("");
   const pa = useRef(null);
+  const pb = useRef(null);
   const nextLength = () => {
     if (reLength + 4 < state.DataHoatDong.length) {
       setReLength(reLength + 4);
@@ -81,6 +84,14 @@ const KhoaHoc = (props: Props) => {
     setAccName(name);
   };
 
+  const handleLoaiKhoaHoc = (Id: string) => {
+    Actions.GetKhoaHocTheoLoaiKhoaHoc(Id, dispatch);
+    setAccName("");
+    pb.current.state.focusKey = "";
+    pb.current.state.activeKey = "";
+    state.Count > 0 && (pa.current.state.selected = 0);
+  };
+
   const colorStar = (danhgia: number) => {
     return (
       <span>
@@ -107,6 +118,15 @@ const KhoaHoc = (props: Props) => {
     );
   };
 
+  const GoToDetailPage = (page: string, id: string, search: string) => {
+    history.push({
+      pathname: page,
+      state: { id: id },
+      search: `/${search}`,
+    });
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div style={{ backgroundColor: "white" }}>
       <div className="wrapper_img mb-3">
@@ -126,7 +146,14 @@ const KhoaHoc = (props: Props) => {
               {state.DataHoatDong &&
                 state.DataHoatDong.map((value: any, index: any) => {
                   return (
-                    <div key={uuidv4()} className="slide-child">
+                    <div
+                      key={uuidv4()}
+                      className="slide-child"
+                      onClick={() => {
+                        handleLoaiKhoaHoc(value.Id);
+                        setTheoKhoaHoc(value.TieuDe);
+                      }}
+                    >
                       <div className="slide-element">{value.TieuDe}</div>
                     </div>
                   );
@@ -146,11 +173,11 @@ const KhoaHoc = (props: Props) => {
 
         {accName ? (
           <h4 className="text-danger text-center tieu-de mb-3 kh-apeperar">
-            Khóa học chạy bộ - {accName}
+            {accName}
           </h4>
         ) : (
           <h4 className="text-danger text-center tieu-de mb-3">
-            Khóa học chạy bộ
+            {theoKhoaHoc ? theoKhoaHoc : "Khóa học tổng hợp"}
           </h4>
         )}
 
@@ -319,6 +346,7 @@ const KhoaHoc = (props: Props) => {
             <div className={`side-left-khoa-hoc ji-kh`}>
               <h5 className="kik-kh-kuki">Môn học</h5>
               <TreeMenu
+                ref={pb}
                 data={state.TreeMonHoc}
                 initialOpenNodes={[]}
                 hasSearch={false}
@@ -366,7 +394,16 @@ const KhoaHoc = (props: Props) => {
                             <div className="card-body card-bodys">
                               <div className="row">
                                 <div className="col-sm-8">
-                                  <p className="card-title underline-head-tt mb-1">
+                                  <p
+                                    className="card-title underline-head-tt mb-1"
+                                    onClick={() =>
+                                      GoToDetailPage(
+                                        "/khoa-hoc-chi-tiet",
+                                        e.Id as string,
+                                        e.TieuDe as string
+                                      )
+                                    }
+                                  >
                                     {e.TieuDe}
                                   </p>
                                   <p className="card-text popse-khso-p">
