@@ -52,8 +52,8 @@ export const Actions: any = {
       items: res.Data,
     });
   },
-  GetItemSuKien: async (ma: any, dispatch: any) => {
-    let res: IResponseMessage = await QuanLySuKien.getSuKienPortal(ma);
+  GetSuKienTheoNhomSuKienMoiNhatPortal: async (dispatch: any) => {
+    let res: IResponseMessage = await QuanLySuKien.getSuKienTheoNhomSuKienMoiNhatPortal();
     dispatch({
       type: "GetItemSuKien",
       items: res.Data,

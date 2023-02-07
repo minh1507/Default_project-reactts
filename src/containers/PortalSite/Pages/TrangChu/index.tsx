@@ -124,7 +124,7 @@ const TrangChu = (props: Props) => {
     Actions.GetItemBlog("TT2", "15", dispatch);
     Actions.GetItemGiaoan("GA1", "8", dispatch);
     Actions.GetItemKhoaHoc("GA1", "8", "4", dispatch);
-    Actions.GetItemSuKien("SuKien", dispatch);
+    Actions.GetSuKienTheoNhomSuKienMoiNhatPortal(dispatch);
   }, []);
 
   const responsive = {
@@ -145,9 +145,9 @@ const TrangChu = (props: Props) => {
   const gioiThieu = state.DataItemsTinTuc && (
     <div key={uuidv4()} className="main_sub_detal rout-zx mt-2">
       <div className="container-xl d-flex flex-column">
-        <h3 className="text-danger text-uppercase tieu-de">
+        <h4 className="text-danger text-uppercase tieu-de">
           {state.DataItemsTinTuc.TenNhomTinTuc}
-        </h3>
+        </h4>
         <div className="container-xl mt-3">
           <div className="row gap-3 justify-content-center align-items-center">
             {state.DataItemsTinTuc.DanhSachTinTuc.map(
@@ -219,9 +219,9 @@ const TrangChu = (props: Props) => {
   const giaoan = state.DataItemsGiaoAn && (
     <div className="main_sub_detal rout-zxz mt-2 mb-2 ">
       <div className="container-xl d-flex flex-column">
-        <h3 className="text-danger text-uppercase tieu-de">
+        <h4 className="text-danger text-uppercase tieu-de">
           {state.DataItemsGiaoAn.TenMonHoc}
-        </h3>
+        </h4>
         <div className="container mt-3">
           <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat d-flex justify-content-center">
             {state.DataItemsGiaoAn.DanhSachMonHocCon.map(
@@ -303,9 +303,9 @@ const TrangChu = (props: Props) => {
 
             <div className="main_sub_detal tieu-de-ava pt-0 mb-2">
               <div className="container d-flex flex-column">
-                <h3 className="text-danger text-uppercase tieu-de tieude-avb">
+                <h4 className="text-danger text-uppercase tieu-de tieude-avb">
                   {tree.TenMonHoc}
-                </h3>
+                </h4>
                 <div className="container uoy-tt mt-1">
                   <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat">
                     {tree.DanhSachKhoaHoc.map((item: any) => (
@@ -471,9 +471,10 @@ const TrangChu = (props: Props) => {
   const suKien = state.DataItemsSuKien && state.DataItemsSuKien.length > 0 && (
     <div className="main_sub_detal rout-zxa mb-2">
       <div className="container-xl d-flex flex-column">
-        <h3 className="text-danger text-uppercase tieu-de">
-          {state.DataItemsSuKien && state.DataItemsSuKien[0].NhomSuKien}
-        </h3>
+        <h4 className="text-danger text-uppercase tieu-de">
+          {/* {state.DataItemsSuKien && state.DataItemsSuKien[0].NhomSuKien} */}
+          Sự kiện mới nhất
+        </h4>
         <div className="container mt-3">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
             {state.DataItemsSuKien.map(
@@ -620,9 +621,9 @@ const TrangChu = (props: Props) => {
 
   const blog = state.DataItemsBlog && (
     <div className="container-xl mt-5">
-      <h2 className="text-danger text-center text-uppercase tieu-de">
+      <h4 className="text-danger text-center text-uppercase tieu-de">
         {state.DataItemsBlog.TenNhomTinTuc}
-      </h2>
+      </h4>
 
       <OwlCarousel
         className="owl-theme mt-4"
@@ -723,7 +724,7 @@ const TrangChu = (props: Props) => {
 
       <div className="main_sub_detal mb-2">
         <div className="container-xl d-flex flex-column">
-          <h2 className="text-danger tieu-de">THÀNH TÍCH HỌC VIÊN</h2>
+          <h4 className="text-danger tieu-de">THÀNH TÍCH HỌC VIÊN</h4>
           <div
             className="container mt-2 d-flex justify-content-between congrate"
             style={{ textAlign: "start" }}
@@ -870,12 +871,12 @@ const TrangChu = (props: Props) => {
             <img src={formImg} style={{ width: "100%", height: "auto" }} />
           </div>
           <div id="constate_after" style={{ width: "55%", textAlign: "start" }}>
-            <h2
+            <h4
               className="text-danger tieu-de"
               style={{ wordWrap: "break-word" }}
             >
               ĐĂNG KÍ TƯ VẤN MIỄN PHÍ
-            </h2>
+            </h4>
             <div className="input-group flex-nowrap mt-3">
               <input
                 type="text"

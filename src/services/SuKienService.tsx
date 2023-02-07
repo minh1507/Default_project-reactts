@@ -60,5 +60,12 @@ const SuKienService = {
         });
         return res
     },
+    getSuKienTheoNhomSuKienMoiNhatPortal: async () => {        
+        let res:any = await request({
+            url: `/${Por_SuKien}/TheoNhomSuKienMoiNhat?limit=4`,
+            method: 'get'
+        });
+        return res
+    },
 }
 export default SuKienService
