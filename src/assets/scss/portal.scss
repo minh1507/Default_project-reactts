@@ -2422,5 +2422,24 @@
       padding-bottom: 8px;
     }
   }
-
+  .Card-Hoc-Header {
+    padding: 10px;
+    background: #1c1d1f;
+    color: white;
+    
+  }
+  .Card-Hoc {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  .GiaoAnLyThuyet {
+    .accordion-button {
+      width: 100%;
+      padding: 10px;
+    }
+    .accordion-body {
+      padding: 5px 25px;
+    }
+  }
 }

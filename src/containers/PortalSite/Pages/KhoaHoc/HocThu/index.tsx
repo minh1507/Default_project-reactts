@@ -7,144 +7,113 @@ interface Props {
 }
 
 const HocThu = (props: Props) => {  
-    const [item, setItem] = useState(1)
-
-    const changeItem = (num: number) => {
-      setItem(num)
-    }
-  
-    return(
-        <div>
-        <div id="main_test" className="d-flex">
-          <div style={{width: '70%'}} id="main_test_after">
-            <iframe id="video" width="100%" height="500px" src="https://www.youtube.com/embed/zgPJMbApf_0" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-          </div>
-          <div id="main_test_after" style={{width: '30%', padding: '10px 10px', overflowY: 'scroll', height: '500px', backgroundColor: 'white'}} className="right_container">
-            <p className="mb-3 " style={{fontWeight: 'bold'}}>Nội dung giáo án</p>
-            <div className="d-flex justify-content-between" style={{borderBottom: '1px solid gainsboro'}}>
-              <div>
-                <p style={{fontWeight: 'bold', fontSize: 'calc(1rem * 0.9)'}}>1. Tổng quan</p>
-                <p className="mb-2" style={{fontSize: 'calc(1rem * 0.8)'}}>1/2 | 30:44</p>
-              </div>
-              <p><i className="bi bi-caret-up-fill" /></p>
-            </div>
-            <div style={{padding: '10px 20px'}}>
-              <p style={{fontSize: 'calc(1rem * 0.8)'}}>1. Những chấn thương thường gặp, phương pháp tránh
-                chấn thương
-              </p>
-              <p className="mb-3" style={{fontSize: 'calc(1rem * 0.8)'}}><i className="bi bi-play-circle-fill text-danger" />
-                17:54</p>
-              <div className="d-flex justify-content-between">
-                <div>
-                  <p style={{fontSize: 'calc(1rem * 0.8)'}}>2. Những chấn thương thường gặp, phương pháp tránh chấn
-                    thương
-                  </p>
-                  <p className="mb-3" style={{fontSize: 'calc(1rem * 0.8)'}}><i className="bi bi-play-circle-fill" />
-                    12 :54</p>
-                </div>
-                <p><i className="bi bi-lock-fill" /></p>
-              </div>
-            </div>
-            <div className="d-flex justify-content-between" style={{borderBottom: '1px solid gainsboro'}}>
-              <div>
-                <p style={{fontWeight: 'bold', fontSize: 'calc(1rem * 0.9)'}}>2. Luyện tập tăng sức bền</p>
-                <p className="mb-2" style={{fontSize: 'calc(1rem * 0.8)'}}>0/2 | 50:44</p>
-              </div>
-              <p><i className="bi bi-caret-up-fill" /></p>
-            </div>
-            <div style={{padding: '10px 20px'}}>
-              <div className="d-flex justify-content-between">
-                <div>
-                  <p style={{fontSize: 'calc(1rem * 0.8)'}}>Những chấn thương thường gặp, phương pháp tránh chấn
-                    thương
-                  </p>
-                  <p className="mb-3" style={{fontSize: 'calc(1rem * 0.8)'}}><i className="bi bi-play-circle-fill" />
-                    12 :54</p>
-                </div>
-                <p><i className="bi bi-lock-fill" /></p>
-              </div>
-              <div className="d-flex justify-content-between">
-                <div>
-                  <p style={{fontSize: 'calc(1rem * 0.8)'}}>4. Những chấn thương thường gặp, phương pháp tránh chấn
-                    thương
-                  </p>
-                  <p className="mb-3" style={{fontSize: 'calc(1rem * 0.8)'}}><i className="bi bi-play-circle-fill" />
-                    12 :54</p>
-                </div>
-                <p><i className="bi bi-lock-fill" /></p>
-              </div>
-            </div>
-            <div className="d-flex justify-content-between" style={{borderBottom: '1px solid gainsboro'}}>
-              <div>
-                <p style={{fontWeight: 'bold', fontSize: 'calc(1rem * 0.9)'}}>3. Luyện tập tăng sức bền</p>
-                <p className="mb-2" style={{fontSize: 'calc(1rem * 0.8)'}}>0/2 | 50:44</p>
-              </div>
-              <p><i className="bi bi-caret-up-fill" /></p>
-            </div>
-            <div style={{padding: '10px 20px'}}>
-              <div className="d-flex justify-content-between">
-                <div>
-                  <p style={{fontSize: 'calc(1rem * 0.8)'}}>Những chấn thương thường gặp, phương pháp tránh chấn
-                    thương
-                  </p>
-                  <p className="mb-3" style={{fontSize: 'calc(1rem * 0.8)'}}><i className="bi bi-play-circle-fill" />
-                    12 :54</p>
-                </div>
-                <p><i className="bi bi-lock-fill" /></p>
-              </div>
-              <div className="d-flex justify-content-between">
-                <div>
-                  <p style={{fontSize: 'calc(1rem * 0.8)'}}>4. Những chấn thương thường gặp, phương pháp tránh chấn
-                    thương
-                  </p>
-                  <p className="mb-3" style={{fontSize: 'calc(1rem * 0.8)'}}><i className="bi bi-play-circle-fill" />
-                    12 :54</p>
-                </div>
-                <p><i className="bi bi-lock-fill" /></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <br/>
-        <div className='style17 container-xl mt-5'></div>
-
-        <div>
-          <div className="container-xl mt-5" style={{padding: '20px 0'}}>
-            <div className="p-2 text-center">
-              <h5 className="mb-3 ">Những chấn thương thường gặp, phương pháp tránh chấn thương</h5>
-              <p className="mb-5">Giáo án dành cho những runner mới bắt đầu tập chạy, yếu về mặt thể lực sức bền hoặc yếu
-                về
-                mặt kỹ thuật
-                căn bản dẫn tới việc luyện tập khó khăn. Giáo án cơ bản được các giảng viên xây dựng một cách khoa
-                học
-                nhằm giải quyết các vấn đề của người mới</p>
-            </div>
-            <div className="d-flex justify-content-center align-items-center ">
-              <div className="mb-3" style={{backgroundColor: 'white', borderRadius: '2.5px 2.5px', padding: '30px 10px', width: '550px'}}>
-                <div className="container main_news_2nd">
-                  <div className="d-flex justify-content-between">
-                    <p className={`${item == 1 ? 'checkCommentDetailIn' : 'checkCommentDetailOut'} mb-5`} onClick={() => changeItem(1)} style={{cursor: 'pointer'}}>
-                      Hỏi &amp; đáp
-                    </p>
-                    <p className={`${item == 2 ? 'checkCommentDetailIn' : 'checkCommentDetailOut'} mb-5`} onClick={() => changeItem(2)} style={{cursor: 'pointer'}}>Bài tập
-                    </p>
-                    <p className={`${item == 3 ? 'checkCommentDetailIn' : 'checkCommentDetailOut'} mb-5`} onClick={() => changeItem(3)} style={{cursor: 'pointer'}}>Nhận xét
-                      của GV
-                    </p>
-                    <p className={`${item == 4 ? 'checkCommentDetailIn' : 'checkCommentDetailOut'} mb-5`} onClick={() => changeItem(4)} style={{cursor: 'pointer'}}>Xin tạm
-                      hoãn
-                    </p>
+  const [change, setChange] = useState(1);
+  const changeContent = (content: number) => {
+    setChange(content);
+  };  
+  const contentTab = () => {
+    if (change == 1) {
+      return (
+        <div className="GiaoAnLyThuyet">
+          <div className="accordion mt-2" id="accordionPanelsStayOpenExample">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="panelsStayOpen-headingOne">
+                <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  Accordion Item #1
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div className="accordion-body">
+                  <div>
+                    <p>1. xcvxcvcxcvxcvcx</p>
+                    <span><i className="bi bi-play-circle text-danger"></i>&ensp;12:30</span>
                   </div>
-
-                 <Comment tital='ok'/>
-               
+                  <div>
+                    <p>2. xcvxcvcxcvxcvcx</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
+                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                  Accordion Item #2
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div className="accordion-body">
+                  <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="panelsStayOpen-headingThree">
+                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                  Accordion Item #3
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                <div className="accordion-body">
+                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      );
+    } else if (change == 2) {
+      return (
+        <div>2</div>
+      );
+    }
+  };
+    return(
+      <>
+        <div className="row" style={{background: "#1c1d1f"}}>
+          <div className="col-sm-12">
+            <div className="container">
+              <div className="Card-Hoc-Header">
+                <h1 className="text-center">Tieu de khoa hoc</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row mt-4">
+            <div className="col-sm-8">
+              <div className="Card-Hoc">
+                <iframe
+                  width="100%"
+                  height="480px"
+                  src={"https://www.youtube.com/embed/zgPJMbApf_0"}
+                />
+              </div>
+              <Comment tital='ok'/>
+            </div>
+            <div className="col-sm-4">
+
+              <div className="Card-Hoc">
+                <div className="d-flex gap-4">
+                    <p
+                      onClick={() => changeContent(1)}
+                      className={`${change == 1 ? "doContent" : "unDoContent"}`}
+                    >
+                      Giáo án lý thuyết
+                    </p>
+                    <p
+                      onClick={() => changeContent(2)}
+                      className={`${change == 2 ? "doContent" : "unDoContent"}`}
+                    >
+                      Giáo án thực hành
+                    </p>
+                </div>
+                  {contentTab()}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </>
     )
 }
 const mapState = ({ ...state }) => ({
