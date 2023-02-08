@@ -1,8 +1,30 @@
 import { IResponseMessage } from "common/Models";
 import GioHangService from "services/GioHangService";
 import KhoaHocService from "services/KhoaHocService";
-
+// import GiaoAnLyThuyet from "services/GiaoAnLyThuyet";
+// import GiaoAnThucHanh from "services/GiaoAnThucHanh";
 export const Actions: any = {
+  // GetGiaoAnLyThuyetTheoIdKhoaHoc: async (idKhocHoc: any, dispatch: any) => {
+  //   let res: IResponseMessage = await GiaoAnLyThuyet.GetTreePortal(idKhocHoc);
+  //   dispatch({
+  //     type: "getGiaoAnLyThuyet",
+  //     items: res.Data,
+  //   });
+  // },
+  // GetGiaoAnThucHanhTheoIdKhoaHoc: async (idKhocHoc: any, dispatch: any) => {
+  //   let res: IResponseMessage = await GiaoAnThucHanh.GetTreePortal(idKhocHoc);
+  //   dispatch({
+  //     type: "getGiaoAnThucHanh",
+  //     items: res.Data,
+  //   });
+  // },
+  GetKhoaHocThuPortal: async (idKhocHoc: any, dispatch: any) => {
+    let res: IResponseMessage = await KhoaHocService.GetKhoaHocThuPortal(idKhocHoc);
+    dispatch({
+      type: "GetKhoaHocThuPortal",
+      items: res.Data,
+    });
+  },
   GetDetailKhoaHoc: async (id: any, dispatch: any) => {
     let res: IResponseMessage = await KhoaHocService.getById(id);
     dispatch({

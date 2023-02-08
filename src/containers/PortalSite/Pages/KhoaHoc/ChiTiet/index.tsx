@@ -46,11 +46,11 @@ const ChiTiet = (props: Props) => {
   const contentTab = () => {
     if (change == 1) {
       return (
-        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(state.DataDetail.GioiThieu) }} /> 
+        <div className="editor-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(state.DataDetail.GioiThieu) }}></div>
       );
     } else if (change == 2) {
       return (
-        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(state.DataDetail.NoiDung) }} />
+        <div className="editor-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(state.DataDetail.NoiDung) }}></div>
       );
     }
   };

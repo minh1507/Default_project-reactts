@@ -369,17 +369,32 @@ const KhoaHoc = (props: Props) => {
               {state.DsKhoaHoc &&
                 state.DsKhoaHoc.map((e: any, ie: any) => {
                   return (
-                    <div key={uuidv4()} className="col-sm-6">
+                    <div key={uuidv4()} className="col-sm-6" style={{paddingRight: 0}}>
                       <div
                         className="card mb-4 border-popse"
                         style={{ maxWidth: "100%" }}
                       >
                         <div className="row g-0">
-                          <div className="col-sm-4 try-kh-ui">
+                          <div className="col-sm-12">
+                            <p className="card-title card-title-kh underline-head-tt mb-1"
+                                    onClick={() =>
+                                      GoToDetailPage(
+                                        "/khoa-hoc-chi-tiet",
+                                        e.Id as string,
+                                        e.TieuDe as string
+                                      )
+                                    }
+                                  >
+                              {e.TieuDe}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="row g-0">
+                          <div className="col-sm-5 try-kh-ui">
                             {e.URL_AnhDaiDien ? (
                               <img
                                 src={e.URL_AnhDaiDien}
-                                className="img-kh-cls "
+                                className="img-kh-cls card-image-kh"
                                 alt="..."
                               />
                             ) : (
@@ -390,22 +405,10 @@ const KhoaHoc = (props: Props) => {
                               />
                             )}
                           </div>
-                          <div className="col-sm-8">
+                          <div className="col-sm-7">
                             <div className="card-body card-bodys">
                               <div className="row">
                                 <div className="col-sm-8">
-                                  <p
-                                    className="card-title underline-head-tt mb-1"
-                                    onClick={() =>
-                                      GoToDetailPage(
-                                        "/khoa-hoc-chi-tiet",
-                                        e.Id as string,
-                                        e.TieuDe as string
-                                      )
-                                    }
-                                  >
-                                    {e.TieuDe}
-                                  </p>
                                   <p className="card-text popse-khso-p">
                                     <small className="text-muted">
                                       {String.date(e.CreatedDateTime)}

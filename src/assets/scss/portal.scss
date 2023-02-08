@@ -1798,7 +1798,7 @@
     width: 100%;
     padding: 10px;
     padding-right: 0px;
-    object-fit: cover;
+    // object-fit: cover;
     height: 100%;
     transition: 0.5s;
     border-top-left-radius: 5px;
@@ -2452,6 +2452,7 @@
     }
     .accordion-body {
       padding: 5px 25px;
+      // background: silver;
     }
   }
   .title-khoahoc-thu {
@@ -2460,6 +2461,31 @@
     padding: 10px;
     p {
       font-size: 2rem;
+      padding: 54px;
+    }
+  }
+  .card-title-kh {
+    padding: 10px 10px 0px 10px;
+    margin-bottom: 0px !important;
+  }
+  .card-image-kh {
+    height: 145px;
+  }
+  .editor-content {
+    img {
+      width: 100% !important;
+    }
+  }
+  .treeview {
+    border-top: 1px solid #f1f1f1;
+    .play {
+      position: absolute;
+      right: 45px;
+      top: 8px;
+      width: 20px;
+      height: 20px;
+      font-size: 14px;
     }
   }
 }
+

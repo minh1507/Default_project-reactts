@@ -1,13 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import { connect } from "react-redux";
 import avatar from 'assets/img/ava3.png'
 import Comment from '../../General/comment';
-
+import Tree from 'react-animated-tree'
+import { useLocation } from 'react-router-dom';
+import { InitState } from "./InitState";
+import { Actions } from "./Action";
+import { Reducer } from "./Reducer";
 interface Props {  
+  
 }
 
 const HocThu = (props: Props) => {  
+  const [state, dispatch] = useReducer(Reducer, InitState);
   const [change, setChange] = useState(1);
+  const location = useLocation();
+  useEffect(() => {
+    Actions.GetKhoaHocThuPortal(location.state.id, dispatch)
+    // Actions.GetGiaoAnLyThuyetTheoIdKhoaHoc(location.state.id, dispatch);
+    // Actions.GetGiaoAnThucHanhTheoIdKhoaHoc(location.state.id, dispatch);
+  }, [])
+  console.log(state.ItemKhoaHocThu);
   const changeContent = (content: number) => {
     setChange(content);
   };  
@@ -24,13 +37,20 @@ const HocThu = (props: Props) => {
               </h2>
               <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                 <div className="accordion-body">
-                  <div>
-                    <p>1. xcvxcvcxcvxcvcx</p>
-                    <span><i className="bi bi-play-circle text-danger"></i>&ensp;12:30</span>
-                  </div>
-                  <div>
-                    <p>2. xcvxcvcxcvxcvcx</p>
-                  </div>
+                  <Tree content="main" type="ITEM" canHide open>
+                    <Tree content="hello" type={<span className="play"><i className="bi bi-play-circle text-danger"></i>{" "}12:20</span>} canHide />
+                    <Tree content="subtree with children" canHide>
+                      <Tree content="hello" />
+                      <Tree content="sub-subtree with children">
+                        <Tree content="child 1" />
+                        <Tree content="child 2" />
+                        <Tree content="child 3" />
+                      </Tree>
+                      <Tree content="hello" />
+                    </Tree>
+                    <Tree content="hello" canHide />
+                    <Tree content="hello" canHide />
+                  </Tree>
                 </div>
               </div>
             </div>
@@ -69,17 +89,8 @@ const HocThu = (props: Props) => {
   };
     return(
       <>
-        {/* <div className="row" style={{background: "#1c1d1f"}}>
-          <div className="col-sm-12">
-            <div className="container">
-              <div className="Card-Hoc-Header">
-                <h1 className="text-center">Tieu de khoa hoc</h1>
-              </div>
-            </div>
-          </div>
-        </div> */}
         <div className="text-center title-khoahoc-thu">
-          <p>Tieu de khoa hoc</p>
+          <p>{state.ItemKhoaHocThu && state.ItemKhoaHocThu.TieuDe}</p>
         </div>
         <div className="container">
           <div className="row mt-4">

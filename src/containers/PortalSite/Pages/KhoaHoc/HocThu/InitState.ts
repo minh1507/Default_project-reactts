@@ -11,9 +11,15 @@ export interface IState {
     HocPhiGoc: string;
     HocPhiGiamGia: String;
     TrangThai: Boolean;
-  };
+  },
+  ItemsGiaoAnLyThuyet: any,
+  ItemsGiaoAnThucHanh: any,
+  ItemKhoaHocThu: any
 }
 export const InitState: IState = {
+  ItemsGiaoAnLyThuyet: [],
+  ItemsGiaoAnThucHanh: [],
+  ItemKhoaHocThu: null,
   DataDetail: {
     Id: Guid.Empty,
     TieuDe: "",

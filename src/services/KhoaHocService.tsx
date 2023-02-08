@@ -1,6 +1,13 @@
 import request from "common/Request";
 const Por_KhoaHoc = "Por_KhoaHoc";
 const KhoaHocService = {
+  GetKhoaHocThuPortal: async (id: String) => {
+    let res: any = await request({
+      url: `/${Por_KhoaHoc}/HocThuPortal?idKhoaHoc=${id}`,
+      method: "get",
+    });
+    return res;
+  },
   GetKhoaHocTheoIdMonHocPortal: async (id: String) => {
     let res: any = await request({
       url: `/${Por_KhoaHoc}/TheoMonHoc?idMonHoc=${id}`,

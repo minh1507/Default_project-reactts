@@ -29,6 +29,13 @@ const Por_GiaoAnLyThuyetService = {
     });
     return res;
   },
+  GetTreePortal: async (idKhoaHoc: String) => {
+    let res: any = await request({
+      url: `/${Por_GiaoAnLyThuyet}/TreePortal/${idKhoaHoc}`,
+      method: "get",
+    });
+    return res;
+  },
   GetItem: async (id: String) => {
     let res: any = await request({
       url: `/${Por_GiaoAnLyThuyet}/${id}`,
