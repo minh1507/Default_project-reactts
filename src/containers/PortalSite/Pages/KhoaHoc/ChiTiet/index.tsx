@@ -62,7 +62,7 @@ const ChiTiet = (props: Props) => {
 
   const goToHocPage = () => {
     window.scrollTo(0, 0);
-    history.push("/khoa-hoc-thu");
+    history.push({pathname:"/khoa-hoc-thu", state: {id: location.state.id},search: `/${location.state.id}`});
   };
 
   return (

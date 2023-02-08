@@ -10,33 +10,35 @@ export const Actions: any = {
       items: res.Data,
     });
   },
-  GetTinTucPortal: async (key: any, dispatch: any) => {
+  GetTinTucPortal: async (start: any, end: any, key: any, dispatch: any) => {
     let ids = key.split("/");
     let id = ids[ids.length - 1];
-    let res: IResponseMessage = await TinTucService.GetTinTucTheoIdMonHocPortal(id);
-    dispatch({
-      type: "GetItemTnTuc",
-      items: res.Data,
-    });
-  },
-  GetTreeMonHocPortal: async (dispatch:any) => {
-    let res: IResponseMessage = await QuanLyNhomTinTuc.GetTreePortal();
-    var treeJson = JSON.stringify(res.Data);
-    treeJson = treeJson.replace(new RegExp("Id", "g"), "key")
-    treeJson = treeJson.replace(new RegExp("Name", "g"), "label")
-    treeJson = treeJson.replace(new RegExp("Children", "g"), "nodes")
-    dispatch({
-      type: "GetItemChuyenMuc",
-      item: JSON.parse(treeJson),
-    });
-  },
-  GetDSNhomTinTucPortal: async (id: any, dispatch: any) => {
-    let res: IResponseMessage = await QuanLyNhomTinTuc.GetDSNhomTinTucPortal(
+    let res: IResponseMessage = await TinTucService.GetTinTucTheoIdMonHocPortal(
       id
     );
     dispatch({
-      type: "GetItem",
+      type: "GetItemTnTuc",
       items: res.Data,
+      start: start,
+      end: end,
+    });
+  },
+  GetTinTucPortalChange: async (start: any, end: any, dispatch: any) => {
+    dispatch({
+      type: "GetItemTnTucChange",
+      start: start,
+      end: end,
+    });
+  },
+  GetTreeMonHocPortal: async (dispatch: any) => {
+    let res: IResponseMessage = await QuanLyNhomTinTuc.GetTreePortal();
+    var treeJson = JSON.stringify(res.Data);
+    treeJson = treeJson.replace(new RegExp("Id", "g"), "key");
+    treeJson = treeJson.replace(new RegExp("Name", "g"), "label");
+    treeJson = treeJson.replace(new RegExp("Children", "g"), "nodes");
+    dispatch({
+      type: "GetItemChuyenMuc",
+      item: JSON.parse(treeJson),
     });
   },
   GetItemByMa: async (ma: any, dispatch: any) => {

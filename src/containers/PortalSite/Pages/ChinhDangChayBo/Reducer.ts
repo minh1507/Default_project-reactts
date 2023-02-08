@@ -3,11 +3,20 @@ import { InitState, IState } from "./InitState";
 export const Reducer = (state: IState = InitState, action: any) => {
   switch (action.type) {
     case "getSuKienPortal": {
+      let data = action.items.slice(0, 10)
       return {
         ...state,
-        ItemsSuKien : action.items
+        ItemsSuKien : [...data],
+        Count: action.items.length,
+        ItemsSuKienCopy: action.items
       };
     }
+    case "getSuKienPortalChange":
+      let datas = state.ItemsSuKienCopy.slice(action.start, action.end);
+      return {
+        ...state,
+        ItemsSuKien: [...datas],
+      };
     case "GetHoatDong":
       var tempItemsNhomSuKien = [{ Id: Guid.Empty, Ma: "TatCa", Ten: "Tất cả"}]
       tempItemsNhomSuKien.push.apply(tempItemsNhomSuKien, action.items);
