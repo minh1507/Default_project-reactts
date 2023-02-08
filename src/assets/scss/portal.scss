@@ -2377,8 +2377,8 @@
   .pagi-kh-os {
     height: auto;
   }
-
-  .pagi-kh-os li {
+  .pagi-kh-os li {height: auto; display: flex; justify-content: center; align-items: center;}
+  .pagi-kh-os a {
     padding: 8px 16px;
     font-size: 1.1rem;
   }
@@ -2412,6 +2412,7 @@
   }
   .pagi-kh-os ul {
     margin: 0;
+    height: 64px;
   }
   .card-chi-tiet-khoa-hoc {
     background-color: white;

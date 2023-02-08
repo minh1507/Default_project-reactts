@@ -83,7 +83,7 @@ const ChiTiet = (props: Props) => {
               </h4>
               <iframe
                 width="100%"
-                height="480px"
+                style={{aspectRatio: "16/9"}}
                 src={state.DataDetail.TieuDe}
               />
               <div className="d-flex gap-4">
