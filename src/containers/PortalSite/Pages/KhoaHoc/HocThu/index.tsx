@@ -69,7 +69,7 @@ const HocThu = (props: Props) => {
   };
     return(
       <>
-        <div className="row" style={{background: "#1c1d1f"}}>
+        {/* <div className="row" style={{background: "#1c1d1f"}}>
           <div className="col-sm-12">
             <div className="container">
               <div className="Card-Hoc-Header">
@@ -77,6 +77,9 @@ const HocThu = (props: Props) => {
               </div>
             </div>
           </div>
+        </div> */}
+        <div className="text-center title-khoahoc-thu">
+          <p>Tieu de khoa hoc</p>
         </div>
         <div className="container">
           <div className="row mt-4">
