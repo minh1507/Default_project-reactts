@@ -52,4 +52,10 @@ export class String {
       return ga;
     }
   };
+
+  static video = (link: string) =>  {
+    let endPoint = link.split("=")[1];
+    let newLink = "https://www.youtube.com/embed/" + endPoint
+    return newLink
+  }
 }

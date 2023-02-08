@@ -4,6 +4,7 @@ import KhoaHocService from "services/KhoaHocService";
 import GiaoAnLyThuyet from "services/GiaoAnLyThuyet";
 import GiaoAnThucHanh from "services/GiaoAnThucHanh";
 import Por_GiaoAnLyThuyetService from "services/GiaoAnLyThuyet";
+import Por_GiaoAnThucHanhService from "services/GiaoAnThucHanh";
 export const Actions: any = {
   // GetGiaoAnLyThuyetTheoIdKhoaHoc: async (idKhocHoc: any, dispatch: any) => {
   //   let res: IResponseMessage = await GiaoAnLyThuyet.GetTreePortal(idKhocHoc);
@@ -23,8 +24,13 @@ export const Actions: any = {
     let res: IResponseMessage = await Por_GiaoAnLyThuyetService.GetLinkVideoLyThuyet(id);
     return res.Data;
   },
+  GetLinkVideoThucHanh: async (id:any) => {
+    let res: IResponseMessage = await Por_GiaoAnThucHanhService.GetLinkVideoThucHanh(id);
+    return res.Data;
+  },
   GetKhoaHocThuPortal: async (idKhocHoc: any, dispatch: any) => {
     let res: IResponseMessage = await KhoaHocService.GetKhoaHocThuPortal(idKhocHoc);
+    console.log(res);
     dispatch({
       type: "GetKhoaHocThuPortal",
       items: res.Data,

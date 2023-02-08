@@ -81,10 +81,11 @@ const ChiTiet = (props: Props) => {
               <h4 className="text-danger tieu-de">
                 {state.DataDetail.TieuDe}
               </h4>
-              <iframe
+              <img
+              className="mb-2"
                 width="100%"
                 style={{aspectRatio: "16/9"}}
-                src={state.DataDetail.TieuDe}
+                src={state.DataDetail.URL_AnhDaiDien}
               />
               <div className="d-flex gap-4">
                 <p
