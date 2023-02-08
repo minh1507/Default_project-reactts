@@ -21,7 +21,7 @@ const GioiThieu = (props: Props) => {
             id="video"
             width="100%"
             height="400px"
-            src="https://www.youtube.com/embed/zgPJMbApf_0"
+            src="https://www.youtube.com/embed/n7GvRN-oubU"
             title="YouTube video player"
             frameBorder={0}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

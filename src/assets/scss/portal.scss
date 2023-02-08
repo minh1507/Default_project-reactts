@@ -2452,7 +2452,7 @@
       padding: 10px;
     }
     .accordion-body {
-      padding: 5px 25px;
+      padding: 5px 15px;
       // background: silver;
     }
   }
@@ -2480,12 +2480,26 @@
   .treeview {
     border-top: 1px solid #f1f1f1;
     .play {
-      position: absolute;
-      right: 45px;
-      top: 8px;
       width: 20px;
       height: 20px;
       font-size: 14px;
+      margin-left: 22px !important;
+    }
+    .toggle {
+      margin-right: 5px !important;
+    }
+    .title {
+      font-family: "Open Sans", sans-serif !important;
+      font-size: 13px;
+      text-transform: initial;
+      cursor: pointer;
+    }
+    .title:hover {
+      text-decoration: underline;
+    }
+    .bi-eye-fill {
+      font-size: 14px;
+      margin-left: 5px;
     }
   }
 }

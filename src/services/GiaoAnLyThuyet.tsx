@@ -1,6 +1,13 @@
 import request from "common/Request";
 const Por_GiaoAnLyThuyet = "Por_GiaoAnLyThuyet";
 const Por_GiaoAnLyThuyetService = {
+  GetLinkVideoLyThuyet: async (IdGiaoAn:any) => {
+    let res: any = await request({
+      url: `/${Por_GiaoAnLyThuyet}/LinkVideo/GiaoAn/${IdGiaoAn}`,
+      method: "get",
+    });
+    return res;
+  },
   GetItems: async () => {
     let res: any = await request({
       url: `/${Por_GiaoAnLyThuyet}/List?page=1&pageSize=1000&totalLimitItems=0&searchBy=`,
