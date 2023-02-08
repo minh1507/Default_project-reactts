@@ -6,14 +6,27 @@ export const Reducer = (state: IState = InitState, action: any) => {
       nodeTree[0].Children = action.item;
       return {
         ...state,
-        Tree : nodeTree
-      };      
+        Tree: nodeTree,
+      };
+    case "GetItemsVideo":
+      return {
+        ...state,
+        ItemVideos: [...action.item],
+      };
+    case "setURL_VideoGiaoAnThucHanh":
+      return {
+        ...state,
+        Item: {
+          ...state.Item,
+          URL_Video: action.item,
+        },
+      };
     case "GetItem":
       return {
         ...state,
-        Item : {
-          ...action.item
-        }
+        Item: {
+          ...action.item,
+        },
       };
     default:
       return state;

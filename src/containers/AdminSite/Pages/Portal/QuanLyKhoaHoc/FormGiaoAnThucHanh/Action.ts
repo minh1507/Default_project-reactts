@@ -1,6 +1,8 @@
 import { Guid } from "common/Enums";
 import { IResponseMessage } from "common/Models";
 import GiaoAnThucHanh from "services/GiaoAnThucHanh";
+import QuanLyNhomVideo from "services/QuanLyNhomVideo";
+import QuanLyVideo from "services/QuanLyVideo";
 
 export const Actions: any = {
     DeleteById: async (id:String, dispatch:any) => {                
@@ -16,6 +18,37 @@ export const Actions: any = {
               item: res.Data,
             });
           }
+        }
+    },
+    setURL_VideoGiaoAnThucHanh: (URL_Video:any, dispatch:any) => {
+        dispatch({
+            type: "setURL_VideoGiaoAnThucHanh",
+            item: URL_Video,
+          });
+    },
+    GetDsNhomVideo: async () => {
+        let res:IResponseMessage = await QuanLyNhomVideo.GetCategories();    
+        if(res.Success)
+        {
+            return res.Data;
+        }           
+        return null;
+    },
+    GetDsVideoByIdNhomVideo: async (IdNhomVideo:any, dispatch:any) => {
+        if(IdNhomVideo) {
+            let res:IResponseMessage = await QuanLyVideo.GetDsVideoByIdNhomVideo(IdNhomVideo);    
+            if (res && res.Success) {
+                dispatch({
+                  type: "GetItemsVideo",
+                  item: res.Data.Items,
+                });
+            }
+        }
+        else {
+            dispatch({
+                type: "GetItemsVideo",
+                item: []
+            });
         }
     },
     GetTree: async (idKhoaHoc:any, dispatch: any) => {
