@@ -23,20 +23,20 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         ItemAnhs: [...action.item],
       };
-    case "setURL_VideoGiaoAnLyThuyet":
+    case "setURL_Video":
       return {
         ...state,
-        Item: {
-          ...state.Item,
-          URL_Video: action.item,
+        DataItem: {
+          ...state.DataItem,
+          URL_VideoDaiDien: action.item,
         },
       };
       case "setURL_Anh":
       return {
         ...state,
-        Item: {
-          ...state.Item,
-          URL_Anh: action.item,
+        DataItem: {
+          ...state.DataItem,
+          URL_AnhDaiDien: action.item,
         },
       };
     case "GetCategories":

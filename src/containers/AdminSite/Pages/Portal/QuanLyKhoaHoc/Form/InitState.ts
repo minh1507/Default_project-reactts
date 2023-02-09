@@ -32,23 +32,13 @@ export interface IModelItems {
 export interface IState {
   ItemVideos: any;
   ItemAnhs: any;
-  Item: IModelItems;
   DataItem: IModelItem;
   Options: IControlOptions[];
 }
 export const InitState: IState = {
   ItemVideos: [],
   ItemAnhs:[],
-  Item: {
-    Id: Guid.Empty,
-    IdGiaoAnLyThuyet: Guid.Empty,
-    Loai: 0,
-    TieuDe: "",
-    URL_Video: "",
-    ThoiLuong: 0,
-    MienPhi: false,
-    SoThuTu: 0,
-  },
+
   DataItem: {
     Id: Guid.Empty,
     IdMonHoc: Guid.Empty,

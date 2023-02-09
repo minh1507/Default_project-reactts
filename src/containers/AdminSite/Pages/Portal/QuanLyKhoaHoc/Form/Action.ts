@@ -58,12 +58,18 @@ export const Actions: any = {
     }
     return null;
   },
-  setURL_VideoGiaoAnLyThuyet: (URL_Video:any, dispatch:any) => {
+  setURL_Video: (URL_Video: any, dispatch: any) => {
     dispatch({
-        type: "setURL_VideoGiaoAnLyThuyet",
-        item: URL_Video,
-      });
-},
+      type: "setURL_Video",
+      item: URL_Video,
+    });
+  },
+  setURL_Anh: (URL_Video: any, dispatch: any) => {
+    dispatch({
+      type: "setURL_Anh",
+      item: URL_Video,
+    });
+  },
   GetDsVideoByIdNhomVideo: async (IdNhomVideo: any, dispatch: any) => {
     if (IdNhomVideo) {
       let res: IResponseMessage = await QuanLyVideo.GetDsVideoByIdNhomVideo(
@@ -83,12 +89,12 @@ export const Actions: any = {
     }
   },
   GetDsVideoByIdNhomAnh: async (IdNhomAnh: any, dispatch: any) => {
-    console.log(IdNhomAnh)
+    console.log(IdNhomAnh);
     if (IdNhomAnh) {
       let res: IResponseMessage = await QuanLyAnhService.GetDsVideoByIdNhomAnh(
         IdNhomAnh
       );
-      
+
       if (res && res.Success) {
         dispatch({
           type: "GetItemsAnh",
