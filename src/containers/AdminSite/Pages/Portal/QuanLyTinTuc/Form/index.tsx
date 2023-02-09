@@ -14,6 +14,7 @@ import CDynamicTable from "components/CDynamicTable";
 import CSelect from "components/CSelect";
 import CButton from "components/CButton";
 import ListViewAnhJson from "./ListViewAnh.json";
+
 interface Props {
   Id: string;
   ReloadTableItems: any;
