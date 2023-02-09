@@ -8,6 +8,12 @@
   .tieu-de {
     font-weight: 700 !important;
   }
+  .pl-0 {
+    padding-left: 0;
+  }
+  .pr-0 {
+    padding-right: 0;
+  }
   .text_f {
     color: white;
     text-decoration: none;
@@ -1548,6 +1554,7 @@
     border-radius: 0 !important;
     border: none !important;
   }
+  
   .item-mon-hoc {
     color: #1c1d1f;
     display: flex;
@@ -1721,12 +1728,13 @@
     --_p: 100%;
   }
   .img_card_tc {
-    height: 100%;
-    width: 200px;
-    aspect-ratio: 3/2;
-    object-fit: cover;
+    width: 100%;
+    height: 130px;
   }
-
+  .form-check-input {
+    font-size: 20px;
+    margin-top: 60px;
+  }
   .khoa-hoc-header {
     margin-bottom: 16px;
     .text-kh-header {
