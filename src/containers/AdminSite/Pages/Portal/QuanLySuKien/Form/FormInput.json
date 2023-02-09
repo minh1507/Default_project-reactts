@@ -29,7 +29,7 @@
     {
       "Key": "URL_AnhDaiDien",
       "Title": "Ảnh giới thiệu",
-      "Type": "InputText",
+      "Type": "InputTextSearch",
       "IsRequired": true,
       "Row": 3,
       "ColLabel": 2,

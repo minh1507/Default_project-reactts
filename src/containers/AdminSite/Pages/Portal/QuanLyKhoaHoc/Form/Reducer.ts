@@ -31,7 +31,7 @@ export const Reducer = (state: IState = InitState, action: any) => {
           URL_VideoDaiDien: action.item,
         },
       };
-      case "setURL_Anh":
+    case "setURL_Anh":
       return {
         ...state,
         DataItem: {
