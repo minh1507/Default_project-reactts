@@ -433,10 +433,10 @@ const KhoaHoc = (props: Props) => {
                                 </div>
                                 <div className="col-sm-4">
                                   <p className="card-text gia-tien-kh-l marginBottom-5">
-                                    <span>{String.num(e.HocPhiGoc)}₫ </span>
+                                    <span>{e.HocPhiGiamGia < e.HocPhiGoc && e.HocPhiGiamGia > 0 ? <span>{String.num(e.HocPhiGiamGia)}₫</span> : <span>{String.num(e.HocPhiGoc)}₫</span>}</span>
                                   </p>
                                   <span className="gia-tien-giam-gias">
-                                    {String.num(e.HocPhiGiamGia)}₫
+                                  {e.HocPhiGiamGia < e.HocPhiGoc && e.HocPhiGiamGia > 0 && String.num(e.HocPhiGoc)}₫
                                   </span>
                                 </div>
                               </div>

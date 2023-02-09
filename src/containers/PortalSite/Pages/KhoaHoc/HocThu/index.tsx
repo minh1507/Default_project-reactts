@@ -16,6 +16,7 @@ const HocThu = (props: Props) => {
   const [change, setChange] = useState(1);
   const [linkVideo, setLinkVideo] = useState("");
   const location = useLocation();
+  const [name, setName] = useState("");
   useEffect(() => {
     Actions.GetKhoaHocThuPortal(location.state.id, dispatch);
     // Actions.GetGiaoAnLyThuyetTheoIdKhoaHoc(location.state.id, dispatch);
@@ -39,11 +40,10 @@ const HocThu = (props: Props) => {
     setLinkVideo(link);
   };
   const GetLinkVideoThucHanh = async (Id: any) => {
-    console.log(Id)
     var link = await Actions.GetLinkVideoThucHanh(Id);
     setLinkVideo(link);
   };
-  console.log(linkVideo)
+
   const GiaoAnLyThuyetRender = () => {
     var element: any = [];
     state.ItemKhoaHocThu.GiaoAnLyThuyet.map((e1: any, ie: any) => {
@@ -91,6 +91,7 @@ const HocThu = (props: Props) => {
                                         onClick={() => {
                                           if (e3.MienPhi) {
                                             GetLinkVideoLyThuyet(e3.Id);
+                                            setName(e3.Name);
                                           }
                                         }}
                                       >
@@ -176,7 +177,9 @@ const HocThu = (props: Props) => {
                                               content={
                                                 <div className="play">
                                                   <i className="bi bi-play-circle text-danger"></i>{" "}
-                                                  {ThoiLuongRender(e4.ThoiLuong)}
+                                                  {ThoiLuongRender(
+                                                    e4.ThoiLuong
+                                                  )}
                                                 </div>
                                               }
                                               type={
@@ -184,7 +187,10 @@ const HocThu = (props: Props) => {
                                                   className="title"
                                                   onClick={() => {
                                                     if (e4.MienPhi) {
-                                                      GetLinkVideoThucHanh(e4.Id);
+                                                      GetLinkVideoThucHanh(
+                                                        e4.Id
+                                                      );
+                                                      setName(e4.Name);
                                                     }
                                                   }}
                                                 >
@@ -246,7 +252,91 @@ const HocThu = (props: Props) => {
       );
     }
   };
-  
+
+  const video_thuchanh = async (ids: any) => {
+    console.log(1);
+    var link = await Actions.GetLinkVideoThucHanh(ids);
+    setLinkVideo(link);
+  };
+
+  const video_lythuyet = async (ids: any) => {
+    console.log(1);
+
+    var link = await Actions.GetLinkVideoLyThuyet(ids);
+    setLinkVideo(link);
+  };
+
+  async function default_video() {
+    let data = await Actions.GetKhoaHocThu(location.state.id);
+    if (data && data.GiaoAnLyThuyet.length > 0) {
+      for (var i = 0; i < data.GiaoAnLyThuyet.length; i++) {
+        if (data.GiaoAnLyThuyet[i].MienPhi) {
+          await video_thuchanh(data.GiaoAnLyThuyet[i].Id);
+          break;
+        }
+        if (data.GiaoAnLyThuyet[i].Children.length > 0) {
+          for (var j = 0; j < data.GiaoAnLyThuyet[i].Children.length; j++) {
+            if (data.GiaoAnLyThuyet[i].Children[j].MienPhi) {
+              await video_thuchanh(data.GiaoAnLyThuyet[i].Children[j].Id);
+              break;
+            }
+            if (data.GiaoAnLyThuyet[i].Children[j].Children.length > 0) {
+              for (
+                var z = 0;
+                z < data.GiaoAnLyThuyet[i].Children[j].Children.length;
+                z++
+              ) {
+                console.log(data.GiaoAnLyThuyet[i].Children[j].Children[z]);
+                if (data.GiaoAnLyThuyet[i].Children[j].Children[z].MienPhi) {
+                  await video_lythuyet(
+                    data.GiaoAnLyThuyet[i].Children[j].Children[z].Id
+                  );
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }
+    } else if (data && data.GiaoAnThucHanh.length > 0) {
+      for (var i = 0; i < data.GiaoAnThucHanh.length; i++) {
+        if (data.GiaoAnThucHanh[i].MienPhi) {
+          await video_thuchanh(data.GiaoAnThucHanh[i].Id);
+          break;
+        }
+        if (data.GiaoAnThucHanh[i].Children.length > 0) {
+          for (var j = 0; j < data.GiaoAnThucHanh[i].Children.length; j++) {
+            if (data.GiaoAnThucHanh[i].Children[j].MienPhi) {
+              await video_thuchanh(data.GiaoAnThucHanh[i].Children[j].Id);
+              break;
+            }
+            if (data.GiaoAnThucHanh[i].Children[j].Children.length > 0) {
+              for (
+                var z = 0;
+                z < data.GiaoAnThucHanh[i].Children[j].Children.length;
+                z++
+              ) {
+                console.log(data.GiaoAnThucHanh[i].Children[j].Children[z]);
+                if (data.GiaoAnThucHanh[i].Children[j].Children[z].MienPhi) {
+                  await video_thuchanh(
+                    data.GiaoAnThucHanh[i].Children[j].Children[z].Id
+                  );
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    console.log(3);
+  }
+
+  useEffect(() => {
+    default_video();
+  }, []);
+
   return (
     <>
       <div className="text-center title-khoahoc-thu">
@@ -256,11 +346,23 @@ const HocThu = (props: Props) => {
         <div className="row mt-4">
           <div className="col-sm-7">
             <div className="Card-Hoc">
-              {linkVideo 
-              ? <iframe width="100%" style={{aspectRatio: "16/9"}} src={String.video(linkVideo)} />
-              :<iframe width="100%" style={{aspectRatio: "16/9"}} src="https://www.youtube.com/embed/5hS3sa9d9fk" />
-              }
-              
+              {/* {default_video()} */}
+              {linkVideo ? (
+                <>
+                  <h4>{name}</h4>
+                  <iframe
+                    width="100%"
+                    style={{ aspectRatio: "16/9" }}
+                    src={String.video(linkVideo)}
+                  />
+                </>
+              ) : (
+                <iframe
+                  width="100%"
+                  style={{ aspectRatio: "16/9" }}
+                  src={String.video(linkVideo)}
+                />
+              )}
             </div>
             <Comment tital="ok" />
           </div>
