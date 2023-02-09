@@ -397,15 +397,15 @@ const TrangChu = (props: Props) => {
                                 {item.HocPhiGoc != 0 ? (
                                   <span>
                                     {item.HocPhiGoc > item.HocPhiGiamGia ? (
-                                      <span>{String.num(item.HocPhiGoc)}</span>
+                                      <span>{String.num(item.HocPhiGiamGia)}</span>
                                     ) : (
                                       <span>
-                                        {String.num(item.HocPhiGiamGia)}
+                                        {String.num(item.HocPhiGoc)}
                                       </span>
                                     )}
                                   </span>
                                 ) : (
-                                  <span className={`decrease`}>Miễn phí </span>
+                                  <span className={`decrease`}>Miễn phí</span>
                                 )}
                               </span>
                               {item.HocPhiGiamGia <= item.HocPhiGoc &&
@@ -430,7 +430,7 @@ const TrangChu = (props: Props) => {
                                       textDecoration: "line-through",
                                     }}
                                   >
-                                    {String.num(item.HocPhiGiamGia)}₫
+                                    {String.num(item.HocPhiGoc)}₫
                                   </span>
                                 )}
                             </p>
