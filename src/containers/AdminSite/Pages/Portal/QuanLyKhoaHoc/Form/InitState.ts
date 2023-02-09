@@ -19,11 +19,36 @@ export interface IModelItem {
   TrangThaiBanGhi: Boolean;
   CreatedDateTime: Date;
 }
+export interface IModelItems {
+  Id: String;
+  IdGiaoAnLyThuyet: String;
+  Loai: Number;
+  TieuDe: String;
+  URL_Video: String;
+  ThoiLuong: Number;
+  MienPhi: Boolean;
+  SoThuTu: Number;
+}
 export interface IState {
+  ItemVideos: any;
+  ItemAnhs: any;
+  Item: IModelItems;
   DataItem: IModelItem;
   Options: IControlOptions[];
 }
 export const InitState: IState = {
+  ItemVideos: [],
+  ItemAnhs:[],
+  Item: {
+    Id: Guid.Empty,
+    IdGiaoAnLyThuyet: Guid.Empty,
+    Loai: 0,
+    TieuDe: "",
+    URL_Video: "",
+    ThoiLuong: 0,
+    MienPhi: false,
+    SoThuTu: 0,
+  },
   DataItem: {
     Id: Guid.Empty,
     IdMonHoc: Guid.Empty,
@@ -40,7 +65,7 @@ export const InitState: IState = {
     GioiThieu: "",
     NoiDung: "",
     TrangThaiBanGhi: true,
-    CreatedDateTime: new Date()
+    CreatedDateTime: new Date(),
   },
   Options: [],
 };

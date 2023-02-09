@@ -32,21 +32,21 @@
     {
       "Key": "URL_AnhDaiDien",
       "Title": "Ảnh giới thiệu",
-      "Type": "InputText",
+      "Type": "InputTextSearch",
       "IsRequired": true,
       "Row": 2,
       "ColLabel": 2,
-      "ColControl": 4,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
       "Key": "URL_VideoDaiDien",
       "Title": "Video giới thiệu",
-      "Type": "InputText",
+      "Type": "InputTextSearch",
       "IsRequired": true,
-      "Row": 2,
+      "Row": 3,
       "ColLabel": 2,
-      "ColControl": 4,
+      "ColControl": 10,
       "ColSpanControl": 12
     },
     {
@@ -54,7 +54,7 @@
       "Title": "Tiêu đề",
       "Type": "InputText",
       "IsRequired": true,
-      "Row": 3,
+      "Row": 4,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
@@ -68,7 +68,7 @@
         { "value": true, "label": "Mở" },
         { "value": false, "label": "Đóng" }
       ],
-      "Row": 4,
+      "Row": 5,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -86,7 +86,7 @@
         { "value": 4, "label": "4 sao" },
         { "value": 5, "label": "5 sao" }
       ],
-      "Row": 4,
+      "Row": 5,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -96,7 +96,7 @@
       "Title": "Học phí gốc",
       "Type": "InputNumber",
       "IsRequired": true,
-      "Row": 5,
+      "Row": 6,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -106,7 +106,7 @@
       "Title": "Học giảm giá",
       "Type": "InputNumber",
       "IsRequired": false,
-      "Row": 5,
+      "Row": 6,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -116,7 +116,7 @@
       "Title": "Thời hạn",
       "Type": "InputNumber",
       "IsRequired": true,
-      "Row": 6,
+      "Row": 7,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -126,7 +126,7 @@
       "Title": "Thời hạn truy cập miễn phí",
       "Type": "InputNumber",
       "IsRequired": false,
-      "Row": 6,
+      "Row": 7,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -136,7 +136,7 @@
       "Title": "Giới thiệu",
       "Type": "CkEditor",
       "IsRequired": true,
-      "Row": 7,
+      "Row": 8,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
@@ -146,7 +146,7 @@
       "Title": "Nội dung",
       "Type": "CkEditor",
       "IsRequired": true,
-      "Row": 8,
+      "Row": 9,
       "ColLabel": 2,
       "ColControl": 10,
       "ColSpanControl": 12
@@ -160,7 +160,7 @@
         { "value": true, "label": "Hoạt động" },
         { "value": false, "label": "Không hoạt động" }
       ],
-      "Row": 9,
+      "Row": 10,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12
@@ -170,7 +170,7 @@
       "Title": "Ngày tạo",
       "Type": "Date",
       "IsDisabled": true,
-      "Row": 9,
+      "Row": 10,
       "ColLabel": 2,
       "ColControl": 4,
       "ColSpanControl": 12

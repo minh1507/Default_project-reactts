@@ -24,7 +24,7 @@ const ChiTiet = (props: Props) => {
   const location = useLocation();
   const refNotification = useRef<any>();
 
-  console.log(location.state.id)
+  
   useEffect(() => {
     // new YouTubeToHtml5();
     Actions.GetDetailKhoaHoc(location.state.id, dispatch);

@@ -13,6 +13,24 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         Options: categories,
       };
+    case "GetItemsVideo":
+      return {
+        ...state,
+        ItemVideos: [...action.item],
+      };
+    case "GetItemsAnh":
+      return {
+        ...state,
+        ItemAnhs: [...action.item],
+      };
+    case "setURL_VideoGiaoAnLyThuyet":
+      return {
+        ...state,
+        Item: {
+          ...state.Item,
+          URL_Video: action.item,
+        },
+      };
     case "GetCategories":
       let lists: any = [...state.Options];
       lists.push({ Key: action.key, Options: action.items });

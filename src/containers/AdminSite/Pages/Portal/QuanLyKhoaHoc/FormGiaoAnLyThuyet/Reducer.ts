@@ -32,7 +32,6 @@ export const Reducer = (state: IState = InitState, action: any) => {
         }
       };
     case "setURL_VideoGiaoAnLyThuyet":
-      console.log(action.item)
       return {
         ...state,
         Item : {
