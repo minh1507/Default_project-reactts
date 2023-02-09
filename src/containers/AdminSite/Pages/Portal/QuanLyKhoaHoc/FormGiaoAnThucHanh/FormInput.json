@@ -87,6 +87,14 @@
       "Action": "onClickRefesh"
     },
     {
+      "Key": "Copy",
+      "Title": "Sao chép",
+      "Type": "Submit",
+      "TitleTooltip": "",
+      "Icon": "",
+      "Action": "onClickCopy"
+    },
+    {
       "Key": "Append",
       "Title": "Thêm vào",
       "Type": "Button",

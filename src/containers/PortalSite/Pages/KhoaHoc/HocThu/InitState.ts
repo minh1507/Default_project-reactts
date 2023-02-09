@@ -1,4 +1,5 @@
 import { Guid } from "common/Enums";
+
 export interface IState {
   DataDetail: {
     Id: String;
@@ -14,12 +15,18 @@ export interface IState {
   },
   ItemsGiaoAnLyThuyet: any,
   ItemsGiaoAnThucHanh: any,
-  ItemKhoaHocThu: any
+  ItemKhoaHocThu: {
+    GiaoAnLyThuyet: any,
+    GiaoAnThucHanh: any
+  }
 }
 export const InitState: IState = {
   ItemsGiaoAnLyThuyet: [],
   ItemsGiaoAnThucHanh: [],
-  ItemKhoaHocThu: null,
+  ItemKhoaHocThu: {
+    GiaoAnLyThuyet:[],
+    GiaoAnThucHanh:[]
+  },
   DataDetail: {
     Id: Guid.Empty,
     TieuDe: "",

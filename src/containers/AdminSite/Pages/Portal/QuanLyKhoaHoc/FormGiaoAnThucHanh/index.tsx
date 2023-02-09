@@ -71,6 +71,9 @@ const FormGiaoAnThucHanh = (props: Props) => {
     }
   }
   const ActionEvents = {
+    onClickCopy: () => {
+      Actions.CopyItem(dispatch);
+    },
     onClickRefesh : () => {
       refDynamicForm.current.setFirstSubmit(false)
       Actions.RefeshItem(dispatch);

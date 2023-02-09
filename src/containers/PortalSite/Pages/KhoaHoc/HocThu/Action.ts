@@ -30,11 +30,14 @@ export const Actions: any = {
   },
   GetKhoaHocThuPortal: async (idKhocHoc: any, dispatch: any) => {
     let res: IResponseMessage = await KhoaHocService.GetKhoaHocThuPortal(idKhocHoc);
-    console.log(res);
     dispatch({
       type: "GetKhoaHocThuPortal",
       items: res.Data,
     });
+  },
+  GetKhoaHocThu: async (idKhocHoc: any) => {
+    let res: IResponseMessage = await KhoaHocService.GetKhoaHocThuPortal(idKhocHoc);
+    return res.Data
   },
   GetDetailKhoaHoc: async (id: any, dispatch: any) => {
     let res: IResponseMessage = await KhoaHocService.getById(id);
