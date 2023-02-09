@@ -254,13 +254,11 @@ const HocThu = (props: Props) => {
   };
 
   const video_thuchanh = async (ids: any) => {
-    console.log(1);
     var link = await Actions.GetLinkVideoThucHanh(ids);
     setLinkVideo(link);
   };
 
   const video_lythuyet = async (ids: any) => {
-    console.log(1);
 
     var link = await Actions.GetLinkVideoLyThuyet(ids);
     setLinkVideo(link);
@@ -286,7 +284,6 @@ const HocThu = (props: Props) => {
                 z < data.GiaoAnLyThuyet[i].Children[j].Children.length;
                 z++
               ) {
-                console.log(data.GiaoAnLyThuyet[i].Children[j].Children[z]);
                 if (data.GiaoAnLyThuyet[i].Children[j].Children[z].MienPhi) {
                   await video_lythuyet(
                     data.GiaoAnLyThuyet[i].Children[j].Children[z].Id
@@ -316,7 +313,6 @@ const HocThu = (props: Props) => {
                 z < data.GiaoAnThucHanh[i].Children[j].Children.length;
                 z++
               ) {
-                console.log(data.GiaoAnThucHanh[i].Children[j].Children[z]);
                 if (data.GiaoAnThucHanh[i].Children[j].Children[z].MienPhi) {
                   await video_thuchanh(
                     data.GiaoAnThucHanh[i].Children[j].Children[z].Id
@@ -330,7 +326,6 @@ const HocThu = (props: Props) => {
       }
     }
 
-    console.log(3);
   }
 
   useEffect(() => {

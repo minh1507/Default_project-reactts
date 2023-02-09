@@ -48,7 +48,6 @@ const ChinhDangChayBo = (props: Props) => {
     Actions.GetSuKienChangePortal(newOffset, newOffset + 10, dispatch);
   };
 
-  console.log(state)
 
   return (
     <div style={{ backgroundColor: "white" }}>

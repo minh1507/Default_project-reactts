@@ -18,7 +18,6 @@ export const Actions: any = {
     });
   },
   getSuKienPortal: async (idNhomSuKien:any, dispatch: any) => {
-    console.log(idNhomSuKien)
     let res: IResponseMessage = await SuKienService.getSuKienPortal(idNhomSuKien);
     dispatch({
       type: "getSuKienPortal",

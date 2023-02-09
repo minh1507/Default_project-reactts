@@ -94,7 +94,8 @@ const KhoaHocForm = (props: Props) => {
                 return;
               }
               var item = refDynamicTableVideo.current.getRowSelected();
-              Actions.setURL_Anh(item["0"][3], dispatch);
+              console.log(item)
+              Actions.setURL_Anh(item["0"][2], dispatch);
               setShowSearch(false);
             }
 
@@ -136,7 +137,6 @@ const KhoaHocForm = (props: Props) => {
       setShowSearch(true);
     }
   };
-  console.log(state)
   return (
     <>
       <CNotification ref={refNotification} />

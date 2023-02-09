@@ -64,10 +64,10 @@ export const Actions: any = {
       item: URL_Video,
     });
   },
-  setURL_Anh: (URL_Video: any, dispatch: any) => {
+  setURL_Anh: (URL_Anh: any, dispatch: any) => {
     dispatch({
       type: "setURL_Anh",
-      item: URL_Video,
+      item: URL_Anh,
     });
   },
   GetDsVideoByIdNhomVideo: async (IdNhomVideo: any, dispatch: any) => {
@@ -89,7 +89,6 @@ export const Actions: any = {
     }
   },
   GetDsVideoByIdNhomAnh: async (IdNhomAnh: any, dispatch: any) => {
-    console.log(IdNhomAnh);
     if (IdNhomAnh) {
       let res: IResponseMessage = await QuanLyAnhService.GetDsVideoByIdNhomAnh(
         IdNhomAnh

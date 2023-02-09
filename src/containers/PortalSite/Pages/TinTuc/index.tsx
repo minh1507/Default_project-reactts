@@ -23,7 +23,6 @@ const ChiTiet = (props: Props) => {
     }
   }, []);
 
-  console.log(state.DataDetailSuKien);
 
   return (
     <div>
