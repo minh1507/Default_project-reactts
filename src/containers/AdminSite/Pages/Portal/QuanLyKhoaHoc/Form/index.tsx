@@ -71,7 +71,7 @@ const KhoaHocForm = (props: Props) => {
       <>
         <CButton
           icon={"check"}
-          title={check == 1 ? "Chọn Video" : "Chọn Anh"}
+          title={check == 1 ? "Chọn Video" : "Chọn Ảnh"}
           onClick={() => {
             if (check == 1) {
               if (!refDynamicTableVideo.current.getRowId()) {
