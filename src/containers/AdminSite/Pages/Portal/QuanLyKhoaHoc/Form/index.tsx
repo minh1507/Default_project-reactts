@@ -142,7 +142,7 @@ const KhoaHocForm = (props: Props) => {
       <CNotification ref={refNotification} />
       {showSearch ? (
         <ACard
-          title={check == 1 ? "Tìm kiếm Video" : "Tìm kiếm Anh"}
+          title={check == 1 ? "Tìm kiếm Video" : "Tìm kiếm Ảnh"}
           buttonGroups={ButtonGroupsRender()}
         >
           <div className="row">
@@ -151,7 +151,7 @@ const KhoaHocForm = (props: Props) => {
                 key={check == 1 ? "dsnhomvideo" : "dsnhomanh"}
                 value={check == 1 ? nhomVideo : nhomAnh}
                 placeholder={
-                  check == 1 ? `Danh sách nhóm video` : `Danh sách nhóm anh`
+                  check == 1 ? `Danh sách nhóm video` : `Danh sách nhóm ảnh`
                 }
                 filterable={false}
                 multiple={false}
