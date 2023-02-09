@@ -1,3 +1,4 @@
+import { Guid } from "common/Enums";
 import { InitState, IState } from "./InitState";
 export const Reducer = (state: IState = InitState, action: any) => {
   switch (action.type) {
@@ -15,6 +16,14 @@ export const Reducer = (state: IState = InitState, action: any) => {
           ...action.item
         ]
       } 
+    case "CopyItem":
+      return {
+        ...state,
+        Item : {
+          ...state.Item, 
+          Id: Guid.Empty
+        }
+      };
     case "GetItem":
       return {
         ...state,
