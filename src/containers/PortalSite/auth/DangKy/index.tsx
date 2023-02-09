@@ -146,7 +146,7 @@ const DangKy = (props: Props) => {
           Address: "",
           Type: UserType.Public,
         });
-        history.push("/trang-chu");
+        history.push("/dang-nhap");
       }
     }
   };

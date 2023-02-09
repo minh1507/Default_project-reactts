@@ -8,7 +8,7 @@ import { InitState } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
 import TinTucFormInputJson from "./FormInput.json";
-import { Cookie } from "common/Cookie";
+import { Storage } from "common/Storage";
 interface Props {
   Id: string;
   ReloadTableItems: any;
@@ -16,7 +16,7 @@ interface Props {
 
 const TinTucForm = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
-  let userInfo: IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
+  let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
   useEffect(() => {
     Actions.GetItem(props.Id, dispatch);
     Actions.GetTreeList("IdNhomTinTuc", dispatch);

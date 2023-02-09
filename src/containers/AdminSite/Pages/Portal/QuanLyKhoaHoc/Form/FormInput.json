@@ -32,7 +32,7 @@
     {
       "Key": "URL_AnhDaiDien",
       "Title": "Ảnh giới thiệu",
-      "Type": "InputText",
+      "Type": "InputTextSearch",
       "IsRequired": true,
       "Row": 2,
       "ColLabel": 2,
@@ -42,7 +42,7 @@
     {
       "Key": "URL_VideoDaiDien",
       "Title": "Video giới thiệu",
-      "Type": "InputText",
+      "Type": "InputTextSearch",
       "IsRequired": true,
       "Row": 2,
       "ColLabel": 2,

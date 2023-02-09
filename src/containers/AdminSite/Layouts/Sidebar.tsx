@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import admin_config from 'assets/json/admin_config.json';
 import { Actions } from 'store/Global/Action';
-import { Cookie } from 'common/Cookie';
+import { Storage } from 'common/Storage';
 import { IUserInfo } from 'common/Models';
 interface Props {
   Apps: any
@@ -45,7 +45,7 @@ const Sidebar = (props: Props) => {
       return html_menu;
     }
     const IsMenuOfUser = (menu:any) => { 
-      let userInfo:IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));   
+      let userInfo:IUserInfo = JSON.parse(Storage.getSession("UserInfo"));   
       if(!userInfo)
       {
         return false;

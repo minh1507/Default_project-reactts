@@ -171,10 +171,10 @@ const CDynamicForm = forwardRef((props: Props, ref) => {
         let value = InitValues[propDef.Key];
         return <>
             <div className="row">
-                <div className="col-sm-11">
+                <div className="col-sm-10">
                     <CInput disabled={propDef.IsDisabled} key={propDef.Key} type={propDef.IsPassword == true?"password":"text"} onChange={(e:any) => {onChangeValue(propDef.Key, e)}} value={value} />
                 </div>
-                <div className="col-sm-1" style={{paddingLeft: 0}}>
+                <div className="col-sm-2" style={{paddingLeft: 0}}>
                     <CButton icon="search" titleTooltip='Tìm kiếm' title="" isFullWidth={true} onClick={() => {
                         if(props.onclick)
                         {

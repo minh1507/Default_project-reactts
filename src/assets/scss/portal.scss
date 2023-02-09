@@ -1,6 +1,7 @@
 #app-portal {
   // start footer
   font-family: "SF Pro Display";
+  background-color: #F0F2F5;
   .cursor-pointer {
     cursor: pointer !important;
   }
@@ -861,13 +862,15 @@
       width: 95% !important;
     }
   }
+  .mob_view {
 
-  @media screen and (max-width: 768px) {
-    .mob_view {
-      overflow: scroll !important;
-      overflow-x: scroll !important;
-    }
   }
+  // @media screen and (max-width: 768px) {
+  //   .mob_view {
+  //     overflow: scroll !important;
+  //     overflow-x: scroll !important;
+  //   }
+  // }
 
   .remove:hover {
     color: red !important;
@@ -1749,6 +1752,7 @@
     cursor: pointer;
     align-items: center;
     border-radius: 5px;
+    background-color: white;
   }
 
   .kh-search-icon-active {
@@ -1871,6 +1875,7 @@
     align-items: center;
     font-weight: bold;
     padding: 0 16px;
+    background: white;
   }
 
   .slide-element:hover {
@@ -2097,7 +2102,7 @@
     margin-top: 30px;
     margin-bottom: 30px !important;
     border-radius: 15px;
-    background-color: #eeeeee;
+    background-color: #e0dddd;
     padding: 50px;
   }
 
@@ -2391,10 +2396,13 @@
   }
   .nhom-su-kien {
     .nav-link {
+      background-color: white;
       font-size: 15px;
       font-weight: bold;
       cursor: pointer;
       color: #000;
+      margin-left: 0.2px;
+      margin-right: 0.2px;
     }
     .active {
       color: #dc3545;

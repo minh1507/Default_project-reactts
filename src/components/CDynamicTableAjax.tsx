@@ -5,7 +5,7 @@ import "datatables.net-dt/css/jquery.dataTables.min.css"
 import $ from 'jquery'; 
 import { IAjax, IColumnDefs, QuerySearch } from 'common/Models';
 import request from "common/Request"
-import { Cookie } from 'common/Cookie';
+import { Storage } from 'common/Storage';
 interface Props {
     id: any
     onRowClick?: any
@@ -141,7 +141,7 @@ const CDynamicTableAjax = forwardRef((props: Props, ref) => {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 beforeSend: function (request:any) {
-                    request.setRequestHeader("Authorization", 'Bearer ' + Cookie.getCookie("Token"))
+                    request.setRequestHeader("Authorization", 'Bearer ' + Storage.getSession("Token"))
                 },
                 data: (d:any) => {
                     d.page = d.start / d.length + 1;
