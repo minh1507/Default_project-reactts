@@ -84,6 +84,8 @@ const KhoaHoc = (props: Props) => {
     setAccName(name);
   };
 
+  console.log(pb)
+  
   const handleLoaiKhoaHoc = (Id: string) => {
     Actions.GetKhoaHocTheoLoaiKhoaHoc(Id, dispatch);
     setAccName("");
