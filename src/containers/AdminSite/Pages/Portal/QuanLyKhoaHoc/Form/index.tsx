@@ -94,7 +94,7 @@ const KhoaHocForm = (props: Props) => {
                 return;
               }
               var item = refDynamicTableVideo.current.getRowSelected();
-              Actions.setURL_VideoGiaoAnLyThuyet(item["0"][3], dispatch);
+              Actions.setURL_Anh(item["0"][3], dispatch);
               setShowSearch(false);
             }
 
