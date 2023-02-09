@@ -5,7 +5,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import MenuService from "services/MenuService";
 import { IUserInfo } from "common/Models";
 import { Actions } from "store/Global/Action";
-import { Cookie } from "common/Cookie";
+import { Storage } from "common/Storage";
 import { Message } from "common/Enums";
 import CNotification from "components/CNotification";
 const { v4: uuidv4 } = require("uuid");
@@ -37,7 +37,7 @@ const Header = (props: Props) => {
   const [tree, setTree] = useState<HTreePortal>(null);
   const refNotification = useRef<any>();
 
-  let userInfo: IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
+  let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
   const GoToOtherPage = (page: string) => {
     setchange(false);
     history.push(page);

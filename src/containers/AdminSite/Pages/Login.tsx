@@ -360,7 +360,7 @@ const Login = (props: Props) => {
                                     buttonText="Login"
                                     onSuccess={responseGoogle}
                                     onFailure={responseGoogle}
-                                    cookiePolicy={'single_host_origin'} />                                
+                                    StoragePolicy={'single_host_origin'} />                                
                             </div>
                             <div className="col-12 marginTop5 marginBottom0">                                    
                                 <FacebookLogin

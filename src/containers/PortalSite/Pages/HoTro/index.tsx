@@ -9,7 +9,7 @@ interface Props {}
 
 const HoTro = (props: Props) => {
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div>
       <img src={bg40} width="100%" height="auto" />
       <div className="mt-3" style={{ padding: "0 40px", textAlign: "center" }}>
         <div>

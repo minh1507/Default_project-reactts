@@ -1,4 +1,4 @@
-import { Cookie } from "common/Cookie";
+import { Storage } from "common/Storage";
 import { IResponseMessage, IUserInfo } from "common/Models";
 import UserService from "services/UserService";
 import PermissionService from "services/PermissionService";
@@ -29,7 +29,7 @@ export const Actions: any = {
             menus = permRes.Data.Menus;
           }
           let accessToken = userRes.Data.AccessToken;
-          Cookie.setCookie("Token", accessToken, null);
+          Storage.setSession("Token", accessToken);
           let userInfo: IUserInfo = {
             Roles: userRes.Data.Roles,
             UserId: userRes.Data.UserId,
@@ -37,7 +37,7 @@ export const Actions: any = {
             RoleName: userRes.Data.RoleName,
             Menus: menus,
           };
-          Cookie.setCookie("UserInfo", JSON.stringify(userInfo), null);
+          Storage.setSession("UserInfo", JSON.stringify(userInfo));
           return true;
         }
       }
@@ -54,7 +54,7 @@ export const Actions: any = {
         menus = permRes.Data.Menus;
       }
       let accessToken = userRes.Data.AccessToken;
-      Cookie.setCookie("Token", accessToken, null);
+      Storage.setSession("Token", accessToken);
       let userInfo: IUserInfo = {
         Roles: userRes.Data.Roles,
         UserId: userRes.Data.UserId,
@@ -62,14 +62,14 @@ export const Actions: any = {
         RoleName: userRes.Data.RoleName,
         Menus: menus,
       };
-      Cookie.setCookie("UserInfo", JSON.stringify(userInfo), null);
+      Storage.setSession("UserInfo", JSON.stringify(userInfo));
       return true;
     }
     return false;
   },
   UserLogout: () => async (dispatch: any, getState: any) => {
-    Cookie.deleteCookie("Token");
-    Cookie.deleteCookie("UserInfo");
+    Storage.removeSession("Token");
+    Storage.removeSession("UserInfo");
   },
   GetUserInfo: () => async (dispatch: any, getState: any) => {
     let res: IResponseMessage = await UserService.Info();

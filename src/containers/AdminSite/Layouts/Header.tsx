@@ -1,5 +1,5 @@
 import { HubConnectionBuilder } from '@microsoft/signalr/dist/esm/HubConnectionBuilder';
-import { Cookie } from 'common/Cookie';
+import { Storage } from 'common/Storage';
 import { INotification, IUserInfo } from 'common/Models';
 import { AppName } from 'common/Enums';
 import React, { useEffect, useState } from 'react'
@@ -19,7 +19,7 @@ const Header = (props: Props) => {
       // const newConnection = new HubConnectionBuilder()
       // .withUrl(process.env.HUB_URL + '/notification', {
       //   accessTokenFactory: () => {
-      //     return Cookie.getCookie("Token");
+      //     return Storage.getSession("Token");
       //   }})
       // .withAutomaticReconnect()
       // .build();
@@ -125,7 +125,7 @@ const Header = (props: Props) => {
     const GoToPageSupport = () => {
       history.push('/support'); 
     }
-    let userInfo:IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));    
+    let userInfo:IUserInfo = JSON.parse(Storage.getSession("UserInfo"));    
     return(
       <header id="header" className="header fixed-top d-flex align-items-center">
         <div className="d-flex align-items-center justify-content-between">

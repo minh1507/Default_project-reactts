@@ -1,18 +1,18 @@
 import axios from "axios";
 import { Notification } from "element-react";
-import { Cookie } from "./Cookie";
+import { Storage } from "./Storage";
 
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.API_URL, // url = base url + request url
-  // withCredentials: true, // send cookies when cross-domain requests
+  // withCredentials: true, // send Storages when cross-domain requests
   timeout: 5000, // request timeout
 });
 
 // request interceptor
 service.interceptors.request.use(
   (config) => {
-    config.headers["Authorization"] = "Bearer " + Cookie.getCookie("Token");
+    config.headers["Authorization"] = "Bearer " + Storage.getSession("Token");
     return config;
   },
   (error) => {

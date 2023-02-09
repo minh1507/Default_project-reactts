@@ -48,9 +48,8 @@ const ChinhDangChayBo = (props: Props) => {
     Actions.GetSuKienChangePortal(newOffset, newOffset + 10, dispatch);
   };
 
-
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div>
       <div className="wrapper_img">
         <img className="" src={bg40} width="100%" height="auto" />
         <h1

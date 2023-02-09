@@ -35,13 +35,27 @@ const ChiTiet = (props: Props) => {
   };
 
   const addToCard = async () => {
-    let res: IResponseMessage = await Actions.CreateGioHang({
-      idKhoaHoc: state.DataDetail.Id,
-      giaTien: state.DataDetail.HocPhiGiamGia,
-    });
-    if (res.Success) {
-      refNotification.current.showNotification("success", Message.Add_To_Cart);
+    var cartInfo = sessionStorage.getItem("cart-info");
+    var cartExist = false;
+    var arrCartInfo:any = [];
+    if(cartInfo)
+    {
+      arrCartInfo = cartInfo.split(",");
+      for(let i = 0;i < arrCartInfo.length;i++)
+      {
+        if(arrCartInfo[i] == state.DataDetail.Id)
+        {
+          cartExist = true;
+        }
+      }
     }
+    if(!cartExist)
+    {
+      arrCartInfo.push(state.DataDetail.Id)
+    }
+
+    sessionStorage.setItem("cart-info", arrCartInfo.join(","));
+    refNotification.current.showNotification("success", Message.Add_To_Cart);
   };
 
   const contentTab = () => {
@@ -297,7 +311,7 @@ const ChiTiet = (props: Props) => {
                       }}
                       className="btn btn-danger"
                     >
-                      MUA NGAY
+                      Đăng ký ngay
                     </button>
                     &ensp;
                     <button
@@ -306,7 +320,7 @@ const ChiTiet = (props: Props) => {
                       }}
                       className="btn btn-outline-danger"
                     >
-                      THÊM VÀO GIỎ
+                      Thêm vào giỏ hàng
                     </button>
                   </div>
                   <button
@@ -315,7 +329,7 @@ const ChiTiet = (props: Props) => {
                     }}
                     className="btn btn-link text-danger"
                   >
-                    HỌC THỬ
+                    Học thử
                   </button>
                 </div>
               </div>

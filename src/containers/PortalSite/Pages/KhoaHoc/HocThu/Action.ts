@@ -45,9 +45,5 @@ export const Actions: any = {
       type: "getDetail",
       items: res.Data,
     });
-  },
-  CreateGioHang: async (data: any, dispatch: any) => {
-    let res: IResponseMessage = await GioHangService.CreateGioHang(data);
-    return res;
-  },
+  }
 };
