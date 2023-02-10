@@ -20,10 +20,49 @@ const GioHang = (props: Props) => {
     var cartInfo = sessionStorage.getItem("cart-info");
     if(cartInfo){
       const output = cartInfo.split(",").map((id) => ({ id }));
+      console.log(output);
       Actions.GetGioHang(output, dispatch);
-    }
-    
+    }  
   }, []);
+
+  const deleteProduct = (id: String, ie:any) => {
+    var cartInfo = sessionStorage.getItem("cart-info");
+    if(cartInfo){
+      const output = cartInfo.split(",")
+      let index = output.findIndex((val:any) => val == id);
+      if(output.length > 1){
+        output[index] = output[0]
+        output.shift()
+        
+        if(output.length === 1)
+        {
+          sessionStorage.setItem("cart-info", output[0].toString());
+        }
+        else{
+          sessionStorage.setItem("cart-info", output.join(","));
+        }
+        
+      }
+      else{
+        output.shift()
+        sessionStorage.setItem("cart-info", "");
+      }
+      Actions.restore(ie, dispatch)
+    }  
+  }
+
+  const deleteAll = () => {
+    sessionStorage.setItem("cart-info", "");
+    Actions.GetGioHangs([], dispatch);
+  }
+
+  const onCheck = (e: any, ie: any, HocPhiGiamGia:any, HocPhiGoc:any) => {
+    Actions.ChangeData(e.target.checked, ie, HocPhiGiamGia, HocPhiGoc, dispatch);
+  }
+
+  const changeAll = (e: any) => {
+    Actions.ChangeAll(e.target.checked,dispatch)
+  }
 
   console.log(state);
   return (
@@ -44,7 +83,7 @@ const GioHang = (props: Props) => {
                         className="form-check-input"
                         type="checkbox"
                         id="flexCheckChecked"
-                        defaultChecked
+                        onChange={(e) => changeAll(e)}
                         style={{ marginTop: 0 }}
                       />
                     </div>
@@ -59,7 +98,7 @@ const GioHang = (props: Props) => {
                       </p>
                     </div>
                     <div className="col-sm-1">
-                      <div className="text-muted remove cursor-pointer text-center">
+                      <div className="text-muted remove cursor-pointer text-center" onClick={() => {deleteAll()}}>
                         <i className="bi bi-trash3"></i>
                       </div>
                     </div>
@@ -71,15 +110,16 @@ const GioHang = (props: Props) => {
               <div className="card">
                 <div className="card-body">
                   {state.DataItem &&
-                    state.DataItem.map((data: any) => {
+                    state.DataItem.map((data: any, ie: any) => {
                       return (
                         <div className="row">
                           <div className="col-sm-1">
                             <input
                               className="form-check-input"
                               type="checkbox"
-                              id="flexCheckChecked"
-                              defaultChecked
+                              id={`${data.Id}`}
+                              onChange={(e)=> {onCheck(e, ie, data.HocPhiGiamGia, data.HocPhiGoc)}}
+                              checked={data.Check}
                             />
                           </div>
                           <div className="col-sm-3 pl-0">
@@ -104,7 +144,7 @@ const GioHang = (props: Props) => {
                             </span>
                           </div>
                           <div className="col-sm-1">
-                            <div className="text-muted remove gio-hang-mg-top cursor-pointer text-center">
+                            <div className="text-muted remove gio-hang-mg-top cursor-pointer text-center" onClick={() => {deleteProduct(data.Id, ie)}}>
                               <i className="bi bi-trash3"></i>
                             </div>
                           </div>

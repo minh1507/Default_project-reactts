@@ -1,10 +1,12 @@
 import { Guid } from "common/Enums";
 
 export interface giohang{
+    Id: string;
     TieuDe: string;
     URL_AnhDaiDien: string;
     HocPhiGoc: string;
     HocPhiGiamGia: string
+    Check: boolean
 }
 
 export interface IState {

@@ -2,24 +2,39 @@ import { IResponseMessage } from "common/Models";
 import KhoaHocService from "services/KhoaHocService";
 
 export const Actions: any = {
-  GetGioHang: async (data: any, dispatch: any) => {
+  GetGioHang: async (data: any,  dispatch: any) => {
     let res: IResponseMessage = await KhoaHocService.GetChonKhoaHoc(data);
     dispatch({
       type: "GetGioHang",
-      items: [
-        {
-          TieuDe: "hello",
-          URL_AnhDaiDien: "https://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg",
-          HocPhiGoc: 120000,
-          HocPhiGiamGia: 20000,
-        },
-        {
-          TieuDe: "hello",
-          URL_AnhDaiDien: "https://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg",
-          HocPhiGoc: 120000,
-          HocPhiGiamGia: 20000,
-        },
-      ],
+      items: res.Data,
+      
+    });
+  },
+  restore: async (id: any, dispatch: any) => {
+    dispatch({
+      type: "restore",
+      items: id,
+    });
+  },
+  ChangeData: async (check: any, index: any, HocPhiGiamGia:any, HocPhiGoc:any, dispatch: any) => {
+    dispatch({
+      type: "ChangeData",
+      check: check,
+      index: index,
+      HocPhiGiamGia: HocPhiGiamGia,
+      HocPhiGoc: HocPhiGoc,
+    });
+  },
+  GetGioHangs: async (arr: any, dispatch: any) => {
+    dispatch({
+      type: "GetGioHangs",
+      items: arr
+    });
+  },
+  ChangeAll: async (check: any, dispatch: any) => {
+    dispatch({
+      type: "ChangeAll",
+      check: check
     });
   },
 };
