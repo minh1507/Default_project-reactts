@@ -11,6 +11,11 @@
       "isLayout": true
     },
     {
+      "code": "CaNhan",
+      "url": "/ca-nhan",
+      "isLayout": true
+    },
+    {
       "code": "KhoaHoc",
       "url": "/khoa-hoc",
       "isLayout": true

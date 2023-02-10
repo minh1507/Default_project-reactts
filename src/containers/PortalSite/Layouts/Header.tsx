@@ -274,7 +274,7 @@ const Header = (props: Props) => {
                 </span>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
-                    <button className="dropdown-item" type="button">
+                    <button className="dropdown-item" type="button" onClick={() => {GoToOtherPage("/ca-nhan")}}>
                       Hồ sơ
                     </button>
                   </li>
