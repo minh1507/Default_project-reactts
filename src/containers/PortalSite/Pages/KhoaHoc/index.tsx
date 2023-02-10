@@ -70,6 +70,7 @@ const KhoaHoc = (props: Props) => {
       });
     }
   }, [reLength]);
+  
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * 10) % state.Count;

@@ -2527,12 +2527,23 @@
     margin-bottom: 0px !important;
   }
   .card-image-kh {
-    height: 145px;
+    // height: 145px;
+    aspect-ratio: 3/2;
   }
   .editor-content {
     img {
       width: 100% !important;
     }
+  }
+
+  .container-inp-uej{
+    padding: 2px 5px;
+    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 3px;
+    border-radius: 4px 4px;
+  }
+  .inp-uej{
+    border: none;
+    outline: none;
   }
   .treeview {
     border-top: 1px solid #f1f1f1;

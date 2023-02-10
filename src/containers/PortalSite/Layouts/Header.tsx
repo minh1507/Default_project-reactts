@@ -139,15 +139,9 @@ const Header = (props: Props) => {
     ));
 
   return (
-    <div className={`headers ${search && "dive-ava"}`}>
+    <div className={`headers`}>
       <CNotification ref={refNotification} />
-      <div className="search_header_bar-ava">
-        <div className="container-xl d-cap-ajs">
-          <div className="container_search_header_bar-ava col-4">
-             <input className="input_search_header_bar-ava" />
-          </div>
-        </div>
-      </div>
+     
       <div className="header_top bg-danger text-light">
         <div className="header_top_container container-xl d-flex align-items-center justify-content-between">
           <div className="header_top_mobile">
@@ -221,7 +215,7 @@ const Header = (props: Props) => {
       </div>
       <div className="header_bottom">
         <div className="container-xl d-flex justify-content-between align-items-center h-100 ">
-          <div className="d-flex align-items-center error">
+          {/* <div className="d-flex align-items-center error">
             <img src={logo} className="header_bottom_logo" />
             <div className="header_bottom_logo_option">
               <select
@@ -232,16 +226,20 @@ const Header = (props: Props) => {
                 <option value="EN">EN</option>
               </select>
             </div>
-          </div>
+          </div> */}
           <div className="d-flex navbar_container_main ">{navbar}</div>
+          <div>
+            <div className="container-inp-uej">
+              <input className="inp-uej" placeholder="Tìm kiếm"/>
+            </div>
+          </div>
           <div className="d-flex gap-3 align-items-center error_nav">
-            <span
+            {/* <span
               style={{ cursor: "pointer", fontSize: "1.3rem" }}
               className="header_bottom_link"
-              onClick={() => {changSearch()}}
             >
               <i className="bi bi-search"></i>
-            </span>
+            </span> */}
             {userInfo && (
               <span
                 style={{ cursor: "pointer" }}
