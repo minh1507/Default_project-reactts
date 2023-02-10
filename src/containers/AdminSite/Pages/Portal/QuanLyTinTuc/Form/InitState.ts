@@ -16,10 +16,12 @@ export interface IModelItem {
   TrangThaiBanGhi: Boolean;
 }
 export interface IState {
+  ItemAnhs: any
   DataItem: IModelItem;
   Options: IControlOptions[];
 }
 export const InitState: IState = {
+  ItemAnhs:[],
   DataItem: {
     Id: Guid.Empty,
     TieuDe: "",

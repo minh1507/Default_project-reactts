@@ -41,7 +41,6 @@ const VideoForm = (props: Props) => {
       }
     },
   };
-  console.log(state);
   return (
     <>
       <CNotification ref={refNotification} />

@@ -192,7 +192,7 @@ const DangNhap = (props: Props) => {
                       <div className="d-flex justify-content-between mb-4">
                         <div className="form-check">
                           <input
-                            className="form-check-input"
+                            className="form-check-input checkbox-checks"
                             type="checkbox"
                             value=""
                             id="flexCheckDefault"
