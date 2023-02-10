@@ -14,7 +14,8 @@ interface Props {
 
 const DangKy = (props: Props) => {
   const [InputSignup, setInputSignup] = useState({
-    FullName: "",
+    Ho: "",
+    Ten: "",
     UserName: "",
     Password: "",
     Email: "",
@@ -65,10 +66,17 @@ const DangKy = (props: Props) => {
       );
       return false;
     }
-    if (!InputSignup.FullName) {
+    if (!InputSignup.Ho) {
       refNotification.current.showNotification(
         "warning",
-        Message.FullName_Is_Not_Empty
+        Message.Ho_Is_Not_Empty
+      );
+      return false;
+    }
+    if (!InputSignup.Ten) {
+      refNotification.current.showNotification(
+        "warning",
+        Message.Ten_Is_Not_Empty
       );
       return false;
     }
@@ -76,13 +84,6 @@ const DangKy = (props: Props) => {
       refNotification.current.showNotification(
         "warning",
         Message.DuplicatePassword
-      );
-      return false;
-    }
-    if (!InputSignup.UserName) {
-      refNotification.current.showNotification(
-        "warning",
-        Message.UserName_Is_Not_Empty
       );
       return false;
     }
@@ -126,14 +127,18 @@ const DangKy = (props: Props) => {
   };
   const Signup = async () => {
     if (ValidateForm()) {
-      let email = InputSignup.UserName;
-      setInputSignup({ ...InputSignup, Email: email });
-      let res: IResponseMessage = await props.UserSignup(InputSignup);
+      let result:any = {...InputSignup}
+      result.Fullname = result.Ho + " " + result.Ten
+      result.Email = result.UserName
+      delete result.Ten
+      delete result.Ho
+      let res: IResponseMessage = await props.UserSignup(result);
 
       if (res && res.Success) {
         refNotification.current.showNotification("success", res.Message);
         setInputSignup({
-          FullName: "",
+          Ho: "",
+          Ten:"",
           UserName: "",
           Password: "",
           Email: "",
@@ -172,9 +177,7 @@ const DangKy = (props: Props) => {
     history.push("/dang-nhap");
   };
 
-  const onChangeName = (e:any) => {
-
-  }
+ 
 
   return (
     <div
@@ -207,7 +210,7 @@ const DangKy = (props: Props) => {
                             type="text"
                             placeholder="Họ(*)"
                             onChange={(e: any) => {
-                              onChangeName(e);
+                              onChange("Ho",e);
                             }}
                             className="form-control"
                           />
@@ -219,7 +222,7 @@ const DangKy = (props: Props) => {
                             type="text"
                             placeholder="Tên(*)"
                             onChange={(e: any) => {
-                              onChangeName(e);
+                              onChange("Ten",e);
                             }}
                             className="form-control"
                           />

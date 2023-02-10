@@ -156,6 +156,44 @@
   .headers {
     height: 100px;
     background-color: white;
+    position: relative;
+    z-index: 0;
+    transition: 0.3s ease-in-out;
+  }
+
+  .search_header_bar-ava{
+    position: absolute;
+    padding: 8px 0;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background-color: white;
+  }
+
+  .dive-ava{
+    z-index: 1;
+  }
+
+  .d-cap-ajs{
+    border-top: 1px solid gainsboro;
+    padding-top: 8px;
+    z-index: 1;
+  }
+
+  .text-tt-dd{
+    text-transform: uppercase;
+  }
+
+  .container_search_header_bar-ava{
+    padding-left: 16px;
+    border-radius: 4px;
+    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 3px;
+  }
+
+  .input_search_header_bar-ava{
+    outline: none;
+    width: 100%;
+    border: none;
   }
 
   .header_top {
