@@ -18,8 +18,11 @@ const GioHang = (props: Props) => {
 
   useEffect(() => {
     var cartInfo = sessionStorage.getItem("cart-info");
-    const output = cartInfo.split(",").map((id) => ({ id }));
-    Actions.GetGioHang(output, dispatch);
+    if(cartInfo){
+      const output = cartInfo.split(",").map((id) => ({ id }));
+      Actions.GetGioHang(output, dispatch);
+    }
+    
   }, []);
 
   console.log(state);
