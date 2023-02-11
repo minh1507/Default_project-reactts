@@ -120,11 +120,11 @@ const TrangChu = (props: Props) => {
   };
 
   useEffect(() => {
-    Actions.GetItemTinTuc([img1, img2, img3], "TT1", "3", dispatch);
-    Actions.GetItemBlog("TT2", "15", dispatch);
-    Actions.GetItemGiaoan("GA1", "8", dispatch);
-    Actions.GetItemKhoaHoc("GA1", "8", "4", dispatch);
-    Actions.GetSuKienTheoNhomSuKienMoiNhatPortal(dispatch);
+    Actions.GetItemGioiThieu([img1, img2, img3], dispatch);
+    Actions.GetItemBlog(dispatch);
+    Actions.GetItemGiaoan(dispatch);
+    Actions.GetItemKhoaHoc(dispatch);
+    Actions.GetSuKien(dispatch);
   }, []);
 
   const responsive = {
@@ -142,15 +142,15 @@ const TrangChu = (props: Props) => {
     setCount(num);
   };
 
-  const gioiThieu = state.DataItemsTinTuc && (
+  const gioiThieu = state.DataItemsGioiThieu && (
     <div key={uuidv4()} className="main_sub_detal rout-zx mt-2">
       <div className="container-xl d-flex flex-column">
         <h4 className="text-danger tieu-de text-uppercase">
-          {state.DataItemsTinTuc.TenNhomTinTuc}
+          {state.DataItemsGioiThieu.TenNhomGioiThieu}
         </h4>
         <div className="container-xl mt-3">
           <div className="row gap-3 justify-content-center align-items-center">
-            {state.DataItemsTinTuc.DanhSachTinTuc.map(
+            {state.DataItemsGioiThieu.DanhSachGioiThieu.map(
               (child: danhSachTintuc) => (
                 <div
                   key={uuidv4()}
@@ -218,7 +218,7 @@ const TrangChu = (props: Props) => {
     <div className="main_sub_detal rout-zxz mt-2 mb-2 ">
       <div className="container-xl d-flex flex-column">
         <h4 className="text-danger tieu-de">
-          {state.DataItemsGiaoAn.TenMonHoc}
+          {state.DataItemsGiaoAn.TenTieuDe}
         </h4>
         <div className="container mt-3">
           <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat d-flex justify-content-center">
@@ -226,7 +226,7 @@ const TrangChu = (props: Props) => {
               (tree: IModelMonHocCon) => (
                 <div
                   key={uuidv4()}
-                  title={`${tree.TenMonHoc}`}
+                  title={`${tree.TieuDe}`}
                   className="col change-tt-aba"
                 >
                   <div
@@ -251,7 +251,7 @@ const TrangChu = (props: Props) => {
                         className="card-title underline-head-tt text-uppercase"
                         onClick={() => GoToOtherPage("/khoa-hoc")}
                       >
-                        {tree.TenMonHoc}
+                        {tree.TieuDe}
                       </p>
                       <p className="money">
                         {String.num(tree.GiaGiaoDongTu)}₫ -{" "}
@@ -461,7 +461,7 @@ const TrangChu = (props: Props) => {
       </div>
     ));
 
-  const suKien = state.DataItemsSuKien && state.DataItemsSuKien.length > 0 && (
+  const suKien = state.DataItemsSuKien && state.DataItemsSuKien.DanhSachSuKien.length > 0 && (
     <div className="main_sub_detal rout-zxa mb-2">
       <div className="container-xl d-flex flex-column">
         <h4 className="text-danger tieu-de">
@@ -470,8 +470,8 @@ const TrangChu = (props: Props) => {
         </h4>
         <div className="container mt-3">
           <div className="row row-cols-1 row-cols-md-2 gap-3 justify-content-center align-items-center">
-            {state.DataItemsSuKien.map(
-              (child: danhSachSuKien) => (
+            {state.DataItemsSuKien.DanhSachSuKien.map(
+              (child: any) => (
                 <div
                   key={uuidv4()}
                   className="card mb-3 p-0"
@@ -498,8 +498,8 @@ const TrangChu = (props: Props) => {
                             onClick={() =>
                               GoToDetailPage(
                                 "/chi-tiet-tin-tuc",
-                                child.IdSuKien as string,
-                                child.TenSuKien as string,
+                                child.Id as string,
+                                child.Ten as string,
                                 "sukien"
                               )
                             }
@@ -509,15 +509,15 @@ const TrangChu = (props: Props) => {
                               fontSize: "1.15rem",
                             }}
                           >
-                            {child.TenSuKien}
+                            {child.Ten}
                           </h6>
                           <span
                             className="d-flex justify-content-center align-items-center chi-tiet"
                             onClick={() =>
                               GoToDetailPage(
                                 "/chi-tiet-tin-tuc",
-                                child.IdSuKien as string,
-                                child.TenSuKien as string,
+                                child.Id as string,
+                                child.Ten as string,
                                 "sukien"
                               )
                             }
@@ -543,11 +543,10 @@ const TrangChu = (props: Props) => {
                         >
                           <span>
                             <i className="bi bi-calendar-range-fill" />{" "}
-                            {child.Date}
+                            {String.day(child.CreatedDateTime)}
                           </span>
                           <span style={{ marginLeft: "20px" }}>
-                            <i className="bi bi-clock-fill" /> {child.Time}{" "}
-                            {child.Detech}
+                            <i className="bi bi-clock-fill" /> {String.time(child.CreatedDateTime)}
                           </span>
                         </div>
                         <p
@@ -664,6 +663,8 @@ const TrangChu = (props: Props) => {
       </OwlCarousel>
     </div>
   );
+
+  console.log(state)
 
   return (
     <div className="main_container">

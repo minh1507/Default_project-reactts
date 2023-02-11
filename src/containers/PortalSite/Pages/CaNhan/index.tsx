@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import profile from "assets/img/profile.png";
+// import profile from "assets/img/profile.png";
 
 interface Props {}
 
@@ -53,7 +53,7 @@ const CaNhan = (props: Props) => {
                 <p className="mb-1">Ngày tham gia: 23 tháng 12 năm 2023</p>
                 <p className="mb-3">Đã tham gia: 6 khóa học - 3 sự kiện</p>
                 <div className="split-avat"></div>
-                <div className="d-flex align-items-center mb-3">
+                {/* <div className="d-flex align-items-center mb-3">
                   <div className="img-canhan">
                     <img
                       width={200}
@@ -70,7 +70,7 @@ const CaNhan = (props: Props) => {
                     <p>Vui lòng chọn ảnh nhỏ hơn 5MB</p>
                     <p>Chọn hình ảnh phù hợp, không phản cảm</p>
                   </div>
-                </div>
+                </div> */}
                 <div className="split-avat mb-3"></div>
                 <h3 className="mb-3">Cập nhật thông tin</h3>
                 <div className="col-sm-4">

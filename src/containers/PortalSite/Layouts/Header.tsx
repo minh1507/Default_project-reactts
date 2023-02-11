@@ -165,7 +165,7 @@ const Header = (props: Props) => {
                   <span>
                     <i className="fa-solid fa-phone-volume"></i>
                   </span>
-                  <span className=" header_top_left_text">091 650 2783</span>
+                  <span className=" header_top_left_text">091 658 2783</span>
                 </div>
                 <div className="carousel-item">
                   <span>

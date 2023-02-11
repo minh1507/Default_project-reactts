@@ -1,28 +1,48 @@
 {
     "GioiThieu" : {
         "TieuDe": "",
-        "MaNhomTinTuc": "",
-        "SoLuong": 0
+        "MaNhomTinTuc": "TT1",
+        "SoLuong": 3
     },
     "MonHoc": {
-        "TieuDe": "",
-        "DsMaMonHoc": []
+        "TieuDe": "ĐĂNG QUANG MARATHON",
+        "DsMaMonHoc": ["GA1-1", "GA1-2", "GA1-3", "GA1-4", "GA1-5", "GA1-6", "GA1-7", "GA1-8"]
     },
     "KhoaHoc": [
         {
-            "MaMonHoc": "",
-            "MaLoai": "",
-            "SoLuong": 0
+            "MaMonHoc": "GA1-1",
+            "MaLoai": "MoiNhat",
+            "SoLuong": 4
+        },
+        {
+            "MaMonHoc": "GA1-2",
+            "MaLoai": "MoiNhat",
+            "SoLuong": 4
+        },
+        {
+            "MaMonHoc": "GA1-3",
+            "MaLoai": "MoiNhat",
+            "SoLuong": 4
+        },
+        {
+            "MaMonHoc": "GA1-4",
+            "MaLoai": "MoiNhat",
+            "SoLuong": 4
+        },
+        {
+            "MaMonHoc": "GA1-5",
+            "MaLoai": "MoiNhat",
+            "SoLuong": 4
         }
     ],
     "SuKien": {
-        "TieuDe": "",
-        "TinhTrang": [],
-        "SoLuong": 0
+        "TieuDe": "Sự kiện mới nhất",
+        "TinhTrang": [0,1,2],
+        "SoLuong": 4
     },
     "TinTuc": {
-        "TieuDe": "",
-        "MaNhomTinTuc": "",
-        "SoLuong": 0
+        "TieuDe": "Blog tin tức",
+        "MaNhomTinTuc": "TT2",
+        "SoLuong": 15
     }
 }

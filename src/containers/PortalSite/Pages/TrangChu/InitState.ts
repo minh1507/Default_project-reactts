@@ -5,12 +5,12 @@ export interface danhSachTintuc {
   MoTa: String;
   URL_AnhDaiDien: String;
   Img: String;
+  TieuDeGioiThieu: String;
 }
 
 export interface IModelGen {
-  DanhSachKhoaHoc: IModelGenCon[];
-  IdMonHoc: String;
-  TenMonHoc: String;
+  TenMonHoc: string,
+  DanhSachKhoaHoc: []
 }
 
 export interface IModelGenCon {
@@ -24,13 +24,12 @@ export interface IModelGenCon {
 }
 
 export interface IModelMonHocCon {
-  Id: String;
-  TenMonHoc: String;
+  Id: String;  
   MoTa: String;
   GiaGiaoDongTu: Number;
   GiaGiaoDongDen: Number;
   URL_AnhDaiDien: String;
-  IdMonHocCha: String;
+  TieuDe:String
 }
 
 export interface IModelMonHoc {
@@ -57,42 +56,40 @@ export interface danhSachSuKien {
 }
 
 export interface IState {
-  DataItemsTinTuc: {
-    TenNhomTinTuc: string;
-    DanhSachTinTuc: danhSachTintuc[];
+  DataItemsGioiThieu: {
+    TenNhomGioiThieu: string;
+    DanhSachGioiThieu: danhSachTintuc[];
   };
   DataItemsBlog: {
     TenNhomTinTuc: string;
     DanhSachTinTuc: danhSachTintuc[];
   };
   DataItemsGiaoAn: {
-    Id: String;
-    TenMonHoc: String;
-    MoTa: String;
-    GiaGiaoDong: String;
-    URL_AnhDaiDien: String;
+    TenTieuDe: string;
     DanhSachMonHocCon: IModelMonHocCon[];
   };
   DataItemsKhoaHoc: IModelGen[];
-  DataItemsSuKien: [];
+  DataItemsSuKien: {
+    DanhSachSuKien: [],
+    TenTieuDe: string
+  };
 }
 export const InitState: IState = {
-  DataItemsTinTuc: {
-    TenNhomTinTuc: "",
-    DanhSachTinTuc: [],
+  DataItemsGioiThieu: {
+    TenNhomGioiThieu: "",
+    DanhSachGioiThieu: [],
   },
   DataItemsBlog: {
     TenNhomTinTuc: "",
     DanhSachTinTuc: [],
   },
   DataItemsGiaoAn: {
-    Id: "",
-    TenMonHoc: "",
-    MoTa: "",
-    GiaGiaoDong: "",
-    URL_AnhDaiDien: "",
+    TenTieuDe:'',
     DanhSachMonHocCon: [],
   },
   DataItemsKhoaHoc: [],
-  DataItemsSuKien: [],
+  DataItemsSuKien: {
+    DanhSachSuKien: [],
+    TenTieuDe: ""
+  }
 };
