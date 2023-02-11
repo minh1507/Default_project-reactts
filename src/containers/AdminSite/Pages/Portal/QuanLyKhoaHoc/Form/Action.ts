@@ -25,6 +25,7 @@ export const Actions: any = {
         IdMonHoc: Guid.Empty,
         IdLoaiKhoaHoc: Guid.Empty,
         URL_AnhDaiDien: "",
+        URL_AnhChiTiet: "",
         URL_VideoDaiDien: "",
         TieuDe: "",
         TrangThai: true,
@@ -67,6 +68,12 @@ export const Actions: any = {
   setURL_Anh: (URL_Anh: any, dispatch: any) => {
     dispatch({
       type: "setURL_Anh",
+      item: URL_Anh,
+    });
+  },
+  setURL_AnhChiTiet: (URL_Anh: any, dispatch: any) => {
+    dispatch({
+      type: "setURL_AnhChiTiet",
       item: URL_Anh,
     });
   },

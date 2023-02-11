@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import Comment from "../../General/comment";
 import { InitState } from "./InitState";
 import { Actions } from "./Action";
+import { Actions as GlobalActions } from "store/Global/Action";
 import { Reducer } from "./Reducer";
 import { useLocation } from "react-router-dom";
 import { String } from "common/String";
@@ -15,7 +16,9 @@ import { LabelPortal, Message } from "common/Enums";
 import CNotification from "components/CNotification";
 import createDOMPurify from 'dompurify'
 const DOMPurify = createDOMPurify(window)
-interface Props {}
+interface Props {
+  AddToCard:any
+}
 
 const ChiTiet = (props: Props) => {
   const history = useHistory();
@@ -55,6 +58,7 @@ const ChiTiet = (props: Props) => {
     }
 
     sessionStorage.setItem("cart-info", arrCartInfo.join(","));
+    props.AddToCard(arrCartInfo.length)
     refNotification.current.showNotification("success", Message.Add_To_Cart);
   };
 
@@ -342,6 +346,8 @@ const ChiTiet = (props: Props) => {
   );
 };
 const mapState = ({ ...state }) => ({});
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  AddToCard: GlobalActions.AddToCard
+};
 
 export default connect(mapState, mapDispatchToProps)(ChiTiet);

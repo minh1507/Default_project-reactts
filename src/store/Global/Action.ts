@@ -4,6 +4,12 @@ import UserService from "services/UserService";
 import PermissionService from "services/PermissionService";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 export const Actions: any = {
+  AddToCard: (CartQuantity:any) => async (dispatch:any, getState:any) =>  {
+    dispatch({
+        type: "AddToCard",
+        item: CartQuantity
+    })
+},   
   SendEmailRestorePassword:
     (address: any, email: any) => async (dispatch: any, getState: any) => {
       let res: IResponseMessage = await UserService.SendEmailRestorePassword(

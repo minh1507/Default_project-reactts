@@ -94,11 +94,21 @@ const KhoaHocForm = (props: Props) => {
                 return;
               }
               var item = refDynamicTableVideo.current.getRowSelected();
-              console.log(item)
               Actions.setURL_Anh(item["0"][2], dispatch);
               setShowSearch(false);
             }
-
+            if (check == 3) {
+              if (!refDynamicTableVideo.current.getRowId()) {
+                refNotification.current.showNotification(
+                  "warning",
+                  Message.Require_Row_Selection
+                );
+                return;
+              }
+              var item = refDynamicTableVideo.current.getRowSelected();
+              Actions.setURL_AnhChiTiet(item["0"][2], dispatch);
+              setShowSearch(false);
+            }
             setCheck(0);
           }}
         />
@@ -114,7 +124,10 @@ const KhoaHocForm = (props: Props) => {
               setShowSearch(false);
               Actions.GetDsVideoByIdNhomAnh(null, dispatch);
             }
-
+            if (check == 3) {
+              setShowSearch(false);
+              Actions.GetDsVideoByIdNhomAnh(null, dispatch);
+            }
             setCheck(0);
           }}
         />
@@ -134,6 +147,10 @@ const KhoaHocForm = (props: Props) => {
     }
     if (key == "URL_AnhDaiDien") {
       setCheck(2);
+      setShowSearch(true);
+    }
+    if (key == "URL_AnhChiTiet") {
+      setCheck(3);
       setShowSearch(true);
     }
   };

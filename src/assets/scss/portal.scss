@@ -2537,8 +2537,8 @@
 
   .container-inp-uej{
     padding: 2px 5px;
-    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 3px;
-    border-radius: 4px 4px;
+    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 2px;
+    border-radius: 15px;
   }
   .inp-uej{
     border: none;
@@ -2668,6 +2668,12 @@
   .li-canhan:last-child{
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+  }
+  .styles__FlexRow {
+    display: flex;
+    .item-info {
+      display: flex;
+    }
   }
 }
 

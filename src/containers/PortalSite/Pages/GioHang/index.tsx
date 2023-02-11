@@ -20,7 +20,6 @@ const GioHang = (props: Props) => {
     var cartInfo = sessionStorage.getItem("cart-info");
     if(cartInfo){
       const output = cartInfo.split(",").map((id) => ({ id }));
-      console.log(output);
       Actions.GetGioHang(output, dispatch);
     }  
   }, []);
@@ -64,9 +63,8 @@ const GioHang = (props: Props) => {
     Actions.ChangeAll(e.target.checked,dispatch)
   }
 
-  console.log(state);
   return (
-    <div style={{ padding: "30px 0" }}>
+    <div className="mt-4">
       <h4 className="text-danger text-center tieu-de mb-3">{"Giỏ hàng"}</h4>
       <div className="container-xl">
         <div className="row">
@@ -112,7 +110,7 @@ const GioHang = (props: Props) => {
                   {state.DataItem &&
                     state.DataItem.map((data: any, ie: any) => {
                       return (
-                        <div className="row">
+                        <div className="row mb-3">
                           <div className="col-sm-1">
                             <input
                               className="form-check-input"

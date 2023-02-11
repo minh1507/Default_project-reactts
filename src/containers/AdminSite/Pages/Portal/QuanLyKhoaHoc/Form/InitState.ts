@@ -6,6 +6,7 @@ export interface IModelItem {
   IdMonHoc: String;
   IdLoaiKhoaHoc: String;
   URL_AnhDaiDien: String;
+  URL_AnhChiTiet: String;
   URL_VideoDaiDien: String;
   TieuDe: String;
   TrangThai: Boolean;
@@ -44,6 +45,7 @@ export const InitState: IState = {
     IdMonHoc: Guid.Empty,
     IdLoaiKhoaHoc: Guid.Empty,
     URL_AnhDaiDien: "",
+    URL_AnhChiTiet: "",
     URL_VideoDaiDien: "",
     TieuDe: "",
     TrangThai: true,

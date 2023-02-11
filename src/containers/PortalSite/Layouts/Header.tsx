@@ -11,6 +11,7 @@ import CNotification from "components/CNotification";
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {
+  global: any;
   UserLogout?: Function;
 }
 
@@ -137,6 +138,15 @@ const Header = (props: Props) => {
         </h6>
       </li>
     ));
+  const cardCount = () => {
+    var cardInfo = Storage.getSession("cart-info");
+    if(!cardInfo)
+    {
+      return 0;
+    }
+    var arrCardInfo = cardInfo.split(",");
+    return arrCardInfo.length;
+  }
 
   return (
     <div className={`headers`}>
@@ -227,7 +237,10 @@ const Header = (props: Props) => {
               </select>
             </div>
           </div> */}
-          <div className="d-flex navbar_container_main ">{navbar}</div>
+          <div className="d-flex navbar_container_main ">
+            <img src={logo} className="header_bottom_logo" />
+            {navbar}
+          </div>
           <div>
             <div className="container-inp-uej">
               <input className="inp-uej" placeholder="Tìm kiếm"/>
@@ -252,7 +265,7 @@ const Header = (props: Props) => {
                   style={{ fontSize: "calc(1rem*0.7)" }}
                   className="position-absolute top-100 start-100 translate-middle badge rounded-pill bg-danger"
                 >
-                  9+
+                  {cardCount()}{" +"}
                   <span className="visually-hidden">unread messages</span>
                 </span>
                 <i className="bi bi-cart" style={{ fontSize: "1.3rem" }}></i>
@@ -336,7 +349,7 @@ const Header = (props: Props) => {
   );
 };
 const mapState = ({ ...state }) => ({
-  // UserLogout: Actions.UserLogout
+  global: state.global
 });
 const mapDispatchToProps = {
   UserLogout: Actions.UserLogout,
