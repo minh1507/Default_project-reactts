@@ -4,6 +4,11 @@
     "Title": "Danh sách loại khóa học",
     "ColumnDefs": [
       {
+        "Key": "Ma",
+        "Title": "Mã",
+        "Align": "center"
+      },
+      {
         "Key": "TieuDe",
         "Title": "Tiêu đề",
         "Align": "center"
