@@ -145,7 +145,7 @@ const TrangChu = (props: Props) => {
   const gioiThieu = state.DataItemsTinTuc && (
     <div key={uuidv4()} className="main_sub_detal rout-zx mt-2">
       <div className="container-xl d-flex flex-column">
-        <h4 className="text-danger tieu-de">
+        <h4 className="text-danger tieu-de text-uppercase">
           {state.DataItemsTinTuc.TenNhomTinTuc}
         </h4>
         <div className="container-xl mt-3">
@@ -248,7 +248,7 @@ const TrangChu = (props: Props) => {
                       style={{ textAlign: "start" }}
                     >
                       <p
-                        className="card-title underline-head-tt"
+                        className="card-title underline-head-tt text-uppercase"
                         onClick={() => GoToOtherPage("/khoa-hoc")}
                       >
                         {tree.TenMonHoc}

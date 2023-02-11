@@ -156,6 +156,43 @@
   .headers {
     height: 100px;
     background-color: white;
+    position: relative;
+    transition: 0.3s ease-in-out;
+  }
+
+  .search_header_bar-ava{
+    position: absolute;
+    padding: 8px 0;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background-color: white;
+  }
+
+  .dive-ava{
+    z-index: 1;
+  }
+
+  .d-cap-ajs{
+    border-top: 1px solid gainsboro;
+    padding-top: 8px;
+    z-index: 1;
+  }
+
+  .text-tt-dd{
+    text-transform: uppercase;
+  }
+
+  .container_search_header_bar-ava{
+    padding-left: 16px;
+    border-radius: 4px;
+    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 3px;
+  }
+
+  .input_search_header_bar-ava{
+    outline: none;
+    width: 100%;
+    border: none;
   }
 
   .header_top {
@@ -2489,12 +2526,23 @@
     margin-bottom: 0px !important;
   }
   .card-image-kh {
-    height: 145px;
+    // height: 145px;
+    aspect-ratio: 3/2;
   }
   .editor-content {
     img {
       width: 100% !important;
     }
+  }
+
+  .container-inp-uej{
+    padding: 2px 5px;
+    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 3px;
+    border-radius: 4px 4px;
+  }
+  .inp-uej{
+    border: none;
+    outline: none;
   }
   .treeview {
     border-top: 1px solid #f1f1f1;
@@ -2528,6 +2576,98 @@
   .checkbox-checks{
     font-size: calc(0.8rem) !important;
     margin-top: 5px !important;
+  }
+
+  .container-canhan{
+    padding: 30px 0;
+  }
+
+  .li-canhan{
+    background-color: white;
+    padding: 16px 20px;
+    border: 1px solid #eeeeee;
+    list-style-type: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #afb3ba;
+  }
+
+  .li-canhan:hover{
+    color: gray;
+  }
+
+  .li-canhan-active{
+    color: black;
+  }
+
+  .li-canhan-active:hover{
+    color: black;
+  }
+
+  .li-canhan:first-child{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .btn-avatar-canhan:hover{
+    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 3px;
+    border: none;
+  }
+
+  .right-text-canhan{
+    margin-left: 16px;
+  }
+
+  .split-2-aba{
+    border: 1px solid gainsboro;
+    height: 70px;
+    width: 1px;
+    margin-left: 16px;
+  }
+
+  .split-2-abaa{
+    border: 1px solid gainsboro;
+    height: 100px;
+    width: 0.1px;
+    margin-left: 16px;
+  }
+  .child-img-canhan{
+    border-radius: 50%;
+  }
+
+  .img-canhan{
+    margin-top: 16px;
+    padding: 0.3%;
+    border-radius: 50%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  }
+
+  .btn-avatar-canhan{
+    margin-left: 16px;
+    height: 40px;
+    border: 1px solid gainsboro;
+    font-weight: 500;
+    color: rgba(190, 14, 14, 0.712);
+    border-radius: 8px;
+    width: 150px;
+    background-color: white;
+
+  }
+
+  .split-avat{
+    border: 1px solid gainsboro;
+  }
+
+  .tai-khoan-ca-nhan{
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px 16px;
+    width: 100%;
+  }
+
+  .li-canhan:last-child{
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
 }
 
