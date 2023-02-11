@@ -17,6 +17,7 @@ import GioHang from "containers/PortalSite/Pages/GioHang";
 import DangNhap from "containers/PortalSite/auth/DangNhap";
 import DangKy from "containers/PortalSite/auth/DangKy";
 import TinTuc from "containers/PortalSite/Pages/TinTuc";
+import CaNhan from "containers/PortalSite/Pages/CaNhan";
 interface Props {}
 
 const PortalRoute = (props: Props) => {
@@ -33,6 +34,8 @@ const PortalRoute = (props: Props) => {
         return <KienThuc />;
       case "ChinhDangChayBo":
         return <ChinhDangChayBo />;
+      case "CaNhan":
+        return <CaNhan />;
       case "HoTro":
         return <HoTro />;
       case "KhoaHocChiTiet":
