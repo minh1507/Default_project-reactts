@@ -14,7 +14,8 @@ interface Props {
 
 const DangKy = (props: Props) => {
   const [InputSignup, setInputSignup] = useState({
-    FullName: "",
+    Ho: "",
+    Ten: "",
     UserName: "",
     Password: "",
     Email: "",
@@ -65,10 +66,17 @@ const DangKy = (props: Props) => {
       );
       return false;
     }
-    if (!InputSignup.FullName) {
+    if (!InputSignup.Ho) {
       refNotification.current.showNotification(
         "warning",
-        Message.FullName_Is_Not_Empty
+        Message.Ho_Is_Not_Empty
+      );
+      return false;
+    }
+    if (!InputSignup.Ten) {
+      refNotification.current.showNotification(
+        "warning",
+        Message.Ten_Is_Not_Empty
       );
       return false;
     }
@@ -79,24 +87,10 @@ const DangKy = (props: Props) => {
       );
       return false;
     }
-    if (!InputSignup.UserName) {
-      refNotification.current.showNotification(
-        "warning",
-        Message.UserName_Is_Not_Empty
-      );
-      return false;
-    }
     if (!InputSignup.Password) {
       refNotification.current.showNotification(
         "warning",
         Message.Password_Is_Not_Empty
-      );
-      return false;
-    }
-    if (!InputSignup.Email) {
-      refNotification.current.showNotification(
-        "warning",
-        Message.Email_Is_Not_Empty
       );
       return false;
     }
@@ -114,7 +108,7 @@ const DangKy = (props: Props) => {
       );
       return false;
     }
-    if (!Regular.email(InputSignup.Email)) {
+    if (!Regular.email(InputSignup.UserName)) {
       refNotification.current.showNotification(
         "warning",
         Message.Email_Is_Not_Format
@@ -133,12 +127,18 @@ const DangKy = (props: Props) => {
   };
   const Signup = async () => {
     if (ValidateForm()) {
-      let res: IResponseMessage = await props.UserSignup(InputSignup);
+      let result:any = {...InputSignup}
+      result.Fullname = result.Ho + " " + result.Ten
+      result.Email = result.UserName
+      delete result.Ten
+      delete result.Ho
+      let res: IResponseMessage = await props.UserSignup(result);
 
       if (res && res.Success) {
         refNotification.current.showNotification("success", res.Message);
         setInputSignup({
-          FullName: "",
+          Ho: "",
+          Ten:"",
           UserName: "",
           Password: "",
           Email: "",
@@ -146,7 +146,7 @@ const DangKy = (props: Props) => {
           Address: "",
           Type: UserType.Public,
         });
-        history.push("/trang-chu");
+        // history.push("/dang-nhap");
       }
     }
   };
@@ -163,7 +163,7 @@ const DangKy = (props: Props) => {
     if (key === "Phone") {
       setInputSignup({
         ...InputSignup,
-        [key]: `+84 ${e.target.value}`,
+        [key]: `${e.target.value}`,
       });
     } else {
       setInputSignup({
@@ -176,6 +176,8 @@ const DangKy = (props: Props) => {
   const goToSignIn = () => {
     history.push("/dang-nhap");
   };
+
+ 
 
   return (
     <div
@@ -201,21 +203,37 @@ const DangKy = (props: Props) => {
                   <h3 className="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Đăng ký</h3>
 
                   <div className="px-md-2">
-                    <div className="form-outline mb-4">
-                      <input
-                        type="text"
-                        placeholder="Họ và Tên(*)"
-                        onChange={(e: any) => {
-                          onChange("FullName", e);
-                        }}
-                        className="form-control"
-                      />
+                    <div className="row">
+                      <div className="col-md-6 mb-4">
+                        <div className="input-group ">
+                          <input
+                            type="text"
+                            placeholder="Họ(*)"
+                            onChange={(e: any) => {
+                              onChange("Ho",e);
+                            }}
+                            className="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6 mb-4">
+                        <div className="input-group ">
+                          <input
+                            type="text"
+                            placeholder="Tên(*)"
+                            onChange={(e: any) => {
+                              onChange("Ten",e);
+                            }}
+                            className="form-control"
+                          />
+                        </div>
+                      </div>
                     </div>
 
                     <div className="form-outline mb-4">
                       <input
                         type="text"
-                        placeholder="Tên đăng nhập(*)"
+                        placeholder="Email(*)"
                         onChange={(e: any) => {
                           onChange("UserName", e);
                         }}
@@ -226,7 +244,7 @@ const DangKy = (props: Props) => {
                     <div className="form-outline mb-4">
                       <input
                         type="text"
-                        placeholder="Địa chỉ(*)"
+                        placeholder="Địa chỉ"
                         onChange={(e: any) => {
                           onChange("Address", e);
                         }}
@@ -235,23 +253,8 @@ const DangKy = (props: Props) => {
                     </div>
 
                     <div className="row">
-                      <div className="col-md-6 mb-4">
-                        <div className="form-outline datepicker">
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Email(*)"
-                            onChange={(e: any) => {
-                              onChange("Email", e);
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-6 mb-4">
+                      <div className="col-md-12 mb-4">
                         <div className="input-group ">
-                          <span className="input-group-text" id="basic-addon1">
-                            +84
-                          </span>
                           <input
                             type="text"
                             className="form-control"
@@ -341,7 +344,7 @@ const DangKy = (props: Props) => {
                         style={{ fontSize: "calc(1rem * 0.8)" }}
                       >
                         <input
-                          className="form-check-input"
+                          className="form-check-input checkbox-check"
                           onChange={(e) => {
                             setCheck(e.target.checked);
                           }}

@@ -8,6 +8,14 @@ const KhoaHocService = {
     });
     return res;
   },
+  GetChonKhoaHoc: async (data: any) => {
+    let res: any = await request({
+      url: `/${Por_KhoaHoc}/ChonVaoGioHang`,
+      method: "post",
+      data
+    });
+    return res;
+  },
   GetKhoaHocTheoIdMonHocPortal: async (id: String) => {
     let res: any = await request({
       url: `/${Por_KhoaHoc}/TheoMonHoc?idMonHoc=${id}`,

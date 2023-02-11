@@ -15,6 +15,13 @@ const QuanLyAnhService = {
     });
     return res;
   },
+  GetDsVideoByIdNhomAnh: async (IdNhomAnh:any) => {
+    let res: any = await request({
+      url: `/${Por_Anh}/List?page=1&pageSize=10&totalLimitItems=1000&searchBy=IdNhomAnh%3D%22${IdNhomAnh}%22`,
+      method: "get",
+    });
+    return res;
+  },
   GetCategories: async () => {
     let res: any = await request({
       url: `/${Por_Anh}/Categories`,

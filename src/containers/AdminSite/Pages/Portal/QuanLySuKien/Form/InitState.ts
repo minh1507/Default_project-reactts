@@ -14,6 +14,7 @@ export interface IModelItem {
   TrangThai: Number;
 }
 export interface IState {
+  ItemAnhs: any;
   DataItem: IModelItem;
   Options: IControlOptions[];
 }
@@ -30,5 +31,6 @@ export const InitState: IState = {
     TrangThaiBanGhi: true,
     TrangThai: 1,
   },
+  ItemAnhs: [],
   Options: [],
 };

@@ -1,5 +1,6 @@
 export interface IModelItem {
   Id: String;
+  Ma: String;
   TieuDe: String;
   TrangThaiBanGhi: String;
 }

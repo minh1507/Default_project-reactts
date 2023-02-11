@@ -52,7 +52,7 @@
     {
       "Key": "URL_Video",
       "Title": "Đường dẫn video",
-      "Type": "InputText",
+      "Type": "InputTextSearch",
       "Row": 5,
       "ColLabel": 2,
       "ColControl": 10,
@@ -85,6 +85,14 @@
       "TitleTooltip": "",
       "Icon": "",
       "Action": "onClickRefesh"
+    },
+    {
+      "Key": "Copy",
+      "Title": "Sao chép",
+      "Type": "Submit",
+      "TitleTooltip": "",
+      "Icon": "",
+      "Action": "onClickCopy"
     },
     {
       "Key": "Append",

@@ -1,3 +1,4 @@
+import { Guid } from "common/Enums";
 import { InitState, IState } from "./InitState";
 export const Reducer = (state: IState = InitState, action: any) => {
   switch (action.type) {
@@ -6,14 +7,35 @@ export const Reducer = (state: IState = InitState, action: any) => {
       nodeTree[0].Children = action.item;
       return {
         ...state,
-        Tree : nodeTree
-      };      
-    case "GetItem":
+        Tree: nodeTree,
+      };
+    case "GetItemsVideo":
+      return {
+        ...state,
+        ItemVideos: [...action.item],
+      };
+    case "setURL_VideoGiaoAnThucHanh":
+      return {
+        ...state,
+        Item: {
+          ...state.Item,
+          URL_Video: action.item,
+        },
+      };
+    case "CopyItem":
       return {
         ...state,
         Item : {
-          ...action.item
+          ...state.Item, 
+          Id: Guid.Empty
         }
+      };
+    case "GetItem":
+      return {
+        ...state,
+        Item: {
+          ...action.item,
+        },
       };
     default:
       return state;

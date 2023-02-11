@@ -1,11 +1,18 @@
 #app-portal {
   // start footer
   font-family: "SF Pro Display";
+  background-color: #F0F2F5;
   .cursor-pointer {
     cursor: pointer !important;
   }
   .tieu-de {
     font-weight: 700 !important;
+  }
+  .pl-0 {
+    padding-left: 0;
+  }
+  .pr-0 {
+    padding-right: 0;
   }
   .text_f {
     color: white;
@@ -149,6 +156,43 @@
   .headers {
     height: 100px;
     background-color: white;
+    position: relative;
+    transition: 0.3s ease-in-out;
+  }
+
+  .search_header_bar-ava{
+    position: absolute;
+    padding: 8px 0;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background-color: white;
+  }
+
+  .dive-ava{
+    z-index: 1;
+  }
+
+  .d-cap-ajs{
+    border-top: 1px solid gainsboro;
+    padding-top: 8px;
+    z-index: 1;
+  }
+
+  .text-tt-dd{
+    text-transform: uppercase;
+  }
+
+  .container_search_header_bar-ava{
+    padding-left: 16px;
+    border-radius: 4px;
+    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 3px;
+  }
+
+  .input_search_header_bar-ava{
+    outline: none;
+    width: 100%;
+    border: none;
   }
 
   .header_top {
@@ -861,13 +905,15 @@
       width: 95% !important;
     }
   }
+  .mob_view {
 
-  @media screen and (max-width: 768px) {
-    .mob_view {
-      overflow: scroll !important;
-      overflow-x: scroll !important;
-    }
   }
+  // @media screen and (max-width: 768px) {
+  //   .mob_view {
+  //     overflow: scroll !important;
+  //     overflow-x: scroll !important;
+  //   }
+  // }
 
   .remove:hover {
     color: red !important;
@@ -1545,6 +1591,7 @@
     border-radius: 0 !important;
     border: none !important;
   }
+  
   .item-mon-hoc {
     color: #1c1d1f;
     display: flex;
@@ -1718,12 +1765,16 @@
     --_p: 100%;
   }
   .img_card_tc {
-    height: 100%;
-    width: 200px;
-    aspect-ratio: 3/2;
-    object-fit: cover;
+    width: 100%;
+    height: 130px;
   }
-
+  .form-check-input {
+    font-size: 25px;
+    margin-top: 50px;
+  }
+  .gio-hang-mg-top {
+    margin-top: 35px;
+  }
   .khoa-hoc-header {
     margin-bottom: 16px;
     .text-kh-header {
@@ -1749,6 +1800,7 @@
     cursor: pointer;
     align-items: center;
     border-radius: 5px;
+    background-color: white;
   }
 
   .kh-search-icon-active {
@@ -1871,6 +1923,7 @@
     align-items: center;
     font-weight: bold;
     padding: 0 16px;
+    background: white;
   }
 
   .slide-element:hover {
@@ -2005,7 +2058,7 @@
         margin-bottom: 10px;
       }
       .img-head-lefta {
-        padding-left: 5px;
+        padding-left: 10px;
         width: 55%;
       }
       .img-head-righta {
@@ -2097,7 +2150,7 @@
     margin-top: 30px;
     margin-bottom: 30px !important;
     border-radius: 15px;
-    background-color: #eeeeee;
+    background-color: #e0dddd;
     padding: 50px;
   }
 
@@ -2391,10 +2444,13 @@
   }
   .nhom-su-kien {
     .nav-link {
+      background-color: white;
       font-size: 15px;
       font-weight: bold;
       cursor: pointer;
       color: #000;
+      margin-left: 0.2px;
+      margin-right: 0.2px;
     }
     .active {
       color: #dc3545;
@@ -2470,12 +2526,23 @@
     margin-bottom: 0px !important;
   }
   .card-image-kh {
-    height: 145px;
+    // height: 145px;
+    aspect-ratio: 3/2;
   }
   .editor-content {
     img {
       width: 100% !important;
     }
+  }
+
+  .container-inp-uej{
+    padding: 5px 5px;
+    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 2px;
+    border-radius: 15px;
+  }
+  .inp-uej{
+    border: none;
+    outline: none;
   }
   .treeview {
     border-top: 1px solid #f1f1f1;
@@ -2500,6 +2567,112 @@
     .bi-eye-fill {
       font-size: 14px;
       margin-left: 5px;
+    }
+  }
+  .checkbox-check{
+    font-size: calc(0.8rem) !important;
+    margin-top: 2px !important;
+  }
+  .checkbox-checks{
+    font-size: calc(0.8rem) !important;
+    margin-top: 5px !important;
+  }
+
+  .container-canhan{
+    padding: 30px 0;
+  }
+
+  .li-canhan{
+    background-color: white;
+    padding: 16px 20px;
+    border: 1px solid #eeeeee;
+    list-style-type: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #afb3ba;
+  }
+
+  .li-canhan:hover{
+    color: gray;
+  }
+
+  .li-canhan-active{
+    color: black;
+  }
+
+  .li-canhan-active:hover{
+    color: black;
+  }
+
+  .li-canhan:first-child{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .btn-avatar-canhan:hover{
+    box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 3px;
+    border: none;
+  }
+
+  .right-text-canhan{
+    margin-left: 16px;
+  }
+
+  .split-2-aba{
+    border: 1px solid gainsboro;
+    height: 70px;
+    width: 1px;
+    margin-left: 16px;
+  }
+
+  .split-2-abaa{
+    border: 1px solid gainsboro;
+    height: 100px;
+    width: 0.1px;
+    margin-left: 16px;
+  }
+  .child-img-canhan{
+    border-radius: 50%;
+  }
+
+  .img-canhan{
+    margin-top: 16px;
+    padding: 0.3%;
+    border-radius: 50%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  }
+
+  .btn-avatar-canhan{
+    margin-left: 16px;
+    height: 40px;
+    border: 1px solid gainsboro;
+    font-weight: 500;
+    color: rgba(190, 14, 14, 0.712);
+    border-radius: 8px;
+    width: 150px;
+    background-color: white;
+
+  }
+
+  .split-avat{
+    border: 1px solid gainsboro;
+  }
+
+  .tai-khoan-ca-nhan{
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px 16px;
+    width: 100%;
+  }
+
+  .li-canhan:last-child{
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .styles__FlexRow {
+    display: flex;
+    .item-info {
+      display: flex;
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Cookie } from 'common/Cookie';
+import { Storage } from 'common/Storage';
 import React, { useEffect, useRef, useState } from 'react'
 import { connect } from "react-redux";
 import CDynamicTableAjax from "components/CDynamicTableAjax";

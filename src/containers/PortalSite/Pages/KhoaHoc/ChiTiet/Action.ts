@@ -11,7 +11,7 @@ export const Actions: any = {
     });
   },
   CreateGioHang: async (data: any, dispatch: any) => {
-    let res: IResponseMessage = await GioHangService.CreateGioHang(data);
+    let res: IResponseMessage = null;
     return res;
   },
 };

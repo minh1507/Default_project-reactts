@@ -70,6 +70,7 @@ const KhoaHoc = (props: Props) => {
       });
     }
   }, [reLength]);
+  
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * 10) % state.Count;
@@ -84,6 +85,7 @@ const KhoaHoc = (props: Props) => {
     setAccName(name);
   };
 
+  
   const handleLoaiKhoaHoc = (Id: string) => {
     Actions.GetKhoaHocTheoLoaiKhoaHoc(Id, dispatch);
     setAccName("");
@@ -128,7 +130,7 @@ const KhoaHoc = (props: Props) => {
   };
 
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div>
       <div className="wrapper_img mb-3">
         <img className="mb-3" src={bg40} width="100%" height="auto" />
         <h1 className="reszex">KHÓA HỌC</h1>
@@ -431,10 +433,10 @@ const KhoaHoc = (props: Props) => {
                                 </div>
                                 <div className="col-sm-4">
                                   <p className="card-text gia-tien-kh-l marginBottom-5">
-                                    <span>{String.num(e.HocPhiGoc)}₫ </span>
+                                    <span>{e.HocPhiGiamGia < e.HocPhiGoc && e.HocPhiGiamGia > 0 ? <span>{String.num(e.HocPhiGiamGia)}₫</span> : <span>{String.num(e.HocPhiGoc)}₫</span>}</span>
                                   </p>
                                   <span className="gia-tien-giam-gias">
-                                    {String.num(e.HocPhiGiamGia)}₫
+                                  {e.HocPhiGiamGia < e.HocPhiGoc && e.HocPhiGiamGia > 0 && String.num(e.HocPhiGoc)}₫
                                   </span>
                                 </div>
                               </div>

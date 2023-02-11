@@ -19,9 +19,11 @@ export interface IModelTree {
 }
 export interface IState {
     Item: IModelItem,
-    Tree: IModelTree[]
+    Tree: IModelTree[],
+    ItemVideos: any,
 }
 export const InitState: IState = {
+    ItemVideos: [],
     Item: {
         Id: Guid.Empty,
         IdGiaoAnThucHanh: Guid.Empty,

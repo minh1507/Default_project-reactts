@@ -35,10 +35,10 @@ const Footer = (props: Props) => {
                     <p className="footer_text text_g">Email:
                         hocviendangquangmarathon@oao.vn</p>
                     <div className='f d-flex gap-2 icon_f'>
-                        <a href="#" className="header_link"><i className="fa-brands fa-square-facebook header_icon"></i></a>
-                        <a href="#" className="header_link"><i className="fa-brands fa-square-facebook header_icon"></i></a>
-                        <a href="#" className="header_link"><i className="fa-brands fa-square-facebook header_icon"></i></a>
-                        <a href="#" className="header_link"><i className="fa-brands fa-square-facebook header_icon"></i></a>
+                        <a href="#" className="header_link"><i className="bi bi-facebook"></i></a>
+                        <a href="#" className="header_link"><i className="bi bi-instagram"></i></a>
+                        <a href="#" className="header_link"><i className="bi bi-telegram"></i></a>
+                        <a href="#" className="header_link"><i className="bi bi-wechat"></i></a>
                     </div>
                 </div>
             </div>

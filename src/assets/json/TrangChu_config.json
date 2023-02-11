@@ -1,0 +1,28 @@
+{
+    "GioiThieu" : {
+        "TieuDe": "",
+        "MaNhomTinTuc": "",
+        "SoLuong": 0
+    },
+    "MonHoc": {
+        "TieuDe": "",
+        "DsMaMonHoc": []
+    },
+    "KhoaHoc": [
+        {
+            "MaMonHoc": "",
+            "MaLoai": "",
+            "SoLuong": 0
+        }
+    ],
+    "SuKien": {
+        "TieuDe": "",
+        "TinhTrang": [],
+        "SoLuong": 0
+    },
+    "TinTuc": {
+        "TieuDe": "",
+        "MaNhomTinTuc": "",
+        "SoLuong": 0
+    }
+}

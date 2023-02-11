@@ -39,7 +39,7 @@
     {
       "Key": "URL_AnhDaiDien",
       "Title": "Ảnh giới thiệu",
-      "Type": "InputText",
+      "Type": "InputTextSearch",
       "IsRequired": true,
       "Row": 4,
       "ColLabel": 2,

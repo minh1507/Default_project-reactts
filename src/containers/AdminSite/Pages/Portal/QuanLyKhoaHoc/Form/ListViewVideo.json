@@ -1,7 +1,7 @@
 {
   "DataGrid": {
-    "Key": "LoaiKhoaHoc",
-    "Title": "Danh sách loại khóa học",
+    "Key": "Video",
+    "Title": "Danh sách video",
     "ColumnDefs": [
       {
         "Key": "Ma",
@@ -9,18 +9,18 @@
         "Align": "center"
       },
       {
-        "Key": "TieuDe",
-        "Title": "Tiêu đề",
+        "Key": "Ten",
+        "Title": "Tên",
         "Align": "center"
       },
       {
-        "Key": "TrangThaiBanGhi",
-        "Title": "Trạng thái",
-        "Align": "center",
-        "Options": [
-          { "value": true, "label": "Hoạt động" },
-          { "value": false, "label": "Không hoạt động" }
-        ]
+        "Key": "ThoiLuong",
+        "Title": "Thời lượng",
+        "Align": "center"
+      },
+      {
+        "Key": "URL_Video",
+        "Hidden": true
       }
     ],
     "ActionDefs": [

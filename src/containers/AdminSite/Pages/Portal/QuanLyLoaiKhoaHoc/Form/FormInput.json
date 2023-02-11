@@ -1,14 +1,24 @@
 {
   "Key": "GiaoVien",
   "Title": "Giáo viên",
-  "Rows": 2,
+  "Rows": 3,
   "Controls": [
+    {
+      "Key": "Ma",
+      "Title": "Mã",
+      "Type": "InputText",
+      "IsRequired": true,
+      "Row": 1,
+      "ColLabel": 3,
+      "ColControl": 9,
+      "ColSpanControl": 12
+    },
     {
       "Key": "TieuDe",
       "Title": "Tiêu đề",
       "Type": "InputText",
       "IsRequired": true,
-      "Row": 1,
+      "Row": 2,
       "ColLabel": 3,
       "ColControl": 9,
       "ColSpanControl": 12
@@ -24,7 +34,7 @@
         { "value": true, "label": "Hoạt động" },
         { "value": false, "label": "Không hoạt động" }
       ],
-      "Row": 2,
+      "Row": 3,
       "ColLabel": 3,
       "ColControl": 9,
       "ColSpanControl": 12

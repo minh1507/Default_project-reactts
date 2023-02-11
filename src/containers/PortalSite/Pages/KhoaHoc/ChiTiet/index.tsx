@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import Comment from "../../General/comment";
 import { InitState } from "./InitState";
 import { Actions } from "./Action";
+import { Actions as GlobalActions } from "store/Global/Action";
 import { Reducer } from "./Reducer";
 import { useLocation } from "react-router-dom";
 import { String } from "common/String";
@@ -15,7 +16,9 @@ import { LabelPortal, Message } from "common/Enums";
 import CNotification from "components/CNotification";
 import createDOMPurify from 'dompurify'
 const DOMPurify = createDOMPurify(window)
-interface Props {}
+interface Props {
+  AddToCard:any
+}
 
 const ChiTiet = (props: Props) => {
   const history = useHistory();
@@ -24,6 +27,7 @@ const ChiTiet = (props: Props) => {
   const location = useLocation();
   const refNotification = useRef<any>();
 
+  
   useEffect(() => {
     // new YouTubeToHtml5();
     Actions.GetDetailKhoaHoc(location.state.id, dispatch);
@@ -34,13 +38,28 @@ const ChiTiet = (props: Props) => {
   };
 
   const addToCard = async () => {
-    let res: IResponseMessage = await Actions.CreateGioHang({
-      idKhoaHoc: state.DataDetail.Id,
-      giaTien: state.DataDetail.HocPhiGiamGia,
-    });
-    if (res.Success) {
-      refNotification.current.showNotification("success", Message.Add_To_Cart);
+    var cartInfo = sessionStorage.getItem("cart-info");
+    var cartExist = false;
+    var arrCartInfo:any = [];
+    if(cartInfo)
+    {
+      arrCartInfo = cartInfo.split(",");
+      for(let i = 0;i < arrCartInfo.length;i++)
+      {
+        if(arrCartInfo[i] == state.DataDetail.Id)
+        {
+          cartExist = true;
+        }
+      }
     }
+    if(!cartExist)
+    {
+      arrCartInfo.push(state.DataDetail.Id)
+    }
+
+    sessionStorage.setItem("cart-info", arrCartInfo.join(","));
+    props.AddToCard(arrCartInfo.length)
+    refNotification.current.showNotification("success", Message.Add_To_Cart);
   };
 
   const contentTab = () => {
@@ -81,10 +100,11 @@ const ChiTiet = (props: Props) => {
               <h4 className="text-danger tieu-de">
                 {state.DataDetail.TieuDe}
               </h4>
-              <iframe
+              <img
+              className="mb-2"
                 width="100%"
                 style={{aspectRatio: "16/9"}}
-                src={state.DataDetail.TieuDe}
+                src={state.DataDetail.URL_AnhDaiDien}
               />
               <div className="d-flex gap-4">
                 <p
@@ -157,7 +177,7 @@ const ChiTiet = (props: Props) => {
                 className="text-center mb-3"
                 style={{ margin: 0, fontStyle: "italic" }}
               >
-                BÀI VIẾT LIÊN QUAN
+                KHÓA HỌC NỔI BẬT
               </h4>
               <div className="row row-cols-1 row-cols-md-2 g-3 justify-content-center mb-3">
                 <div
@@ -295,7 +315,7 @@ const ChiTiet = (props: Props) => {
                       }}
                       className="btn btn-danger"
                     >
-                      MUA NGAY
+                      Đăng ký ngay
                     </button>
                     &ensp;
                     <button
@@ -304,7 +324,7 @@ const ChiTiet = (props: Props) => {
                       }}
                       className="btn btn-outline-danger"
                     >
-                      THÊM VÀO GIỎ
+                      Thêm vào giỏ hàng
                     </button>
                   </div>
                   <button
@@ -313,7 +333,7 @@ const ChiTiet = (props: Props) => {
                     }}
                     className="btn btn-link text-danger"
                   >
-                    HỌC THỬ
+                    Học thử
                   </button>
                 </div>
               </div>
@@ -326,6 +346,8 @@ const ChiTiet = (props: Props) => {
   );
 };
 const mapState = ({ ...state }) => ({});
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  AddToCard: GlobalActions.AddToCard
+};
 
 export default connect(mapState, mapDispatchToProps)(ChiTiet);

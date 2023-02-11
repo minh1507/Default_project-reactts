@@ -149,7 +149,7 @@ const KienThuc = (props: Props) => {
     );
   };
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div>
       <div className="wrapper_img">
         <img className="mb-3" src={bg40} width="100%" height="auto" />
         <h1 className="reszex">KIẾN THỨC</h1>

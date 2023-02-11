@@ -1,6 +1,6 @@
 export interface IState {
-    IsAuthenticated: boolean
+    CartQuantity: Number
 }
 export const InitState: IState = {
-    IsAuthenticated: false
+    CartQuantity: 0
 };  

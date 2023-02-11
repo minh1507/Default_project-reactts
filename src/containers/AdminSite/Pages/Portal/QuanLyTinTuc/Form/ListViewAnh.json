@@ -1,7 +1,7 @@
 {
   "DataGrid": {
-    "Key": "LoaiKhoaHoc",
-    "Title": "Danh sách loại khóa học",
+    "Key": "Anh",
+    "Title": "Danh sách anh",
     "ColumnDefs": [
       {
         "Key": "Ma",
@@ -9,18 +9,13 @@
         "Align": "center"
       },
       {
-        "Key": "TieuDe",
-        "Title": "Tiêu đề",
+        "Key": "Ten",
+        "Title": "Tên",
         "Align": "center"
       },
       {
-        "Key": "TrangThaiBanGhi",
-        "Title": "Trạng thái",
-        "Align": "center",
-        "Options": [
-          { "value": true, "label": "Hoạt động" },
-          { "value": false, "label": "Không hoạt động" }
-        ]
+        "Key": "URL_Anh",
+        "Hidden": true
       }
     ],
     "ActionDefs": [

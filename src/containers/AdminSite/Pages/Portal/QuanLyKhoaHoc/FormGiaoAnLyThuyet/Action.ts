@@ -99,5 +99,10 @@ export const Actions: any = {
                 SoThuTu: 0
             },
         });
+    },
+    CopyItem: (dispatch: any) => {
+        dispatch({
+            type: "CopyItem"
+        });
     }
 };

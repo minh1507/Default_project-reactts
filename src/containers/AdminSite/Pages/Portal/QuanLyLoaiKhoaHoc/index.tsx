@@ -106,7 +106,7 @@ const QuanLyLoaiKhoaHoc = (props: Props) => {
     <>
       <CConfirm
         ref={refConfirm_DeleteItem}
-        Title="Thao tác này sẽ xóa thông tin giáo viên này"
+        Title="Thao tác này sẽ xóa thông tin loại khóa học này"
         Ok={async () => {
           await DeleteById();
         }}

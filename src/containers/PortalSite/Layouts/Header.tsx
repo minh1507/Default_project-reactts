@@ -5,12 +5,13 @@ import { useHistory, useLocation } from "react-router-dom";
 import MenuService from "services/MenuService";
 import { IUserInfo } from "common/Models";
 import { Actions } from "store/Global/Action";
-import { Cookie } from "common/Cookie";
+import { Storage } from "common/Storage";
 import { Message } from "common/Enums";
 import CNotification from "components/CNotification";
 const { v4: uuidv4 } = require("uuid");
 
 interface Props {
+  global: any;
   UserLogout?: Function;
 }
 
@@ -36,8 +37,9 @@ const Header = (props: Props) => {
   const [item, setItem] = useState(1);
   const [tree, setTree] = useState<HTreePortal>(null);
   const refNotification = useRef<any>();
+  const [search, setSearch] = useState(false)
 
-  let userInfo: IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
+  let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
   const GoToOtherPage = (page: string) => {
     setchange(false);
     history.push(page);
@@ -118,6 +120,10 @@ const Header = (props: Props) => {
       </div>
     ));
 
+    const changSearch = () => {
+      setSearch(!search)
+    }
+
   const navbarMob =
     tree &&
     tree.Data?.map((tree: HData) => (
@@ -132,12 +138,21 @@ const Header = (props: Props) => {
         </h6>
       </li>
     ));
+  const cardCount = () => {
+    var cardInfo = Storage.getSession("cart-info");
+    if(!cardInfo)
+    {
+      return 0;
+    }
+    var arrCardInfo = cardInfo.split(",");
+    return arrCardInfo.length;
+  }
 
   return (
-    <div className="headers">
+    <div className={`headers`}>
       <CNotification ref={refNotification} />
-
-      <div className="header_top bg-danger text-light ">
+     
+      <div className="header_top bg-danger text-light">
         <div className="header_top_container container-xl d-flex align-items-center justify-content-between">
           <div className="header_top_mobile">
             <div
@@ -183,25 +198,25 @@ const Header = (props: Props) => {
           <span className="d-flex gap-2 align-items-center justify-content-center group_icon">
             <a href="#" className="header_link h-100">
               <i
-                className="fa-brands fa-square-facebook header_icon"
+                className="bi bi-facebook"
                 style={{ verticalAlign: "middle" }}
               ></i>
             </a>
             <a href="#" className="header_link h-100">
               <i
-                className="fa-brands fa-square-facebook header_icon"
+                className="bi bi-instagram"
                 style={{ verticalAlign: "middle" }}
               ></i>
             </a>
             <a href="#" className="header_link h-100">
               <i
-                className="fa-brands fa-square-facebook header_icon"
+                className="bi bi-telegram"
                 style={{ verticalAlign: "middle" }}
               ></i>
             </a>
             <a href="#" className="header_link h-100">
               <i
-                className="fa-brands fa-square-facebook header_icon"
+                className="bi bi-wechat"
                 style={{ verticalAlign: "middle" }}
               ></i>
             </a>
@@ -210,7 +225,7 @@ const Header = (props: Props) => {
       </div>
       <div className="header_bottom">
         <div className="container-xl d-flex justify-content-between align-items-center h-100 ">
-          <div className="d-flex align-items-center error">
+          {/* <div className="d-flex align-items-center error">
             <img src={logo} className="header_bottom_logo" />
             <div className="header_bottom_logo_option">
               <select
@@ -221,12 +236,23 @@ const Header = (props: Props) => {
                 <option value="EN">EN</option>
               </select>
             </div>
+          </div> */}
+          <div className="d-flex navbar_container_main ">
+            <img src={logo} className="header_bottom_logo" />
+            {navbar}
           </div>
-          <div className="d-flex navbar_container_main ">{navbar}</div>
+          <div>
+            <div className="container-inp-uej">
+              <input className="inp-uej" placeholder="Tìm kiếm"/>
+            </div>
+          </div>
           <div className="d-flex gap-3 align-items-center error_nav">
-            <a href="#" className="header_bottom_link">
-              <i className="bi bi-chat"></i>
-            </a>
+            {/* <span
+              style={{ cursor: "pointer", fontSize: "1.3rem" }}
+              className="header_bottom_link"
+            >
+              <i className="bi bi-search"></i>
+            </span> */}
             {userInfo && (
               <span
                 style={{ cursor: "pointer" }}
@@ -239,7 +265,7 @@ const Header = (props: Props) => {
                   style={{ fontSize: "calc(1rem*0.7)" }}
                   className="position-absolute top-100 start-100 translate-middle badge rounded-pill bg-danger"
                 >
-                  9+
+                  {cardCount()}{" +"}
                   <span className="visually-hidden">unread messages</span>
                 </span>
                 <i className="bi bi-cart" style={{ fontSize: "1.3rem" }}></i>
@@ -261,7 +287,7 @@ const Header = (props: Props) => {
                 </span>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
-                    <button className="dropdown-item" type="button">
+                    <button className="dropdown-item" type="button" onClick={() => {GoToOtherPage("/ca-nhan")}}>
                       Hồ sơ
                     </button>
                   </li>
@@ -323,7 +349,7 @@ const Header = (props: Props) => {
   );
 };
 const mapState = ({ ...state }) => ({
-  // UserLogout: Actions.UserLogout
+  global: state.global
 });
 const mapDispatchToProps = {
   UserLogout: Actions.UserLogout,

@@ -8,6 +8,13 @@ const Por_GiaoAnThucHanhService = {
     });
     return res;
   },
+  GetLinkVideoThucHanh: async (IdGiaoAn:any) => {
+    let res: any = await request({
+      url: `/${Por_GiaoAnThucHanh}/LinkVideo/GiaoAn/${IdGiaoAn}`,
+      method: "get",
+    });
+    return res;
+  },
   GetCategories: async () => {
     let res: any = await request({
       url: `/${Por_GiaoAnThucHanh}/Categories`,

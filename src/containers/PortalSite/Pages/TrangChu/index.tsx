@@ -37,7 +37,7 @@ import CNotification from "components/CNotification";
 import TuVanService from "services/TuVanService";
 import { IResponseMessage, IUserInfo } from "common/Models";
 import { String } from "common/String";
-import { Cookie } from "common/Cookie";
+import { Storage } from "common/Storage";
 
 interface Props {}
 
@@ -53,7 +53,7 @@ const TrangChu = (props: Props) => {
     NoiDung: "",
   });
   const refNotification = useRef<any>();
-  let userInfo: IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
+  let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
 
   const onChangeFormTuVan = (key: string, e: any) => {
     setTuVan({
@@ -145,7 +145,7 @@ const TrangChu = (props: Props) => {
   const gioiThieu = state.DataItemsTinTuc && (
     <div key={uuidv4()} className="main_sub_detal rout-zx mt-2">
       <div className="container-xl d-flex flex-column">
-        <h4 className="text-danger tieu-de">
+        <h4 className="text-danger tieu-de text-uppercase">
           {state.DataItemsTinTuc.TenNhomTinTuc}
         </h4>
         <div className="container-xl mt-3">
@@ -248,7 +248,7 @@ const TrangChu = (props: Props) => {
                       style={{ textAlign: "start" }}
                     >
                       <p
-                        className="card-title underline-head-tt"
+                        className="card-title underline-head-tt text-uppercase"
                         onClick={() => GoToOtherPage("/khoa-hoc")}
                       >
                         {tree.TenMonHoc}
@@ -397,15 +397,15 @@ const TrangChu = (props: Props) => {
                                 {item.HocPhiGoc != 0 ? (
                                   <span>
                                     {item.HocPhiGoc > item.HocPhiGiamGia ? (
-                                      <span>{String.num(item.HocPhiGoc)}</span>
+                                      <span>{String.num(item.HocPhiGiamGia)}</span>
                                     ) : (
                                       <span>
-                                        {String.num(item.HocPhiGiamGia)}
+                                        {String.num(item.HocPhiGoc)}
                                       </span>
                                     )}
                                   </span>
                                 ) : (
-                                  <span className={`decrease`}>Miễn phí </span>
+                                  <span className={`decrease`}>Miễn phí</span>
                                 )}
                               </span>
                               {item.HocPhiGiamGia <= item.HocPhiGoc &&
@@ -430,7 +430,7 @@ const TrangChu = (props: Props) => {
                                       textDecoration: "line-through",
                                     }}
                                   >
-                                    {String.num(item.HocPhiGiamGia)}₫
+                                    {String.num(item.HocPhiGoc)}₫
                                   </span>
                                 )}
                             </p>
@@ -666,7 +666,7 @@ const TrangChu = (props: Props) => {
   );
 
   return (
-    <div className="main_container" style={{ backgroundColor: "white" }}>
+    <div className="main_container">
       <CNotification ref={refNotification} />
       <div className="banner banner_btn_rout">
         <img src={banner} className="main_banner" />

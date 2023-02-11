@@ -15,7 +15,7 @@ import Page404 from "containers/AdminSite/Pages/Page404";
 import Profile from "containers/AdminSite/Pages/Profile";
 import Setting from "containers/AdminSite/Pages/Setting";
 import Support from "containers/AdminSite/Pages/Support";
-import { Cookie } from "common/Cookie";
+import { Storage } from "common/Storage";
 import { IUserInfo } from "common/Models";
 import Login from "containers/AdminSite/Pages/Login";
 import RestorePassword from "containers/AdminSite/Pages/RestorePassword";
@@ -119,7 +119,7 @@ const AdminRoute = (props: Props) => {
   };
 
   const IsRouteOfUser = (route: any) => {
-    let userInfo: IUserInfo = JSON.parse(Cookie.getCookie("UserInfo"));
+    let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
     if (userInfo && userInfo.UserName == "admin") return true;
     if (userInfo) {
       for (let i = 0; i < userInfo.Menus.length; i++) {

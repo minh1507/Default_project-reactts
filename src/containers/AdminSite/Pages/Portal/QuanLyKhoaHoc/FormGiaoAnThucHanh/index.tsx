@@ -4,31 +4,44 @@ import CButton from "components/CButton";
 import CDynamicButton from "components/CDynamicButton";
 import CDynamicForm from "components/CDynamicForm";
 import CTree from "components/CTree";
-import React, { useEffect, useReducer, useRef } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { connect } from "react-redux";
-import FormGiaoAnLyThuyetJson from "./FormInput.json";
+import FormGiaoAnThucHanhJson from "./FormInput.json";
 import { InitState } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
+import ListViewVideoJson from "./ListViewVideo.json";
 import { IResponseMessage } from "common/Models";
 import CNotification from "components/CNotification";
 import CConfirm from "components/CConfirm";
+import CDynamicTable from "components/CDynamicTable";
+import CSelect from "components/CSelect";
 interface Props {
   khoaHocId: any
 }
 
-const FormGiaoAnLyThuyet = (props: Props) => {
+const FormGiaoAnThucHanh = (props: Props) => {
   const [state, dispatch] = useReducer(Reducer, InitState);
   const MenuId_Tree = useRef(Guid.Empty)
   const refDynamicForm = useRef<any>();
   const refNotification = useRef<any>();
   const refConfirm_DeleteItem = useRef<any>();
-  let FormGiaoAnLyThuyet: any = FormGiaoAnLyThuyetJson;
+  const [showSearchVideo, setShowSearchVideo] = useState(false);
+  const refDynamicTableVideo = useRef<any>();
+  const [nhomVideo, setNhomVideo] = useState(null);
+  const [dsNhomVideo, setDsNhomVideo] = useState([]);
+  let ListViewVideo: any = ListViewVideoJson;
+  let FormGiaoAnThucHanh: any = FormGiaoAnThucHanhJson;
 
   useEffect(() => {
     if(props.khoaHocId && props.khoaHocId != Guid.Empty)
     {
       Actions.GetTree(props.khoaHocId, dispatch);
+      var getNhomVideo = (async () => {
+        var DsNhomVideo = await Actions.GetDsNhomVideo(dispatch);
+        setDsNhomVideo(DsNhomVideo)
+      })
+      getNhomVideo()
     }
   }, [])
   const RemoveHightlightToRootElement = () => {
@@ -58,6 +71,9 @@ const FormGiaoAnLyThuyet = (props: Props) => {
     }
   }
   const ActionEvents = {
+    onClickCopy: () => {
+      Actions.CopyItem(dispatch);
+    },
     onClickRefesh : () => {
       refDynamicForm.current.setFirstSubmit(false)
       Actions.RefeshItem(dispatch);
@@ -107,10 +123,36 @@ const FormGiaoAnLyThuyet = (props: Props) => {
     }  
 }
   // const ButtonGroupsRender = () => {
-  //   return <CDynamicButton actionDefs={FormGiaoAnLyThuyet.ActionDefs} actions={ActionEvents} />;
+  //   return <CDynamicButton actionDefs={FormGiaoAnThucHanh.ActionDefs} actions={ActionEvents} />;
   // }
   const ButtonGroupsRender_TreeMenu = () => {
     return <CButton title="Làm mới" onClick={() => {RefeshTree()}} />;
+  }
+  const OnChangeNhomVideo = (e:any) => {
+    Actions.GetDsVideoByIdNhomVideo(e, dispatch);
+  }
+  const onClickDynamicForm = (key:any) => {
+    if(key == "URL_Video")
+    {
+      setShowSearchVideo(true)
+    }
+  }
+  const ButtonGroupsRender_Video = () => {
+    return <>
+        <CButton icon={"check"} title="Chọn Video" 
+                onClick={() => { 
+                  if(!refDynamicTableVideo.current.getRowId())
+                  { refNotification.current.showNotification("warning", Message.Require_Row_Selection); return; }   
+                  var item = refDynamicTableVideo.current.getRowSelected();
+                  Actions.setURL_VideoGiaoAnThucHanh(item["0"][3], dispatch);
+                  setShowSearchVideo(false) 
+                }} />
+        <CButton icon={"d-arrow-left"} title="Quay lại" 
+                onClick={() => {  
+                  setShowSearchVideo(false)
+                  Actions.GetDsVideoByIdNhomVideo(null, dispatch); 
+                }} />
+    </>;
   }
   return (
     <>
@@ -129,15 +171,41 @@ const FormGiaoAnLyThuyet = (props: Props) => {
           </ACard>
         </div>
         <div className="col-sm-7">
+        {
+            showSearchVideo ?
+            <ACard title={"Tìm kiếm Video"} buttonGroups={ButtonGroupsRender_Video()}>
+              <div className="row">
+                <div className="col-sm-12">
+                  <CSelect key={"dsnhomvideo"} value={nhomVideo} placeholder="Danh sách nhóm video" filterable={false} multiple={false}
+                  options={dsNhomVideo} 
+                  keyOptions={{ label: "Ten", value: "Id" }}
+                  onChange={(e:any) => {OnChangeNhomVideo(e)}} />
+                </div>
+              </div>
+              <br />
+              <div className="row">
+                <div className="col-sm-12">
+                  <CDynamicTable
+                    ref={refDynamicTableVideo}
+                    id={ListViewVideo.DataGrid.Key}
+                    key={ListViewVideo.DataGrid.Key}
+                    columnDefs={ListViewVideo.DataGrid.ColumnDefs}
+                    dataItems={state.ItemVideos}
+                  />
+                </div>
+              </div>
+            </ACard>:
           <ACard title={"Nhập thông tin giáo án thực hành"}>
             <CDynamicForm
+            
               ref={refDynamicForm}
               options={[]}
               initValues={state.Item}
-              formDefs={FormGiaoAnLyThuyet}
+              formDefs={FormGiaoAnThucHanh}
               actionEvents={ActionEvents}
+              onclick={onClickDynamicForm}
             />
-          </ACard>
+          </ACard>}
         </div>
       </div>  
     </>
@@ -146,4 +214,4 @@ const FormGiaoAnLyThuyet = (props: Props) => {
 const mapState = ({ ...state }) => ({});
 const mapDispatchToProps = {};
 
-export default connect(mapState, mapDispatchToProps)(FormGiaoAnLyThuyet);
+export default connect(mapState, mapDispatchToProps)(FormGiaoAnThucHanh);

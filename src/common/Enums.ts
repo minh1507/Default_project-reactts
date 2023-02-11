@@ -3,6 +3,8 @@ export enum Message {
   UserName_Is_Not_Empty = "Tên đăng nhập không được để trống !",
   Password_Is_Not_Empty = "Mật khẩu không được để trống !",
   FullName_Is_Not_Empty = "Họ và tên không được để trống !",
+  Ten_Is_Not_Empty = "Tên không được để trống !",
+  Ho_Is_Not_Empty = "Họ không được để trống !",
   Email_Is_Not_Empty = "Email không được để trống !",
   Email_Is_Not_Format = "Email không đúng định dạng !",
   Phone_Is_Not_Empty = "SĐT không được để trống !",
