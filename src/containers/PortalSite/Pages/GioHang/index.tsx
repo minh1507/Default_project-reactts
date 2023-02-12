@@ -1,19 +1,33 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { connect } from "react-redux";
-import ban from "assets/img/banner.jpg";
 import { useHistory } from "react-router-dom";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
 import { InitState } from "./InitState";
 import { String } from "common/String";
+import CNotification from "components/CNotification";
+import { Message } from "common/Enums";
+const { v4: uuidv4 } = require("uuid");
 
 interface Props {}
 const GioHang = (props: Props) => {
   const history = useHistory();
   const [state, dispatch] = useReducer(Reducer, InitState);
+  const [arr, setArr] = useState([])
+  const refNotification = useRef<any>();
 
   const gotoThanhToan = () => {
-    history.push("/thanh-toan");
+    if(state.Totalpre > 0)
+    {
+      history.push({pathname:"/thanh-toan", state: {arr: arr}, search: uuidv4()});
+      console.log(arr)
+    }else{
+      refNotification.current.showNotification(
+        "warning",
+        Message.XAC_NHAN_THANH_THOAN_THAT_BAI
+      );
+    }
+    
   };
 
   useEffect(() => {
@@ -55,18 +69,49 @@ const GioHang = (props: Props) => {
     Actions.GetGioHangs([], dispatch);
   }
 
-  const onCheck = (e: any, ie: any, HocPhiGiamGia:any, HocPhiGoc:any) => {
+  const onCheck = (e: any, ie: any, HocPhiGiamGia:any, HocPhiGoc:any, Id: any) => {
+    if(e.target.checked) {
+      let check = arr.find(element => element == Id);
+      if(!check)
+      {
+        setArr([...arr,Id])
+      }
+      
+    }
+    else{
+      let index = arr.indexOf(Id)
+      let data = arr
+      let temp = data[index]
+      data[index] = data[0]
+      data[0] = temp
+      data.shift()
+      setArr(data)
+    }
     Actions.ChangeData(e.target.checked, ie, HocPhiGiamGia, HocPhiGoc, dispatch);
   }
 
   const changeAll = (e: any) => {
+    
+    if(e.target.checked){
+      var cartInfo = sessionStorage.getItem("cart-info");
+      if(cartInfo){
+        const output = cartInfo.split(",");
+        setArr(output)
+      }  
+    }
+    else{
+      setArr([])
+    }
     Actions.ChangeAll(e.target.checked,dispatch)
   }
 
+  
+
   return (
     <div className="mt-4">
+      <CNotification ref={refNotification} />
       <h4 className="text-danger text-center tieu-de mb-3">{"Giỏ hàng"}</h4>
-      <div className="container-xl">
+      <div className="container-xl mb-3">
         <div className="row">
           <div className="col-sm-8">
             <div className="row mb-2">
@@ -110,13 +155,13 @@ const GioHang = (props: Props) => {
                   {state.DataItem &&
                     state.DataItem.map((data: any, ie: any) => {
                       return (
-                        <div className="row mb-3">
+                        <div key={uuidv4()} className="row mb-3">
                           <div className="col-sm-1">
                             <input
                               className="form-check-input"
                               type="checkbox"
                               id={`${data.Id}`}
-                              onChange={(e)=> {onCheck(e, ie, data.HocPhiGiamGia, data.HocPhiGoc)}}
+                              onChange={(e)=> {onCheck(e, ie, data.HocPhiGiamGia, data.HocPhiGoc, data.Id)}}
                               checked={data.Check}
                             />
                           </div>
