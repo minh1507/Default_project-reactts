@@ -300,7 +300,7 @@ const TrangChu = (props: Props) => {
 
             <div className="main_sub_detal tieu-de-ava pt-0 mb-2">
               <div className="container d-flex flex-column">
-                <h4 className="text-danger tieu-de tieude-avb">
+                <h4 className="text-danger tieu-de tieude-avb ">
                   {tree.TenMonHoc}
                 </h4>
                 <div className="container uoy-tt mt-1">
@@ -309,7 +309,7 @@ const TrangChu = (props: Props) => {
                       <div
                         key={uuidv4()}
                         title={`${item.TieuDe}`}
-                        className="col change-tt-aba"
+                        className="col-sm-4 change-tt-aba"
                       >
                         <div
                           className="card card_main_container wrapper_c"
