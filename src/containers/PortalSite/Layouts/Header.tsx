@@ -254,7 +254,7 @@ const Header = (props: Props) => {
             >
               <i className="bi bi-search"></i>
             </span> */}
-            {userInfo && (
+            {/* {userInfo && ( */}
               <span
                 style={{ cursor: "pointer" }}
                 onClick={() => {
@@ -271,7 +271,7 @@ const Header = (props: Props) => {
                 </span>
                 <i className="bi bi-cart" style={{ fontSize: "1.3rem" }}></i>
               </span>
-            )}
+            {/* )} */}
 
             {userInfo ? (
               <div className="btn-group ">

@@ -2684,5 +2684,29 @@
       display: flex;
     }
   }
+
+ .lb-fr{
+  display: inline-block !important;
+  width: 100%;
+ }
+ .lb-ada{
+  font-weight: 500;
+ }
+
+ .lb-btna{
+  border: none;
+  background-color: #f26c4f;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 0;
+ }
+
+ .lb-btna:hover{
+  background-color: #f26d4fea;
+ }
+
+ .dda-lb{
+  padding: unset !important;
+ }
 }
 
