@@ -81,5 +81,20 @@ const QuanLyAnhService = {
     });
     return res;
   },
+  GetXacNhanThanhToan: async (data: any) => {
+    let res: any = await request({
+      url: `/Por_GioHang/XacNhanThanhToan`,
+      method: "post",
+      data
+    });
+    return res;
+  },
+  GetInfor: async () => {
+    let res: any = await request({
+      url: `/Sys_Account/Info`,
+      method: "get"
+    });
+    return res;
+  },
 };
 export default QuanLyAnhService;

@@ -19,15 +19,44 @@ const GioHang = (props: Props) => {
   const [arr, setArr] = useState([]);
   const refNotification = useRef<any>();
   let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
+  const [Input, setInput] = useState({
+    FullName: "",
+    Email: "",
+    Phone: "",
+  });
 
+  const onChangeCap = (e:any, name: any) => {
+    setInput({
+      ...Input,
+      [name]: e.target.value
+    })
+  }
   const gotoThanhToan = () => {
     if (state.Totalpre > 0) {
-      history.push({
-        pathname: "/thanh-toan",
-        state: { arr: arr },
-        search: uuidv4(),
-      });
-      console.log(arr);
+      if(!userInfo){
+        if(Input.Email && Input.FullName && Input.Phone){
+          history.push({
+            pathname: "/thanh-toan",
+            state: { arr: arr, info: {fullname:Input.FullName, email: Input.Email, phone: Input.Phone } },
+            search: uuidv4(),
+          });
+        }
+        else{
+          refNotification.current.showNotification(
+            "warning",
+            "Hãy điền đủ thông tin"
+          );
+        }
+      }
+      else{
+        history.push({
+          pathname: "/thanh-toan",
+          state: { arr: arr },
+          search: uuidv4(),
+        });
+      }
+     
+     
     } else {
       refNotification.current.showNotification(
         "warning",
@@ -35,6 +64,10 @@ const GioHang = (props: Props) => {
       );
     }
   };
+
+  const goToOtherPage = () => {
+    history.push("dang-nhap");
+  }
 
   useEffect(() => {
     var cartInfo = sessionStorage.getItem("cart-info");
@@ -129,6 +162,7 @@ const GioHang = (props: Props) => {
                     className="card-body"
                     style={{ paddingTop: 10, paddingBottom: 10 }}
                   >
+                    <h4 className="text-center">Thông tin đăng ký</h4>
                     <div className="row">
                       <div className="input-group mb-2 dda-lb">
                         <label className="lb-fr lb-ada">
@@ -139,6 +173,7 @@ const GioHang = (props: Props) => {
                             placeholder="Họ và tên"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
+                            onChange={(e) => {onChangeCap(e, "FullName")}}
                           />
                         </label>
                       </div>
@@ -151,6 +186,7 @@ const GioHang = (props: Props) => {
                             placeholder="Email"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
+                            onChange={(e) => {onChangeCap(e, "Email")}}
                           />
                         </label>
                       </div>
@@ -163,12 +199,14 @@ const GioHang = (props: Props) => {
                             placeholder="Điện thoại"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
+                            onChange={(e) => {onChangeCap(e, "Phone")}}
                           />
                         </label>
                       </div>
-                      <button className="lb-btna mb-2">Tiếp theo</button>
-                      <h6 className="dda-lb">
-                        Bạn đã có tài khoản? Hãy <a href="/">đăng nhập</a> để
+                      {/* <button className="lb-btna mb-2">Tiếp theo</button> */}
+                      <h6 className="dda-lb text-end dda-text-lb"
+                      >
+                        Bạn đã có tài khoản? Hãy <a className="dda-a-text-lb" onClick={() => {goToOtherPage()}}>đăng nhập</a> để
                         nhận nhiều ưu đãi hơn.
                       </h6>
                     </div>

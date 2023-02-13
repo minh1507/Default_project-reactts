@@ -2708,5 +2708,17 @@
  .dda-lb{
   padding: unset !important;
  }
+
+ .dda-text-lb{
+  font-size: 0.9rem;
+ }
+
+ .dda-a-text-lb{
+  color: rgb(57, 57, 240);
+  cursor: pointer;
+ }
+ .dda-a-text-lb:hover{
+  color: rgb(240, 57, 57);
+ }
 }
 

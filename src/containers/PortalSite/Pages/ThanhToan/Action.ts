@@ -16,5 +16,13 @@ export const Actions: any = {
       type: "GetThanhToan",
       items: res.Data,
     });
+  },
+  GetXacNhanThanhToan: async (data: any,dispatch: any) => {
+    let res: IResponseMessage = await ThanhToanService.GetXacNhanThanhToan(data);
+    return res
+  },
+  GetInfor: async (inf: any,dispatch: any) => {
+    let res: IResponseMessage = await ThanhToanService.GetInfor();
+    return res
   }
 };
