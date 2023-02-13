@@ -1,7 +1,7 @@
 {
   "DataGrid": {
-    "Key": "Anh",
-    "Title": "Danh sách ảnh",
+    "Key": "ThanhToan",
+    "Title": "Danh thông tin thanh toán",
     "ColumnDefs": [
       {
         "Key": "TenNganhang",

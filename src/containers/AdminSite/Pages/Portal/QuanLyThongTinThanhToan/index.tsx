@@ -59,7 +59,7 @@ const QuanLyThanhToan = (props: Props) => {
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog style={{width: "450px", top: "5%"}} title={thanhToanId ? "Sửa ảnh": "Tạo mới ảnh"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog style={{width: "450px", top: "5%"}} title={thanhToanId ? "Sửa thông tin thanh toán": "Tạo mới thông tin thanh toán"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 <ThanhToanForm Id={thanhToanId} ReloadTableItems = {ReloadTableItems} />
             </CDialog>
             :<div></div>
