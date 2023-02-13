@@ -881,9 +881,9 @@ const TrangChu = (props: Props) => {
             <p className="mt-3" style={{ fontWeight: "bold" }}>
               Giới tính
             </p>
-            <div className="form-check form-check-inline">
+            <div className="form-check form-check-inline dd-aa-aba">
               <input
-                className="form-check-input"
+                className="tt-ds-asa-ava"
                 type="radio"
                 name="inlineRadioOptions"
                 id="gender1"
@@ -892,13 +892,13 @@ const TrangChu = (props: Props) => {
                   onChangeFormTuVan("GioiTinh", "0");
                 }}
               />
-              <label className="form-check-label" htmlFor="gender1">
+              <label className="form-check-label da-sac-scd" htmlFor="gender1">
                 Nam
               </label>
             </div>
-            <div className="form-check form-check-inline">
+            <div className="form-check form-check-inline dd-aa-aba">
               <input
-                className="form-check-input"
+                className="tt-ds-asa-ava"
                 type="radio"
                 name="inlineRadioOptions"
                 id="gender2"
@@ -911,9 +911,9 @@ const TrangChu = (props: Props) => {
                 Nữ
               </label>
             </div>
-            <div className="form-check form-check-inline">
+            <div className="form-check form-check-inline dd-aa-aba">
               <input
-                className="form-check-input"
+                className="tt-ds-asa-ava"
                 type="radio"
                 name="inlineRadioOptions"
                 id="gender3"
@@ -926,7 +926,7 @@ const TrangChu = (props: Props) => {
                 Khác
               </label>
             </div>
-            <div className="input-group flex-nowrap mt-3">
+            <div className="input-group flex-nowrap mt-2">
               <input
                 type="text"
                 className="form-control"
