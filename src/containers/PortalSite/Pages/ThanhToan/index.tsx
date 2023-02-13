@@ -39,7 +39,7 @@ const ThanhToan = (props: Props) => {
         chiTietThanhToans: state.DataItem
       }
       let res = await Actions.GetXacNhanThanhToan(datas, dispatch)
-      if(res){
+      if(res.Data){
         Storage.removeSession("cart-info");
         props.AddToCard(0);
         setXacNhanThanhCong(true);
@@ -69,7 +69,7 @@ const ThanhToan = (props: Props) => {
         chiTietThanhToans: state.DataItem
       }
       let res = await Actions.GetXacNhanThanhToan(datas, dispatch)
-      if(res){
+      if(res.Data){
         Storage.removeSession("cart-info");
         props.AddToCard(0);
         setXacNhanThanhCong(true);
@@ -77,7 +77,7 @@ const ThanhToan = (props: Props) => {
           "success",
           Message.XAC_NHAN_THANH_THOAN_THAT_BAI_B
         );
-        history.push('/trang-chu')
+        // history.push('/trang-chu')
         
       }
       else{
@@ -89,6 +89,7 @@ const ThanhToan = (props: Props) => {
       }
     }
   };
+
   const goToTrangChu = () => {
     history.push("/trạng-chu");
     window.scrollTo(0, 0);
