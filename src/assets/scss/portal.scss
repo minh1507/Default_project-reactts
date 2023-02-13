@@ -603,7 +603,7 @@
   }
 
   .style17 {
-    border-top: 1px solid #8c8b8b;
+    border-top: 1px solid lightgrey;
     text-align: center;
   }
   .style17:after {
@@ -1415,7 +1415,7 @@
 
   .wrapper_card {
     overflow: hidden;
-    height: 150px;
+    height: 185px;
     padding: 5px;
   }
 
@@ -2674,6 +2674,9 @@
     .item-info {
       display: flex;
     }
+  }
+  .khoi-khoahoc {
+    
   }
 }
 

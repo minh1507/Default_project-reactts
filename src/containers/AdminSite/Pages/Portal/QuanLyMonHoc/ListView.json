@@ -16,11 +16,13 @@
       {
         "Key": "GiaGiaoDongTu",
         "Title": "Giá giao động từ",
+        "Format": "money",
         "Align": "center"
       },
       {
         "Key": "GiaGiaoDongDen",
         "Title": "Giá giao động đến",
+        "Format": "money",
         "Align": "center"
       },
       {

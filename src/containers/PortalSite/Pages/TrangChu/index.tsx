@@ -293,12 +293,12 @@ const TrangChu = (props: Props) => {
   const khoaHoc =
     state.DataItemsKhoaHoc &&
     state.DataItemsKhoaHoc.map((tree: IModelGen) => (
-      <div key={uuidv4()}>
+      <div key={uuidv4()} className="khoi-khoahoc">
         {tree.DanhSachKhoaHoc.length > 0 && (
-          <div>
+          <>
             <div className="style17 container-xl"></div>
 
-            <div className="main_sub_detal tieu-de-ava pt-0 mb-2">
+            <div className="main_sub_detal tieu-de-ava pt-0 mb-1" style={{ marginLeft: 150, marginRight: 150 }}>
               <div className="container d-flex flex-column">
                 <h4 className="text-danger tieu-de tieude-avb ">
                   {tree.TenMonHoc}
@@ -456,7 +456,7 @@ const TrangChu = (props: Props) => {
                 </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     ));
