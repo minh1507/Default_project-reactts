@@ -77,7 +77,7 @@ const ThanhToan = (props: Props) => {
           "success",
           Message.XAC_NHAN_THANH_THOAN_THAT_BAI_B
         );
-        // history.push('/trang-chu')
+        history.push('/trang-chu')
         
       }
       else{
