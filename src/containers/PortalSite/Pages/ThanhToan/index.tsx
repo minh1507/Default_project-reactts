@@ -38,9 +38,9 @@ const ThanhToan = (props: Props) => {
   useEffect(() => {
     const output = location.state.arr.map((id: any) => ({ id }));
     Actions.GetGioHang(output, dispatch);
+    Actions.GetThanhToan(dispatch)
   }, []);
 
-  console.log(state);
 
   return (
     <div>
@@ -108,21 +108,21 @@ const ThanhToan = (props: Props) => {
                 >
                   <div className="col-sm-4 text-muted p-2">Ngân hàng:</div>
                   <div className="col-sm-8 bold p-2">
-                    BIDV- Ngân hàng BIDV chi nhánh Hai Bà Trưng
+                    {state.DataThanhToan && state.DataThanhToan.TenNganhang}
                   </div>
                   <div className="col-sm-4 text-muted p-2">Chủ thẻ:</div>
-                  <div className="col-sm-8 bold p-2">Đinh Quang Tiến</div>
+                  <div className="col-sm-8 bold p-2">{state.DataThanhToan && state.DataThanhToan.ChuThe}</div>
                   <div className="col-sm-4 text-muted p-2">
                     Nội dung chuyển khoản:
                   </div>
                   <div className="col-sm-8 bold p-2">
-                    [Họ tên] + [Số điện thoại] + [Tên khóa học]
+                  {state.DataThanhToan && state.DataThanhToan.NoiDungChuyenKhoan}
                   </div>
                 </div>
               </div>
               <div className="d-flex flex-column justify-content-center align-items-center">
                 <h4 className=" text-center mb-3">Quét mã QR</h4>
-                <img className="mb-5" src={qr} />
+                <img className="mb-5" src={state.DataThanhToan && state.DataThanhToan.URL_AnhQRCode} />
               </div>
             </div>
             <div className="d-flex justify-content-center align-items-center gap-3">

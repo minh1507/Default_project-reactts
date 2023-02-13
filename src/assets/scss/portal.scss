@@ -98,6 +98,7 @@
   }
 
   @media screen and (max-width: 768px) and (min-width: 472px) {
+
     .text_f:hover {
       opacity: unset;
       border-bottom: unset;
@@ -414,6 +415,12 @@
   }
 
   @media screen and (max-width: 768px) {
+    .navbar_container_main{
+      flex-grow: unset;
+    }
+    .show_catching{
+      display: none;
+    }
     .banner_btn_ri {
       display: none;
     }
@@ -2413,6 +2420,7 @@
     rgba(67, 60, 60, 0.15) 0px 1px 3px 1px;
     border-radius: 4px;
     margin-left: 5px;
+    background-color: white;
   }
   .pagi-kh-os ul li:first-child {
     box-shadow: rgb(67, 60, 60) 0px 1px 2px 0px,
@@ -2536,13 +2544,14 @@
   }
 
   .container-inp-uej{
-    padding: 5px 5px;
+    padding: 5px 8px;
     box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 2px;
     border-radius: 15px;
   }
   .inp-uej{
     border: none;
     outline: none;
+    margin-left: 8px;
   }
   .treeview {
     border-top: 1px solid #f1f1f1;

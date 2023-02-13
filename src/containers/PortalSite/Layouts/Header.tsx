@@ -243,6 +243,7 @@ const Header = (props: Props) => {
           </div>
           <div>
             <div className="container-inp-uej">
+              <i className="bi bi-search"></i>
               <input className="inp-uej" placeholder="Tìm kiếm"/>
             </div>
           </div>

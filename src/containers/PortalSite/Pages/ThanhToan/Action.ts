@@ -1,3 +1,4 @@
+import ThanhToanService from 'services/ThanhToanService';
 import { IResponseMessage } from "common/Models";
 import KhoaHocService from "services/KhoaHocService";
 
@@ -9,4 +10,11 @@ export const Actions: any = {
       items: res.Data,
     });
   },
+  GetThanhToan: async (dispatch: any) => {
+    let res: IResponseMessage = await ThanhToanService.GetItemsPortal();
+    dispatch({
+      type: "GetThanhToan",
+      items: res.Data,
+    });
+  }
 };
