@@ -47,11 +47,8 @@ const ThanhToan = (props: Props) => {
           "success",
           Message.XAC_NHAN_THANH_THOAN_THAT_BAI_B
         );
-        history.push('/trang-chu')
-        
       }
       else{
-        setXacNhanThanhCong(false);
         refNotification.current.showNotification(
           "warning",
           Message.XAC_NHAN_THANH_THOAN_THAT_BAI_A
@@ -76,12 +73,9 @@ const ThanhToan = (props: Props) => {
         refNotification.current.showNotification(
           "success",
           Message.XAC_NHAN_THANH_THOAN_THAT_BAI_B
-        );
-        history.push('/trang-chu')
-        
+        );        
       }
       else{
-        setXacNhanThanhCong(false);
         refNotification.current.showNotification(
           "warning",
           Message.XAC_NHAN_THANH_THOAN_THAT_BAI_A

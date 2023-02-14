@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { connect } from "react-redux";
+import { InitState } from "./InitState";
+import { Actions } from "./Action";
+import { Reducer } from "./Reducer";
 // import profile from "assets/img/profile.png";
 
 interface Props {}
 
 const CaNhan = (props: Props) => {
   const [change, setChange] = useState(1);
+  const [state, dispatch] = useReducer(Reducer, InitState);
 
   const onChanges = (num: number) => {
     setChange(num);
   };
+
+  useEffect(() => {
+    Actions.GetLichSuKhoaHoc(dispatch)
+    Actions.GetDachSachKhoaHoc(dispatch)
+  },[])
+  
   return (
     <div>
       <div className="container-xl container-canhan">
@@ -40,6 +50,14 @@ const CaNhan = (props: Props) => {
               >
                 <i className="bi bi-file-earmark-lock2-fill"></i> Mật khẩu và
                 bảo mật
+              </li>
+              <li
+                className={`li-canhan ${change === 4 && "li-canhan-active"}`}
+                onClick={() => {
+                  onChanges(4);
+                }}
+              >
+                <i className="bi bi-file-earmark-lock2-fill"></i> Khóa học
               </li>
             </ul>
           </div>
@@ -119,17 +137,26 @@ const CaNhan = (props: Props) => {
                   <table className="table align-middle">
                     <thead>
                       <tr>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
+                        <th>Stt</th>
+                        <th>Khóa học</th>
+                        <th>Học phí</th>
+                        <th>Thời hạn</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                      </tr>
+                      {state.DataLichSuGiaoDich &&
+                        state.DataLichSuGiaoDich.map(
+                          (value: any, index: any) => {
+                            return (
+                              <tr>
+                                <td>{index + 1}</td>
+                                <td>{value.TieuDe}</td>
+                                <td>{value.HocPhiGiamGia}</td>
+                                <td>{value.ThoiHan}</td>
+                              </tr>
+                            );
+                          }
+                        )}
                     </tbody>
                   </table>
                 </div>
@@ -144,29 +171,73 @@ const CaNhan = (props: Props) => {
                   <div>
                     <h5 className="mb-3">Đổi mật khẩu</h5>
                     <input
-                    type="text"
-                    className="form-control mb-2"
-                    placeholder="Mật khẩu mới"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  ></input>
-                   <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Nhập lại mật khẩu"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  ></input>
+                      type="text"
+                      className="form-control mb-2"
+                      placeholder="Mật khẩu mới"
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    ></input>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Nhập lại mật khẩu"
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    ></input>
                   </div>
-                  
+
                   <div className="split-2-abaa"></div>
                   <div className="right-text-canhan">
                     <p>Phải từ 8 ký tự trở lên</p>
-                    <p>Phải có ít nhất 1 chữ in hoa, 1 số và 1 ký tự đặc biệt</p>
+                    <p>
+                      Phải có ít nhất 1 chữ in hoa, 1 số và 1 ký tự đặc biệt
+                    </p>
                   </div>
-                  
                 </div>
-                <button type="button" className="btn btn-danger">Lưu thay đổi</button>
+                <button type="button" className="btn btn-danger">
+                  Lưu thay đổi
+                </button>
+              </div>
+            )}
+
+            {change == 4 && (
+              <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat d-flex justify-content-center">
+                {state.DataDanhSach.map(
+                  (tree: any) => (
+                    <div
+                      // key={uuidv4()}
+                      title={`${tree.TieuDe}`}
+                      className="col change-tt-aba"
+                    >
+                      <div
+                        className="card card_main_container  wrapper_c"
+                        style={{
+                          position: "relative",
+                        }}
+                      >
+                        <div className="wrapper_card">
+                          <img
+                            src={tree.URL_AnhDaiDien as string}
+                            className="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+
+                        <div
+                          className="card-body card_body_override card-bodys"
+                          style={{ textAlign: "start" }}
+                        >
+                          <p
+                            className="card-title underline-head-tt text-uppercase"
+                            // onClick={() => GoToOtherPage("/khoa-hoc")}
+                          >
+                            {tree.TieuDe}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                )}
               </div>
             )}
           </div>
