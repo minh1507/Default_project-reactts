@@ -1,18 +1,19 @@
 import request from "common/Request";
-const LichSuGiaoDichService = {
+const Por_HocVien = "Por_HocVien";
+const HocVienService = {
   GetLichSuGiaoDich: async () => {
     let res: any = await request({
-      url: `/LichSuGiaoDich`,
+      url: `/${Por_HocVien}/LichSuGiaoDich`,
       method: "get",
     });
     return res;
   },
   GetDanhSach: async () => {
     let res: any = await request({
-      url: `/DsKhoaHoc`,
+      url: `/${Por_HocVien}/DsKhoaHoc`,
       method: "get",
     });
     return res;
   },
 };
-export default LichSuGiaoDichService;
+export default HocVienService;

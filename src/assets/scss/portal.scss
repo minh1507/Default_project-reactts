@@ -238,6 +238,8 @@
 
   .header_bottom {
     height: 65%;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 
   .header_bottom_logo {
@@ -411,9 +413,6 @@
     .navbar_container_main {
       gap: 1rem;
     }
-  }
-  .con-tt-aab-aba{
-    padding: 24px;
   }
   .bido-search-aus{
     flex-grow: 1;

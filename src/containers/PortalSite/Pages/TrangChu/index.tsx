@@ -692,9 +692,9 @@ const TrangChu = (props: Props) => {
 
       {gioiThieu}
 
-      <div className="mt-2 mb-2" style={{ width: "100%", paddingTop: "30px" }}>
+      {/* <div className="mt-2 mb-2" style={{ width: "100%", paddingTop: "30px" }}>
         <img src={bg30} style={{ width: "100%", height: "auto" }} />
-      </div>
+      </div> */}
 
       {giaoan}
       {khoaHoc}
