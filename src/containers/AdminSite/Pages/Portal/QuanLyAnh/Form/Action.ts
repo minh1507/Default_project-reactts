@@ -8,7 +8,6 @@ export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
       let res: IResponseMessage = await QuanLyAnhService.GetItem(id);
-
       let Temp = res.Data.URL_Anh.split("\\");
       if (res && res.Success) {
         if (Temp[Temp.length - 1] && res.Data.URL_Anh) {

@@ -207,8 +207,10 @@ const CDynamicTable = forwardRef((props: Props, ref) => {
                         let valueDate = "";
                         try
                         {
-                            let date = new Date(value);
-                            valueDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear(); 
+                            if(value) {
+                                let date = new Date(value);
+                                valueDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear(); 
+                            }
                         }
                         catch {}
                         value = valueDate;

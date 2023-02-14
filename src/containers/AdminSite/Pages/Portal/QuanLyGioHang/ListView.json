@@ -37,11 +37,19 @@
       {
         "Key": "NgayThanhToan",
         "Title": "Ngày thanh toán",
+        "Format": "dd/MM/yyyy",
         "Align": "center"
       }
     ],
     "ActionDefs": [
-
+      {
+        "Key": "Show",
+        "Title": "",
+        "Type": "Button",
+        "TitleTooltip": "Xem chi tiết",
+        "Icon": "bi bi-eye-fill",
+        "Action": "onClickShow"
+      }
     ]
   }
 }
