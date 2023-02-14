@@ -166,7 +166,7 @@ const GioHang = (props: Props) => {
                     <div className="row">
                       <div className="input-group mb-2 dda-lb">
                         <label className="lb-fr lb-ada">
-                          Họ và tên
+                          Họ và tên <span className="text-danger">(*)</span>
                           <input
                             type="text"
                             className="form-control lb-fr"
@@ -179,7 +179,7 @@ const GioHang = (props: Props) => {
                       </div>
                       <div className="input-group mb-2 dda-lb">
                         <label className="lb-fr lb-ada ">
-                          Email
+                          Email <span className="text-danger">(*)</span>
                           <input
                             type="text"
                             className="form-control lb-fr"
@@ -192,7 +192,7 @@ const GioHang = (props: Props) => {
                       </div>
                       <div className="input-group mb-3 dda-lb">
                         <label className="lb-fr lb-ada">
-                          Điện thoại
+                          Điện thoại <span className="text-danger">(*)</span>
                           <input
                             type="text"
                             className="form-control lb-fr"
