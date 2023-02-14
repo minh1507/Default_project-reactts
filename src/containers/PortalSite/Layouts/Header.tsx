@@ -153,7 +153,7 @@ const Header = (props: Props) => {
       <CNotification ref={refNotification} />
      
       <div className="header_top bg-danger text-light">
-        <div className="header_top_container container-xl d-flex align-items-center justify-content-between">
+        <div className="header_top_container con-tt-aab-aba d-flex align-items-center justify-content-between">
           <div className="header_top_mobile">
             <div
               id="carouselExampleIndicators"
@@ -184,7 +184,7 @@ const Header = (props: Props) => {
               <span>
                 <i className="fa-solid fa-phone-volume"></i>
               </span>
-              <span className=" header_top_left_text">091 650 2783</span>
+              <span className=" header_top_left_text">091 658 2738</span>
             </span>
             <span className="header_top_left_child">
               <span>
@@ -224,7 +224,7 @@ const Header = (props: Props) => {
         </div>
       </div>
       <div className="header_bottom">
-        <div className="container-xl d-flex justify-content-between align-items-center h-100 ">
+        <div className="con-tt-aab-aba d-flex justify-content-between align-items-center h-100 ">
           {/* <div className="d-flex align-items-center error">
             <img src={logo} className="header_bottom_logo" />
             <div className="header_bottom_logo_option">
@@ -243,6 +243,7 @@ const Header = (props: Props) => {
           </div>
           <div>
             <div className="container-inp-uej">
+              <i className="bi bi-search"></i>
               <input className="inp-uej" placeholder="Tìm kiếm"/>
             </div>
           </div>
@@ -253,7 +254,7 @@ const Header = (props: Props) => {
             >
               <i className="bi bi-search"></i>
             </span> */}
-            {userInfo && (
+            {/* {userInfo && ( */}
               <span
                 style={{ cursor: "pointer" }}
                 onClick={() => {
@@ -270,7 +271,7 @@ const Header = (props: Props) => {
                 </span>
                 <i className="bi bi-cart" style={{ fontSize: "1.3rem" }}></i>
               </span>
-            )}
+            {/* )} */}
 
             {userInfo ? (
               <div className="btn-group ">

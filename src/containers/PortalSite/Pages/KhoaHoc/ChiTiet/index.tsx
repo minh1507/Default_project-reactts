@@ -84,6 +84,7 @@ const ChiTiet = (props: Props) => {
     history.push({pathname:"/khoa-hoc-thu", state: {id: location.state.id},search: `/${location.state.id}`});
   };
 
+  console.log(state)
   return (
     <div>
       <CNotification ref={refNotification} />
@@ -104,7 +105,7 @@ const ChiTiet = (props: Props) => {
               className="mb-2"
                 width="100%"
                 style={{aspectRatio: "16/9"}}
-                src={state.DataDetail.URL_AnhDaiDien}
+                src={state.DataDetail.URL_AnhChiTiet}
               />
               <div className="d-flex gap-4">
                 <p

@@ -19,6 +19,12 @@
       "isMenu": true
     },
     {
+      "code": "QuanLyThongTinThanhToan",
+      "url": "/quan-ly-thong-tin-thanh-toan",
+      "isLayout": true,
+      "isMenu": true
+    },
+    {
       "code": "QuanLyHocVien",
       "url": "/quan-ly-hoc-vien",
       "isLayout": true,
@@ -390,6 +396,12 @@
           "code": "QuanLyVideo",
           "name": "Quản lý video",
           "url": "/quan-ly-video",
+          "icon": "bi bi-grid"
+        },
+        {
+          "code": "QuanLyThongTinThanhToan",
+          "name": "Quản lý thông tin thanh toán",
+          "url": "/quan-ly-thong-tin-thanh-toan",
           "icon": "bi bi-grid"
         }
       ]

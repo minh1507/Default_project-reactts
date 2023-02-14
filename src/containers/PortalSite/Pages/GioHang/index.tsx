@@ -7,114 +7,213 @@ import { InitState } from "./InitState";
 import { String } from "common/String";
 import CNotification from "components/CNotification";
 import { Message } from "common/Enums";
+import { IUserInfo } from "common/Models";
+import { Cookie } from "common/Cookie";
 const { v4: uuidv4 } = require("uuid");
+import { Storage } from "common/Storage";
 
 interface Props {}
 const GioHang = (props: Props) => {
   const history = useHistory();
   const [state, dispatch] = useReducer(Reducer, InitState);
-  const [arr, setArr] = useState([])
+  const [arr, setArr] = useState([]);
   const refNotification = useRef<any>();
+  let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
+  const [Input, setInput] = useState({
+    FullName: "",
+    Email: "",
+    Phone: "",
+  });
 
+  const onChangeCap = (e:any, name: any) => {
+    setInput({
+      ...Input,
+      [name]: e.target.value
+    })
+  }
   const gotoThanhToan = () => {
-    if(state.Totalpre > 0)
-    {
-      history.push({pathname:"/thanh-toan", state: {arr: arr}, search: uuidv4()});
-      console.log(arr)
-    }else{
+    if (state.Totalpre > 0) {
+      if(!userInfo){
+        if(Input.Email && Input.FullName && Input.Phone){
+          history.push({
+            pathname: "/thanh-toan",
+            state: { arr: arr, info: {fullname:Input.FullName, email: Input.Email, phone: Input.Phone } },
+            search: uuidv4(),
+          });
+        }
+        else{
+          refNotification.current.showNotification(
+            "warning",
+            "Hãy điền đủ thông tin"
+          );
+        }
+      }
+      else{
+        history.push({
+          pathname: "/thanh-toan",
+          state: { arr: arr },
+          search: uuidv4(),
+        });
+      }
+     
+     
+    } else {
       refNotification.current.showNotification(
         "warning",
         Message.XAC_NHAN_THANH_THOAN_THAT_BAI
       );
     }
-    
   };
+
+  const goToOtherPage = () => {
+    history.push("dang-nhap");
+  }
 
   useEffect(() => {
     var cartInfo = sessionStorage.getItem("cart-info");
-    if(cartInfo){
+    if (cartInfo) {
       const output = cartInfo.split(",").map((id) => ({ id }));
       Actions.GetGioHang(output, dispatch);
-    }  
+    }
   }, []);
 
-  const deleteProduct = (id: String, ie:any) => {
+  const deleteProduct = (id: String, ie: any) => {
     var cartInfo = sessionStorage.getItem("cart-info");
-    if(cartInfo){
-      const output = cartInfo.split(",")
-      let index = output.findIndex((val:any) => val == id);
-      if(output.length > 1){
-        output[index] = output[0]
-        output.shift()
-        
-        if(output.length === 1)
-        {
+    if (cartInfo) {
+      const output = cartInfo.split(",");
+      let index = output.findIndex((val: any) => val == id);
+      if (output.length > 1) {
+        output[index] = output[0];
+        output.shift();
+
+        if (output.length === 1) {
           sessionStorage.setItem("cart-info", output[0].toString());
-        }
-        else{
+        } else {
           sessionStorage.setItem("cart-info", output.join(","));
         }
-        
-      }
-      else{
-        output.shift()
+      } else {
+        output.shift();
         sessionStorage.setItem("cart-info", "");
       }
-      Actions.restore(ie, dispatch)
-    }  
-  }
+      Actions.restore(ie, dispatch);
+    }
+  };
 
   const deleteAll = () => {
     sessionStorage.setItem("cart-info", "");
     Actions.GetGioHangs([], dispatch);
-  }
+  };
 
-  const onCheck = (e: any, ie: any, HocPhiGiamGia:any, HocPhiGoc:any, Id: any) => {
-    if(e.target.checked) {
-      let check = arr.find(element => element == Id);
-      if(!check)
-      {
-        setArr([...arr,Id])
+  const onCheck = (
+    e: any,
+    ie: any,
+    HocPhiGiamGia: any,
+    HocPhiGoc: any,
+    Id: any
+  ) => {
+    if (e.target.checked) {
+      let check = arr.find((element) => element == Id);
+      if (!check) {
+        setArr([...arr, Id]);
       }
-      
+    } else {
+      let index = arr.indexOf(Id);
+      let data = arr;
+      let temp = data[index];
+      data[index] = data[0];
+      data[0] = temp;
+      data.shift();
+      setArr(data);
     }
-    else{
-      let index = arr.indexOf(Id)
-      let data = arr
-      let temp = data[index]
-      data[index] = data[0]
-      data[0] = temp
-      data.shift()
-      setArr(data)
-    }
-    Actions.ChangeData(e.target.checked, ie, HocPhiGiamGia, HocPhiGoc, dispatch);
-  }
+    Actions.ChangeData(
+      e.target.checked,
+      ie,
+      HocPhiGiamGia,
+      HocPhiGoc,
+      dispatch
+    );
+  };
 
   const changeAll = (e: any) => {
-    
-    if(e.target.checked){
+    if (e.target.checked) {
       var cartInfo = sessionStorage.getItem("cart-info");
-      if(cartInfo){
+      if (cartInfo) {
         const output = cartInfo.split(",");
-        setArr(output)
-      }  
+        setArr(output);
+      }
+    } else {
+      setArr([]);
     }
-    else{
-      setArr([])
-    }
-    Actions.ChangeAll(e.target.checked,dispatch)
-  }
-
-  
+    Actions.ChangeAll(e.target.checked, dispatch);
+  };
 
   return (
     <div className="mt-4">
       <CNotification ref={refNotification} />
       <h4 className="text-danger text-center tieu-de mb-3">{"Giỏ hàng"}</h4>
+
       <div className="container-xl mb-3">
         <div className="row">
           <div className="col-sm-8">
             <div className="row mb-2">
+              {!userInfo && (
+                <div className="card mb-2">
+                  <div
+                    className="card-body"
+                    style={{ paddingTop: 10, paddingBottom: 10 }}
+                  >
+                    <h4 className="text-center">Thông tin đăng ký</h4>
+                    <div className="row">
+                      <div className="input-group mb-2 dda-lb">
+                        <label className="lb-fr lb-ada">
+                          Họ và tên
+                          <input
+                            type="text"
+                            className="form-control lb-fr"
+                            placeholder="Họ và tên"
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            onChange={(e) => {onChangeCap(e, "FullName")}}
+                          />
+                        </label>
+                      </div>
+                      <div className="input-group mb-2 dda-lb">
+                        <label className="lb-fr lb-ada ">
+                          Email
+                          <input
+                            type="text"
+                            className="form-control lb-fr"
+                            placeholder="Email"
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            onChange={(e) => {onChangeCap(e, "Email")}}
+                          />
+                        </label>
+                      </div>
+                      <div className="input-group mb-3 dda-lb">
+                        <label className="lb-fr lb-ada">
+                          Điện thoại
+                          <input
+                            type="text"
+                            className="form-control lb-fr"
+                            placeholder="Điện thoại"
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            onChange={(e) => {onChangeCap(e, "Phone")}}
+                          />
+                        </label>
+                      </div>
+                      {/* <button className="lb-btna mb-2">Tiếp theo</button> */}
+                      <h6 className="dda-lb text-end dda-text-lb"
+                      >
+                        Bạn đã có tài khoản? Hãy <a className="dda-a-text-lb" onClick={() => {goToOtherPage()}}>đăng nhập</a> để
+                        nhận nhiều ưu đãi hơn.
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div className="card">
                 <div
                   className="card-body"
@@ -141,7 +240,12 @@ const GioHang = (props: Props) => {
                       </p>
                     </div>
                     <div className="col-sm-1">
-                      <div className="text-muted remove cursor-pointer text-center" onClick={() => {deleteAll()}}>
+                      <div
+                        className="text-muted remove cursor-pointer text-center"
+                        onClick={() => {
+                          deleteAll();
+                        }}
+                      >
                         <i className="bi bi-trash3"></i>
                       </div>
                     </div>
@@ -161,7 +265,15 @@ const GioHang = (props: Props) => {
                               className="form-check-input"
                               type="checkbox"
                               id={`${data.Id}`}
-                              onChange={(e)=> {onCheck(e, ie, data.HocPhiGiamGia, data.HocPhiGoc, data.Id)}}
+                              onChange={(e) => {
+                                onCheck(
+                                  e,
+                                  ie,
+                                  data.HocPhiGiamGia,
+                                  data.HocPhiGoc,
+                                  data.Id
+                                );
+                              }}
                               checked={data.Check}
                             />
                           </div>
@@ -187,7 +299,12 @@ const GioHang = (props: Props) => {
                             </span>
                           </div>
                           <div className="col-sm-1">
-                            <div className="text-muted remove gio-hang-mg-top cursor-pointer text-center" onClick={() => {deleteProduct(data.Id, ie)}}>
+                            <div
+                              className="text-muted remove gio-hang-mg-top cursor-pointer text-center"
+                              onClick={() => {
+                                deleteProduct(data.Id, ie);
+                              }}
+                            >
                               <i className="bi bi-trash3"></i>
                             </div>
                           </div>

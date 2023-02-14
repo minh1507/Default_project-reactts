@@ -43,6 +43,7 @@ const HocThu = (props: Props) => {
     var link = await Actions.GetLinkVideoThucHanh(Id);
     setLinkVideo(link);
   };
+  console.log(state)
 
   const GiaoAnLyThuyetRender = () => {
     var element: any = [];

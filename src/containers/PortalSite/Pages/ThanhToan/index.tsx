@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { connect } from "react-redux";
 import qr from "assets/img/QR.png";
 import { useHistory, useLocation } from "react-router-dom";
@@ -9,22 +9,81 @@ import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
 import { InitState } from "./InitState";
 import { String } from "common/String";
+import { IUserInfo } from "common/Models";
+import CNotification from "components/CNotification";
+import { Message } from "common/Enums";
 const { v4: uuidv4 } = require("uuid");
+
 
 interface Props {
   AddToCard: any;
 }
 
 const ThanhToan = (props: Props) => {
+  let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
+  const refNotification = useRef<any>();
   const history = useHistory();
   const location = useLocation();
   const [xacNhanThanhCong, setXacNhanThanhCong] = useState(false);
   const [state, dispatch] = useReducer(Reducer, InitState);
-  const XacNhan = () => {
-    Storage.removeSession("cart-info");
-    props.AddToCard(0);
-    setXacNhanThanhCong(true);
+  const XacNhan = async () => {
+    if(userInfo){
+      let info = await Actions.GetInfor()
+      let datas:any = {
+        taiKhoan: info.UserName,
+        hoVaTenNguoiMua: info.FullName,
+        sdt: info.Phone,
+        email: info.Email,
+        soLuongKhoaHoc: state.Count,
+        tongThanhToan: state.Total,
+        chiTietThanhToans: state.DataItem
+      }
+      let res = await Actions.GetXacNhanThanhToan(datas, dispatch)
+      if(res.Data){
+        Storage.removeSession("cart-info");
+        props.AddToCard(0);
+        setXacNhanThanhCong(true);
+        refNotification.current.showNotification(
+          "success",
+          Message.XAC_NHAN_THANH_THOAN_THAT_BAI_B
+        );
+      }
+      else{
+        refNotification.current.showNotification(
+          "warning",
+          Message.XAC_NHAN_THANH_THOAN_THAT_BAI_A
+        );
+      }
+    }
+    else{
+      let datas:any = {
+        taiKhoan: "",
+        hoVaTenNguoiMua: location.state.info.fullname,
+        sdt: location.state.info.phone,
+        email: location.state.info.email,
+        soLuongKhoaHoc: state.Count,
+        tongThanhToan: state.Total,
+        chiTietThanhToans: state.DataItem
+      }
+      let res = await Actions.GetXacNhanThanhToan(datas, dispatch)
+      if(res.Data){
+        Storage.removeSession("cart-info");
+        props.AddToCard(0);
+        setXacNhanThanhCong(true);
+        refNotification.current.showNotification(
+          "success",
+          Message.XAC_NHAN_THANH_THOAN_THAT_BAI_B
+        );        
+      }
+      else{
+        refNotification.current.showNotification(
+          "warning",
+          Message.XAC_NHAN_THANH_THOAN_THAT_BAI_A
+        );
+      }
+    }
   };
+
   const goToTrangChu = () => {
     history.push("/trạng-chu");
     window.scrollTo(0, 0);
@@ -38,12 +97,12 @@ const ThanhToan = (props: Props) => {
   useEffect(() => {
     const output = location.state.arr.map((id: any) => ({ id }));
     Actions.GetGioHang(output, dispatch);
+    Actions.GetThanhToan(dispatch)
   }, []);
-
-  console.log(state);
 
   return (
     <div>
+      <CNotification ref={refNotification} />
       {xacNhanThanhCong == false ? (
         <div
           style={{
@@ -108,21 +167,21 @@ const ThanhToan = (props: Props) => {
                 >
                   <div className="col-sm-4 text-muted p-2">Ngân hàng:</div>
                   <div className="col-sm-8 bold p-2">
-                    BIDV- Ngân hàng BIDV chi nhánh Hai Bà Trưng
+                    {state.DataThanhToan && state.DataThanhToan.TenNganhang}
                   </div>
                   <div className="col-sm-4 text-muted p-2">Chủ thẻ:</div>
-                  <div className="col-sm-8 bold p-2">Đinh Quang Tiến</div>
+                  <div className="col-sm-8 bold p-2">{state.DataThanhToan && state.DataThanhToan.ChuThe}</div>
                   <div className="col-sm-4 text-muted p-2">
                     Nội dung chuyển khoản:
                   </div>
                   <div className="col-sm-8 bold p-2">
-                    [Họ tên] + [Số điện thoại] + [Tên khóa học]
+                  {state.DataThanhToan && state.DataThanhToan.NoiDungChuyenKhoan}
                   </div>
                 </div>
               </div>
               <div className="d-flex flex-column justify-content-center align-items-center">
                 <h4 className=" text-center mb-3">Quét mã QR</h4>
-                <img className="mb-5" src={qr} />
+                <img className="mb-5" src={state.DataThanhToan && state.DataThanhToan.URL_AnhQRCode} />
               </div>
             </div>
             <div className="d-flex justify-content-center align-items-center gap-3">
