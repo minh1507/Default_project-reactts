@@ -412,6 +412,19 @@
       gap: 1rem;
     }
   }
+  .con-tt-aab-aba{
+    padding: 24px;
+  }
+  .bido-search-aus{
+    flex-grow: 1;
+  }
+  @media screen and (min-width: 769px) and (max-width: 1150px) {
+    .la{
+      font-size: 0.8rem !important;
+    }
+  }
+
+  
 
   @media screen and (max-width: 768px) {
     .navbar_container_main {
@@ -2551,7 +2564,7 @@
   .container-inp-uej {
     padding: 5px 8px;
     box-shadow: rgba(214, 3, 3, 0.3) 0px 0px 0px 2px;
-    border-radius: 15px;
+    border-radius: 8px;
   }
   .inp-uej {
     border: none;

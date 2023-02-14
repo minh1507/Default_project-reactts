@@ -153,7 +153,7 @@ const Header = (props: Props) => {
       <CNotification ref={refNotification} />
      
       <div className="header_top bg-danger text-light">
-        <div className="header_top_container container-xl d-flex align-items-center justify-content-between">
+        <div className="header_top_container con-tt-aab-aba d-flex align-items-center justify-content-between">
           <div className="header_top_mobile">
             <div
               id="carouselExampleIndicators"
@@ -224,7 +224,7 @@ const Header = (props: Props) => {
         </div>
       </div>
       <div className="header_bottom">
-        <div className="container-xl d-flex justify-content-between align-items-center h-100 ">
+        <div className="con-tt-aab-aba d-flex justify-content-between align-items-center h-100 ">
           {/* <div className="d-flex align-items-center error">
             <img src={logo} className="header_bottom_logo" />
             <div className="header_bottom_logo_option">
