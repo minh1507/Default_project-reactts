@@ -4,6 +4,7 @@ import "datatables.net-dt/js/dataTables.dataTables"
 import "datatables.net-dt/css/jquery.dataTables.min.css"
 import $ from 'jquery'; 
 import { IColumnDefs } from 'common/Models';
+import { String } from 'common/String';
 interface Props {
     id: any,
     columnDefs: any,
@@ -206,11 +207,23 @@ const CDynamicTable = forwardRef((props: Props, ref) => {
                         let valueDate = "";
                         try
                         {
-                            let date = new Date(value);
-                            valueDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear(); 
+                            if(value) {
+                                let date = new Date(value);
+                                valueDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear(); 
+                            }
                         }
                         catch {}
                         value = valueDate;
+                    }
+                    else if(columnDefs[j].Format == "money")
+                    {
+                        let valueMoney = "";
+                        try
+                        {
+                            valueMoney = value.toString();
+                        }
+                        catch {}
+                        value = String.num(valueMoney);
                     }
                 }
                 if(columnDefs[j].Key == "#")

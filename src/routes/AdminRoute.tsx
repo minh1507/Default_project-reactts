@@ -38,6 +38,7 @@ import QuanLyLoaiKhoaHoc from "containers/AdminSite/Pages/Portal/QuanLyLoaiKhoaH
 import QuanLyGiaoDien from "containers/AdminSite/Pages/Portal/QuanLyGiaoDien";
 import QuanLyNhomVideo from "containers/AdminSite/Pages/Portal/QuanLyNhomVideo";
 import QuanLyVideo from "containers/AdminSite/Pages/Portal/QuanLyVideo";
+import QuanLyGioHang from "containers/AdminSite/Pages/Portal/QuanLyGioHang";
 import QuanLyThongTinThanhToan from "containers/AdminSite/Pages/Portal/QuanLyThongTinThanhToan";
 interface Props {
   Apps: any;
@@ -79,6 +80,9 @@ const AdminRoute = (props: Props) => {
         return <QuanLyGiaoVien />;
       case "QuanLySuKien":
         return <QuanLySuKien />;
+      case "QuanLyGioHang":
+        console.log("213")
+        return <QuanLyGioHang />
       case "QuanLyTinTuc":
         return <QuanLyTinTuc />;
       case "QuanLyAnh":

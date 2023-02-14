@@ -1,0 +1,55 @@
+{
+  "DataGrid": {
+    "Key": "GioHang",
+    "Title": "Danh sách giỏ hàng",
+    "ColumnDefs": [
+      {
+        "Key": "TaiKhoan",
+        "Title": "Tài khoản",
+        "Align": "center"
+      },
+      {
+        "Key": "HoVaTenNguoiMua",
+        "Title": "Người mua",
+        "Align": "left"
+      },
+      {
+        "Key": "Email",
+        "Title": "Email",
+        "Align": "left"
+      },
+      {
+        "Key": "Sdt",
+        "Title": "SĐT",
+        "Align": "left"
+      },
+      {
+        "Key": "SoLuongKhoaHoc",
+        "Title": "Số lượng khóa học",
+        "Align": "center"
+      },
+      {
+        "Key": "TongThanhToan",
+        "Title": "Tổng thanh toán",
+        "Format": "money",
+        "Align": "center"
+      },
+      {
+        "Key": "NgayThanhToan",
+        "Title": "Ngày thanh toán",
+        "Format": "dd/MM/yyyy",
+        "Align": "center"
+      }
+    ],
+    "ActionDefs": [
+      {
+        "Key": "Show",
+        "Title": "",
+        "Type": "Button",
+        "TitleTooltip": "Xem chi tiết",
+        "Icon": "bi bi-eye-fill",
+        "Action": "onClickShow"
+      }
+    ]
+  }
+}
