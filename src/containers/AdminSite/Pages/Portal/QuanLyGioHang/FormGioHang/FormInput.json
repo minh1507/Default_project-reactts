@@ -82,7 +82,7 @@
 		},
 		{
 			"Key": "NgayThanhToan",
-			"Title": "Ngày thanh toán",     
+			"Title": "Ngày chuyển khoản",     
 			"Type": "Date",
 			"IsRequired": false,
 			"IsDisabled": false,
@@ -106,7 +106,7 @@
 	"ActionDefs" : [
 		{
 			"Key": "Save",
-			"Title": "Lưu",
+			"Title": "Lưu thông tin chuyển khoản",
 			"Type": "Submit",
 			"TitleTooltip": "",
 			"Icon": "circle-check",

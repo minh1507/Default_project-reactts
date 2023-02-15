@@ -56,7 +56,7 @@ const ChiTietGioHangForm = (props: Props) => {
                         />
               </div>
               <div className="col-sm-4">
-                <CButton onClick={() => {
+                <CButton onClick={async () => {
                   if(khoaHoc.Id == Guid.Empty)
                   {
                     refNotification.current.showNotification("warning", Message.Require_Row_Selection);  
@@ -67,7 +67,12 @@ const ChiTietGioHangForm = (props: Props) => {
                     refNotification.current.showNotification("warning", "Vui lòng nhập giá trị là số");  
                     return;
                   }
-                  var res: IResponseMessage = Actions.ChangeThoiHanTruyCap(khoaHoc);
+                  var res: IResponseMessage = await Actions.ChangeThoiHanTruyCap(khoaHoc);
+                  if(res.Success)
+                  {
+                    refNotification.current.showNotification("success", Message.Response_Success);  
+                    Actions.GetItems(props.Id, dispatch); 
+                  }
                 }} title="Thay đổi thời hạn truy cập" />
               </div>
             </div>
