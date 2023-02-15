@@ -1029,8 +1029,23 @@
     color: goldenrod;
   }
 
+  .ul-gold-uo{
+    padding: 0;
+    list-style: none;
+  }
+  .ul-gold-uo{
+    padding: 0;
+    padding-left: 10px;
+    list-style: none;
+  }
+
+  .ul-gold-uo-split{
+    width: 50%;
+    border: 1px solid gainsboro;
+  }
+
   .unGolden {
-    color: white;
+    color: black;
   }
 
   .hides {
