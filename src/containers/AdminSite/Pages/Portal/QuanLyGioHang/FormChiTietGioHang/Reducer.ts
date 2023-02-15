@@ -1,10 +1,10 @@
 import { InitState, IState } from "./InitState";
 export const Reducer = (state: IState = InitState, action: any) => {
   switch (action.type) {
-    case "GetItem":
+    case "GetItems":
       return {
         ...state,
-        DataItem: action.item,
+        DataItems: action.items,
       };
     default:
       return state;

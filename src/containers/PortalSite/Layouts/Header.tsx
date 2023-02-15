@@ -237,10 +237,10 @@ const Header = (props: Props) => {
               </select>
             </div>
           </div> */}
-          {/* <div className="d-flex navbar_container_main ">
+          <div className="d-flex navbar_container_main ">
             <img src={logo} className="header_bottom_logo" />
             {navbar}
-          </div> */}
+          </div>
           <div>
             <div className="container-inp-uej">
               <i className="bi bi-search"></i>

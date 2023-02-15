@@ -1,6 +1,6 @@
 {
-	"Key" : "GiaoVien",
-	"Title" : "Giáo viên",
+	"Key" : "ChiTietGioHang",
+	"Title" : "Chi tiết giỏ hàng",
 	"Rows": 8,		
 	"Controls" : [
 		{
