@@ -787,13 +787,17 @@
     border-bottom: 2px solid red;
     cursor: pointer;
     font-weight: bold;
+    padding:5px;
   }
 
   .unDoContent {
     opacity: 0.7;
     cursor: pointer;
   }
-
+.editor-content{
+  padding: 10px;
+  text-align: justify;
+}
   .removeContent {
     line-height: 1.6rem;
     overflow: hidden;
@@ -2787,5 +2791,8 @@
     display: inline-flex;
     gap: 0.4rem;
     align-items: center;
+  }
+  .col-sm-4{
+    padding: 2px !important;;
   }
 }
