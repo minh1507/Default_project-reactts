@@ -461,6 +461,7 @@
     }
 
     .header_mob_scene {
+      cursor: pointer;
       display: block !important;
     }
 
@@ -1049,6 +1050,7 @@
 
   .golden {
     font-weight: bold;
+    cursor: pointer;
   }
 
   .ul-gold-uo{
@@ -1068,6 +1070,8 @@
 
   .unGolden {
     color: black;
+    font-weight: 400;
+    cursor: pointer;
   }
 
   .hides {
@@ -1318,7 +1322,7 @@
   }
   .banner_btn_ri {
     position: absolute !important;
-    top: 53%;
+    top: 70%;
     left: 20%;
     z-index: 999;
     width: 200px;
