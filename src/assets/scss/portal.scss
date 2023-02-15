@@ -1026,17 +1026,17 @@
   }
 
   .golden {
-    color: goldenrod;
+    font-weight: bold;
   }
 
   .ul-gold-uo{
     padding: 0;
     list-style: none;
+    
   }
-  .ul-gold-uo{
-    padding: 0;
-    padding-left: 10px;
-    list-style: none;
+  .ul-gold-uou{
+    // list-style: none;
+    font-weight: 100 !important;
   }
 
   .ul-gold-uo-split{

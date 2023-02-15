@@ -144,7 +144,7 @@ const Header = (props: Props) => {
                 onClick={() => {
                   GoToOtherPage(childe.URL as string);
                 }}
-                className={`${headerChange(tree.URL) ? "golden" : "unGolden"}`}
+                className={`"unGolden"}`}
                 >{childe.Name}</li>;
               })}
             </ul>
