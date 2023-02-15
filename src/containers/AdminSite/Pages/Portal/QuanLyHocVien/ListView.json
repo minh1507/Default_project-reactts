@@ -24,6 +24,11 @@
         "Align": "center"
       },
       {
+        "Key": "Note",
+        "Title": "Ghi chú",
+        "Align": "center"
+      },
+      {
         "Key": "IsActive",
         "Title": "Trạng thái",
         "Align": "center",

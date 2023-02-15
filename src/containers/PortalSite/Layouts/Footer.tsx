@@ -44,11 +44,11 @@ const Footer = (props: Props) => {
             </div>
             <div className="text-center">
                 <p className="footer_text_head">NƠI HUẤN LUYỆN CHẠY BỘ CHUẨN CĂN BẢN</p>
-                <p className="footer_text">Học Viện Đăng Quang Marathon gồm các HLV điền kinh chuyên nghiệp chuyên đào
+                <p className="footer_text">Đăng Quang Marathon gồm các HLV điền kinh chuyên nghiệp chuyên đào
                     tạo
                     chạy bộ, chạy trail
                 </p>
-                <p className="footer_text">Copyright &#169; 2020 Học Viện Đăng Quang Marathon | Liên hệ quảng cáo: 0916
+                <p className="footer_text">Copyright &#169; 2020 Đăng Quang Marathon | Liên hệ quảng cáo: 0916
                     582
                     783</p>
             </div>

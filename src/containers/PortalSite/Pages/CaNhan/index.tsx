@@ -1,27 +1,77 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { connect } from "react-redux";
 import { InitState } from "./InitState";
 import { Actions } from "./Action";
 import { Reducer } from "./Reducer";
-// import profile from "assets/img/profile.png";
+import { IUserInfo } from "common/Models";
+import { Storage } from "common/Storage";
+import { Guid, Message } from "common/Enums";
+import CNotification from "components/CNotification";
 
 interface Props {}
 
 const CaNhan = (props: Props) => {
   const [change, setChange] = useState(1);
   const [state, dispatch] = useReducer(Reducer, InitState);
+  let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
+  const [input, setInput] = useState({
+    FullName: "",
+    Phone: "",
+    Address: "",
+    Note: ""
+  });
+  const refNotification = useRef<any>();
+
+ 
 
   const onChanges = (num: number) => {
     setChange(num);
   };
 
+  const onFormUser = (e: any, name: any) => {
+    setInput({
+      ...input,
+      [name]: e.target.value,
+    });
+  };
+
+  const checkValidate = () => {
+    if(!input.FullName){
+      refNotification.current.showNotification("warning", "Họ và tên trống");
+      return false
+    }
+    if(!input.Address){
+      refNotification.current.showNotification("warning", "Địa chỉ trống");
+      return false
+    }
+    if(!input.Phone){
+      refNotification.current.showNotification("warning", "Số điện thoại trống");
+      return false
+    }
+    refNotification.current.showNotification("success", "Cập nhật thành công ");
+    return true
+  }
+
+  const save = () => {
+    if(checkValidate()){
+      Actions.saveUser(input)
+    }
+    
+  }
+
+  const fetch = async ()=> {
+    let res = await Actions.GetIteamuser(userInfo.UserId, dispatch);
+    setInput(res)
+  }
   useEffect(() => {
-    Actions.GetLichSuKhoaHoc(dispatch)
-    Actions.GetDachSachKhoaHoc(dispatch)
-  },[])
-  
+    Actions.GetLichSuKhoaHoc(dispatch);
+    Actions.GetDachSachKhoaHoc(dispatch);
+    fetch()
+  }, []);
+
   return (
     <div>
+      <CNotification ref={refNotification} />
       <div className="container-xl container-canhan">
         <div className="row justify-content-between w-100">
           <div className="col-sm-3">
@@ -92,35 +142,46 @@ const CaNhan = (props: Props) => {
                 <div className="split-avat mb-3"></div>
                 <h3 className="mb-3">Cập nhật thông tin</h3>
                 <div className="col-sm-4">
+                  <label>Họ và tên</label>
                   <input
                     type="text"
                     className="form-control mb-2"
-                    placeholder="Họ"
-                    aria-label="Username"
+                    placeholder="Họ và tên"
+                    aria-label="Name"
+                    value={input.FullName}
+                    onChange={(e:any) => {onFormUser(e, "FullName")}}
                     aria-describedby="basic-addon1"
                   ></input>
-                  <input
-                    type="text"
-                    className="form-control mb-2"
-                    placeholder="Tên"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  ></input>
+                  <label>Số điện thoại</label>
                   <input
                     type="text"
                     className="form-control mb-2"
                     placeholder="Số điện thoại"
-                    aria-label="Username"
+                    aria-label="Phone"
+                    value={input.Phone}
+                    onChange={(e:any) => {onFormUser(e, "Phone")}}
                     aria-describedby="basic-addon1"
                   ></input>
+                  <label>Địa chỉ</label>
                   <input
                     type="text"
                     className="form-control mb-2"
                     placeholder="Địa chỉ"
-                    aria-label="Username"
+                    aria-label="Address"
                     aria-describedby="basic-addon1"
+                    value={input.Address}
+                    onChange={(e:any) => {onFormUser(e, "Address")}}
                   ></input>
-                  <button type="button" className="btn btn-danger">
+                  <label>Ghi chú</label>
+                  <textarea
+                    className="form-control mb-2"
+                    placeholder="Địa chỉ"
+                    aria-label="Address"
+                    aria-describedby="basic-addon1"
+                    value={input.Note}
+                    onChange={(e:any) => {onFormUser(e, "Note")}}
+                  ></textarea>
+                  <button type="button" onClick={() => {save()}} className="btn btn-danger">
                     Lưu thay đổi
                   </button>
                 </div>
@@ -202,42 +263,40 @@ const CaNhan = (props: Props) => {
 
             {change == 4 && (
               <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat d-flex justify-content-center">
-                {state.DataDanhSach.map(
-                  (tree: any) => (
+                {state.DataDanhSach.map((tree: any) => (
+                  <div
+                    // key={uuidv4()}
+                    title={`${tree.TieuDe}`}
+                    className="col change-tt-aba"
+                  >
                     <div
-                      // key={uuidv4()}
-                      title={`${tree.TieuDe}`}
-                      className="col change-tt-aba"
+                      className="card card_main_container  wrapper_c"
+                      style={{
+                        position: "relative",
+                      }}
                     >
-                      <div
-                        className="card card_main_container  wrapper_c"
-                        style={{
-                          position: "relative",
-                        }}
-                      >
-                        <div className="wrapper_card">
-                          <img
-                            src={tree.URL_AnhDaiDien as string}
-                            className="card-img-top"
-                            alt="..."
-                          />
-                        </div>
+                      <div className="wrapper_card">
+                        <img
+                          src={tree.URL_AnhDaiDien as string}
+                          className="card-img-top"
+                          alt="..."
+                        />
+                      </div>
 
-                        <div
-                          className="card-body card_body_override card-bodys"
-                          style={{ textAlign: "start" }}
+                      <div
+                        className="card-body card_body_override card-bodys"
+                        style={{ textAlign: "start" }}
+                      >
+                        <p
+                          className="card-title underline-head-tt text-uppercase"
+                          // onClick={() => GoToOtherPage("/khoa-hoc")}
                         >
-                          <p
-                            className="card-title underline-head-tt text-uppercase"
-                            // onClick={() => GoToOtherPage("/khoa-hoc")}
-                          >
-                            {tree.TieuDe}
-                          </p>
-                        </div>
+                          {tree.TieuDe}
+                        </p>
                       </div>
                     </div>
-                  )
-                )}
+                  </div>
+                ))}
               </div>
             )}
           </div>

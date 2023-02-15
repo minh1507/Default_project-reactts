@@ -25,6 +25,14 @@ const UserService = {
     });
     return res;
   },
+  EditPortal: async (data: any) => {
+    let res: any = await request({
+      url: `/Sys_User`,
+      method: "post",
+      data,
+    });
+    return res;
+  },
   SendEmailRestorePassword: async (address: any, email: any) => {
     let data = { Address: address, Email: email };
     let res: any = await request({
@@ -113,6 +121,13 @@ const UserService = {
   GetItem: async (id: any) => {
     let res: any = request({
       url: "/Sys_User/" + id,
+      method: "get",
+    });
+    return res;
+  },
+  GetItemPortal: async (id: any) => {
+    let res: any = request({
+      url: "/Sys_User/" + id + "/Portal",
       method: "get",
     });
     return res;

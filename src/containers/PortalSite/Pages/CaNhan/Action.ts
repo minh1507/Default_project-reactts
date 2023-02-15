@@ -1,5 +1,6 @@
 import { IResponseMessage } from "common/Models";
 import HocVienService from "services/HocVienService";
+import UserService from "services/UserService";
 
 export const Actions: any = {
   GetLichSuKhoaHoc: async (dispatch: any) => {
@@ -15,5 +16,13 @@ export const Actions: any = {
       type: "getDanhSach",
       items: res.Data,
     });
+  },
+  GetIteamuser: async (id:any,dispatch: any) => {
+    let res: IResponseMessage = await UserService.GetItemPortal(id);
+    return res.Data
+  },
+  saveUser: async (data:any) => {
+    let res: IResponseMessage = await UserService.EditInfo(data);
+    return res.Data
   },
 };

@@ -29,9 +29,33 @@ const ChiTiet = (props: Props) => {
 
   
   useEffect(() => {
-    // new YouTubeToHtml5();
     Actions.GetDetailKhoaHoc(location.state.id, dispatch);
   }, []);
+
+  const goToDangKyNgay = () => {
+    var cartInfo = sessionStorage.getItem("cart-info");
+    var cartExist = false;
+    var arrCartInfo:any = [];
+    if(cartInfo)
+    {
+      arrCartInfo = cartInfo.split(",");
+      for(let i = 0;i < arrCartInfo.length;i++)
+      {
+        if(arrCartInfo[i] == state.DataDetail.Id)
+        {
+          cartExist = true;
+        }
+      }
+    }
+    if(!cartExist)
+    {
+      arrCartInfo.push(state.DataDetail.Id)
+    }
+
+    sessionStorage.setItem("cart-info", arrCartInfo.join(","));
+    props.AddToCard(arrCartInfo.length)
+    history.push('gio-hang')
+  }
 
   const changeContent = (content: number) => {
     setChange(content);
@@ -312,7 +336,7 @@ const ChiTiet = (props: Props) => {
                   <div className="d-flex mb-2">
                     <button
                       onClick={() => {
-                        goToThanhToan();
+                        goToDangKyNgay();
                       }}
                       className="btn btn-danger"
                     >

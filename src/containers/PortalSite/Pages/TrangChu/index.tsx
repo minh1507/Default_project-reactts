@@ -465,7 +465,6 @@ const TrangChu = (props: Props) => {
     <div className="main_sub_detal rout-zxa mb-2">
       <div className="container-xl d-flex flex-column">
         <h4 className="text-danger tieu-de">
-          {/* {state.DataItemsSuKien && state.DataItemsSuKien[0].NhomSuKien} */}
           Sự kiện mới nhất
         </h4>
         <div className="container mt-3">
@@ -494,7 +493,7 @@ const TrangChu = (props: Props) => {
                       <div className="card-body p-2">
                         <div className="d-flex justify-content-between">
                           <h6
-                            className="card-title titleXl head_z underline-head-tt"
+                            className="card-title titleXl head_z underline-head-tt text-uppercase"
                             onClick={() =>
                               GoToDetailPage(
                                 "/chi-tiet-tin-tuc",

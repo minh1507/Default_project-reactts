@@ -11,6 +11,7 @@ export const Reducer = (state: IState = InitState, action: any) => {
         ...state,
         DataDanhSach: action.items
       }
+  
     default:
       return state;
   }

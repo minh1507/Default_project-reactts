@@ -38,6 +38,7 @@ const PortalRoute = (props: Props) => {
         return <CaNhan />;
       case "HoTro":
         return <HoTro />;
+     
       case "KhoaHocChiTiet":
         return <KhoaHocChiTiet />;
       case "KhoaHocThu":

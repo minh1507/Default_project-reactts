@@ -2,7 +2,7 @@
   {
     "Key": "HocVien",
     "Title": "Học viên",
-    "Rows": 5,
+    "Rows": 6,
     "Controls": [
       {
         "Key": "FullName",
@@ -41,11 +41,20 @@
         "ColSpanControl": 12
       },
       {
+        "Key": "Note",
+        "Title": "Ghi chú",
+        "Type": "TextArea",
+        "Row": 5,
+        "ColLabel": 4,
+        "ColControl": 8,
+        "ColSpanControl": 12
+      },
+      {
         "Key": "IsActive",
         "Title": "",
         "CheckboxLabel": "Hoạt động",
         "Type": "Checkbox",
-        "Row": 5,
+        "Row": 6,
         "ColLabel": 4,
         "ColControl": 8,
         "ColSpanControl": 12
