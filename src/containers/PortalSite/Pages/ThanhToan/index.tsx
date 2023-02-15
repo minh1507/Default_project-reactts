@@ -190,7 +190,7 @@ const ThanhToan = (props: Props) => {
               </div>
               <div className="d-flex flex-column justify-content-center align-items-center">
                 <h4 className=" text-center mb-3">Quét mã QR</h4>
-                <img className="mb-5" src={state.DataThanhToan && state.DataThanhToan.URL_AnhQRCode} />
+                <img width="150" height="150" className="mb-5" src={state.DataThanhToan && state.DataThanhToan.URL_AnhQRCode} />
               </div>
             </div>
             <div className="d-flex justify-content-center align-items-center gap-3">

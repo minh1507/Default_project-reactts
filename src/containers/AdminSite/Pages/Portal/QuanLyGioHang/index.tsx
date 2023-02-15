@@ -39,14 +39,14 @@ const GioHangList = (props: Props) => {
     const TabThongTinGioHangRender = () => {
         return <ATab key="KhoaHoc" activeName="ThongTinCoBan" onTabClick={() => {}}
         tabsPanel={[
-            {label:"Thông tin cơ bản", name: "ThongTinCoBan", panel:<FormGioHang Id={gioHangId} ReloadTableItems={() => {}} />},
+            {label:"Thông tin cơ bản", name: "ThongTinCoBan", panel:<FormGioHang Id={gioHangId} ReloadTableItems={() => { Actions.GetItems(dispatch)}} />},
             {label:"Thông tin chi tiết", name: "ThongTinChiTiet", panel: <FormChiTietGioHang Id={gioHangId} ReloadTableItems={() => {}} />}
         ]} ></ATab>
     }
     const DialogMemo = useMemo(() => {
         return <>
         {dialogVisible == true ?
-            <CDialog style={{width: "60%", top: "5%"}} title={"Xem giỏ hàng"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
+            <CDialog style={{width: "70%", top: "1%"}} title={"Xem giỏ hàng"} dialogVisible={dialogVisible} onCancel={() => setDialogVisible(false)}>
                 {TabThongTinGioHangRender()}
             </CDialog>
             :<div></div>

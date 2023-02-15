@@ -1,12 +1,27 @@
 #app-portal {
   // start footer
-  font-family: "SF Pro Display";
+  // font-family: "SF Pro Display";
   background-color: #f0f2f5;
   .cursor-pointer {
     cursor: pointer !important;
   }
   .tieu-de {
     font-weight: 700 !important;
+    color:#fff;
+      font-size:35px;
+      font-family:'Pacifico', cursive;
+      Text-align:center;
+      Text-shadow :0 1px 0 #ccc,
+                  0 2px 0 #c9c9c9,
+                  0 4px 0 #b9b9b9,
+                  0 5px 0 #aaa,
+                  0 6px 1px rgba(0,0,0,.1),
+                  0 0 5px rgba(0,0,0,.1),
+                  0 1px 3px rgba(0,0,0,.3),
+                  0 3px 5px rgba(0,0,0,.2),
+                  0 5px 10px rgba(0,0,0,.25),
+                  0 10px 10px rgba(0,0,0,.2),
+                  0 20px 20px rgba(0,0,0,.15);
   }
   .pl-0 {
     padding-left: 0;
@@ -24,7 +39,7 @@
   }
   .card-title {
     color: #082346;
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: bold;
     line-height: 20px;
   }
@@ -203,6 +218,8 @@
     height: 100%;
     font-size: calc(1rem * 0.9);
     font-weight: bold;
+    padding-right:10px;
+    padding-left: 10px;
   }
 
   .header_top_left {
@@ -356,11 +373,12 @@
 
   .header_btn {
     border: none;
-    padding: 5px 15px;
+    padding: 5px 5px;
     font-size: calc(1rem * 0.9);
     font-weight: bold;
     border-radius: 5px 5px;
     transition: 1s;
+    margin-left:5px;
   }
 
   .header_btn:hover {
@@ -415,7 +433,7 @@
     }
   }
   .bido-search-aus{
-    flex-grow: 1;
+    // flex-grow: 1;
   }
   @media screen and (min-width: 769px) and (max-width: 1150px) {
     .la{
@@ -768,13 +786,17 @@
     border-bottom: 2px solid red;
     cursor: pointer;
     font-weight: bold;
+    padding:5px;
   }
 
   .unDoContent {
     opacity: 0.7;
     cursor: pointer;
   }
-
+.editor-content{
+  padding: 10px;
+  text-align: justify;
+}
   .removeContent {
     line-height: 1.6rem;
     overflow: hidden;
@@ -1309,9 +1331,9 @@
     height: 50px;
     font-size: 1.2rem;
     font-weight: 900;
-    background: linear-gradient(transparent 5% 5%, #ff013c 5%);
+    background: linear-gradient(transparent 5% 5%, #ffe901 5%);
     border: 0;
-    color: #fff;
+    color: #f00;
     letter-spacing: 3px;
     border-radius: 8px;
     outline: transparent;
@@ -2768,5 +2790,8 @@
     display: inline-flex;
     gap: 0.4rem;
     align-items: center;
+  }
+  .col-sm-4{
+    padding: 2px !important;;
   }
 }

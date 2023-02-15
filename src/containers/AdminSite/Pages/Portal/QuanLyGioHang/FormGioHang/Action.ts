@@ -7,9 +7,13 @@ export const Actions: any = {
   GetItem: async (id: String, dispatch: any) => {
     if (id) {
       let res: IResponseMessage = await GioHangService.GetItem(id);
-      let Temp = res.Data.URL_FileDinhKem.split("\\");
+      let Temp:any = [];
+      if(res.Data.URL_FileDinhKem)
+      {
+        res.Data.URL_FileDinhKem.split("\\")
+      }
       if (res && res.Success) {
-        if (Temp[Temp.length - 1] && res.Data.URL_FileDinhKem) {
+        if (Temp.length > 0 && Temp[Temp.length - 1] && res.Data.URL_FileDinhKem) {
           res.Data.Files = [
             {
               Id: res.Data.Id,

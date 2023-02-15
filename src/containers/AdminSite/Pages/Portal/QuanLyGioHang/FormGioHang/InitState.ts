@@ -9,6 +9,7 @@ export interface IModelItem {
   Email: String;
   SoLuongKhoaHoc: Number;
   TongThanhToan: Number;
+  SoTienDaChuyenKhoan: Number;
   NgayThanhToan: String;
   URL_FileDinhKem: String;
   Files: any
@@ -26,6 +27,7 @@ export const InitState: IState = {
     Email: "",
     SoLuongKhoaHoc: 0,
     TongThanhToan: 0,
+    SoTienDaChuyenKhoan: 0,
     NgayThanhToan: "",
     URL_FileDinhKem: "",
     Files: null

@@ -6,11 +6,12 @@ export interface IModelItem {
 
 }
 export interface IState {
+  DataItems: any;
   DataItem: IModelItem;
 }
 export const InitState: IState = {
   DataItem: {
-    Id: Guid.Empty,
-
+    Id: Guid.Empty
   },
+  DataItems: []
 };

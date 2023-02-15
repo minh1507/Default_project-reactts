@@ -81,7 +81,6 @@ const AdminRoute = (props: Props) => {
       case "QuanLySuKien":
         return <QuanLySuKien />;
       case "QuanLyGioHang":
-        console.log("213")
         return <QuanLyGioHang />
       case "QuanLyTinTuc":
         return <QuanLyTinTuc />;
