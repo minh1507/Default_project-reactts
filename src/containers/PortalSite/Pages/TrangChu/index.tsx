@@ -187,7 +187,7 @@ const TrangChu = (props: Props) => {
                       className="card-text gioiThieuPortal"
                       style={{ textAlign: "justify" }}
                     >
-                      {child.MoTa}
+                      {child.MoTa.substring(0, 173)} &nbsp;...
                     </p>
                     <div style={{ flexGrow: 1, position: "relative" }}>
                       <button
@@ -258,7 +258,7 @@ const TrangChu = (props: Props) => {
                         {String.num(tree.GiaGiaoDongDen)}₫
                       </p>
                       <p className=" card-text text-dark mo-ta mb-1">
-                        {tree.MoTa}
+                        {tree.MoTa.substring(0, 123)} &nbsp;...
                       </p>
 
                       {/* <div className="boxC">
@@ -684,10 +684,10 @@ const TrangChu = (props: Props) => {
           </button>
         )}
 
-        <div className="sub_banner">
+        {/* <div className="sub_banner">
           <img src={sub_banner_left} className="sub_banner_bt qc" />
           <img src={sub_banner_right} className="sub_banner_bt qd" />
-        </div>
+        </div> */}
       </div>
 
       {gioiThieu}
