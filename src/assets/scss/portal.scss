@@ -7,21 +7,21 @@
   }
   .tieu-de {
     font-weight: 700 !important;
-    color:#fff;
-      font-size:35px;
-      font-family:'Pacifico', cursive;
-      Text-align:center;
-      Text-shadow :0 1px 0 #ccc,
-                  0 2px 0 #c9c9c9,
-                  0 4px 0 #b9b9b9,
-                  0 5px 0 #aaa,
-                  0 6px 1px rgba(0,0,0,.1),
-                  0 0 5px rgba(0,0,0,.1),
-                  0 1px 3px rgba(0,0,0,.3),
-                  0 3px 5px rgba(0,0,0,.2),
-                  0 5px 10px rgba(0,0,0,.25),
-                  0 10px 10px rgba(0,0,0,.2),
-                  0 20px 20px rgba(0,0,0,.15);
+    // color:#fff;
+    //   font-size:35px;
+    //   font-family:'Pacifico', cursive;
+    //   Text-align:center;
+    //   Text-shadow :0 1px 0 #ccc,
+    //               0 2px 0 #c9c9c9,
+    //               0 4px 0 #b9b9b9,
+    //               0 5px 0 #aaa,
+    //               0 6px 1px rgba(0,0,0,.1),
+    //               0 0 5px rgba(0,0,0,.1),
+    //               0 1px 3px rgba(0,0,0,.3),
+    //               0 3px 5px rgba(0,0,0,.2),
+    //               0 5px 10px rgba(0,0,0,.25),
+    //               0 10px 10px rgba(0,0,0,.2),
+    //               0 20px 20px rgba(0,0,0,.15);
   }
   .pl-0 {
     padding-left: 0;
@@ -831,7 +831,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    height: 4.4rem;
+    height: 4.6rem;
     text-align: justify;
     color: #6a6f73 !important;
   }
@@ -2429,7 +2429,7 @@
     line-height: 18px;
   }
   .money {
-    color: red;
+    color: rgba(255, 0, 0, 0.807);
     font-size: calc(1.1rem);
     font-weight: bold;
   }

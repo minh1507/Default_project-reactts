@@ -258,7 +258,7 @@ const TrangChu = (props: Props) => {
                         {String.num(tree.GiaGiaoDongDen)}₫
                       </p>
                       <p className=" card-text text-dark mo-ta mb-1">
-                        {tree.MoTa.substring(0, 123)} &nbsp;...
+                        {tree.MoTa}
                       </p>
 
                       {/* <div className="boxC">
@@ -391,7 +391,7 @@ const TrangChu = (props: Props) => {
                               <span
                                 style={{
                                   fontSize: "calc(1rem * 1.1)",
-                                  color: "red",
+                                  color: "rgba(255, 0, 0, 0.807)",
                                 }}
                               >
                                 {item.HocPhiGoc != 0 ? (
@@ -413,7 +413,7 @@ const TrangChu = (props: Props) => {
                                   <span
                                     style={{
                                       fontSize: "calc(1rem * 1.1)",
-                                      color: "red",
+                                      color: "rgba(255, 0, 0, 0.807)",
                                     }}
                                   >
                                     ₫
