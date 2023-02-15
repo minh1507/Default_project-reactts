@@ -37,7 +37,7 @@ const Header = (props: Props) => {
   const [item, setItem] = useState(1);
   const [tree, setTree] = useState<HTreePortal>(null);
   const refNotification = useRef<any>();
-  const [search, setSearch] = useState(false)
+  const [search, setSearch] = useState(false);
 
   let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
   const GoToOtherPage = (page: string) => {
@@ -70,6 +70,8 @@ const Header = (props: Props) => {
     }
     return false;
   };
+
+  // console.log(state)
 
   const navbar =
     tree &&
@@ -120,9 +122,9 @@ const Header = (props: Props) => {
       </div>
     ));
 
-    const changSearch = () => {
-      setSearch(!search)
-    }
+  const changSearch = () => {
+    setSearch(!search);
+  };
 
   const navbarMob =
     tree &&
@@ -135,25 +137,36 @@ const Header = (props: Props) => {
           className={`${headerChange(tree.URL) ? "golden" : "unGolden"}`}
         >
           {tree.Name}
+          {tree.Children.length > 0 && (
+            <ul className="ul-gold-uou">
+              {tree.Children.map((childe: any) => {
+                return <li
+                onClick={() => {
+                  GoToOtherPage(childe.URL as string);
+                }}
+                className={`"unGolden"}`}
+                >{childe.Name}</li>;
+              })}
+            </ul>
+          )}
         </h6>
       </li>
     ));
   const cardCount = () => {
     var cardInfo = Storage.getSession("cart-info");
-    if(!cardInfo)
-    {
+    if (!cardInfo) {
       return 0;
     }
     var arrCardInfo = cardInfo.split(",");
     return arrCardInfo.length;
-  }
+  };
 
   return (
     <div className={`headers`}>
       <CNotification ref={refNotification} />
-     
+
       <div className="header_top bg-danger text-light">
-        <div className="container-xl header_top_container d-flex align-items-center justify-content-between">
+        <div className="header_top_container con-tt-aab-aba d-flex align-items-center justify-content-between">
           <div className="header_top_mobile">
             <div
               id="carouselExampleIndicators"
@@ -223,8 +236,8 @@ const Header = (props: Props) => {
           </span>
         </div>
       </div>
-      <div className="container-xl header_bottom">
-        <div className="d-flex justify-content-between align-items-center h-100 ">
+      <div className="header_bottom">
+        <div className="con-tt-aab-aba d-flex justify-content-between align-items-center h-100 ">
           {/* <div className="d-flex align-items-center error">
             <img src={logo} className="header_bottom_logo" />
             <div className="header_bottom_logo_option">
@@ -241,10 +254,10 @@ const Header = (props: Props) => {
             <img src={logo} className="header_bottom_logo" />
             {navbar}
           </div>
-          <div>
+          <div className="bido-search-aus">
             <div className="container-inp-uej">
               <i className="bi bi-search"></i>
-              <input className="inp-uej" placeholder="Tìm kiếm"/>
+              <input className="inp-uej" placeholder="Tìm kiếm" />
             </div>
           </div>
           <div className="d-flex gap-3 align-items-center error_nav">
@@ -255,22 +268,23 @@ const Header = (props: Props) => {
               <i className="bi bi-search"></i>
             </span> */}
             {/* {userInfo && ( */}
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                GoToOtherPage("/gio-hang");
+              }}
+              className="header_bottom_link position-relative"
+            >
               <span
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  GoToOtherPage("/gio-hang");
-                }}
-                className="header_bottom_link position-relative"
+                style={{ fontSize: "calc(1rem*0.7)" }}
+                className="position-absolute top-100 start-100 translate-middle badge rounded-pill bg-danger"
               >
-                <span
-                  style={{ fontSize: "calc(1rem*0.7)" }}
-                  className="position-absolute top-100 start-100 translate-middle badge rounded-pill bg-danger"
-                >
-                  {cardCount()}{" +"}
-                  <span className="visually-hidden">unread messages</span>
-                </span>
-                <i className="bi bi-cart" style={{ fontSize: "1.3rem" }}></i>
+                {cardCount()}
+                {" +"}
+                <span className="visually-hidden">unread messages</span>
               </span>
+              <i className="bi bi-cart" style={{ fontSize: "1.3rem" }}></i>
+            </span>
             {/* )} */}
 
             {userInfo ? (
@@ -288,7 +302,13 @@ const Header = (props: Props) => {
                 </span>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
-                    <button className="dropdown-item" type="button" onClick={() => {GoToOtherPage("/ca-nhan")}}>
+                    <button
+                      className="dropdown-item"
+                      type="button"
+                      onClick={() => {
+                        GoToOtherPage("/ca-nhan");
+                      }}
+                    >
                       Hồ sơ
                     </button>
                   </li>
@@ -311,6 +331,7 @@ const Header = (props: Props) => {
                   GoToOtherPage("/dang-nhap");
                 }}
                 className="header_btn bg-danger text-light"
+                style={{ width: "100px" }}
               >
                 Đăng nhập
               </button>
@@ -334,6 +355,7 @@ const Header = (props: Props) => {
           >
             <div className="offcanvas-header">
               <h5 id="offcanvasRightLabel">Menu</h5>
+
               <button
                 type="button"
                 className="btn-close text-reset"
@@ -341,7 +363,36 @@ const Header = (props: Props) => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="offcanvas-body">...</div>
+            <div className="offcanvas-body">
+              <ul className="ul-gold-uo">{navbarMob}</ul>
+              <div className="ul-gold-uo-split mb-3"></div>
+              <ul className="ul-gold-uo">
+                <li>
+                  <h6
+                    onClick={() => {
+                      GoToOtherPage("/dang-ky");
+                    }}
+                    className={`${
+                      headerChange("/dang-ky") ? "golden" : "unGolden"
+                    }`}
+                  >
+                    Đăng ký
+                  </h6>
+                </li>
+                <li>
+                  <h6
+                    onClick={() => {
+                      GoToOtherPage("/dang-nhap");
+                    }}
+                    className={`${
+                      headerChange("/dang-nhap") ? "golden" : "unGolden"
+                    }`}
+                  >
+                    Đăng nhập
+                  </h6>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -349,7 +400,7 @@ const Header = (props: Props) => {
   );
 };
 const mapState = ({ ...state }) => ({
-  global: state.global
+  global: state.global,
 });
 const mapDispatchToProps = {
   UserLogout: Actions.UserLogout,
