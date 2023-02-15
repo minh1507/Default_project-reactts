@@ -27,16 +27,25 @@ const ThanhToan = (props: Props) => {
   const [xacNhanThanhCong, setXacNhanThanhCong] = useState(false);
   const [state, dispatch] = useReducer(Reducer, InitState);
   const XacNhan = async () => {
+    let chiTietThanhToans = state.DataItem.map((child:any) => {
+      return {
+        idKhoaHoc: child.Id,
+        hocPhiGoc: child.HocPhiGoc,
+        hocPhiGiamGia: child.hocPhiGiamGia,
+        thoiHan: 0,
+        thoiHanTruyCapMienPhi: 0
+      }
+    })
     if(userInfo){
       let info = await Actions.GetInfor()
       let datas:any = {
-        taiKhoan: info.UserName,
-        hoVaTenNguoiMua: info.FullName,
-        sdt: info.Phone,
-        email: info.Email,
+        taiKhoan: info.Data.UserName,
+        hoVaTenNguoiMua: info.Data.FullName,
+        sdt: info.Data.Phone,
+        email: info.Data.Email,
         soLuongKhoaHoc: state.Count,
         tongThanhToan: state.Total,
-        chiTietThanhToans: state.DataItem
+        chiTietThanhToans: chiTietThanhToans
       }
       let res = await Actions.GetXacNhanThanhToan(datas, dispatch)
       if(res.Data){
@@ -63,7 +72,7 @@ const ThanhToan = (props: Props) => {
         email: location.state.info.email,
         soLuongKhoaHoc: state.Count,
         tongThanhToan: state.Total,
-        chiTietThanhToans: state.DataItem
+        chiTietThanhToans: chiTietThanhToans
       }
       let res = await Actions.GetXacNhanThanhToan(datas, dispatch)
       if(res.Data){
