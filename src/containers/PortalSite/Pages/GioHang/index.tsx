@@ -147,6 +147,20 @@ const GioHang = (props: Props) => {
     Actions.ChangeAll(e.target.checked, dispatch);
   };
 
+  const GoToDetailPage = (
+    page: string,
+    id: string,
+    search: string,
+    type: string
+  ) => {
+    history.push({
+      pathname: page,
+      state: { id: id, type: type },
+      search: `/${search}`,
+    });
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="mt-4">
       <CNotification ref={refNotification} />
@@ -284,7 +298,14 @@ const GioHang = (props: Props) => {
                             />
                           </div>
                           <div className="col-sm-5 pr-0">
-                            <p className="gio-hang-mg-top underline-head-tt">
+                            <p className="gio-hang-mg-top underline-head-tt" onClick={() =>
+                                GoToDetailPage(
+                                  "/khoa-hoc-chi-tiet",
+                                  data.Id as string,
+                                  data.TieuDe as string,
+                                  "khoahoc"
+                                )
+                              }>
                               {data.TieuDe}
                             </p>
                           </div>
