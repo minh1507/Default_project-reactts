@@ -18,12 +18,11 @@ const GioiThieu = (props: Props) => {
       >
         <div className="main_container_fap" style={{ width: "55%" }}>
           <iframe
+            className="if-gt-a-ab"
             id="video"
             width="100%"
-            height="400px"
             src="https://www.youtube.com/embed/n7GvRN-oubU"
             title="YouTube video player"
-            frameBorder={0}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
@@ -93,7 +92,7 @@ const GioiThieu = (props: Props) => {
           </div>
         </div>
         <div style={{ width: "50%" }} className="body_container_top">
-          <img src={bg35} style={{ width: "100%" }} />
+          <img src={bg35} style={{ width: "100%", aspectRatio: "16/9" }} />
         </div>
       </div>
 
@@ -123,7 +122,7 @@ const GioiThieu = (props: Props) => {
           </div>
         </div>
         <div style={{ width: "50%" }} className="body_container_top">
-          <img src={bg35} style={{ width: "100%" }} />
+          <img src={bg35} style={{ width: "100%", aspectRatio: "16/9" }} />
         </div>
       </div>
       <div
@@ -156,7 +155,7 @@ const GioiThieu = (props: Props) => {
           </div>
         </div>
         <div style={{ width: "50%" }} className="body_container_top">
-          <img src={bg35} style={{ width: "100%" }} />
+          <img src={bg35} style={{ width: "100%", aspectRatio: "16/9" }} />
         </div>
       </div>
       <div
@@ -179,7 +178,7 @@ const GioiThieu = (props: Props) => {
           </div>
         </div>
         <div style={{ width: "50%" }} className="body_container_top">
-          <img src={bg35} style={{ width: "100%" }} />
+          <img src={bg35} style={{ width: "100%", aspectRatio: "16/9" }} />
         </div>
       </div>
 
@@ -304,11 +303,7 @@ const GioiThieu = (props: Props) => {
                   <h5 className="card-title" style={{ margin: 0 }}>
                     KỸ THUẬT CHẠY TRAIL: CHẠY DỐC VÀ LEO NÚI
                   </h5>
-                  <p className="card-text">
-                    <small className="text-muted">
-                      <i className="bi bi-person" /> Nguyễn Thành Long
-                    </small>
-                  </p>
+                 
                   <p className="card-text teat mt-2">
                     <small className="text-muted">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -354,11 +349,6 @@ const GioiThieu = (props: Props) => {
                   <h5 className="card-title" style={{ margin: 0 }}>
                     KỸ THUẬT CHẠY TRAIL: CHẠY DỐC VÀ LEO NÚI
                   </h5>
-                  <p className="card-text">
-                    <small className="text-muted">
-                      <i className="bi bi-person" /> Nguyễn Thành Long
-                    </small>
-                  </p>
                   <p className="card-text teat mt-2">
                     <small className="text-muted">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -404,11 +394,6 @@ const GioiThieu = (props: Props) => {
                   <h5 className="card-title" style={{ margin: 0 }}>
                     KỸ THUẬT CHẠY TRAIL: CHẠY DỐC VÀ LEO NÚI
                   </h5>
-                  <p className="card-text">
-                    <small className="text-muted">
-                      <i className="bi bi-person" /> Nguyễn Thành Long
-                    </small>
-                  </p>
                   <p className="card-text teat mt-2">
                     <small className="text-muted">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -454,11 +439,6 @@ const GioiThieu = (props: Props) => {
                   <h5 className="card-title" style={{ margin: 0 }}>
                     KỸ THUẬT CHẠY TRAIL: CHẠY DỐC VÀ LEO NÚI
                   </h5>
-                  <p className="card-text">
-                    <small className="text-muted">
-                      <i className="bi bi-person" /> Nguyễn Thành Long
-                    </small>
-                  </p>
                   <p className="card-text teat mt-2">
                     <small className="text-muted">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.

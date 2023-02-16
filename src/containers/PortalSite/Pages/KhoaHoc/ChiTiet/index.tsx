@@ -200,9 +200,9 @@ const ChiTiet = (props: Props) => {
             >
               <h4
                 className="text-center mb-3"
-                style={{ margin: 0, fontStyle: "italic" }}
+                style={{ margin: 0}}
               >
-                KHÓA HỌC NỔI BẬT
+                KHÓA HỌC LIÊN QUAN
               </h4>
               <div className="row row-cols-1 row-cols-md-2 g-3 justify-content-center mb-3">
                 <div

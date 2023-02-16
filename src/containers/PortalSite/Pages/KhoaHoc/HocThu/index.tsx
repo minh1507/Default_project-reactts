@@ -43,7 +43,6 @@ const HocThu = (props: Props) => {
     var link = await Actions.GetLinkVideoThucHanh(Id);
     setLinkVideo(link);
   };
-  console.log(state)
 
   const GiaoAnLyThuyetRender = () => {
     var element: any = [];
@@ -340,7 +339,7 @@ const HocThu = (props: Props) => {
       </div>
       <div className="container">
         <div className="row mt-4">
-          <div className="col-sm-7">
+          <div className="col-sm-7 mb-3">
             <div className="Card-Hoc">
               {/* {default_video()} */}
               {linkVideo ? (
@@ -360,9 +359,9 @@ const HocThu = (props: Props) => {
                 />
               )}
             </div>
-            <Comment tital="ok" />
+            {/* <Comment tital="ok" /> */}
           </div>
-          <div className="col-sm-5">
+          <div className="col-sm-5 mb-4">
             <div className="Card-Hoc">
               <div className="d-flex gap-4">
                 <p

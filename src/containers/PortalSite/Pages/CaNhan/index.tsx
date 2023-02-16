@@ -7,6 +7,8 @@ import { IUserInfo } from "common/Models";
 import { Storage } from "common/Storage";
 import { Guid, Message } from "common/Enums";
 import CNotification from "components/CNotification";
+import { String } from "common/String";
+import { useHistory } from "react-router-dom";
 
 interface Props {}
 
@@ -14,18 +16,26 @@ const CaNhan = (props: Props) => {
   const [change, setChange] = useState(1);
   const [state, dispatch] = useReducer(Reducer, InitState);
   let userInfo: IUserInfo = JSON.parse(Storage.getSession("UserInfo"));
+  const history = useHistory();
   const [input, setInput] = useState({
     FullName: "",
     Phone: "",
     Address: "",
-    Note: ""
+    Note: "",
   });
   const refNotification = useRef<any>();
 
- 
-
   const onChanges = (num: number) => {
     setChange(num);
+  };
+
+  const GoToOtherPage = (page: string, id: string, search: string) => {
+    history.push({
+      pathname: page,
+      state: { id: id },
+      search: `/${search}`,
+    });
+    window.scrollTo(0, 0);
   };
 
   const onFormUser = (e: any, name: any) => {
@@ -36,46 +46,49 @@ const CaNhan = (props: Props) => {
   };
 
   const checkValidate = () => {
-    if(!input.FullName){
+    if (!input.FullName) {
       refNotification.current.showNotification("warning", "Họ và tên trống");
-      return false
+      return false;
     }
-    if(!input.Address){
+    if (!input.Address) {
       refNotification.current.showNotification("warning", "Địa chỉ trống");
-      return false
+      return false;
     }
-    if(!input.Phone){
-      refNotification.current.showNotification("warning", "Số điện thoại trống");
-      return false
+    if (!input.Phone) {
+      refNotification.current.showNotification(
+        "warning",
+        "Số điện thoại trống"
+      );
+      return false;
     }
     refNotification.current.showNotification("success", "Cập nhật thành công ");
-    return true
-  }
+    return true;
+  };
 
   const save = () => {
-    if(checkValidate()){
-      Actions.saveUser(input)
+    if (checkValidate()) {
+      Actions.saveUser(input);
     }
-    
-  }
+  };
 
-  const fetch = async ()=> {
+  const fetch = async () => {
     let res = await Actions.GetIteamuser(userInfo.UserId, dispatch);
-    setInput(res)
-  }
+    setInput(res);
+  };
   useEffect(() => {
     Actions.GetLichSuKhoaHoc(dispatch);
     Actions.GetDachSachKhoaHoc(dispatch);
-    fetch()
+    fetch();
   }, []);
 
+  console.log(state);
   return (
     <div>
       <CNotification ref={refNotification} />
-      <div className="container-xl container-canhan">
-        <div className="row justify-content-between w-100">
-          <div className="col-sm-3">
-            <ul className="ul-canhan w-100">
+      <div className="container-sm container-canhan">
+        <div className="row justify-content-between w-100 m-0">
+          <div className="col-md-3">
+            <ul className="w-100 p-0">
               <li
                 className={`li-canhan ${change === 1 && "li-canhan-active"}`}
                 onClick={() => {
@@ -112,7 +125,7 @@ const CaNhan = (props: Props) => {
             </ul>
           </div>
 
-          <div className="col-sm-9">
+          <div className="col-sm-12 col-md-9">
             {change === 1 && (
               <div className="tai-khoan-ca-nhan">
                 <h3 className="mb-3">Tổng quan</h3>
@@ -120,7 +133,7 @@ const CaNhan = (props: Props) => {
                 <p className="mb-1">Email: duongdoican@gmail.com</p>
                 <p className="mb-1">Ngày tham gia: 23 tháng 12 năm 2023</p>
                 <p className="mb-3">Đã tham gia: 6 khóa học - 3 sự kiện</p>
-                <div className="split-avat"></div>
+                {/* <div className="split-avat"></div> */}
                 {/* <div className="d-flex align-items-center mb-3">
                   <div className="img-canhan">
                     <img
@@ -149,7 +162,9 @@ const CaNhan = (props: Props) => {
                     placeholder="Họ và tên"
                     aria-label="Name"
                     value={input.FullName}
-                    onChange={(e:any) => {onFormUser(e, "FullName")}}
+                    onChange={(e: any) => {
+                      onFormUser(e, "FullName");
+                    }}
                     aria-describedby="basic-addon1"
                   ></input>
                   <label>Số điện thoại</label>
@@ -159,7 +174,9 @@ const CaNhan = (props: Props) => {
                     placeholder="Số điện thoại"
                     aria-label="Phone"
                     value={input.Phone}
-                    onChange={(e:any) => {onFormUser(e, "Phone")}}
+                    onChange={(e: any) => {
+                      onFormUser(e, "Phone");
+                    }}
                     aria-describedby="basic-addon1"
                   ></input>
                   <label>Địa chỉ</label>
@@ -170,7 +187,9 @@ const CaNhan = (props: Props) => {
                     aria-label="Address"
                     aria-describedby="basic-addon1"
                     value={input.Address}
-                    onChange={(e:any) => {onFormUser(e, "Address")}}
+                    onChange={(e: any) => {
+                      onFormUser(e, "Address");
+                    }}
                   ></input>
                   <label>Ghi chú</label>
                   <textarea
@@ -179,9 +198,17 @@ const CaNhan = (props: Props) => {
                     aria-label="Address"
                     aria-describedby="basic-addon1"
                     value={input.Note}
-                    onChange={(e:any) => {onFormUser(e, "Note")}}
+                    onChange={(e: any) => {
+                      onFormUser(e, "Note");
+                    }}
                   ></textarea>
-                  <button type="button" onClick={() => {save()}} className="btn btn-danger">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      save();
+                    }}
+                    className="btn btn-danger"
+                  >
                     Lưu thay đổi
                   </button>
                 </div>
@@ -195,25 +222,29 @@ const CaNhan = (props: Props) => {
                 </p>
                 <div className="split-avat mb-3"></div>
                 <div className="table-responsive">
-                  <table className="table align-middle">
-                    <thead>
+                  <table className="table align-middle text-center">
+                    <thead className="table-danger">
                       <tr>
-                        <th>Stt</th>
-                        <th>Khóa học</th>
-                        <th>Học phí</th>
-                        <th>Thời hạn</th>
+                        <th scope="col">Stt</th>
+                        <th scope="col">Khóa học</th>
+                        <th scope="col">Học phí</th>
+                        <th scope="col">Giảm giá</th>
+                        <th scope="col">Thời hạn</th>
+                        <th scope="col">Miễn phí</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="table-light table-striped">
                       {state.DataLichSuGiaoDich &&
                         state.DataLichSuGiaoDich.map(
                           (value: any, index: any) => {
                             return (
                               <tr>
                                 <td>{index + 1}</td>
-                                <td>{value.TieuDe}</td>
-                                <td>{value.HocPhiGiamGia}</td>
-                                <td>{value.ThoiHan}</td>
+                                <td className="text-start">{value.TieuDe}</td>
+                                <td>{String.num(value.HocPhiGoc)}₫</td>
+                                <td>{String.num(value.HocPhiGiamGia)}₫</td>
+                                <td>{value.ThoiHan} tháng</td>
+                                <td>{value.ThoiHanTruyCapMienPhi} tháng</td>
                               </tr>
                             );
                           }
@@ -223,7 +254,6 @@ const CaNhan = (props: Props) => {
                 </div>
               </div>
             )}
-
             {change == 3 && (
               <div className="tai-khoan-ca-nhan">
                 <h3 className="mb-2">Mật khẩu & Bảo mật</h3>
@@ -260,43 +290,54 @@ const CaNhan = (props: Props) => {
                 </button>
               </div>
             )}
-
             {change == 4 && (
-              <div className="row row-cols-1 row-cols-md-4 g-3 kt-round-dudat d-flex justify-content-center">
-                {state.DataDanhSach.map((tree: any) => (
-                  <div
-                    // key={uuidv4()}
-                    title={`${tree.TieuDe}`}
-                    className="col change-tt-aba"
-                  >
+              <div>
+                <div className="change4">
+                  <h3>Khóa học cá nhân</h3>
+                  <p>Các khóa học bạn đã đăng ký sẽ được hiển thị ở phần này</p>
+                </div>
+                <div className="row row-cols-1 row-cols-md-4 g-2 kt-round-dudat d-flex justify-content-center">
+                  {state.DataDanhSach.map((tree: any) => (
                     <div
-                      className="card card_main_container  wrapper_c"
-                      style={{
-                        position: "relative",
-                      }}
+                      // key={uuidv4()}
+                      title={`${tree.TieuDe}`}
+                      className="col change-tt-aba"
                     >
-                      <div className="wrapper_card">
-                        <img
-                          src={tree.URL_AnhDaiDien as string}
-                          className="card-img-top"
-                          alt="..."
-                        />
-                      </div>
-
                       <div
-                        className="card-body card_body_override card-bodys"
-                        style={{ textAlign: "start" }}
+                        className="card card_main_container  wrapper_c"
+                        style={{
+                          position: "relative",
+                        }}
                       >
-                        <p
-                          className="card-title underline-head-tt text-uppercase"
-                          // onClick={() => GoToOtherPage("/khoa-hoc")}
+                        <div className="didu-zx-a">
+                          <img
+                            src={tree.URL_AnhDaiDien as string}
+                            className="card-img-top"
+                            alt="..."
+                          />
+                        </div>
+
+                        <div
+                          className="card-body card_body_override card-bodys"
+                          style={{ textAlign: "start" }}
                         >
-                          {tree.TieuDe}
-                        </p>
+                          <p
+                            className="card-title underline-head-tt text-uppercase"
+                            onClick={() =>
+                              GoToOtherPage(
+                                "/khoa-hoc-chi-tiet",
+                                tree.Id as string,
+                                tree.TieuDe as string
+                              )
+                            }
+                          >
+                            {tree.TieuDe}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             )}
           </div>
