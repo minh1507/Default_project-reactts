@@ -22,24 +22,7 @@ import RestorePassword from "containers/AdminSite/Pages/RestorePassword";
 import Signup from "containers/AdminSite/Pages/Signup";
 import LayoutAdmin from "containers/AdminSite/Layouts";
 import Page401 from "containers/AdminSite/Pages/Page401";
-import QuanLyMenu from "containers/AdminSite/Pages/Portal/QuanLyMenu";
-import QuanlyNhomTinTuc from "containers/AdminSite/Pages/Portal/QuanLyNhomTinTuc";
-import QuanLyMonHoc from "containers/AdminSite/Pages/Portal/QuanLyMonHoc";
-import QuanLyNhomSuKien from "containers/AdminSite/Pages/Portal/QuanLyNhomSuKien";
-import QuanLyTinTuc from "containers/AdminSite/Pages/Portal/QuanLyTinTuc";
-import QuanLyKhoaHoc from "containers/AdminSite/Pages/Portal/QuanLyKhoaHoc";
-import QuanLySuKien from "containers/AdminSite/Pages/Portal/QuanLySuKien";
-import QuanLyNhomAnh from "containers/AdminSite/Pages/Portal/QuanLyNhomAnh";
-import QuanLyAnh from "containers/AdminSite/Pages/Portal/QuanLyAnh";
-import QuanLyGiaoVien from "containers/AdminSite/Pages/Portal/QuanLyGiaoVien";
-import QuanLyTuVan from "containers/AdminSite/Pages/Portal/QuanLyTuVan";
-import QuanLyHocVien from "containers/AdminSite/Pages/Portal/QuanLyHocVien";
-import QuanLyLoaiKhoaHoc from "containers/AdminSite/Pages/Portal/QuanLyLoaiKhoaHoc";
-import QuanLyGiaoDien from "containers/AdminSite/Pages/Portal/QuanLyGiaoDien";
-import QuanLyNhomVideo from "containers/AdminSite/Pages/Portal/QuanLyNhomVideo";
-import QuanLyVideo from "containers/AdminSite/Pages/Portal/QuanLyVideo";
-import QuanLyGioHang from "containers/AdminSite/Pages/Portal/QuanLyGioHang";
-import QuanLyThongTinThanhToan from "containers/AdminSite/Pages/Portal/QuanLyThongTinThanhToan";
+
 interface Props {
   Apps: any;
 }
@@ -58,42 +41,6 @@ const AdminRoute = (props: Props) => {
         return <Account />;
       case "Organ":
         return <Organ />;
-      case "QuanLyMenu":
-        return <QuanLyMenu />;
-      case "QuanLyNhomTinTuc":
-        return <QuanlyNhomTinTuc />;
-      case "QuanLyThongTinThanhToan":
-        return <QuanLyThongTinThanhToan/>
-      case "QuanLyTuVan":
-        return <QuanLyTuVan />;
-      case "QuanLyHocVien":
-        return <QuanLyHocVien />;
-      case "QuanLyMonHoc":
-        return <QuanLyMonHoc />;
-      case "QuanLyNhomVideo":
-        return <QuanLyNhomVideo />;
-      case "QuanLyVideo":
-        return <QuanLyVideo />;
-      case "QuanLyKhoaHoc":
-        return <QuanLyKhoaHoc />;
-      case "QuanLyGiaoVien":
-        return <QuanLyGiaoVien />;
-      case "QuanLySuKien":
-        return <QuanLySuKien />;
-      case "QuanLyGioHang":
-        return <QuanLyGioHang />
-      case "QuanLyTinTuc":
-        return <QuanLyTinTuc />;
-      case "QuanLyAnh":
-        return <QuanLyAnh />;
-      case "QuanLyNhomAnh":
-        return <QuanLyNhomAnh />;
-      case "QuanLyLoaiKhoaHoc":
-        return <QuanLyLoaiKhoaHoc />;
-      case "QuanLyGiaoDien":
-        return <QuanLyGiaoDien />;
-      case "QuanLyNhomSuKien":
-        return <QuanLyNhomSuKien />;
       case "Permission":
         return <Permission />;
       case "Role":
