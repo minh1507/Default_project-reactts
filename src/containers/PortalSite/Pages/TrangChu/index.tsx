@@ -8,7 +8,7 @@ const TrangChu = (props: Props) => {
 
   return (
     <div className="main_container">
-     main
+     mainnn
     </div>
   );
 };
