@@ -221,7 +221,8 @@ const CaNhan = (props: Props) => {
                   Hiển thị thông tin các khóa học bạn đã mua
                 </p>
                 <div className="split-avat mb-3"></div>
-                <div className="table-responsive">
+                {state.DataLichSuGiaoDich.length>0 ? 
+                  <div className="table-responsive">
                   <table className="table align-middle text-center">
                     <thead className="table-danger">
                       <tr>
@@ -252,6 +253,10 @@ const CaNhan = (props: Props) => {
                     </tbody>
                   </table>
                 </div>
+                
+                : 
+                <h6 className="text-center">Chưa có giao dịch</h6>}
+              
               </div>
             )}
             {change == 3 && (
